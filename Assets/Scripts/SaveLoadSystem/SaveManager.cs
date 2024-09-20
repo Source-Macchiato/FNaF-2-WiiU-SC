@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public class SaveManager : MonoBehaviour {
-
+public class SaveManager : MonoBehaviour
+{
     // Save
 	public void SaveLanguage(string language)
 	{
