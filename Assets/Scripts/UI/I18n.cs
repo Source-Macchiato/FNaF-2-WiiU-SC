@@ -54,10 +54,6 @@ public class I18n
         {
             lang = "it";
         }
-        else if (languagePlayerPrefs == "Slovak")
-        {
-            lang = "sk";
-        }
         else
         {
             lang = Get2LetterISOCodeFromSystemLanguage().ToLower();
@@ -95,10 +91,6 @@ public class I18n
         {
             return "it";
         }
-        else if (languagePlayerPrefs == "Slovak")
-        {
-            return "sk";
-        }
         else
         {
             return Get2LetterISOCodeFromSystemLanguage().ToLower();
@@ -115,7 +107,6 @@ public class I18n
             case SystemLanguage.French: res = "FR"; break;
             case SystemLanguage.Spanish: res = "ES"; break;
             case SystemLanguage.Italian: res = "IT"; break;
-            case SystemLanguage.Slovak: res = "SK"; break;
         }
         return res;
     }
