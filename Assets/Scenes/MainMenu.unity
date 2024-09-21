@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NightNumber: 0
   currentLanguageText: {fileID: 0}
-  advertisementImage: {fileID: 0}
+  advertisementImage: {fileID: 1856333725}
   search: 0
 --- !u!1 &65980696
 GameObject:
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 1369106207}
-  GameData: {fileID: 0}
+  GameData: {fileID: 51236876}
 --- !u!1 &805304476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,7 +1697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1856333726
 RectTransform:
   m_ObjectHideFlags: 0
