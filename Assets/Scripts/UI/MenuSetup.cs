@@ -6,6 +6,7 @@ public class MenuSetup : MonoBehaviour
 {
     // Reference to the main and sub menus
     public MenuManager menuManager;
+    public GameData GameData;
 
     void Start()
     {
@@ -32,6 +33,12 @@ public class MenuSetup : MonoBehaviour
     // Buttons functions
     void NewGame()
     {
+        //          !! Have to do : CanNaviguate on MenuManager !!!
+
+        GameData.NightNumber = 1;
+        PlayerPrefs.SetFloat("NightNumber", GameData.NightNumber);
+        PlayerPrefs.Save();
+        GameData.LoadAdvertisement();
         
     }
 
