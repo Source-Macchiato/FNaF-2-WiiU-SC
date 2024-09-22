@@ -450,7 +450,7 @@ MonoBehaviour:
   Night3: {fileID: 1034313202}
   Night4: {fileID: 338892314}
   Night5: {fileID: 653139365}
-  Night6: {fileID: 0}
+  Night6: {fileID: 2034633319}
   NightNumberDisplayer: {fileID: 0}
   loadingScreenPanel: {fileID: 579463543}
 --- !u!1 &440042961
