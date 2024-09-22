@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 75e210d8ac6927a4aa9b46ceca946071
+  - enabled: 1
+    path: Assets/Scenes/NextNight.unity
+    guid: 257eb42c06eb07749a8e786551c27219
