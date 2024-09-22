@@ -13,6 +13,7 @@ public class GameData : MonoBehaviour
 
     // Advertisement
     public GameObject advertisementImage;
+    public GameObject[] AnimEnabled;
     private bool advertisementIsActive;
     private float startTime;
     private float waitTime = 10f;
@@ -21,6 +22,7 @@ public class GameData : MonoBehaviour
 
     void Start()
     {
+        
         // Get scripts
         saveGameState = FindObjectOfType<SaveGameState>();
         saveManager = FindObjectOfType<SaveManager>();
@@ -45,6 +47,10 @@ public class GameData : MonoBehaviour
 
     public void LoadAdvertisement()
     {
+        foreach (GameObject Animator in AnimEnabled)
+        {
+            Animator.GetComponent<Animator>().enabled = false;
+        }
         advertisementIsActive = true;
         startTime = Time.time;
         advertisementImage.SetActive(true);
