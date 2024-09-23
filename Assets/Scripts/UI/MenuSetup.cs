@@ -34,7 +34,8 @@ public class MenuSetup : MonoBehaviour
     void NewGame()
     {
         //          !! Have to do : CanNavigate on MenuManager !!!
-        // I know bbg
+        // I know bbg, the system was almost finished so now it's done
+        menuManager.canNavigate = false;
 
         GameData.NightNumber = 1;
         PlayerPrefs.SetFloat("NightNumber", GameData.NightNumber);
@@ -45,7 +46,7 @@ public class MenuSetup : MonoBehaviour
 
     void Continue()
     {
-        
+        menuManager.canNavigate = false;
     }
 
     void Options()
