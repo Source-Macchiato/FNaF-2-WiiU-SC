@@ -1346,7 +1346,7 @@ public class NightPlayer : MonoBehaviour {
 			RWQCrashTimer -= Time.deltaTime;
 			if (RWQCrashTimer <= 0f)
 			{
-				UnityEngine.N3DS.Debug.Crash("RWQFSFASXC");
+			//	UnityEngine.N3DS.Debug.Crash("RWQFSFASXC");
 			}
 		}
 		if (flashlightActive)
@@ -2172,7 +2172,7 @@ public class NightPlayer : MonoBehaviour {
 			}
 		}
 
-		if (UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.Start) && UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.X))
+		//if (UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.Start) && UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.X))
 		{
 			AMTime = "6";
 			TimedEvents();
