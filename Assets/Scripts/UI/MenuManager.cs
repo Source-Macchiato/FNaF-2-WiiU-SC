@@ -43,7 +43,8 @@ public class MenuManager : MonoBehaviour
     public Transform[] menus;
 
     // List to keep track of all menu buttons
-    private Dictionary<int, List<GameObject>> menuButtons = new Dictionary<int, List<GameObject>>();
+    [HideInInspector]
+    public Dictionary<int, List<GameObject>> menuButtons = new Dictionary<int, List<GameObject>>();
 
     // List to keep track of generated callbacks
     private Dictionary<int, UnityEngine.Events.UnityAction> backCallbacks = new Dictionary<int, UnityEngine.Events.UnityAction>();
@@ -70,7 +71,7 @@ public class MenuManager : MonoBehaviour
     [HideInInspector]
     public ScrollRect currentScrollRect;
     public PopupData currentPopup;
-    private Button currentButton;
+    public Button currentButton;
 
     // Stick navigation
     private float stickNavigationCooldown = 0.2f;
@@ -91,8 +92,10 @@ public class MenuManager : MonoBehaviour
         // Generate cursor
         GameObject canvaUI = GameObject.Find("CanvaUI");
         GameObject cursorContainer = canvaUI.transform.Find("CursorContainer").gameObject;
+
         currentSelection = Instantiate(selectionPrefab, cursorContainer.transform);
-        currentSelection.SetActive(false);
+        UpdateSelectionPosition(menuButtons[0][0]);
+
         currentPopupSelection = Instantiate(selectionPopupPrefab, cursorContainer.transform);
         currentPopupSelection.SetActive(false);
     }
@@ -759,6 +762,9 @@ public class MenuManager : MonoBehaviour
 
     public void AddPopup(string translationId, int actionType, string popupId) // Action type : 0 = Press input to continue, 1 = Options
     {
+        // Disable menu cursor
+        DisableSelection(currentSelection);
+
         // Instantiate the popup prefab
         GameObject newPopup = Instantiate(popupPrefab[actionType]);
 
@@ -830,12 +836,13 @@ public class MenuManager : MonoBehaviour
             else
             {
                 // Enable first button visual
-                EventSystem.current.SetSelectedGameObject(menuButtons[currentMenuId][0]);
+                Button newButton = menuButtons[currentMenuId][0].GetComponent<Button>();
+                newButton.Select();
+
+                currentButton = newButton;
 
                 // Update the selectionPrefab position to the first button
-                UpdateSelectionPosition(menuButtons[currentMenuId][0]);
-
-                currentButton = menuButtons[currentMenuId][0].GetComponent<Button>();
+                UpdateSelectionPosition(currentButton.gameObject);
             }
         }
     }
@@ -846,14 +853,14 @@ public class MenuManager : MonoBehaviour
         if (nextSelectable != null && menuButtons.ContainsKey(currentMenuId) && menuButtons[currentMenuId].Count > 0)
         {
             // Get next button and select it
-            Button selectedButton = nextSelectable.GetComponent<Button>();
-            selectedButton.Select();
-
-            // Update cursor position
-            UpdateSelectionPosition(selectedButton.gameObject);
+            Button newButton = nextSelectable.GetComponent<Button>();
+            newButton.Select();
 
             // Set current button
-            currentButton = selectedButton;
+            currentButton = newButton;
+
+            // Update cursor position
+            UpdateSelectionPosition(newButton.gameObject);
 
             // Play effect
             if (buttonAudio != null)

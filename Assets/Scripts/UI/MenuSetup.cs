@@ -28,12 +28,15 @@ public class MenuSetup : MonoBehaviour
 
         // Display main menu after loaded all buttons
         menuManager.ChangeMenu(0);
+
+        //menuManager.AddPopup("", 0, "test");
     }
 
     // Buttons functions
     void NewGame()
     {
-        //          !! Have to do : CanNaviguate on MenuManager !!!
+        //          !! Have to do : CanNavigate on MenuManager !!!
+        // I know bbg
 
         GameData.NightNumber = 1;
         PlayerPrefs.SetFloat("NightNumber", GameData.NightNumber);

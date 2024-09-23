@@ -1,8 +1,24 @@
 {
-    "items": [
-        {
-            "key": "none",
-            "value": ""
-        }
-    ]
+  "items": [
+    {
+      "key": "none",
+      "value": ""
+    },
+    {
+      "key": "mainmenu.newgame",
+      "value": "New Game"
+    },
+    {
+      "key": "mainmenu.continue",
+      "value": "Continue"
+    },
+    {
+      "key": "mainmenu.options",
+      "value": "Options"
+    },
+    {
+      "key": "mainmenu.credits",
+      "value":  "Crédits"
+    }
+  ]
 }
