@@ -29,7 +29,7 @@ public class MenuSetup : MonoBehaviour
         // Display main menu after loaded all buttons
         menuManager.ChangeMenu(0);
 
-        //menuManager.AddPopup("", 0, "test");
+        // menuManager.AddPopup("", 0, "test");
     }
 
     // Buttons functions
