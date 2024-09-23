@@ -94,8 +94,6 @@ public class MenuManager : MonoBehaviour
         GameObject cursorContainer = canvaUI.transform.Find("CursorContainer").gameObject;
 
         currentSelection = Instantiate(selectionPrefab, cursorContainer.transform);
-        UpdateSelectionPosition(menuButtons[0][0]);
-
         currentPopupSelection = Instantiate(selectionPopupPrefab, cursorContainer.transform);
     }
 
