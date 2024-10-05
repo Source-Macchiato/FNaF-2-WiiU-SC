@@ -323,10 +323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3179f80d0c3871469a9b04d229c7fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requireVerification: 1
+  requireVerification: 0
   canvasTV: {fileID: 1332679216}
   canvasGamepad: {fileID: 0}
-  loadingScreenTV: {fileID: 0}
+  loadingScreenTV: {fileID: 579463543}
   loadingScreenGamepad: {fileID: 0}
   sliderTV: {fileID: 45683922}
   sliderGamepad: {fileID: 0}
