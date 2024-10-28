@@ -3016,6 +3016,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 950004308}
+  - component: {fileID: 950004310}
+  - component: {fileID: 950004309}
   m_Layer: 5
   m_Name: MusicBoxProgress
   m_TagString: Untagged
@@ -3041,6 +3043,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &950004309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 950004307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &950004310
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 950004307}
 --- !u!1 &967428772
 GameObject:
   m_ObjectHideFlags: 0
@@ -4082,17 +4117,67 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c552173a335e68a4798f51de8fd8b297, type: 3}
   - {fileID: 21300000, guid: 322101e978be9a748b8a24ff6ad998e5, type: 3}
   - {fileID: 21300000, guid: a25cb196362de074789f35bb9a4667ac, type: 3}
-  PuppetCameraSprites: []
-  PuppetCameraEndoSprite: {fileID: 0}
-  LeftVentEndoSprite: {fileID: 0}
-  SwitchCameraSound: {fileID: 0}
-  WindUpButton: {fileID: 0}
-  FullnessCircle: {fileID: 0}
-  CircleSprites: []
-  Cam9Sprites: []
-  Cam8Sprites: []
+  PuppetCameraSprites:
+  - {fileID: 21300000, guid: 3a8b77ff357af314bb80ffbb26b5cf21, type: 3}
+  - {fileID: 21300000, guid: 3a8b77ff357af314bb80ffbb26b5cf21, type: 3}
+  - {fileID: 21300000, guid: 839425a783d18234cabddde2cbc3799c, type: 3}
+  - {fileID: 21300000, guid: 19b3d29680b99494ba4ffdbf6bb6ed43, type: 3}
+  - {fileID: 21300000, guid: 33b3577e9873ef74dbf33239ab1b683e, type: 3}
+  PuppetCameraEndoSprite: {fileID: 21300000, guid: 546994feafdf0d341af39af7a50ed153,
+    type: 3}
+  LeftVentEndoSprite: {fileID: 21300000, guid: 19792d67b1e8a0a4f9f5fc80934e41e7, type: 3}
+  SwitchCameraSound: {fileID: 413012736}
+  WindUpButton: {fileID: 491469156}
+  FullnessCircle: {fileID: 950004309}
+  CircleSprites:
+  - {fileID: 21300000, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300002, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300004, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300006, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300008, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300010, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300012, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300014, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300016, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300018, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300020, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300022, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300024, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300026, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300028, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300030, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300032, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300034, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300036, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300038, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 21300040, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  Cam9Sprites:
+  - {fileID: 21300000, guid: f653d5e1c9a720846a6c1aa8741a1c2d, type: 3}
+  - {fileID: 21300000, guid: 0329d06ece5b29945baefd8359b04cfa, type: 3}
+  - {fileID: 21300000, guid: 098640b7eb01edf4fad5d46d837f836b, type: 3}
+  - {fileID: 21300000, guid: e1d33cf03b5cc304c83a8f2a7a41e0ed, type: 3}
+  - {fileID: 21300000, guid: 9b1b5a37eae0f9641b67d8c5c10c65f3, type: 3}
+  - {fileID: 21300000, guid: 9b1b5a37eae0f9641b67d8c5c10c65f3, type: 3}
+  Cam8Sprites:
+  - {fileID: 21300000, guid: fee5a59cfc01d4a46b9c6cc0df54d4ba, type: 3}
+  - {fileID: 21300000, guid: d8f1d80dcc1b13448b3dd4235ec1e306, type: 3}
+  - {fileID: 21300000, guid: 14706d2701d454c4684ed043d4992651, type: 3}
+  - {fileID: 21300000, guid: 2af41f6a5eda5a04cb886ca02b18c937, type: 3}
+  - {fileID: 21300000, guid: 17eb8f61d32338d4b84dae6ba74c8296, type: 3}
   ToyBonnieDefaultCams: []
-  ToyBonnieFlashlightCams: []
+  ToyBonnieFlashlightCams:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: b2fcf72e7408de9429ad39ac674c7898, type: 3}
+  - {fileID: 21300000, guid: 9bf67321c5e57f44dbe53a8f2c9e23e6, type: 3}
+  - {fileID: 21300000, guid: ffedc586d92afa542a50606c0967ce90, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: f758a7076899a534983eb623d19a0ba1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 2f308b5f63c48c34f93e3c03d2b71496, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ToyChicaDefaultCams: []
   ToyChicaFlashlightCams: []
   ToyFreddyDefaultCams: []
