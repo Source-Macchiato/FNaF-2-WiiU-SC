@@ -4164,8 +4164,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 14706d2701d454c4684ed043d4992651, type: 3}
   - {fileID: 21300000, guid: 2af41f6a5eda5a04cb886ca02b18c937, type: 3}
   - {fileID: 21300000, guid: 17eb8f61d32338d4b84dae6ba74c8296, type: 3}
-  ToyBonnieDefaultCams: []
-  ToyBonnieFlashlightCams:
+  ToyBonnieDefaultCams:
   - {fileID: 0}
   - {fileID: 21300000, guid: b2fcf72e7408de9429ad39ac674c7898, type: 3}
   - {fileID: 21300000, guid: 9bf67321c5e57f44dbe53a8f2c9e23e6, type: 3}
@@ -4178,6 +4177,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  ToyBonnieFlashlightCams: []
   ToyChicaDefaultCams: []
   ToyChicaFlashlightCams: []
   ToyFreddyDefaultCams: []
