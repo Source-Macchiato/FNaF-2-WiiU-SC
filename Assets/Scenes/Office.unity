@@ -4056,7 +4056,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 31266fb42a8aae7489e1db2fc74aaf61, type: 3}
   - {fileID: 21300000, guid: 7b7bb73e304d654418bf76d627c03de8, type: 3}
   - {fileID: 21300000, guid: 170cbc9895702214b8888b87d6693788, type: 3}
-  FlashlightedCams: []
+  FlashlightedCams:
+  - {fileID: 21300000, guid: a4e212cd11a4ccf4fbe021a1b7012978, type: 3}
+  - {fileID: 21300000, guid: 50e9dcaa0486ed049aff2449ad0a05b9, type: 3}
+  - {fileID: 21300000, guid: f25159783d701cb46bbc32df742add6e, type: 3}
+  - {fileID: 21300000, guid: b611d0ade96a58e4eb3be743ce1d4486, type: 3}
+  - {fileID: 21300000, guid: 8c251e5e875f22d4db011d666fa3e7ed, type: 3}
+  - {fileID: 21300000, guid: daf6958e9d7a3de45b8d6d63a8388d10, type: 3}
+  - {fileID: 21300000, guid: f90ef44f92219694fb1c3a8cb9824883, type: 3}
+  - {fileID: 21300000, guid: ae2bf632e9d0c6143bcbdc66ab5bf29e, type: 3}
+  - {fileID: 21300000, guid: 644faf170aa691a469e2865852cab846, type: 3}
+  - {fileID: 21300000, guid: 5010b80d52132f04dba934c02cea40b6, type: 3}
+  - {fileID: 21300000, guid: 3a8b77ff357af314bb80ffbb26b5cf21, type: 3}
+  - {fileID: 21300000, guid: 89c936f8415d37b429b880d0a4afe6e0, type: 3}
   DefaultCams: []
   PuppetCameraSprites: []
   PuppetCameraEndoSprite: {fileID: 0}
