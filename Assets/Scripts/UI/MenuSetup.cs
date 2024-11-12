@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MenuSetup : MonoBehaviour
 {
     // Reference to the main and sub menus
     public MenuManager menuManager;
-    public GameData GameData;
+    public MenuData menuData;
 
     void Start()
     {
         // Adding buttons to the main menu with corresponding actions
-        menuManager.AddButton("New Game", NewGame, 0, "mainmenu.newgame");
-        menuManager.AddButton("Continue", Continue, 0, "mainmenu.continue");
-        menuManager.AddButton("Options", Options, 0, "mainmenu.options");
-        menuManager.AddButton("Credits", Credits, 0, "mainmenu.credits");
+        menuManager.AddButton(0, 0, NewGame, "mainmenu.newgame");
+        menuManager.AddButton(0, 0, Continue, "mainmenu.continue");
+        menuManager.AddButton(0, 0, Options, "mainmenu.options");
+        menuManager.AddButton(0, 0, Credits, "mainmenu.credits");
 
         //menuManager.AddButton("Language", Language, 1, "mainmenu.language");
         //menuManager.AddButton("Layout", Layout, 1, "mainmenu.layout");
@@ -37,11 +36,10 @@ public class MenuSetup : MonoBehaviour
         // I know bbg, the system was almost finished so now it's done
         menuManager.canNavigate = false;
 
-        GameData.NightNumber = 1;
-        PlayerPrefs.SetFloat("NightNumber", GameData.NightNumber);
+        menuData.NightNumber = 1;
+        PlayerPrefs.SetFloat("NightNumber", menuData.NightNumber);
         PlayerPrefs.Save();
-        GameData.LoadAdvertisement();
-        
+        menuData.LoadAdvertisement();
     }
 
     void Continue()

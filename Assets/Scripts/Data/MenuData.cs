@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameData : MonoBehaviour
+public class MenuData : MonoBehaviour
 {
     public float NightNumber;
     public Text currentLanguageText;
