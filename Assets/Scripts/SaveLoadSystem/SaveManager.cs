@@ -34,33 +34,23 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public static float LoadNightNumber()
+    public static int LoadNightNumber()
     {
         if (PlayerPrefs.HasKey("NightNumber"))
         {
-            float nightNumber = PlayerPrefs.GetFloat("NightNumber");
-            if (nightNumber > 5)
-            {
-                return 5;
-            }
-            else
-            {
-                return PlayerPrefs.GetFloat("NightNumber");
-            }
+            return PlayerPrefs.GetInt("NightNumber");
         }
         else
         {
-            return 1;
+            return 0;
         }
     }
 
-    public static float LoadShareData()
+    public static int LoadShareData()
     {
         if (PlayerPrefs.HasKey("ShareData"))
         {
-            float shareData = PlayerPrefs.GetFloat("ShareData");
-
-            return shareData;
+            return PlayerPrefs.GetInt("ShareData");
         }
         else
         {

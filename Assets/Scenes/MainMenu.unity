@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 51236875}
   - component: {fileID: 51236876}
   m_Layer: 0
-  m_Name: GameData
+  m_Name: MenuData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca22dd3d574cb794db14fce45596eff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NightNumber: 0
+  nightNumber: 0
   currentLanguageText: {fileID: 0}
   advertisementImage: {fileID: 1856333725}
   AnimEnabled:
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuManager: {fileID: 1369106207}
-  menuData: {fileID: 0}
+  menuData: {fileID: 51236876}
 --- !u!1 &805304476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,7 +1750,8 @@ MonoBehaviour:
   wiimoteAndNunchuk: 1
   menus:
   - {fileID: 2146136917}
-  extraMenus: []
+  extraMenus:
+  - {fileID: 0}
   canNavigate: 1
   currentSelection: {fileID: 0}
   currentPopupSelection: {fileID: 0}

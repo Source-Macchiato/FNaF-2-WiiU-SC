@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuSetup : MonoBehaviour
 {
@@ -36,15 +37,33 @@ public class MenuSetup : MonoBehaviour
         // I know bbg, the system was almost finished so now it's done
         menuManager.canNavigate = false;
 
-        menuData.NightNumber = 1;
-        PlayerPrefs.SetFloat("NightNumber", menuData.NightNumber);
-        PlayerPrefs.Save();
+        // Reset night number and save it
+        menuData.nightNumber = 0;
+        menuData.SaveNightNumber();
+
         menuData.LoadAdvertisement();
     }
 
     void Continue()
     {
         menuManager.canNavigate = false;
+
+        if (menuData.nightNumber == 0) // Night is 1
+        {
+            menuData.LoadAdvertisement();
+        }
+        else if (menuData.nightNumber >= 1 && menuData.nightNumber <= 4) // Night is between 2 and 5
+        {
+            SceneManager.LoadScene("NextNight");
+        }
+        else if (menuData.nightNumber >= 5)
+        {
+            // Reset night number to 4 and save it
+            menuData.nightNumber = 4;
+            menuData.SaveNightNumber();
+
+            SceneManager.LoadScene("NextNight");
+        }
     }
 
     void Options()

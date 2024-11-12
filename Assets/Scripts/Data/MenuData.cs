@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuData : MonoBehaviour
 {
-    public float NightNumber;
+    public float nightNumber;
     public Text currentLanguageText;
 
     // Scripts
@@ -22,13 +22,12 @@ public class MenuData : MonoBehaviour
 
     void Start()
     {
-        
         // Get scripts
         saveGameState = FindObjectOfType<SaveGameState>();
         saveManager = FindObjectOfType<SaveManager>();
 
-        // Load night number from save and display it
-        NightNumber = SaveManager.LoadNightNumber();
+        // Load
+        nightNumber = SaveManager.LoadNightNumber();
 
         // Disable advertisement by default
         advertisementIsActive = false;
@@ -63,5 +62,11 @@ public class MenuData : MonoBehaviour
 
         // Reload the language
         I18n.LoadLanguage();
+    }
+
+    public void SaveNightNumber()
+    {
+        saveManager.SaveNightNumber(nightNumber);
+        bool saveResult = saveGameState.DoSave();
     }
 }
