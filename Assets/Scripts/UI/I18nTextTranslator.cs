@@ -1,17 +1,25 @@
-﻿using UnityEngine;
+﻿using RTLTMPro;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class I18nTextTranslator : MonoBehaviour
 {
     public string textId;
     private Text textComponent;
+    private RTLTextMeshPro tmpTextComponent;
     private string currentLanguage;
+
+    [Header("Fonts")]
+    public TMP_FontAsset mainFont;
+    public TMP_FontAsset arabicFont;
 
     void Start()
     {
         textComponent = GetComponent<Text>();
+        tmpTextComponent = GetComponent<RTLTextMeshPro>();
 
-        if (textComponent == null)
+        if (textComponent == null && tmpTextComponent == null)
         {
             return;
         }
@@ -49,7 +57,31 @@ public class I18nTextTranslator : MonoBehaviour
         }
 
         string translatedText = GetTranslatedText();
-        textComponent.text = translatedText;
+
+        if (textComponent != null)
+        {
+            textComponent.text = translatedText;
+        }
+
+        if (tmpTextComponent != null)
+        {
+            tmpTextComponent.text = translatedText;
+
+            if (I18n.GetLanguage() == "ar")
+            {
+                if (arabicFont != null)
+                {
+                    tmpTextComponent.font = arabicFont;
+                }
+            }
+            else
+            {
+                if (mainFont != null)
+                {
+                    tmpTextComponent.font = mainFont;
+                }
+            }
+        }
     }
 
     string GetTranslatedText()
