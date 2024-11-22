@@ -1,10 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 using Random = System.Random;
+using TMPro;
 
 public class NightPlayer : MonoBehaviour {
 
@@ -39,8 +40,8 @@ public class NightPlayer : MonoBehaviour {
 
 	[Header("UI Info")]
 	public GameObject WinNight;
-	public Text AM;
-	public Text NightText;
+	public TextMeshProUGUI AM;
+	public TextMeshProUGUI NightText;
 
 	[Header("Info")]
 	public WinGame WG;
@@ -2170,12 +2171,6 @@ public class NightPlayer : MonoBehaviour {
 			{
 				Cams();
 			}
-		}
-
-		//if (UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.Start) && UnityEngine.N3DS.GamePad.GetButtonHold(N3dsButton.X))
-		{
-			AMTime = "6";
-			TimedEvents();
 		}
 	}
 
