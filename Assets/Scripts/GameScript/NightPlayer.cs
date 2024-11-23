@@ -2158,6 +2158,7 @@ public class NightPlayer : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Y) && CameraButton.activeSelf && state != "Jumpscare")
 		{
+			Debug.Log("Y");
 			if (ToyBonniePrepared)
 			{
 				JumpscareAnimator.Play("ToyBonnie");

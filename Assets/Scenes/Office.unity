@@ -4666,7 +4666,7 @@ MonoBehaviour:
   ErrorSound: {fileID: 1287131473}
   VentCrawl: {fileID: 1432670367}
   Mangle: {fileID: 555077695}
-  CameraButton: {fileID: 0}
+  CameraButton: {fileID: 236356591}
   MaskButton: {fileID: 236356591}
   WinNight: {fileID: 584476041}
   AM: {fileID: 754174880}
@@ -4836,11 +4836,11 @@ MonoBehaviour:
   - {fileID: 584476041}
   - {fileID: 584476041}
   - {fileID: 584476041}
-  PutOnMask: {fileID: 0}
-  PutDownMask: {fileID: 0}
-  DeepBreathing: {fileID: 0}
-  MaskAnimator: {fileID: 0}
-  FlashlightDuration: 0
+  PutOnMask: {fileID: 584476042}
+  PutDownMask: {fileID: 584476042}
+  DeepBreathing: {fileID: 584476042}
+  MaskAnimator: {fileID: 150194539}
+  FlashlightDuration: 115
   FlashLightAudio: {fileID: 584476042}
   Battery4Bars: {fileID: 21300008, guid: 46578d76d26c88a47a9fcd1f29fe7cef, type: 3}
   Battery3Bars: {fileID: 21300006, guid: 46578d76d26c88a47a9fcd1f29fe7cef, type: 3}
