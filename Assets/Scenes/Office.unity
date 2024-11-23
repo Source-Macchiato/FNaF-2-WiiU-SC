@@ -4682,8 +4682,8 @@ MonoBehaviour:
   FazbearFeverAI: 
   GoldenFreddyChallengeAI: 
   currentAI: 
-  currentNight: 0
-  TimeMultiplier: 0
+  currentNight: 1
+  TimeMultiplier: 1
   isNight7: 0
   PuppetAI: 0
   GoldenFreddyAI: 0
