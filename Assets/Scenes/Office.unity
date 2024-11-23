@@ -2105,7 +2105,7 @@ GameObject:
   - component: {fileID: 584476043}
   - component: {fileID: 584476042}
   m_Layer: 0
-  m_Name: PLACEHOLDER (ONLY SHIRO SHOULD TOUCH IT)
+  m_Name: IM GAY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2992,7 +2992,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -4648,7 +4648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a734b9dd5f5044d8d3a7fb40edd39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectsToMove: []
+  ObjectsToMove:
+  - {fileID: 2101765863}
   MovingSpeeds:
   - -250
   - -250
@@ -4823,7 +4824,18 @@ MonoBehaviour:
   WitheredChicaFlashlightCams: []
   WitheredBonnieDefaultCams: []
   WitheredBonnieFlashlightCams: []
-  MangleInRooms: []
+  MangleInRooms:
+  - {fileID: 584476041}
+  - {fileID: 584476041}
+  - {fileID: 584476041}
+  - {fileID: 584476041}
+  - {fileID: 584476041}
+  - {fileID: 584476041}
+  - {fileID: 584476041}
+  - {fileID: 584476041}
+  - {fileID: 584476041}
+  - {fileID: 584476041}
+  - {fileID: 584476041}
   PutOnMask: {fileID: 0}
   PutDownMask: {fileID: 0}
   DeepBreathing: {fileID: 0}

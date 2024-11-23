@@ -559,9 +559,8 @@ public class NightPlayer : MonoBehaviour {
 		SceneManager.LoadScene("GameOver");
 	}
     
-    // Update is called once per frame
-    void Update () {
-        MoveObjects();
+    void Update()
+	{
 		InputFunction();
 		StateChecks();
 		UpdateBatteryUI();
@@ -2541,48 +2540,6 @@ public class NightPlayer : MonoBehaviour {
 		phoneCall.mute = true;
 		MuteCallButton.SetActive(false);
 	}
-
-	void MoveObjects()
-	{
-    if (state == "Office" || state == "OfficeMask" || state == "OfficeBlackout")
-    {
-        if (ObjectsToMove.Length == 0) return;
-
-        // Get the first object to move
-        Transform firstObject = ObjectsToMove[0];
-        Vector3 firstPosition = firstObject.position;
-
-        // Determine the potential new position for the first object
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            firstPosition.x -= MovingSpeeds[0] * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            firstPosition.x += MovingSpeeds[0] * Time.deltaTime;
-        }
-
-        // Clamp the potential position to the min and max bounds
-        firstPosition.x = Mathf.Clamp(firstPosition.x, MinXMovement[0], MaxXMovement[0]);
-
-        // If the position has changed (i.e., is within bounds), apply the movement to all objects
-        if (firstObject.position.x != firstPosition.x)
-        {
-            Vector3 movementDelta = firstPosition - firstObject.position;
-
-            for (int i = 0; i < ObjectsToMove.Length; i++)
-            {
-                // Apply the same movement delta to all objects
-                Vector3 newPosition = ObjectsToMove[i].position + movementDelta;
-
-                // Clamp each object's position to its own min and max bounds
-                newPosition.x = Mathf.Clamp(newPosition.x, MinXMovement[i], MaxXMovement[i]);
-
-                // Apply the new position
-                ObjectsToMove[i].position = newPosition;
-            }
-        }
-    }
-	}
-
 
 	void UpdateBatteryUI()
     {
