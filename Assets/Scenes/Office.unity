@@ -4668,7 +4668,7 @@ MonoBehaviour:
   Mangle: {fileID: 555077695}
   CameraButton: {fileID: 0}
   MaskButton: {fileID: 236356591}
-  WinNight: {fileID: 0}
+  WinNight: {fileID: 584476041}
   AM: {fileID: 754174880}
   NightText: {fileID: 420895430}
   WG: {fileID: 0}
@@ -5418,6 +5418,8 @@ MonoBehaviour:
   OfficeContainer: {fileID: 2101765862}
   camIsUp: 0
   canMove: 1
+  leftEdge: 320
+  rightEdge: -320
 --- !u!1 &1287131471
 GameObject:
   m_ObjectHideFlags: 0

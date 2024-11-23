@@ -227,10 +227,14 @@ public class NightPlayer : MonoBehaviour {
 
 	private string state = "Office";
 	private string flashLightTarget = "MainHallway";
-	
+
+	private MoveInOffice moveInOffice;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+	{
+		moveInOffice = FindObjectOfType<MoveInOffice>();
+
         MainOfficeDefaultSprite = MainOfficeImage.sprite;
 		currentFlashlightDuration = FlashlightDuration;
 		NightText.text = currentNight.ToString();
@@ -1859,15 +1863,15 @@ public class NightPlayer : MonoBehaviour {
 		{
     		float positionX = ObjectsToMove[0].localPosition.x;
 
-    		if (positionX <= 71 && positionX >= -71)
+    		if (positionX <= moveInOffice.leftEdge && positionX >= moveInOffice.rightEdge)
     		{
         		flashLightTarget = "MainHallway";
     		}
-    		else if (positionX > 71)
+    		else if (positionX > moveInOffice.leftEdge)
     		{
         		flashLightTarget = "LeftButton";
     		}
-    		else if (positionX < -71)
+    		else if (positionX < moveInOffice.rightEdge)
     		{
         		flashLightTarget = "RightButton";
     		}
@@ -2114,7 +2118,7 @@ public class NightPlayer : MonoBehaviour {
 		{
 			if (BBCamera != 16)
 			{
-				if (currentFlashlightDuration >= 0.01)
+                if (currentFlashlightDuration >= 0.01)
 				{
 				flashlightActive = true;
 				FlashLightAudio.mute = false;
