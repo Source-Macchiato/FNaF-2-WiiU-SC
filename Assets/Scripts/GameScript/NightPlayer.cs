@@ -1854,15 +1854,15 @@ public class NightPlayer : MonoBehaviour {
 		{
     		float positionX = ObjectsToMove[0].localPosition.x;
 
-    		if (positionX <= moveInOffice.leftEdge && positionX >= moveInOffice.rightEdge)
+    		if (positionX <= (moveInOffice.leftEdge - 160) && positionX >= (moveInOffice.rightEdge + 160))
     		{
         		flashLightTarget = "MainHallway";
     		}
-    		else if (positionX > moveInOffice.leftEdge)
+    		else if (positionX > (moveInOffice.leftEdge - 160))
     		{
         		flashLightTarget = "LeftButton";
     		}
-    		else if (positionX < moveInOffice.rightEdge)
+    		else if (positionX < (moveInOffice.rightEdge + 160))
     		{
         		flashLightTarget = "RightButton";
     		}
@@ -2085,16 +2085,40 @@ public class NightPlayer : MonoBehaviour {
         WiiU.GamePadState gamePadState = gamePad.state;
         WiiU.RemoteState remoteState = remote.state;
 
-        // Handle GamePad input
+        // Handle GamePad inputs
 		if (gamePadState.gamePadErr == WiiU.GamePadError.None)
 		{
 			// Is triggered
 			if (gamePadState.IsTriggered(WiiU.GamePadButton.A))
 			{
+				HandleCameraAndFoxyStates();
+			}
 
+			if (gamePadState.IsTriggered(WiiU.GamePadButton.L))
+			{
+				CameraManager();
+			}
+
+			if (gamePadState.IsTriggered(WiiU.GamePadButton.R))
+			{
+				MaskManager();
+			}
+
+			// Is pressed
+			if (gamePadState.IsPressed(WiiU.GamePadButton.A))
+			{
+				EnableFlashLight();
+			}
+
+			// Is released
+			if (gamePadState.IsReleased(WiiU.GamePadButton.A))
+			{
+				IsGoldenFreddyInHall();
+				DisableFlashLight();
 			}
 		}
 
+		// Handle keyboard inputs
         if (Input.GetKeyDown(KeyCode.A))
         {
 			HandleCameraAndFoxyStates();
@@ -2111,14 +2135,14 @@ public class NightPlayer : MonoBehaviour {
 			DisableFlashLight();
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.L))
         {
-			MaskManager();
+            CameraManager();
         }
 
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-			CameraManager();
+			MaskManager();
         }
     }
 
@@ -2133,7 +2157,11 @@ public class NightPlayer : MonoBehaviour {
 		{
             puppetEndoChance = Random.value;
             GoldenFreddyrandNum = Random.Range(0, 20);
-            if (state == "Cameras") { FlashCam(currentCam); }
+            if (state == "Cameras")
+			{
+				FlashCam(currentCam);
+			}
+
             if (state == "Office" && flashLightTarget == "MainHallway")
             {
                 FlashCam(14);
