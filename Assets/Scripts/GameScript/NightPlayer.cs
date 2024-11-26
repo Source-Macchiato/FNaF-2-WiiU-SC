@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System;
-using Random = System.Random;
 using TMPro;
 
 public class NightPlayer : MonoBehaviour {
@@ -252,7 +249,7 @@ public class NightPlayer : MonoBehaviour {
 			WitheredFreddyAI = DataManager.GetValue<int>("WFAICN", "data:/");
 			WitheredFoxyAI = DataManager.GetValue<int>("WFOAICN", "data:/");
 		}
-		if (UnityEngine.Random.value < 0.01) {PaperpalsAI = 1;}
+		if (Random.value < 0.01) {PaperpalsAI = 1;}
 		PuppetAI = Mathf.Clamp(PuppetAI,0, 6);
 		WitheredFoxyAI = Mathf.Clamp(WitheredFoxyAI,0, 17);
 		SetActivePlushies();
@@ -430,21 +427,15 @@ public class NightPlayer : MonoBehaviour {
 
 		if (AMTime == "12" && currentNight == 3)
 		{
-			Random random = new Random();
-        	double randomValue = (random.Next(1000) + 1) / 1000.0;
-			GoldenFreddyAI = int.Parse(randomValue.ToString());
-		}
+			GoldenFreddyAI = Random.Range(0, 1);
+        }
 		if (AMTime == "12" && currentNight == 4 || currentNight == 5)
 		{
-			Random random = new Random();
-        	double randomValue = (random.Next(100) + 1) / 100.0;
-			GoldenFreddyAI = int.Parse(randomValue.ToString());
-		}
+            GoldenFreddyAI = Random.Range(0, 1) * 100;
+        }
 		if (AMTime == "12" && currentNight == 6)
 		{
-			Random random = new Random();
-        	double randomValue = (random.Next(10) + 1) / 10.0;
-			GoldenFreddyAI = int.Parse(randomValue.ToString());
+			GoldenFreddyAI = Random.Range(0, 1) * 10;
 		}
 		if (AMTime == "1" && currentNight == 3)
 		{
@@ -502,15 +493,13 @@ public class NightPlayer : MonoBehaviour {
 
 		if (AMTime == "1" && currentNight == 2)
 		{
-			Random random = new Random();
-        	double randomValue = (random.Next(1000) + 1) / 1000.0;
 			ToyBonnieAI = 3;
 			ToyChicaAI = 3;
 			ToyFreddyAI = 2;
 			WitheredFoxyAI = 1;
 			MangleAI = 3;
 			BBAI = 3;
-			GoldenFreddyAI = int.Parse(randomValue.ToString());
+			GoldenFreddyAI = Random.Range(0, 1);
 		}
 	}
 
@@ -607,8 +596,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (PaperpalsMovement <= 0f && currentCam != 4)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (PaperpalsAI >= (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (PaperpalsAI >= randNum)
 			{
 				PaperpalsOffice.SetActive(true);
 				PaperpalsMovement = 5f;
@@ -617,8 +606,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (ToyBonnieMovement <= 0f)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (ToyBonnieAI >= (int)randNum || ToyBonnieAI == (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (ToyBonnieAI >= randNum || ToyBonnieAI == randNum)
 			{
 				switch (ToyBonnieCamera)
 				{
@@ -663,8 +652,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (ToyChicaMovement <= 0f)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (ToyChicaAI >= (int)randNum || ToyChicaAI == (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (ToyChicaAI >= randNum || ToyChicaAI == randNum)
 			{
 				switch (ToyChicaCamera)
 				{
@@ -711,8 +700,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (ToyFreddyMovement <= 0f)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (ToyFreddyAI >= (int)randNum || ToyFreddyAI == (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (ToyFreddyAI >= randNum || ToyFreddyAI == randNum)
 			{
 				switch (ToyFreddyCamera)
 				{
@@ -738,8 +727,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (MangleMovement <= 0f)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (MangleAI >= (int)randNum || MangleAI == (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (MangleAI >= randNum || MangleAI == randNum)
 			{
 				switch (MangleCamera)
 				{
@@ -789,8 +778,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (WitheredFreddyMovement <= 0f)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (WitheredFreddyAI >= (int)randNum || WitheredFreddyAI == (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (WitheredFreddyAI >= randNum || WitheredFreddyAI == randNum)
 			{
 				switch (WitheredFreddyCamera)
 				{
@@ -818,8 +807,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (WitheredBonnieMovement <= 0f)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (WitheredBonnieAI >= (int)randNum || WitheredBonnieAI == (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (WitheredBonnieAI >= randNum || WitheredBonnieAI == randNum)
 			{
 				switch (WitheredBonnieCamera)
 				{
@@ -851,8 +840,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (WitheredChicaMovement <= 0f)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (WitheredChicaAI >= (int)randNum || WitheredChicaAI == (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (WitheredChicaAI >= randNum || WitheredChicaAI == randNum)
 			{
 				switch (WitheredChicaCamera)
 				{
@@ -882,8 +871,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (WitheredFoxyMovement <= 0f)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (WitheredFoxyAI >= (int)randNum || WitheredFoxyAI == (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (WitheredFoxyAI >= randNum || WitheredFoxyAI == randNum)
 			{
 				switch (WitheredFoxyCamera)
 				{
@@ -907,8 +896,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (BBMovement <= 0f)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (BBAI >= (int)randNum || BBAI == (int)randNum)
+			int randNum = Random.Range(0, 20);
+			if (BBAI >= randNum || BBAI == randNum)
 			{
 				AudioSource[] audioSources = BBSounds.GetComponents<AudioSource>();
 
@@ -916,7 +905,7 @@ public class NightPlayer : MonoBehaviour {
     			if (audioSources.Length > 0 && BBCamera != 16 && BBCamera != 15)
     			{
         			// Generate a random index
-        			int randomIndex = UnityEngine.Random.Range(0, audioSources.Length);
+        			int randomIndex = Random.Range(0, audioSources.Length);
 
         			// Play the selected AudioSource
         			audioSources[randomIndex].Play();
@@ -962,7 +951,7 @@ public class NightPlayer : MonoBehaviour {
 			if (ToyBonnieBlackoutTime >= 1f)
 			{
 				ToyBonnieBlackoutTime = 0f;
-				if (UnityEngine.Random.value < 0.33333333f)
+				if (Random.value < 0.33333333f)
 				{
 					ToyBonnieCamera = 9;
 					ToyBonnieMovement = 10f;
@@ -1884,7 +1873,7 @@ public class NightPlayer : MonoBehaviour {
 		if (ToyBonnieMaskTimer < 0f)
 		{
 			ToyBonnieMaskTimer = 1f;
-			if (maskActive && ToyBonnieCamera == 13 && UnityEngine.Random.value < 0.49f)
+			if (maskActive && ToyBonnieCamera == 13 && Random.value < 0.49f)
 			{
 				StartCoroutine(ToyBonnieFunction(false));
 			}
@@ -1892,7 +1881,7 @@ public class NightPlayer : MonoBehaviour {
 		if (ToyChicaMaskTimer < 0f)
 		{
 			ToyChicaMaskTimer = 1f;
-			if (maskActive && ToyChicaCamera == 13 && UnityEngine.Random.value < 0.1f)
+			if (maskActive && ToyChicaCamera == 13 && Random.value < 0.1f)
 			{
 				StartCoroutine(ToyChicaFunction(false));
 			}
@@ -1900,7 +1889,7 @@ public class NightPlayer : MonoBehaviour {
 		if (BBMaskTimer < 0f)
 		{
 			BBMaskTimer = 1f;
-			if (maskActive && BBCamera == 13 && UnityEngine.Random.value < 0.1f)
+			if (maskActive && BBCamera == 13 && Random.value < 0.1f)
 			{
 				BBCamera = 10;
 				BBMovement = 5f;
@@ -1909,7 +1898,7 @@ public class NightPlayer : MonoBehaviour {
 		if (MangleMaskTimer < 0f)
 		{
 			MangleMaskTimer = 1f;
-			if (maskActive && MangleCamera == 13 && UnityEngine.Random.value < 0.1f)
+			if (maskActive && MangleCamera == 13 && Random.value < 0.1f)
 			{
 				MangleCamera = 12;
 				MangleMovement = 5f;
@@ -2096,8 +2085,8 @@ public class NightPlayer : MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.A) && state != "Jumpscare" && BBCamera != 16)
 		{
-			puppetEndoChance = UnityEngine.Random.value;
-			GoldenFreddyrandNum = UnityEngine.Random.Range(0,20);
+			puppetEndoChance = Random.value;
+			GoldenFreddyrandNum = Random.Range(0, 20);
 			if (state == "Cameras") {FlashCam(currentCam);}
 			if (state == "Office" && flashLightTarget == "MainHallway")
 			{
@@ -2410,7 +2399,7 @@ public class NightPlayer : MonoBehaviour {
 		CameraUI.SetActive(false);
 		MainCameras.SetActive(false);
 		MonitorAnimator.Play("MonitorDown");
-		if (UnityEngine.Random.value < 0.000001f)
+		if (Random.value < 0.000001f)
 		{
 			RWQ();
 		}
@@ -2430,15 +2419,17 @@ public class NightPlayer : MonoBehaviour {
 		}
 		else if (GoldenFreddyPrepared)
 		{
-			float randNum = UnityEngine.Random.Range(0,20);
-			if (GoldenFreddyAI >= (int)randNum) {
-			GoldenFreddyCameraTime = 5f;
-			GoldenFreddyInOffice = true;
-			GoldenFreddyPrepared = false;
-			GoldenFreddyOffice.SetActive(true);
+			int randNum = Random.Range(0, 20);
+
+			if (GoldenFreddyAI >= randNum)
+			{
+				GoldenFreddyCameraTime = 5f;
+				GoldenFreddyInOffice = true;
+				GoldenFreddyPrepared = false;
+				GoldenFreddyOffice.SetActive(true);
 			}
 		}
-		if (UnityEngine.Random.value < 0.05f)
+		if (Random.value < 0.05f)
 		{
 			JJ.SetActive(true);
 		}
@@ -2454,38 +2445,38 @@ public class NightPlayer : MonoBehaviour {
 
 	IEnumerator MangleDeath()
 	{
-		yield return new WaitForSeconds(UnityEngine.Random.Range(23f, 60f));
+		yield return new WaitForSeconds(Random.Range(23f, 60f));
 		if (state == "Cameras" || state == "MonitorUp")
-            {
-                StartCoroutine(MonitorDownIE());
-                yield return new WaitForSeconds(0.183f);
-                JumpscareAnimator.Play("Mangle");
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-				MangleOffice.SetActive(false);
-            }
-            else if (state == "MonitorDown" || state == "Office" || state == "OfficeBlackout")
-            {
-                JumpscareAnimator.Play("Mangle");
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-            }
-			else if (state == "OfficeMask")
-            {
-				Mask();
-                JumpscareAnimator.Play("Mangle");
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-				MangleOffice.SetActive(false);
-            }
-			else
-			{
-				JumpscareAnimator.Play("Mangle");
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-				Debug.Log(state);
-				MangleOffice.SetActive(false);
-			}
+        {
+            StartCoroutine(MonitorDownIE());
+            yield return new WaitForSeconds(0.183f);
+            JumpscareAnimator.Play("Mangle");
+            Jumpscare.Play();
+            StartCoroutine(JumpscareSequence());
+			MangleOffice.SetActive(false);
+        }
+        else if (state == "MonitorDown" || state == "Office" || state == "OfficeBlackout")
+        {
+            JumpscareAnimator.Play("Mangle");
+            Jumpscare.Play();
+            StartCoroutine(JumpscareSequence());
+        }
+		else if (state == "OfficeMask")
+        {
+			Mask();
+            JumpscareAnimator.Play("Mangle");
+            Jumpscare.Play();
+            StartCoroutine(JumpscareSequence());
+			MangleOffice.SetActive(false);
+        }
+		else
+		{
+			JumpscareAnimator.Play("Mangle");
+            Jumpscare.Play();
+            StartCoroutine(JumpscareSequence());
+			Debug.Log(state);
+			MangleOffice.SetActive(false);
+		}
 	}
 
 	IEnumerator FoxyJumpscare()
