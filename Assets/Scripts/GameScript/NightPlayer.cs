@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using WiiU = UnityEngine.WiiU;
 using TMPro;
 
 public class NightPlayer : MonoBehaviour {
@@ -9,10 +10,7 @@ public class NightPlayer : MonoBehaviour {
 	[Header("Movement")]
 
     public Transform[] ObjectsToMove;
-    public float[] MovingSpeeds = new float[] {
-		-250,
-		-250
-	};
+    public float[] MovingSpeeds = new float[] { -250, -250 };
     public float[] MaxXMovement;
     public float[] MinXMovement;
 
@@ -227,10 +225,17 @@ public class NightPlayer : MonoBehaviour {
 
 	private MoveInOffice moveInOffice;
 
-    // Use this for initialization
+    // References to WiiU controllers
+    WiiU.GamePad gamePad;
+    WiiU.Remote remote;
+
     void Start()
 	{
-		moveInOffice = FindObjectOfType<MoveInOffice>();
+        // Access the WiiU GamePad and Remote
+        gamePad = WiiU.GamePad.access;
+        remote = WiiU.Remote.Access(0);
+
+        moveInOffice = FindObjectOfType<MoveInOffice>();
 
         MainOfficeDefaultSprite = MainOfficeImage.sprite;
 		currentFlashlightDuration = FlashlightDuration;
@@ -258,10 +263,7 @@ public class NightPlayer : MonoBehaviour {
 			CheckAndHandleChallenges();
 		}
 
-		MovingSpeeds = new float[] {
-		-250,
-		-250
-	};
+		MovingSpeeds = new float[] { -250, -250	};
     }
 
 	public void SetCurrentAI()
@@ -2079,95 +2081,144 @@ public class NightPlayer : MonoBehaviour {
 
 	void InputFunction()
 	{
-		if (Input.GetKeyDown(KeyCode.A) && state != "Jumpscare" && BBCamera == 16)
+        // Get the current state of the GamePad and Remote
+        WiiU.GamePadState gamePadState = gamePad.state;
+        WiiU.RemoteState remoteState = remote.state;
+
+        // Handle GamePad input
+		if (gamePadState.gamePadErr == WiiU.GamePadError.None)
 		{
-			ErrorSound.Play();
-		}
-		if (Input.GetKeyDown(KeyCode.A) && state != "Jumpscare" && BBCamera != 16)
-		{
-			puppetEndoChance = Random.value;
-			GoldenFreddyrandNum = Random.Range(0, 20);
-			if (state == "Cameras") {FlashCam(currentCam);}
-			if (state == "Office" && flashLightTarget == "MainHallway")
+			// Is triggered
+			if (gamePadState.IsTriggered(WiiU.GamePadButton.A))
 			{
-				FlashCam(14);
-				FlashCam(15);
-				if (WitheredFoxyCamera == 14)
-				{
-					WitheredFoxyMovement += 1f;
-					if (WitheredFoxyMovement >= 12f)
-					{
-						WitheredFoxyCamera = 8;
-						WitheredFoxyMovement = 9f;
-					}
-				}
+
 			}
 		}
-		if (Input.GetKey(KeyCode.A) && state != "Jumpscare")
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+			HandleCameraAndFoxyStates();
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+			EnableFlashLight();
+        }
+
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+			IsGoldenFreddyInHall();
+			DisableFlashLight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+			MaskManager();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+			CameraManager();
+        }
+    }
+
+    // Input functions
+    private void HandleCameraAndFoxyStates()
+	{
+        if (BBCamera == 16)
 		{
-			if (BBCamera != 16)
-			{
-                if (currentFlashlightDuration >= 0.01)
-				{
-				flashlightActive = true;
-				FlashLightAudio.mute = false;
-				}
-				else
-				{
-				flashlightActive = false;
-				FlashLightAudio.mute = true;
-				NoFlashlightBatterys.mute = false;
-				}
-			}
-		}
+            ErrorSound.Play();
+        }
 		else
 		{
-			flashlightActive = false;
-			FlashLightAudio.mute = true;
-			NoFlashlightBatterys.mute = true;
-		}
+            puppetEndoChance = Random.value;
+            GoldenFreddyrandNum = Random.Range(0, 20);
+            if (state == "Cameras") { FlashCam(currentCam); }
+            if (state == "Office" && flashLightTarget == "MainHallway")
+            {
+                FlashCam(14);
+                FlashCam(15);
+                if (WitheredFoxyCamera == 14)
+                {
+                    WitheredFoxyMovement += 1f;
+                    if (WitheredFoxyMovement >= 12f)
+                    {
+                        WitheredFoxyCamera = 8;
+                        WitheredFoxyMovement = 9f;
+                    }
+                }
+            }
+        }
+    }
 
-		if (Input.GetKeyUp(KeyCode.A) && state != "Jumpscare" && BBCamera != 16 && flashLightTarget == "MainHallway" && state == "Office")
+	private void EnableFlashLight()
+	{
+		if (state != "Jumpscare")
 		{
-			if (GoldenFreddyInHall == true)
-				{
-					GoldenFreddyOffice.SetActive(false);
-					GoldenFreddyCameraTime = 5f;
-					GoldenFreddyMovement = 1.67f;
-					GoldenFreddyInOffice = false;
-					GoldenFreddyInHall = false;
-					GoldenFreddyPrepared = false;
-				}
-		}
-
-		if (Input.GetKeyDown(KeyCode.B) && MaskButton.activeSelf && state != "Jumpscare")
-		{
-			Mask();
-		}
-
-		if (Input.GetKeyDown(KeyCode.Y) && CameraButton.activeSelf && state != "Jumpscare")
-		{
-			Debug.Log("Y");
-			if (ToyBonniePrepared)
-			{
-				JumpscareAnimator.Play("ToyBonnie");
-				Jumpscare.Play();
-				StartCoroutine(JumpscareSequence());
-			}
-			else if (ToyChicaPrepared)
-			{
-				JumpscareAnimator.Play("ToyChica");
-				Jumpscare.Play();
-				StartCoroutine(JumpscareSequence());
-			}
-			else
-			{
-				Cams();
-			}
-		}
+            if (currentFlashlightDuration >= 0.01)
+            {
+                flashlightActive = true;
+                FlashLightAudio.mute = false;
+            }
+        }
 	}
 
-	void FlashCam(int camNumber)
+	private void DisableFlashLight()
+	{
+        flashlightActive = false;
+        FlashLightAudio.mute = true;
+        NoFlashlightBatterys.mute = true;
+    }
+
+	private void IsGoldenFreddyInHall()
+	{
+		if (BBCamera != 16 && flashLightTarget == "MainHallway" && state == "office")
+		{
+            if (GoldenFreddyInHall == true)
+            {
+                GoldenFreddyOffice.SetActive(false);
+                GoldenFreddyCameraTime = 5f;
+                GoldenFreddyMovement = 1.67f;
+                GoldenFreddyInOffice = false;
+                GoldenFreddyInHall = false;
+                GoldenFreddyPrepared = false;
+            }
+        }
+	}
+
+	private void MaskManager()
+	{
+		if (MaskButton.activeSelf && state != "Jumpscare")
+		{
+            Mask();
+        }
+	}
+
+	private void CameraManager()
+	{
+		if (CameraButton.activeSelf && state != "Jumpscare")
+		{
+            if (ToyBonniePrepared)
+            {
+                JumpscareAnimator.Play("ToyBonnie");
+                Jumpscare.Play();
+                StartCoroutine(JumpscareSequence());
+            }
+            else if (ToyChicaPrepared)
+            {
+                JumpscareAnimator.Play("ToyChica");
+                Jumpscare.Play();
+                StartCoroutine(JumpscareSequence());
+            }
+            else
+            {
+                Cams();
+            }
+        }
+	}
+	// ---
+
+    void FlashCam(int camNumber)
 	{
     if (ToyBonnieCamera == camNumber)
     {
