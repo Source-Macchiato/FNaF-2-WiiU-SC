@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1054527412
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a7bc5b9ffd585b98a69d01e7da529dbf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Audio/Calls/VO/VO-Call5.wav
+- Assets/Audio/Calls/VO/VO-Call3.wav
+- Assets/Audio/Calls/VO/VO-Call6.wav
+- Assets/Audio/Calls/VO/VO-Call1.wav
+- Assets/Audio/Calls/VO/VO-Call4.wav
+- Assets/Audio/Calls/VO/VO-Call2.wav
+Dependencies: []
