@@ -12,5 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 75e210d8ac6927a4aa9b46ceca946071
   - enabled: 1
+    path: Assets/Scenes/CutScene.unity
+    guid: 8f77fc049e0180948bdcc9a288e514ef
+  - enabled: 1
+    path: Assets/Scenes/Office.unity
+    guid: 288f3474d2ff8a748a4a6c630856196d
+  - enabled: 1
     path: Assets/Scenes/NextNight.unity
     guid: 257eb42c06eb07749a8e786551c27219
