@@ -241,7 +241,9 @@ public class NightPlayer : MonoBehaviour {
 		currentFlashlightDuration = FlashlightDuration;
 		NightText.text = currentNight.ToString();
 		StartCoroutine(TimeCoroutine());
-		if (isNight7)
+        CameraUI.SetActive(false); // Disable minimap when game starts
+
+        if (isNight7)
 		{
 			GoldenFreddyAI = DataManager.GetValue<int>("GFAICN", "data:/");
 			MangleAI = DataManager.GetValue<int>("MAICN", "data:/");
