@@ -13,7 +13,7 @@ public class LoadDubbing : MonoBehaviour
 	{
         nightNumber = SaveManager.LoadNightNumber();
 
-        if (nightNumber >= 0 && nightNumber <= 4)
+        if (nightNumber >= 0 && nightNumber <= 5)
         {
             // Get dubbing language
             dubbingLanguage = SaveManager.LoadDubbingLanguage();
