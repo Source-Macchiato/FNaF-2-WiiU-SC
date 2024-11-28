@@ -65,7 +65,7 @@ public class MenuSetup : MonoBehaviour
         }
     }
 
-    void Options()
+    public void Options()
     {
         menuManager.ChangeMenu(1);
     }
@@ -75,7 +75,7 @@ public class MenuSetup : MonoBehaviour
         menuManager.ChangeMenu(2);
     }
 
-    void Credits()
+    public void Credits()
     {
         menuManager.ChangeMenu(3);
 
