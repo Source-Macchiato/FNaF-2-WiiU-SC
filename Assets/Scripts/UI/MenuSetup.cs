@@ -11,10 +11,10 @@ public class MenuSetup : MonoBehaviour
     void Start()
     {
         // Adding buttons to the main menu with corresponding actions
-        menuManager.AddButton(0, 0, NewGame, "mainmenu.newgame");
-        menuManager.AddButton(0, 0, Continue, "mainmenu.continue");
-        menuManager.AddButton(0, 0, Options, "mainmenu.options");
-        menuManager.AddButton(0, 0, Credits, "mainmenu.credits");
+        //menuManager.AddButton(0, 0, NewGame, "mainmenu.newgame");
+        //menuManager.AddButton(0, 0, Continue, "mainmenu.continue");
+        //menuManager.AddButton(0, 0, Options, "mainmenu.options");
+        //menuManager.AddButton(0, 0, Credits, "mainmenu.credits");
 
         //menuManager.AddButton("Language", Language, 1, "mainmenu.language");
         //menuManager.AddButton("Layout", Layout, 1, "mainmenu.layout");
@@ -27,11 +27,10 @@ public class MenuSetup : MonoBehaviour
         //menuManager.SetBackCallback(2, OnBackFromLanguage);
 
         // Display main menu after loaded all buttons
-        menuManager.ChangeMenu(0);
     }
 
     // Buttons functions
-    void NewGame()
+    public void NewGame()
     {
         //          !! Have to do : CanNavigate on MenuManager !!!
         // I know bbg, the system was almost finished so now it's done
@@ -44,7 +43,7 @@ public class MenuSetup : MonoBehaviour
         menuData.LoadAdvertisement();
     }
 
-    void Continue()
+    public void Continue()
     {
         menuManager.canNavigate = false;
 

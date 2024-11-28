@@ -45,12 +45,6 @@ public class MenuManager : MonoBehaviour
 
     // Parent transform where menu buttons will be placed
     public Transform[] menus;
-    public Transform[] extraMenus;
-
-    // Dictionary for storing extra containers by menuId
-    private Dictionary<int, GameObject> extraContainers = new Dictionary<int, GameObject>();
-    public Dictionary<int, List<GameObject>> extraMenuButtons = new Dictionary<int, List<GameObject>>();
-    public Dictionary<int, List<GameObject>> menuButtons = new Dictionary<int, List<GameObject>>();
 
     // List to keep track of generated callbacks
     private Dictionary<int, UnityEngine.Events.UnityAction> backCallbacks = new Dictionary<int, UnityEngine.Events.UnityAction>();
@@ -75,7 +69,6 @@ public class MenuManager : MonoBehaviour
     public GameObject currentPopupSelection;
 
     // Elements to keep in memory
-    [HideInInspector]
     public ScrollRect currentScrollRect;
     public PopupData currentPopup;
     public Button currentButton;
@@ -102,15 +95,7 @@ public class MenuManager : MonoBehaviour
         currentSelection = Instantiate(selectionPrefab, cursorContainer.transform);
         currentPopupSelection = Instantiate(selectionPopupPrefab, cursorContainer.transform);
 
-        // Associates each extra menu with its menuId
-        for (int i = 0; i < extraMenus.Length; i++)
-        {
-            if (extraMenus[i] != null)
-            {
-                extraContainers[i] = extraMenus[i].gameObject;
-                extraContainers[i].SetActive(false); // Hides extra menus on startup
-            }
-        }
+        ChangeMenu(0);
     }
 
     void Update()
@@ -130,9 +115,7 @@ public class MenuManager : MonoBehaviour
 
                 if (Mathf.Abs(leftStickGamepad.y) > stickDeadzone)
                 {
-                    VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                    if (currentScrollRect == null && currentPopup == null && verticalContainer != null && canNavigate)
+                    if (currentScrollRect == null && currentPopup == null && canNavigate)
                     {
                         if (lastNavigationTime > stickNavigationCooldown)
                         {
@@ -148,13 +131,17 @@ public class MenuManager : MonoBehaviour
                             lastNavigationTime = 0f;
                         }
                     }
-                    else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
+                    else if (currentScrollRect == null && currentPopup == null && canNavigate)
                     {
                         if (lastNavigationTime > stickNavigationCooldown)
                         {
-                            if (leftStickGamepad.y > stickDeadzone || leftStickGamepad.y < -stickDeadzone)
+                            if (leftStickGamepad.y > stickDeadzone)
                             {
-                                ToggleContainer();
+                                MenuNavigation(currentButton.navigation.selectOnLeft);
+                            }
+                            else if (leftStickGamepad.y < -stickDeadzone)
+                            {
+                                MenuNavigation(currentButton.navigation.selectOnRight);
                             }
 
                             lastNavigationTime = 0f;
@@ -168,9 +155,7 @@ public class MenuManager : MonoBehaviour
 
                 if (Mathf.Abs(leftStickGamepad.x) > stickDeadzone)
                 {
-                    HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                    if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                    if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                     {
                         if (lastNavigationTime > stickNavigationCooldown)
                         {
@@ -181,18 +166,6 @@ public class MenuManager : MonoBehaviour
                             else if (leftStickGamepad.x < -stickDeadzone)
                             {
                                 MenuNavigation(currentButton.navigation.selectOnLeft);
-                            }
-
-                            lastNavigationTime = 0f;
-                        }
-                    }
-                    else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                    {
-                        if (lastNavigationTime > stickNavigationCooldown)
-                        {
-                            if (leftStickGamepad.x > stickDeadzone || leftStickGamepad.x < -stickDeadzone)
-                            {
-                                ToggleContainer();
                             }
 
                             lastNavigationTime = 0f;
@@ -219,41 +192,23 @@ public class MenuManager : MonoBehaviour
                 // Is Triggered
                 if (gamePadState.IsTriggered(WiiU.GamePadButton.Up))
                 {
-                    VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                    if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                    if (currentScrollRect == null && canNavigate)
                     {
                         MenuNavigation(currentButton.navigation.selectOnUp);
-                    }
-                    else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                    {
-                        ToggleContainer();
                     }
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.Down))
                 {
-                    VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                    if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                    if (currentScrollRect == null && canNavigate)
                     {
                         MenuNavigation(currentButton.navigation.selectOnDown);
-                    }
-                    else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                    {
-                        ToggleContainer();
                     }
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.Left))
                 {
-                    HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                    if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                    if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                     {
                         MenuNavigation(currentButton.navigation.selectOnLeft);
-                    }
-                    else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                    {
-                        ToggleContainer();
                     }
                     else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                     {
@@ -262,15 +217,9 @@ public class MenuManager : MonoBehaviour
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.Right))
                 {
-                    HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                    if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                    if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                     {
                         MenuNavigation(currentButton.navigation.selectOnRight);
-                    }
-                    else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                    {
-                        ToggleContainer();
                     }
                     else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                     {
@@ -362,9 +311,7 @@ public class MenuManager : MonoBehaviour
 
                     if (Mathf.Abs(leftStickProController.y) > stickDeadzone)
                     {
-                        VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentPopup == null && verticalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentPopup == null && canNavigate)
                         {
                             if (lastNavigationTime > stickNavigationCooldown)
                             {
@@ -380,18 +327,6 @@ public class MenuManager : MonoBehaviour
                                 lastNavigationTime = 0f;
                             }
                         }
-                        else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                        {
-                            if (lastNavigationTime > stickNavigationCooldown)
-                            {
-                                if (leftStickProController.y > stickDeadzone || leftStickProController.y < -stickDeadzone)
-                                {
-                                    ToggleContainer();
-                                }
-
-                                lastNavigationTime = 0f;
-                            }
-                        }
                         else if (currentScrollRect != null && currentPopup == null && canNavigate)
                         {
                             ScrollNavigation(new Vector2(0, leftStickProController.y));
@@ -400,9 +335,7 @@ public class MenuManager : MonoBehaviour
 
                     if (Mathf.Abs(leftStickProController.x) > stickDeadzone)
                     {
-                        HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                         {
                             if (lastNavigationTime > stickNavigationCooldown)
                             {
@@ -413,18 +346,6 @@ public class MenuManager : MonoBehaviour
                                 else if (leftStickProController.x < -stickDeadzone)
                                 {
                                     MenuNavigation(currentButton.navigation.selectOnLeft);
-                                }
-
-                                lastNavigationTime = 0f;
-                            }
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                        {
-                            if (lastNavigationTime > stickNavigationCooldown)
-                            {
-                                if (leftStickProController.x > stickDeadzone || leftStickProController.x < -stickDeadzone)
-                                {
-                                    ToggleContainer();
                                 }
 
                                 lastNavigationTime = 0f;
@@ -451,41 +372,23 @@ public class MenuManager : MonoBehaviour
                     // Is Triggered
                     if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.Up))
                     {
-                        VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                        if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                        if (currentScrollRect == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnUp);
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.Down))
                     {
-                        VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                        if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                        if (currentScrollRect == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnDown);
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.Left))
                     {
-                        HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnLeft);
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                         else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
@@ -494,15 +397,9 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.Right))
                     {
-                        HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnRight);
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                         else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
@@ -590,9 +487,7 @@ public class MenuManager : MonoBehaviour
 
                     if (Mathf.Abs(leftStickClassicController.y) > stickDeadzone)
                     {
-                        VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentPopup == null && verticalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentPopup == null && canNavigate)
                         {
                             if (lastNavigationTime > stickNavigationCooldown)
                             {
@@ -609,18 +504,6 @@ public class MenuManager : MonoBehaviour
                             }
 
                         }
-                        else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                        {
-                            if (lastNavigationTime > stickNavigationCooldown)
-                            {
-                                if (leftStickClassicController.y > stickDeadzone || leftStickClassicController.y < -stickDeadzone)
-                                {
-                                    ToggleContainer();
-                                }
-
-                                lastNavigationTime = 0f;
-                            }
-                        }
                         else if (currentScrollRect != null && currentPopup == null && canNavigate)
                         {
                             ScrollNavigation(new Vector2(0, leftStickClassicController.y));
@@ -629,9 +512,7 @@ public class MenuManager : MonoBehaviour
 
                     if (Mathf.Abs(leftStickClassicController.x) > stickDeadzone)
                     {
-                        HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                         {
                             if (lastNavigationTime > stickNavigationCooldown)
                             {
@@ -642,18 +523,6 @@ public class MenuManager : MonoBehaviour
                                 else if (leftStickClassicController.x < -stickDeadzone)
                                 {
                                     MenuNavigation(currentButton.navigation.selectOnLeft);
-                                }
-
-                                lastNavigationTime = 0f;
-                            }
-                        }                        
-                        else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                        {
-                            if (lastNavigationTime > stickNavigationCooldown)
-                            {
-                                if (leftStickClassicController.x > stickDeadzone || leftStickClassicController.x < -stickDeadzone)
-                                {
-                                    ToggleContainer();
                                 }
 
                                 lastNavigationTime = 0f;
@@ -680,41 +549,23 @@ public class MenuManager : MonoBehaviour
                     // Is Triggered
                     if (remoteState.classic.IsTriggered(WiiU.ClassicButton.Up))
                     {
-                        VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                        if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                        if (currentScrollRect == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnUp);
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.Down))
                     {
-                        VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                        if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                        if (currentScrollRect == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnDown);
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.Left))
                     {
-                        HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnLeft);
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                         else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
@@ -723,15 +574,9 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.Right))
                     {
-                        HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnRight);
-                        }                        
-                        else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                         else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
@@ -819,9 +664,7 @@ public class MenuManager : MonoBehaviour
 
                     if (Mathf.Abs(stickNunchuk.y) > stickDeadzone)
                     {
-                        VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentPopup == null && verticalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentPopup == null && canNavigate)
                         {
                             if (lastNavigationTime > stickNavigationCooldown)
                             {
@@ -837,18 +680,6 @@ public class MenuManager : MonoBehaviour
                                 lastNavigationTime = 0f;
                             }
                         }
-                        else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                        {
-                            if (lastNavigationTime > stickNavigationCooldown)
-                            {
-                                if (stickNunchuk.y > stickDeadzone || stickNunchuk.y < -stickDeadzone)
-                                {
-                                    ToggleContainer();
-                                }
-
-                                lastNavigationTime = 0f;
-                            }
-                        }
                         else if (currentScrollRect != null && currentPopup == null && canNavigate)
                         {
                             ScrollNavigation(new Vector2(0, stickNunchuk.y));
@@ -857,9 +688,7 @@ public class MenuManager : MonoBehaviour
 
                     if (Mathf.Abs(stickNunchuk.x) > stickDeadzone)
                     {
-                        HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                         {
                             if (lastNavigationTime > stickNavigationCooldown)
                             {
@@ -870,18 +699,6 @@ public class MenuManager : MonoBehaviour
                                 else if (stickNunchuk.x < -stickDeadzone)
                                 {
                                     MenuNavigation(currentButton.navigation.selectOnLeft);
-                                }
-
-                                lastNavigationTime = 0f;
-                            }
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                        {
-                            if (lastNavigationTime > stickNavigationCooldown)
-                            {
-                                if (stickNunchuk.x > stickDeadzone || stickNunchuk.x < -stickDeadzone)
-                                {
-                                    ToggleContainer();
                                 }
 
                                 lastNavigationTime = 0f;
@@ -908,41 +725,23 @@ public class MenuManager : MonoBehaviour
                     // Is Triggered
                     if (remoteState.IsTriggered(WiiU.RemoteButton.Up))
                     {
-                        VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                        if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                        if (currentScrollRect == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnUp);
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.Down))
                     {
-                        VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                        if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                        if (currentScrollRect == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnDown);
-                        }
-                        else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.Left))
                     {
-                        HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnLeft);
-                        }                        
-                        else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                         else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
@@ -951,15 +750,9 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.Right))
                     {
-                        HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                        if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                         {
                             MenuNavigation(currentButton.navigation.selectOnRight);
-                        }                        
-                        else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                        {
-                            ToggleContainer();
                         }
                         else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
@@ -1046,41 +839,23 @@ public class MenuManager : MonoBehaviour
             // Key Down
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                if (currentScrollRect == null && canNavigate)
                 {
                     MenuNavigation(currentButton.navigation.selectOnUp);
-                }
-                else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                {
-                    ToggleContainer();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                VerticalLayoutGroup verticalContainer = currentButton.transform.parent.gameObject.GetComponent<VerticalLayoutGroup>();
-
-                if (currentScrollRect == null && verticalContainer != null && canNavigate)
+                if (currentScrollRect == null && canNavigate)
                 {
                     MenuNavigation(currentButton.navigation.selectOnDown);
-                }
-                else if (currentScrollRect == null && currentPopup == null && verticalContainer == null && canNavigate)
-                {
-                    ToggleContainer();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                 {
                     MenuNavigation(currentButton.navigation.selectOnLeft);
-                }                
-                else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                {
-                    ToggleContainer();
                 }
                 else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                 {
@@ -1089,16 +864,9 @@ public class MenuManager : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                HorizontalLayoutGroup horizontalContainer = currentButton.transform.parent.gameObject.GetComponent<HorizontalLayoutGroup>();
-
-                if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer != null && canNavigate)
+                if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && canNavigate)
                 {
                     MenuNavigation(currentButton.navigation.selectOnRight);
-                }
-                
-                else if (currentScrollRect == null && currentPopup == null && currentButton.gameObject.GetComponent<SwitcherData>() == null && horizontalContainer == null && extraContainers.ContainsKey(currentMenuId) && canNavigate)
-                {
-                    ToggleContainer();
                 }
                 else if (currentScrollRect == null && currentButton.gameObject.GetComponent<SwitcherData>() != null && canNavigate)
                 {
@@ -1180,7 +948,7 @@ public class MenuManager : MonoBehaviour
         // Toggle visibility for cursors
         if (currentSelection != null)
         {
-            if (currentScrollRect == null && currentPopup == null && menuButtons.ContainsKey(currentMenuId) && menuButtons[currentMenuId].Count > 0 && currentButton.GetComponent<SwitcherData>() == null && currentButton.GetComponent<CardSwitcher>() == null)
+            if (currentScrollRect == null && currentPopup == null && currentButton != null && currentButton.GetComponent<SwitcherData>() == null && currentButton.GetComponent<CardSwitcher>() == null)
             {
                 if (!currentSelection.activeSelf)
                 {
@@ -1222,67 +990,6 @@ public class MenuManager : MonoBehaviour
         lastNavigationTime += Time.deltaTime;
     }
 
-    // Adds a button to the menu with the given text and click action
-    public void AddButton(int menuId, int buttonType, UnityEngine.Events.UnityAction onClickAction, string translationId, bool isExtraContainer = false)
-    {
-        // Check the target container to add the button
-        Transform parentTransform = isExtraContainer
-            ? extraContainers.ContainsKey(menuId) ? extraContainers[menuId].transform : null
-            : menus[menuId];
-
-        if (parentTransform == null) return;  // If the extra container does not exist for this menu, stop adding
-
-        // Instantiates the button in the specified container
-        GameObject newButton = Instantiate(buttonPrefab[buttonType], parentTransform);
-
-        // Configure the button text
-        GameObject buttonTextComponent = newButton.transform.Find("Text").gameObject;
-        Text textComponent = buttonTextComponent.GetComponent<Text>();
-        TMP_Text tmpTextComponent = buttonTextComponent.GetComponent<TextMeshProUGUI>();
-
-        // Configure text translation
-        I18nTextTranslator translator = buttonTextComponent.GetComponent<I18nTextTranslator>();
-        translator.textId = translationId;
-
-        // Add action to button
-        Button buttonComponent = newButton.GetComponent<Button>();
-        buttonComponent.onClick.AddListener(onClickAction);
-
-        // Adds the button to the appropriate container list
-        if (isExtraContainer)
-        {
-            if (!extraMenuButtons.ContainsKey(menuId))
-                extraMenuButtons[menuId] = new List<GameObject>();
-            extraMenuButtons[menuId].Add(newButton);
-        }
-        else
-        {
-            if (!menuButtons.ContainsKey(menuId))
-                menuButtons[menuId] = new List<GameObject>();
-            menuButtons[menuId].Add(newButton);
-        }
-
-        // Configures navigation between buttons
-        int buttonIndex = isExtraContainer ? extraMenuButtons[menuId].Count - 1 : menuButtons[menuId].Count - 1;
-        if (buttonIndex > 0)
-        {
-            GameObject previousButton = isExtraContainer ? extraMenuButtons[menuId][buttonIndex - 1] : menuButtons[menuId][buttonIndex - 1];
-            Button previousButtonComponent = previousButton.GetComponent<Button>();
-
-            // Set navigation for the new button
-            Navigation newNav = buttonComponent.navigation;
-            newNav.mode = Navigation.Mode.Explicit;
-            newNav.selectOnUp = previousButtonComponent;
-            buttonComponent.navigation = newNav;
-
-            // Set navigation for the previous button
-            Navigation prevNav = previousButtonComponent.navigation;
-            prevNav.mode = Navigation.Mode.Explicit;
-            prevNav.selectOnDown = buttonComponent;
-            previousButtonComponent.navigation = prevNav;
-        }
-    }
-
     public void AddPopup(string translationId, int actionType, string popupId) // Action type : 0 = Press input to continue, 1 = Options
     {
         // Instantiate the popup prefab
@@ -1302,176 +1009,6 @@ public class MenuManager : MonoBehaviour
         {
             ShowNextPopup();
         }
-    }
-
-    public void AddCard(int menuId, string cardText, Sprite cardImage = null)
-    {
-        // Instantiate the card prefab
-        GameObject newCard = Instantiate(cardPrefab, menus[menuId]);
-
-        // Get the card button
-        Button cardComponent = newCard.GetComponent<Button>();
-
-        // Set the card text
-        GameObject cardTextComponent = newCard.transform.Find("Text").gameObject;
-        Text textComponent = cardTextComponent.GetComponent<Text>();
-        TMP_Text tmpTextComponent = cardTextComponent.GetComponent<TextMeshProUGUI>();
-        
-        if (textComponent != null)
-        {
-            textComponent.text = cardText;
-        }
-
-        if (tmpTextComponent != null)
-        {
-            tmpTextComponent.text = cardText;
-        }
-
-        // Set the card image
-        if (cardImage != null)
-        {
-            GameObject cardImageComponent = newCard.transform.Find("Cover").gameObject;
-            Image image = cardImageComponent.GetComponent<Image>();
-            image.sprite = cardImage;
-        }
-
-        // Add the card to the correct menu list in the dictionary
-        if (!menuButtons.ContainsKey(menuId))
-        {
-            menuButtons[menuId] = new List<GameObject>();
-        }
-
-        // Handle navigation setup
-        int cardIndex = menuButtons[menuId].Count;
-
-        if (cardIndex > 0)
-        {
-            // Get the previous button
-            GameObject previousCard = menuButtons[menuId][cardIndex - 1];
-            Button previousCardComponent = previousCard.GetComponent<Button>();
-
-            // Set navigation for the new button
-            Navigation newNav = cardComponent.navigation;
-            newNav.mode = Navigation.Mode.Explicit;
-            newNav.selectOnLeft = previousCardComponent;
-            cardComponent.navigation = newNav;
-
-            // Set navigation for the previous button
-            Navigation prevNav = previousCardComponent.navigation;
-            prevNav.mode = Navigation.Mode.Explicit;
-            prevNav.selectOnRight = cardComponent;
-            previousCardComponent.navigation = prevNav;
-        }
-
-        // Add the new button to the list
-        menuButtons[menuId].Add(newCard);
-    }
-
-    public void AddSwitcher(int menuId, string[] optionsName, string switcherId)
-    {
-        // Instantiate the switcher prefab
-        GameObject newSwitcher = Instantiate(switcherPrefab, menus[menuId]);
-
-        // Get the switcher button
-        Button switcherComponent = newSwitcher.GetComponent<Button>();
-
-        // Get SwitcherData script
-        SwitcherData switcherData = newSwitcher.GetComponent<SwitcherData>();
-        switcherData.optionsName = optionsName;
-
-        // Set switcher ID
-        switcherData.switcherId = switcherId;
-
-        // Add the switcher to the correct menu list in the dictionary
-        if (!menuButtons.ContainsKey(menuId))
-        {
-            menuButtons[menuId] = new List<GameObject>();
-        }
-
-        // Handle navigation setup
-        int switcherIndex = menuButtons[menuId].Count;
-
-        if (switcherIndex > 0)
-        {
-            // Get the previous button
-            GameObject previousSwitcher = menuButtons[menuId][switcherIndex - 1];
-            Button previousSwitcherComponent = previousSwitcher.GetComponent<Button>();
-
-            // Set navigation for the new button
-            Navigation newNav = switcherComponent.navigation;
-            newNav.mode = Navigation.Mode.Explicit;
-            newNav.selectOnUp = previousSwitcherComponent;
-            switcherComponent.navigation = newNav;
-
-            // Set navigation for the previous button
-            Navigation prevNav = previousSwitcherComponent.navigation;
-            prevNav.mode = Navigation.Mode.Explicit;
-            prevNav.selectOnDown = switcherComponent;
-            previousSwitcherComponent.navigation = prevNav;
-        }
-
-        // Add the new button to the list
-        menuButtons[menuId].Add(newSwitcher);
-    }
-
-    public void AddCardSwitcher(int menuId, string titleName, Sprite cover, string descriptionTranslationId, int minValue, int maxValue, int defaultValue = 0)
-    {
-        // Instantiate the card switcher prefab
-        GameObject newCardSwitcher = Instantiate(cardSwitcherPrefab, menus[menuId]);
-
-        // Get the card switcher button
-        Button cardSwitcherComponent = newCardSwitcher.GetComponent<Button>();
-
-        // Get CardSwitcher script
-        CardSwitcher cardSwitcher = newCardSwitcher.GetComponent<CardSwitcher>();
-        cardSwitcher.titleName = titleName;
-        cardSwitcher.coverSprite = cover;
-        cardSwitcher.descriptionTranslationId = descriptionTranslationId;
-        cardSwitcher.minValue = minValue;
-        cardSwitcher.maxValue = maxValue;
-        cardSwitcher.difficultyId = defaultValue;
-        cardSwitcher.UpdateCardSwitcher();
-
-        // Add the card switcher to the correct menu list in the dictionary
-        if (!menuButtons.ContainsKey(menuId))
-        {
-            menuButtons[menuId] = new List<GameObject>();
-        }
-
-        // Handle navigation setup
-        int cardIndex = menuButtons[menuId].Count;
-
-        if (cardIndex > 0)
-        {
-            // Get the previous button
-            GameObject previousCard = menuButtons[menuId][cardIndex - 1];
-            Button previousCardComponent = previousCard.GetComponent<Button>();
-
-            // Set navigation for the new button
-            Navigation newNav = cardSwitcherComponent.navigation;
-            newNav.mode = Navigation.Mode.Explicit;
-            newNav.selectOnLeft = previousCardComponent;
-            cardSwitcherComponent.navigation = newNav;
-
-            // Set navigation for the previous button
-            Navigation prevNav = previousCardComponent.navigation;
-            prevNav.mode = Navigation.Mode.Explicit;
-            prevNav.selectOnRight = cardSwitcherComponent;
-            previousCardComponent.navigation = prevNav;
-        }
-
-        // Add the new button to the list
-        menuButtons[menuId].Add(newCardSwitcher);
-    }
-
-    public void AddDescription(int menuId, string translationId)
-    {
-        // Instantiate the description prefab
-        GameObject newDescription = Instantiate(descriptionPrefab, menus[menuId]);
-
-        // Set the translation for the description
-        I18nTextTranslator translator = newDescription.GetComponent<I18nTextTranslator>();
-        translator.textId = translationId;
     }
 
     // Shows the next popup in the queue
@@ -1518,10 +1055,10 @@ public class MenuManager : MonoBehaviour
             else
             {
                 // Enable first button visual
-                Button newButton = menuButtons[currentMenuId][0].GetComponent<Button>();
-                newButton.Select();
+                //Button newButton = menuButtons[currentMenuId][0].GetComponent<Button>();
+                //newButton.Select();
 
-                currentButton = newButton;
+                //currentButton = newButton;
             }
         }
     }
@@ -1529,7 +1066,7 @@ public class MenuManager : MonoBehaviour
     // Navigates through the menu buttons based on the direction
     public void MenuNavigation(Selectable nextSelectable)
     {
-        if (nextSelectable != null && menuButtons.ContainsKey(currentMenuId) && menuButtons[currentMenuId].Count > 0)
+        if (nextSelectable != null)
         {
             // Get next button and select it
             Button newButton = nextSelectable.GetComponent<Button>();
@@ -1667,20 +1204,9 @@ public class MenuManager : MonoBehaviour
 
         currentMenuId = menuId;
 
-        // Hide other extra containers and show current extra container (if exists)
-        foreach (var container in extraContainers.Values)
+        if (menus[menuId].transform.GetComponent<Button>() != null)
         {
-            container.SetActive(false);
-        }
-
-        if (extraContainers.ContainsKey(menuId))
-        {
-            extraContainers[menuId].SetActive(true);
-        }
-
-        if (menuButtons.ContainsKey(menuId) && menuButtons[menuId].Count > 0)
-        {
-            Button newButton = menuButtons[menuId][0].GetComponent<Button>();
+            Button newButton = menus[menuId].transform.GetComponent<Button>();
             newButton.Select();
             currentButton = newButton;
             buttonAudio.Play();
@@ -1729,28 +1255,5 @@ public class MenuManager : MonoBehaviour
             return menus[currentMenuId].gameObject;
         }
         return null;
-    }
-
-    // Method to switch between main container and extra container, if available
-    public void ToggleContainer()
-    {
-        if (!extraContainers.ContainsKey(currentMenuId)) return;
-
-        List<GameObject> currentButtons = currentButton.transform.IsChildOf(extraContainers[currentMenuId].transform)
-            ? menuButtons[currentMenuId]
-            : extraMenuButtons[currentMenuId];
-
-        if (currentButtons != null && currentButtons.Count > 0)
-        {
-            Button newButton = currentButtons[0].GetComponent<Button>();
-            newButton.Select();
-            currentButton = newButton;
-        }
-
-        // Play effect
-        if (buttonAudio != null)
-        {
-            buttonAudio.Play();
-        }
     }
 }
