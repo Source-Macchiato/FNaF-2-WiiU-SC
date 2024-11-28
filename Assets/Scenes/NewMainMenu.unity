@@ -2931,12 +2931,14 @@ MonoBehaviour:
   classicController: 1
   wiimoteAndNunchuk: 1
   menus:
-  - {fileID: 2146136917}
+  - {fileID: 2146136916}
+  mainButtons:
+  - {fileID: 1254780058}
   canNavigate: 1
   currentSelection: {fileID: 0}
   currentPopupSelection: {fileID: 0}
   currentScrollRect: {fileID: 0}
-  currentButton: {fileID: 1254780061}
+  currentButton: {fileID: 0}
 --- !u!1 &1415653081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,7 +3058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -14.8, y: 57.3}
+  m_AnchoredPosition: {x: -14.800049, y: 57.299988}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1454313348
@@ -3667,7 +3669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -14.8, y: 12.600006}
+  m_AnchoredPosition: {x: -14.799988, y: 12.600006}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1770346584

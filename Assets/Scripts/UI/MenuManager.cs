@@ -44,7 +44,8 @@ public class MenuManager : MonoBehaviour
     public bool wiimoteAndNunchuk;
 
     // Parent transform where menu buttons will be placed
-    public Transform[] menus;
+    public GameObject[] menus;
+    public Button[] defaultButtons;
 
     // List to keep track of generated callbacks
     private Dictionary<int, UnityEngine.Events.UnityAction> backCallbacks = new Dictionary<int, UnityEngine.Events.UnityAction>();
@@ -66,11 +67,14 @@ public class MenuManager : MonoBehaviour
     // Instantiate selection cursor
     [HideInInspector]
     public GameObject currentSelection;
+    [HideInInspector]
     public GameObject currentPopupSelection;
 
     // Elements to keep in memory
+    [HideInInspector]
     public ScrollRect currentScrollRect;
     public PopupData currentPopup;
+    [HideInInspector]
     public Button currentButton;
 
     // Stick navigation
@@ -1197,19 +1201,26 @@ public class MenuManager : MonoBehaviour
             menuHistory.Push(currentMenuId);
         }
 
-        foreach (Transform menu in menus)
+        // Menu
+        foreach (GameObject menu in menus)
         {
-            menu.gameObject.SetActive(menu == menus[menuId]);
+            menu.SetActive(menu == menus[menuId]);
         }
 
         currentMenuId = menuId;
 
-        if (menus[menuId].transform.GetComponent<Button>() != null)
+        // Button
+        for (int i = 0; i < defaultButtons.Length; i++)
         {
-            Button newButton = menus[menuId].transform.GetComponent<Button>();
-            newButton.Select();
-            currentButton = newButton;
-            buttonAudio.Play();
+            if (i == menuId)
+            {
+                if (defaultButtons[i] != null)
+                {
+                    defaultButtons[i].Select();
+                    currentButton = defaultButtons[i];
+                    buttonAudio.Play();
+                }
+            }
         }
 
         isNavigatingBack = false;
