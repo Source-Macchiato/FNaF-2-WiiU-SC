@@ -1091,10 +1091,25 @@ public class MenuManager : MonoBehaviour
     {
         if (currentScrollRect != null && currentPopup == null)
         {
-            float scrollAmount = direction.y * 0.5f * Time.deltaTime;
-            Vector2 newPosition = currentScrollRect.normalizedPosition + new Vector2(0f, scrollAmount);
-            newPosition.y = Mathf.Clamp01(newPosition.y);
-            currentScrollRect.normalizedPosition = newPosition;
+            RectTransform content = currentScrollRect.content;
+            RectTransform viewport = currentScrollRect.viewport;
+
+            if (content != null && viewport != null)
+            {
+                // Taille totale du contenu et de la vue visible
+                float contentHeight = content.rect.height;
+                float viewportHeight = viewport.rect.height;
+
+                if (contentHeight > viewportHeight)
+                {
+                    // Calcul du défilement proportionnel
+                    float scrollAmount = (600 / (contentHeight - viewportHeight)) * direction.y * Time.deltaTime;
+
+                    Vector2 newPosition = currentScrollRect.normalizedPosition + new Vector2(0f, scrollAmount);
+                    newPosition.y = Mathf.Clamp01(newPosition.y);
+                    currentScrollRect.normalizedPosition = newPosition;
+                }
+            }
         }
     }
 
