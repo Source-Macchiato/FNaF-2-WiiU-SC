@@ -9961,6 +9961,7 @@ GameObject:
   - component: {fileID: 1797763101}
   - component: {fileID: 1797763103}
   - component: {fileID: 1797763102}
+  - component: {fileID: 1797763104}
   m_Layer: 5
   m_Name: FlashlightText
   m_TagString: Untagged
@@ -10110,6 +10111,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1797763100}
+--- !u!114 &1797763104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1797763100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: office.flashlight
+  mainFont: {fileID: 11400000, guid: abbbb92d46f9c444f93761eb2811e0c8, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &1812115515
 GameObject:
   m_ObjectHideFlags: 0

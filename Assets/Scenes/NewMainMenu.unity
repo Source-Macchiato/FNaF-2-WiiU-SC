@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textId: 
+  textId: mainmenu.credits
   mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
   arabicFont: {fileID: 0}
 --- !u!114 &82721920
@@ -2814,7 +2814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textId: 
+  textId: mainmenu.layout
   mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
   arabicFont: {fileID: 0}
 --- !u!114 &586689522
@@ -3584,7 +3584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textId: 
+  textId: mainmenu.language
   mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
   arabicFont: {fileID: 0}
 --- !u!114 &809522657
@@ -4344,7 +4344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textId: 
+  textId: mainmenu.options
   mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
   arabicFont: {fileID: 0}
 --- !u!114 &870518895
@@ -7568,7 +7568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textId: 
+  textId: nextnight.sixthnight
   mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
   arabicFont: {fileID: 0}
 --- !u!114 &1632128580
@@ -9341,7 +9341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textId: 
+  textId: mainmenu.online
   mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
   arabicFont: {fileID: 0}
 --- !u!114 &2067819771
