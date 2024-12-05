@@ -72,12 +72,12 @@ public class MenuSetup : MonoBehaviour
 
     void Language()
     {
-        menuManager.ChangeMenu(2);
+        menuManager.ChangeMenu(3);
     }
 
     public void Credits()
     {
-        menuManager.ChangeMenu(3);
+        menuManager.ChangeMenu(2);
 
         if (menuManager.GetCurrentMenu() != null)
         {
