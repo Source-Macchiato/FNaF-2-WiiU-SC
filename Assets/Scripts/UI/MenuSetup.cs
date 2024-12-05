@@ -23,7 +23,7 @@ public class MenuSetup : MonoBehaviour
         //menuManager.AddButton("Analytic Data", Analytics, 4, "mainmenu.analyticdata");
 
         // Set back callbacks for specific menus
-        //menuManager.SetBackCallback(3, OnBackFromCredits);
+        menuManager.SetBackCallback(2, OnBackFromCredits);
         //menuManager.SetBackCallback(2, OnBackFromLanguage);
 
         // Display main menu after loaded all buttons
@@ -110,5 +110,6 @@ public class MenuSetup : MonoBehaviour
     void OnBackFromCredits()
     {
         menuManager.currentScrollRect = null;
+        menuData.ToggleGameTitle(true);
     }
 }

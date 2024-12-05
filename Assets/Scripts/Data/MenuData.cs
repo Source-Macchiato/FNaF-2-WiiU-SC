@@ -6,6 +6,7 @@ public class MenuData : MonoBehaviour
 {
     public float nightNumber;
     public Text currentLanguageText;
+    public GameObject gameTitle;
 
     // Scripts
     SaveGameState saveGameState;
@@ -17,8 +18,6 @@ public class MenuData : MonoBehaviour
     private bool advertisementIsActive;
     private float startTime;
     private float waitTime = 10f;
-
-    public bool search;
 
     void Start()
     {
@@ -68,5 +67,10 @@ public class MenuData : MonoBehaviour
     {
         saveManager.SaveNightNumber(nightNumber);
         bool saveResult = saveGameState.DoSave();
+    }
+
+    public void ToggleGameTitle(bool visibility)
+    {
+        gameTitle.SetActive(visibility);
     }
 }
