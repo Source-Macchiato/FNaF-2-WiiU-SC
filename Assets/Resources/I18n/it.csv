@@ -1,0 +1,43 @@
+mainmenu.newgame,New Game
+mainmenu.continue,Continue
+mainmenu.options,Options
+mainmenu.credits,Credits
+mainmenu.language,Language
+mainmenu.layout,Layout
+mainmenu.online,Online
+mainmenu.analyticdata,Analytic Data
+mainmenu.audio,Audio
+mainmenu.generalvolume,General volume
+mainmenu.musicvolume,Music volume
+mainmenu.voicevolume,Voice volume
+mainmenu.sfxvolume,Sound effects volume
+mainmenu.update,"A new version is available, go download it on itch.io !"
+mainmenu.sharedata,Do you accept the sharing of statistical information with us ?
+mainmenu.night,Night
+customnight.ready,Ready
+difficulty.easy,Easy
+difficulty.medium,Medium
+difficulty.hard,Hard
+difficulty.extreme,Extreme
+nextnight.firstnight,1st Night
+nextnight.secondnight,2nd Night
+nextnight.thirdnight,3rd Night
+nextnight.fourthnight,4th Night
+nextnight.fifthnight,5th Night
+nextnight.sixthnight,6th Night
+nextnight.seventhnight,7th Night
+office.flashlight,flashlight
+office.useflashlight,"Press & hold <sprite name=""WiiU-A""> to use flashlight."
+camera.partyroomone,Party Room 1
+camera.partyroomtwo,Party Room 2
+camera.partyroomthree,Party Room 3
+camera.partyroomfour,Party Room 4
+camera.leftairvent,Left Air Vent
+camera.rightairvent,Right Air Vent
+camera.mainhall,Main Hall
+camera.partsservice,Parts/Service
+camera.showstage,Show Stage
+camera.gamearea,Game Area
+camera.prizecorner,Prize Corner
+camera.kidscove,Kid's Cove
+monitor.musicbox,Wind Up Music Box
