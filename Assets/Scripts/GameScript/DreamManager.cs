@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class DreamManager : MonoBehaviour
 {
 	public RectTransform officeRect;
     public TextMeshProUGUI statusText;
+    public GameObject stripsContainer;
+    public GameObject statusContainer;
 	private float lastOfficePositionX;
     private int nightNumber;
     private int introDreamPlayed;
@@ -30,15 +33,11 @@ public class DreamManager : MonoBehaviour
     public float timer;
 
     // Scripts
-    SaveGameState saveGameState;
-    SaveManager saveManager;
     MoveInOffice moveInOffice;
 
     void Start()
 	{
         // Get scripts
-        saveGameState = FindObjectOfType<SaveGameState>();
-        saveManager = FindObjectOfType<SaveManager>();
         moveInOffice = FindObjectOfType<MoveInOffice>();
 
         // Load
@@ -48,7 +47,8 @@ public class DreamManager : MonoBehaviour
         // Assign last office horizontal position
         lastOfficePositionX = officeRect.anchoredPosition.x;
 
-        statusText.enabled = false;
+        stripsContainer.SetActive(false);
+        statusContainer.SetActive(false);
 
         CharactersStatus();
     }
@@ -80,12 +80,22 @@ public class DreamManager : MonoBehaviour
             {
                 staticEndAudio.Play();
             }
+
+            if (stripsContainer.activeSelf == false)
+            {
+                stripsContainer.SetActive(true);
+            }
         }
         else
         {
             if (staticEndAudio.isPlaying == true)
             {
                 staticEndAudio.Stop();
+            }
+
+            if (stripsContainer.activeSelf == true)
+            {
+                stripsContainer.SetActive(false);
             }
         }
 
@@ -107,6 +117,12 @@ public class DreamManager : MonoBehaviour
             if (moveInOffice.canMove == true)
             {
                 moveInOffice.canMove = false;
+            }
+
+            // Enable status container
+            if (statusContainer.activeSelf == false)
+            {
+                statusContainer.SetActive(true);
             }
         }
 
