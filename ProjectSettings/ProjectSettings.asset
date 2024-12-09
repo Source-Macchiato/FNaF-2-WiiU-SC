@@ -10,7 +10,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Source Macchiato
+  companyName: Latte Macchiato
   productName: 'FNaF 2: Wii U Edition'
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -112,13 +112,13 @@ PlayerSettings:
   psp2AcquireBGM: 1
   wiiUTVResolution: 0
   wiiUGamePadMSAA: 1
-  wiiUSupportsNunchuk: 0
-  wiiUSupportsClassicController: 0
-  wiiUSupportsBalanceBoard: 0
-  wiiUSupportsMotionPlus: 0
-  wiiUSupportsProController: 0
+  wiiUSupportsNunchuk: 1
+  wiiUSupportsClassicController: 1
+  wiiUSupportsBalanceBoard: 1
+  wiiUSupportsMotionPlus: 1
+  wiiUSupportsProController: 1
   wiiUAllowScreenCapture: 1
-  wiiUControllerCount: 0
+  wiiUControllerCount: 1
   m_SupportedAspectRatios:
     4:3: 1
     5:4: 1
@@ -245,8 +245,8 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
-  wiiUTitleID: 0005000011000000
-  wiiUGroupID: 00010000
+  wiiUTitleID: 000500001026F500
+  wiiUGroupID: 001026F5
   wiiUCommonSaveSize: 4096
   wiiUAccountSaveSize: 2048
   wiiUOlvAccessKey: 0
