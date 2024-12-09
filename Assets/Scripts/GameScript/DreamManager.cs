@@ -20,8 +20,12 @@ public class DreamManager : MonoBehaviour
     public Sprite[] chicaSprites;
     public Sprite[] bonnieSprites;
 
-	[Header("Audios")]
+    [Header("Audios")]
+    public AudioSource scarySpaceAudio;
+    public AudioSource childrenLaughtingAudio;
 	public AudioSource machineTurnAudio;
+    public AudioSource robotAudio;
+    public AudioSource staticEndAudio;
 
     public float timer;
 
@@ -51,9 +55,51 @@ public class DreamManager : MonoBehaviour
 	{
         NoiseWhenMoving();
 
-        if (timer >= 30f)
+        // Play and stop robot audio
+        if (timer >= 30f && timer <= 32f)
         {
+            if (robotAudio.isPlaying == false)
+            {
+                robotAudio.Play();
+            }
+        }
+        else
+        {
+            if (robotAudio.isPlaying == true)
+            {
+                robotAudio.Stop();
+            }
+        }
 
+        // Play and stop static end audio
+        if (timer >= 32f && timer <= 34f)
+        {
+            if (staticEndAudio.isPlaying == false)
+            {
+                staticEndAudio.Play();
+            }
+        }
+        else
+        {
+            if (staticEndAudio.isPlaying == true)
+            {
+                staticEndAudio.Stop();
+            }
+        }
+
+        // When the cut scene ends
+        if (timer >= 34f)
+        {
+            // Stops other audios
+            if (scarySpaceAudio.isPlaying == true)
+            {
+                scarySpaceAudio.Stop();
+            }
+
+            if (childrenLaughtingAudio.isPlaying == true)
+            {
+                childrenLaughtingAudio.Stop();
+            }
         }
 
         timer = Time.time;
