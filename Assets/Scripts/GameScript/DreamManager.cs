@@ -126,6 +126,11 @@ public class DreamManager : MonoBehaviour
             }
         }
 
+        if (timer >= 35f)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
         timer = Time.time;
 	}
 
