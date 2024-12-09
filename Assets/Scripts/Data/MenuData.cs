@@ -73,4 +73,13 @@ public class MenuData : MonoBehaviour
     {
         gameTitle.SetActive(visibility);
     }
+
+    private void SaveIntroDreamPlayed()
+    {
+        if (SaveManager.LoadIntroDreamPlayed() == 0)
+        {
+            saveManager.SaveIntroDreamPlayed(1);
+            bool saveResult = saveGameState.DoSave();
+        }
+    }
 }
