@@ -158,11 +158,9 @@ public class MoveInOffice : MonoBehaviour
     {
         if (!camIsUp && canMove)
         {
-            OfficeContainer.transform.Translate(Vector3.right * speed * Time.deltaTime);
-
-            if (OfficeContainer.transform.localPosition.x >= leftEdge)
+            if (OfficeContainer.transform.localPosition.x <= leftEdge)
             {
-                OfficeContainer.transform.localPosition = new Vector3(leftEdge, OfficeContainer.transform.localPosition.y, OfficeContainer.transform.localPosition.z);
+                OfficeContainer.transform.Translate(Vector3.right * speed * Time.deltaTime);
             }
         }
     }
@@ -171,11 +169,9 @@ public class MoveInOffice : MonoBehaviour
     {
         if (!camIsUp && canMove)
         {
-            OfficeContainer.transform.Translate(Vector3.left * speed * Time.deltaTime);
-
-            if (OfficeContainer.transform.localPosition.x <= rightEdge)
+            if (OfficeContainer.transform.localPosition.x >= rightEdge)
             {
-                OfficeContainer.transform.localPosition = new Vector3(rightEdge, OfficeContainer.transform.localPosition.y, OfficeContainer.transform.localPosition.z);
+                OfficeContainer.transform.Translate(Vector3.left * speed * Time.deltaTime);
             }
         }
     }
