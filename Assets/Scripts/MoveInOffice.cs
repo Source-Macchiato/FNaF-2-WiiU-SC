@@ -13,7 +13,7 @@ public class MoveInOffice : MonoBehaviour
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
 
-    private float speed = 8f;
+    public float speed = 8f;
     public float leftEdge = 320f;
     public float rightEdge = -320f;
     private float stickDeadzone = 0.19f;
