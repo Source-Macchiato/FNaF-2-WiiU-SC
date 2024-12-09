@@ -23,6 +23,8 @@ public class DreamManager : MonoBehaviour
 	[Header("Audios")]
 	public AudioSource machineTurnAudio;
 
+    public float timer;
+
     // Scripts
     SaveGameState saveGameState;
     SaveManager saveManager;
@@ -40,12 +42,21 @@ public class DreamManager : MonoBehaviour
         // Assign last office horizontal position
         lastOfficePositionX = officeRect.anchoredPosition.x;
 
+        statusText.enabled = false;
+
         CharactersStatus();
     }
 	
 	void Update()
 	{
         NoiseWhenMoving();
+
+        if (timer >= 30f)
+        {
+
+        }
+
+        timer = Time.time;
 	}
 
 	private void NoiseWhenMoving()
@@ -80,6 +91,8 @@ public class DreamManager : MonoBehaviour
             bonnieImage.sprite = bonnieSprites[0];
             goldenFreddyImage.enabled = false;
             puppetImage.enabled = false;
+
+            statusText.text = "err";
         }
         if (nightNumber == 1)
         {
@@ -87,6 +100,8 @@ public class DreamManager : MonoBehaviour
             bonnieImage.sprite = bonnieSprites[1];
             goldenFreddyImage.enabled = false;
             puppetImage.enabled = false;
+
+            statusText.text = "it's me";
         }
         else if (nightNumber == 2)
         {
@@ -94,6 +109,8 @@ public class DreamManager : MonoBehaviour
             bonnieImage.sprite = bonnieSprites[3];
             goldenFreddyImage.enabled = true;
             puppetImage.enabled = false;
+
+            statusText.text = "it's me";
         }
         else if (nightNumber == 3)
         {
@@ -101,6 +118,8 @@ public class DreamManager : MonoBehaviour
             bonnieImage.sprite = bonnieSprites[3];
             goldenFreddyImage.enabled = false;
             puppetImage.enabled = true;
+
+            statusText.text = "it's me";
         }
     }
 }
