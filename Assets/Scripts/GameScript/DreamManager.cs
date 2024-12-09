@@ -32,12 +32,14 @@ public class DreamManager : MonoBehaviour
     // Scripts
     SaveGameState saveGameState;
     SaveManager saveManager;
+    MoveInOffice moveInOffice;
 
     void Start()
 	{
         // Get scripts
         saveGameState = FindObjectOfType<SaveGameState>();
         saveManager = FindObjectOfType<SaveManager>();
+        moveInOffice = FindObjectOfType<MoveInOffice>();
 
         // Load
         nightNumber = SaveManager.LoadNightNumber();
@@ -99,6 +101,12 @@ public class DreamManager : MonoBehaviour
             if (childrenLaughtingAudio.isPlaying == true)
             {
                 childrenLaughtingAudio.Stop();
+            }
+
+            // Disable moving in office
+            if (moveInOffice.canMove == true)
+            {
+                moveInOffice.canMove = false;
             }
         }
 
