@@ -27,6 +27,12 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SaveIntroDreamPlayed(int played)
+    {
+        PlayerPrefs.SetInt("IntroDreamPlayed", played);
+        PlayerPrefs.Save();
+    }
+
     // Load
     public static string LoadLanguage()
 	{
@@ -73,6 +79,18 @@ public class SaveManager : MonoBehaviour
         else
         {
             return null;
+        }
+    }
+
+    public static int LoadIntroDreamPlayed()
+    {
+        if (PlayerPrefs.HasKey("IntroDreamPlayed"))
+        {
+            return PlayerPrefs.GetInt("IntroDreamPlayed");
+        }
+        else
+        {
+            return 0;
         }
     }
 }

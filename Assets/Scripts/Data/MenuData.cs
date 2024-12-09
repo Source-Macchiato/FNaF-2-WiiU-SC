@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuData : MonoBehaviour
 {
-    public float nightNumber;
+    public int nightNumber;
     public Text currentLanguageText;
     public GameObject gameTitle;
 
