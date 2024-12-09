@@ -23,7 +23,14 @@ public class RenderMovie : MonoBehaviour
 
         if (hasStarted && !movTexture.isPlaying)
         {
-            SceneManager.LoadScene("MainMenu");
+            if (SaveManager.LoadIntroDreamPlayed() == 0)
+            {
+                SceneManager.LoadScene("Dream");
+            }
+            else
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
         }
     }
 }
