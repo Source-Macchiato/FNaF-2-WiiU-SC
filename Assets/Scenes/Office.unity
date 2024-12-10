@@ -6491,9 +6491,9 @@ MonoBehaviour:
   MangleAI: 0
   BBAI: 0
   PaperpalsAI: 0
-  ToyBonnieAI: 0
-  ToyChicaAI: 0
-  ToyFreddyAI: 0
+  ToyBonnieAI: 7
+  ToyChicaAI: 7
+  ToyFreddyAI: 7
   WitheredBonnieAI: 0
   WitheredChicaAI: 0
   WitheredFreddyAI: 0
@@ -6561,7 +6561,7 @@ MonoBehaviour:
   OnCams: {fileID: 1204673110}
   CameraUI: {fileID: 352760811}
   MainCameras: {fileID: 980370711}
-  MainCameraBG: {fileID: 1638872951}
+  MainCameraBG: {fileID: 1325638747}
   RoomName: {fileID: 1776230291}
   RoomNames:
   - {fileID: 0}
@@ -10569,7 +10569,7 @@ RectTransform:
   m_GameObject: {fileID: 1812115515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.87874997, y: 0.9856249, z: 1}
+  m_LocalScale: {x: 0.9776094, y: 0.9856249, z: 1}
   m_Children: []
   m_Father: {fileID: 2101765863}
   m_RootOrder: 13
