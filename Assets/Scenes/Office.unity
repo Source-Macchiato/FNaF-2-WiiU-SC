@@ -2067,7 +2067,7 @@ GameObject:
   - component: {fileID: 584476043}
   - component: {fileID: 584476042}
   m_Layer: 0
-  m_Name: IM GAY
+  m_Name: TEMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6483,7 +6483,7 @@ MonoBehaviour:
   FazbearFeverAI: 
   GoldenFreddyChallengeAI: 
   currentAI: 
-  currentNight: 1
+  currentNight: 4
   TimeMultiplier: 1
   isNight7: 0
   PuppetAI: 0
@@ -6498,6 +6498,62 @@ MonoBehaviour:
   WitheredChicaAI: 0
   WitheredFreddyAI: 0
   WitheredFoxyAI: 0
+  AMTime: 
+  PuppetTime: 30
+  PuppetDeathTimer: 15
+  previousFullNessCircleIndex: -1
+  canDeathSeqeuence: 1
+  puppetEndoChance: 0
+  PuppetWarningState: 
+  MangleCamera: 12
+  BBCamera: 10
+  PaperpalsCamera: 4
+  ToyBonnieCamera: 9
+  ToyChicaCamera: 9
+  ToyFreddyCamera: 9
+  WitheredBonnieCamera: 8
+  WitheredChicaCamera: 8
+  WitheredFreddyCamera: 8
+  WitheredFoxyCamera: 8
+  GoldenFreddyMovement: 1.67
+  GoldenFreddyCameraTime: 5
+  GoldenFreddyPrepared: 0
+  GoldenFreddyInOffice: 0
+  GoldenFreddyInHall: 0
+  GoldenFreddyrandNum: 0
+  MangleMovement: 5
+  BBMovement: 5
+  PaperpalsMovement: 5
+  ToyBonnieMovement: 5
+  ToyBonnieMaskTimer: 1
+  ToyBonniePrepared: 0
+  ToyBonnieBlackoutTime: 0
+  ToyChicaMovement: 5
+  ToyChicaPrepared: 0
+  ToyChicaMaskTimer: 1
+  ToyFreddyMovement: 5
+  WitheredBonnieMovement: 5
+  WitheredChicaMovement: 5
+  WitheredFreddyMovement: 5
+  WitheredFoxyMovement: 5
+  WitheredFoxyPrepared: 0
+  MangleFlashed: 0
+  MangleMaskTimer: 1
+  ManglePrepared: 0
+  BBFlashed: 0
+  BBMaskTimer: 1
+  PaperpalsFlashed: 0
+  ToyBonnieFlashed: 0
+  ToyChicaFlashed: 0
+  ToyFreddyFlashed: 0
+  WitheredBonnieFlashed: 0
+  WitheredChicaFlashed: 0
+  WitheredFreddyFlashed: 0
+  WitheredFreddyPrepared: 0
+  WitheredFoxyFlashed: 0
+  BlackoutActive: 0
+  currentBlackout: 
+  BlackoutPrepared: 0
   MonitorAnimator: {fileID: 1193675043}
   SignalDisrupted: {fileID: 1069253979}
   MonitorUp: {fileID: 1467827104}
@@ -6620,25 +6676,272 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 21300000, guid: cf0f9efaf08ac8e4c886031c48cd71b7, type: 3}
-  ToyChicaDefaultCams: []
-  ToyChicaFlashlightCams: []
-  ToyFreddyDefaultCams: []
-  ToyFreddyFlashlightCams: []
-  BBDefaultCams: []
-  BBFlashlightCams: []
-  GoldenFreddyDefaultCams: []
-  GoldenFreddyFlashlightCams: []
-  WitheredFoxyDefaultCams: []
-  WitheredFoxyFlashlightCams: []
-  MangleDefaultCams: []
-  MangleFlashlightCams: []
-  WitheredFreddyDefaultCams: []
-  WitheredFreddyFlashlightCams: []
-  WitheredChicaDefaultCams: []
-  WitheredChicaFlashlightCams: []
-  WitheredBonnieDefaultCams: []
-  WitheredBonnieFlashlightCams: []
+  ToyChicaDefaultCams:
+  - {fileID: 21300000, guid: 72de46a0f8a400745bc8c9dff2edd83b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 98fbb66974efe454abb75c884c2d2397, type: 3}
+  - {fileID: 21300000, guid: ca1c15fd192736b49a1ec554da5db290, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 47bd68e35d01b9145a150050e623264f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 7760c837605c9754586b7c755d504026, type: 3}
+  ToyChicaFlashlightCams:
+  - {fileID: 21300000, guid: 6fd27872b8d32c24d86b0af5a3e08e74, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 4ece25c5194da5b4eb7e9d1a1d10317a, type: 3}
+  - {fileID: 21300000, guid: 39dbcff6416bdc44f82be5c0dead66cb, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 7b29670c39c466c4a97de4b3941d51c0, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: b5a9e030e62e8cb46b764570a12522ab, type: 3}
+  - {fileID: 21300000, guid: 7760c837605c9754586b7c755d504026, type: 3}
+  ToyFreddyDefaultCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 3838b6904ca1ef443b60e4e77de0ee52, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 2811ac43da62ea245b43879f0bc4a785, type: 3}
+  - {fileID: 21300000, guid: 2811ac43da62ea245b43879f0bc4a785, type: 3}
+  - {fileID: 21300000, guid: 82e17cbb0d27029429089dcc2ec54646, type: 3}
+  ToyFreddyFlashlightCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 8ec3498514925f54b862d0c61fea94c3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 2811ac43da62ea245b43879f0bc4a785, type: 3}
+  - {fileID: 21300000, guid: 82e17cbb0d27029429089dcc2ec54646, type: 3}
+  BBDefaultCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: ca1c15fd192736b49a1ec554da5db290, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  BBFlashlightCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 7cf59db9eca948146b2ec5b2982a5c12, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 66f17ac9a485b5240ae1a4e2a30555ae, type: 3}
+  GoldenFreddyDefaultCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  GoldenFreddyFlashlightCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 374259e9faa0333458c963e0825da558, type: 3}
+  WitheredFoxyDefaultCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  WitheredFoxyFlashlightCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 2af41f6a5eda5a04cb886ca02b18c937, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 62d3a0477df3e1748b1fc7f243761a07, type: 3}
+  MangleDefaultCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 574ca41eda6d1d0478f463da26aea434, type: 3}
+  MangleFlashlightCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: a101d46f3167fb943bc2046533d72f11, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 574ca41eda6d1d0478f463da26aea434, type: 3}
+  - {fileID: 21300000, guid: 9c554b67b17be7c4794cbbb03ee4960e, type: 3}
+  WitheredFreddyDefaultCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 901532a0047f66548ad715f52fb2ed8c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 3eef8ad643f784747bab795ff4389c49, type: 3}
+  WitheredFreddyFlashlightCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 5e599ce681e1cda408581c54a4a0fab6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: ec5d8d0620418114b80c8bc78883062e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 3eef8ad643f784747bab795ff4389c49, type: 3}
+  - {fileID: 21300000, guid: 3eef8ad643f784747bab795ff4389c49, type: 3}
+  WitheredChicaDefaultCams:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: f9b1004e53678f14d9609f6e7e61c078, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  WitheredChicaFlashlightCams:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 2677ae825f1a05542a164e76a7dcfb93, type: 3}
+  - {fileID: 21300000, guid: a6da0ebbbe226484c8e24e6fe08b2547, type: 3}
+  - {fileID: 21300000, guid: c0cf26edc8e351e45b5f98b04ff34b64, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  WitheredBonnieDefaultCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  WitheredBonnieFlashlightCams:
+  - {fileID: 21300000, guid: 66938668c0c2c1d46a5604ce4ee0c398, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: cd74096ac10d0f949832c77b998a0a78, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 71595b493d109214abb6ec1c70599e88, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 1c4dbb034f9ceb440afd1775a19265ae, type: 3}
+  - {fileID: 21300000, guid: b882a9c2ec8537146b85dd99d9c13aa7, type: 3}
   MangleInRooms:
+  - {fileID: 584476041}
   - {fileID: 584476041}
   - {fileID: 584476041}
   - {fileID: 584476041}
@@ -6692,6 +6995,8 @@ MonoBehaviour:
   LeftButtonUnLit: {fileID: 21300000, guid: ecab07f461ce7e5479b3139ae30c77ed, type: 3}
   RightButtonLit: {fileID: 21300000, guid: ad19ff67de4877f4a9e5de126408b859, type: 3}
   RightButtonUnLit: {fileID: 21300000, guid: d133722432c5b9f43beb312c7dda2be3, type: 3}
+  state: Office
+  flashLightTarget: MainHallway
 --- !u!1 &1204673108
 GameObject:
   m_ObjectHideFlags: 0
