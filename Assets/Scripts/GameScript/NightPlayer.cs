@@ -65,62 +65,62 @@ public class NightPlayer : MonoBehaviour {
 	public int WitheredChicaAI;
 	public int WitheredFreddyAI;
 	public int WitheredFoxyAI;
-	private string AMTime;
-	private float PuppetTime = 30f;
-	private float PuppetDeathTimer = 15f;
-	private int previousFullNessCircleIndex = -1; // Initialized to -1 to indicate no previous sprite
-	private bool canDeathSeqeuence = true;
-	private float puppetEndoChance;
-	private string PuppetWarningState;
-	private int MangleCamera = 12;
-	private int BBCamera = 10;
-	private int PaperpalsCamera = 4;
-	private int ToyBonnieCamera = 9;
-	private int ToyChicaCamera = 9;
-	private int ToyFreddyCamera = 9;
-	private int WitheredBonnieCamera = 8;
-	private int WitheredChicaCamera = 8;
-	private int WitheredFreddyCamera = 8;
-	private int WitheredFoxyCamera = 8;
-	private float GoldenFreddyMovement = 1.67f;
-	private float GoldenFreddyCameraTime = 5f;
-	private bool GoldenFreddyPrepared = false;
-	private bool GoldenFreddyInOffice = false;
-	private bool GoldenFreddyInHall = false;
-	private float GoldenFreddyrandNum;
-	private float MangleMovement = 5f;
-	private float BBMovement = 5f;
-	private float PaperpalsMovement = 5f;
-	private float ToyBonnieMovement = 5f;
-	private float ToyBonnieMaskTimer = 1f;
-	private bool ToyBonniePrepared;
-	private float ToyBonnieBlackoutTime;
-	private float ToyChicaMovement = 5f;
-	private bool ToyChicaPrepared;
-	private float ToyChicaMaskTimer = 1f;
-	private float ToyFreddyMovement = 5f;
-	private float WitheredBonnieMovement = 5f;
-	private float WitheredChicaMovement = 5f;
-	private float WitheredFreddyMovement = 5f;
-	private float WitheredFoxyMovement = 5f;
-	private bool WitheredFoxyPrepared;
-	private bool MangleFlashed;
-	private float MangleMaskTimer = 1f;
-	private bool ManglePrepared;
-	private bool BBFlashed;
-	private float BBMaskTimer = 1f;
-	private bool PaperpalsFlashed;
-	private bool ToyBonnieFlashed;
-	private bool ToyChicaFlashed;
-	private bool ToyFreddyFlashed;
-	private bool WitheredBonnieFlashed;
-	private bool WitheredChicaFlashed;
-	private bool WitheredFreddyFlashed;
-	private bool WitheredFreddyPrepared;
-	private bool WitheredFoxyFlashed;
-	private bool BlackoutActive;
-	private string currentBlackout;
-	private bool BlackoutPrepared;
+	public string AMTime;
+	public float PuppetTime = 30f;
+	public float PuppetDeathTimer = 15f;
+	public int previousFullNessCircleIndex = -1; // Initialized to -1 to indicate no previous sprite
+	public bool canDeathSeqeuence = true;
+	public float puppetEndoChance;
+	public string PuppetWarningState;
+	public int MangleCamera = 12;
+	public int BBCamera = 10;
+	public int PaperpalsCamera = 4;
+	public int ToyBonnieCamera = 9;
+	public int ToyChicaCamera = 9;
+	public int ToyFreddyCamera = 9;
+	public int WitheredBonnieCamera = 8;
+	public int WitheredChicaCamera = 8;
+	public int WitheredFreddyCamera = 8;
+	public int WitheredFoxyCamera = 8;
+	public float GoldenFreddyMovement = 1.67f;
+	public float GoldenFreddyCameraTime = 5f;
+	public bool GoldenFreddyPrepared = false;
+	public bool GoldenFreddyInOffice = false;
+	public bool GoldenFreddyInHall = false;
+	public float GoldenFreddyrandNum;
+	public float MangleMovement = 5f;
+	public float BBMovement = 5f;
+	public float PaperpalsMovement = 5f;
+	public float ToyBonnieMovement = 5f;
+	public float ToyBonnieMaskTimer = 1f;
+	public bool ToyBonniePrepared;
+	public float ToyBonnieBlackoutTime;
+	public float ToyChicaMovement = 5f;
+	public bool ToyChicaPrepared;
+	public float ToyChicaMaskTimer = 1f;
+	public float ToyFreddyMovement = 5f;
+	public float WitheredBonnieMovement = 5f;
+	public float WitheredChicaMovement = 5f;
+	public float WitheredFreddyMovement = 5f;
+	public float WitheredFoxyMovement = 5f;
+	public bool WitheredFoxyPrepared;
+	public bool MangleFlashed;
+	public float MangleMaskTimer = 1f;
+	public bool ManglePrepared;
+	public bool BBFlashed;
+	public float BBMaskTimer = 1f;
+	public bool PaperpalsFlashed;
+	public bool ToyBonnieFlashed;
+	public bool ToyChicaFlashed;
+	public bool ToyFreddyFlashed;
+	public bool WitheredBonnieFlashed;
+	public bool WitheredChicaFlashed;
+	public bool WitheredFreddyFlashed;
+	public bool WitheredFreddyPrepared;
+	public bool WitheredFoxyFlashed;
+	public bool BlackoutActive;
+	public string currentBlackout;
+	public bool BlackoutPrepared;
 
 	[Header("Cams")]
 	public Animator MonitorAnimator;
@@ -220,8 +220,8 @@ public class NightPlayer : MonoBehaviour {
 	public Sprite RightButtonUnLit;
 	private Sprite MainOfficeDefaultSprite;
 
-	private string state = "Office";
-	private string flashLightTarget = "MainHallway";
+	public string state = "Office";
+	public string flashLightTarget = "MainHallway";
 
 	private MoveInOffice moveInOffice;
 
@@ -1543,7 +1543,7 @@ public class NightPlayer : MonoBehaviour {
 		{
 			if (!flashlightActive)
 			{
-				Debug.Log(ToyFreddyCamera);
+				Debug.Log("ToyFreddy Cam : " + ToyFreddyCamera);
 				if (ToyFreddyCamera == 10)
 				{
 					MainCameraBG.sprite = ToyFreddyDefaultCams[9];
