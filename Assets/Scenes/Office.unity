@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7033,7 +7033,7 @@ MonoBehaviour:
   ToyBonnieBlackout: {fileID: 136335137}
   ToyChicaBlackout: {fileID: 716411104}
   ToyFreddyOffice: {fileID: 353090572}
-  JumpscareAnimator: {fileID: 584476043}
+  JumpscareAnimator: {fileID: 55881369}
   PuppetWarning: {fileID: 584476043}
   MainOfficeImage: {fileID: 1243597345}
   LeftButtonImage: {fileID: 199684462}
