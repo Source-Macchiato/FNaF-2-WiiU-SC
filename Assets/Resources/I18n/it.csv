@@ -1,43 +1,168 @@
-mainmenu.newgame,New Game
-mainmenu.continue,Continue
-mainmenu.options,Options
-mainmenu.credits,Credits
-mainmenu.language,Language
+mainmenu.newgame,Nuova Partita
+mainmenu.continue,Continua
+mainmenu.customnight,Notte Personalizzata
+mainmenu.options,Impostazioni
+mainmenu.credits,Crediti
+mainmenu.language,Lingua
 mainmenu.layout,Layout
 mainmenu.online,Online
-mainmenu.analyticdata,Analytic Data
+mainmenu.analyticdata,Analisi dei dati
 mainmenu.audio,Audio
-mainmenu.generalvolume,General volume
-mainmenu.musicvolume,Music volume
-mainmenu.voicevolume,Voice volume
-mainmenu.sfxvolume,Sound effects volume
-mainmenu.update,"A new version is available, go download it on itch.io !"
-mainmenu.sharedata,Do you accept the sharing of statistical information with us ?
-mainmenu.night,Night
-customnight.ready,Ready
-difficulty.easy,Easy
-difficulty.medium,Medium
-difficulty.hard,Hard
-difficulty.extreme,Extreme
-nextnight.firstnight,1st Night
-nextnight.secondnight,2nd Night
-nextnight.thirdnight,3rd Night
-nextnight.fourthnight,4th Night
-nextnight.fifthnight,5th Night
-nextnight.sixthnight,6th Night
-nextnight.seventhnight,7th Night
-office.flashlight,flashlight
-office.useflashlight,"Press & hold <sprite name=""WiiU-A""> to use flashlight."
-camera.partyroomone,Party Room 1
-camera.partyroomtwo,Party Room 2
-camera.partyroomthree,Party Room 3
-camera.partyroomfour,Party Room 4
-camera.leftairvent,Left Air Vent
-camera.rightairvent,Right Air Vent
-camera.mainhall,Main Hall
-camera.partsservice,Parts/Service
-camera.showstage,Show Stage
-camera.gamearea,Game Area
-camera.prizecorner,Prize Corner
-camera.kidscove,Kid's Cove
-monitor.musicbox,Wind Up Music Box
+mainmenu.generalvolume,Volume generale
+mainmenu.musicvolume,Volume musica
+mainmenu.voicevolume,Volume voci
+mainmenu.sfxvolume,Volume effetti sonori
+mainmenu.update,"È disponibile una nuova versione, scaricala su itch.io !"
+mainmenu.sharedata,Accetti al condividere data con Source Macchiato come il numero di volte che hai aperto il gioco?
+mainmenu.night,Notte Personalizzata
+customnight.customizenight,Personalizza la Notte
+customnight.twenty,20/20/20/20
+customnight.newandshiny,Nuovo e Lucente
+customnight.doubletrouble,Doppio Guaio
+customnight.nightofmisfits,Notte dei Disadattati
+customnight.foxyfoxy,Foxy Foxy
+customnight.ladiesnight,Serata tra Donne
+customnight.freddyscircus,Circo di Freddy
+customnight.cupcakechallenge,Sfida Cupcake
+customnight.fazbearfever,Febbre Fazbear
+customnight.goldenfreddy,Golden Freddy
+customnight.ready,Pronto
+difficulty.easy,Facile
+difficulty.medium,Medio
+difficulty.hard,Difficile
+difficulty.extreme,Estremo
+nextnight.firstnight,Prima Notte
+nextnight.secondnight,Seconda Notte
+nextnight.thirdnight,Terza Notte
+nextnight.fourthnight,Quarta Notte
+nextnight.fifthnight,Quinta Notte
+nextnight.sixthnight,Sesta Notte
+nextnight.seventhnight,Settima Notte
+office.flashlight,torcia
+office.useflashlight,"Tieni premuto <sprite name=""WiiU-A""> per usare la torcia."
+camera.partyroomone,Sala delle feste 1
+camera.partyroomtwo,Sala delle feste 2
+camera.partyroomthree,Sala delle feste 3
+camera.partyroomfour,Sala delle feste 4
+camera.leftairvent,Presa d'aria sinistra
+camera.rightairvent,Presa d'aria destra
+camera.mainhall,Sala Principale
+camera.partsservice,Officina
+camera.showstage,Palcoscenico
+camera.gamearea,Sala Giochi
+camera.prizecorner,Banco dei Premi
+camera.kidscove,Baia dei bambini
+monitor.musicbox,Carillon a carica
+monitor.holdmusicbox,"Tieni premuto <sprite name=""WiiU-B"">"
+subtitle.phoneringtone,*Suoneria del Telefono*
+nightone.phoneguy.lineone,"Uh, ciao? Salve, ciao? Uh, ciao e benvenuto al tuo nuovo lavoro estivo al nuovo e migliorato Freddy Fazbear's Pizza."
+nightone.phoneguy.linetwo,"Uh, Sono qui per parlarti di alcune delle cose che puoi aspettarti di vedere durante la tua prima settimana qui"
+nightone.phoneguy.linethree,e per aiutarti a iniziare questo nuovo ed entusiasmante percorso di carriera.
+nightone.phoneguy.linefour,"Uh, ora, voglio che tu dimentichi tutto ciò che potresti aver sentito sulla vecchia posizione di lavoro, sai come."
+nightone.phoneguy.linefive,"Uh, alcune persone hanno ancora un'impressione un po' negativa dell'azienda."
+nightone.phoneguy.linesix,"Uh... quel vecchio ristorante è stato lasciato a marcire per un bel po', ma voglio rassicurarti,"
+nightone.phoneguy.lineseven,"Fazbear Entertainment si impegna a garantire il divertimento in famiglia e, soprattutto, la sicurezza."
+nightone.phoneguy.lineheight,"Hanno speso una piccola fortuna in questi nuovi animatronici, uh, nel riconoscimento facciale,"
+nightone.phoneguy.linenine,"mobilità avanzata, li hanno anche lasciati camminare in giro durante il giorno. Non è magnifico? *si schiarisce la voce* Ma soppratutto,"
+nightone.phoneguy.lineten,"sono tutti collegati a una specie di database criminale, così possono individuare un predatore a un miglio di distanza."
+nightone.phoneguy.lineeleven,"Cavolo, dovremmo pagare loro per proteggere te."
+nightone.phoneguy.linetwelve,"Uh, detto questo, nessun nuovo sistema ha i suoi... difetti."
+nightone.phoneguy.linethirteen,Uh... sei solo la seconda guardia a lavorare in quel posto.
+nightone.phoneguy.linefourteen,"Uh, la prima guardia ha finito la sua settimana, ma si è lamentato delle... condizioni di lavoro."
+nightone.phoneguy.linefifteen,"Uh, lo abbiamo transferito al turno giornaliero, dunque hey, fortunato te, giusto?"
+nightone.phoneguy.linesixteen,"Uh principalmente ha espresso preoccupazione per il fatto che alcuni personaggi sembrassero muoversi di notte,"
+nightone.phoneguy.lineseventeen,"e persino tentare di entrare nel suo ufficio. Ora, da quello che sappiamo, quello dovrebbe essere impossibile."
+nightone.phoneguy.lineeighteen,"Uh, quel ristorante dovrebbe essere il posto più sicuro sulla terra."
+nightone.phoneguy.linenineteen,"Quindi, anche se i nostri ingegneri non hanno una vera spiegazione per questo, la nostra teoria è che..."
+nightone.phoneguy.linetwenty,"i robot non hanno mai ricevuto una vera ""modalità notturna"". Dunque quando si fà silenzioso, credono di essere nella stanza sbagliata,"
+nightone.phoneguy.linetwentyone,"dunque vanno a cercare dove si trovano le persone, e in questo caso, è il tuo ufficio."
+nightone.phoneguy.linetwentytwo,"Dunque la nostra soluzione temporanea è questa: c'è un carillon vicino al Banco dei Premi,"
+nightone.phoneguy.linetwentythree,ed è modificato per essere caricato a distanza.
+nightone.phoneguy.linetwentyfour,"dunque, di tanto in tanto, passa alla trasmissione video del Banco dei Premi e caricalo per qualche secondo."
+nightone.phoneguy.linetwentyfive,"Non sembra influenzare tutti gli animatronici, ma fà effetto su... uno di loro. *si schiarisce la voce*"
+nightone.phoneguy.linetwentysix,"Uh, e per quanto riguarda il resto di loro, abbiamo una soluzione ancora più semplice."
+nightone.phoneguy.linetwentyseven,"Vedi, sembra esserci un piccolo guasto nel sistema,"
+nightone.phoneguy.linetwentyheight,"qualcosa riguardo i robot che ti vedono come un esoscheletro senza addosso il suo costume,"
+nightone.phoneguy.linetwentynine,"e vogliono infilarti in un vestito, quindi, ti abbiamo dato una testa vuota di Freddy Fazbear, problema risolto!"
+nightone.phoneguy.linethirty,"Puoi indossarla in qualsiasi momento, e lasciarla su per quanto vuoi."
+nightone.phoneguy.linethirtyone,"Alla fine, tutto ciò che è entrato, tornerà indietro."
+nightone.phoneguy.linethirtytwo,"Uh, qualcos'altro che vale la pena menzionare è il design moderno dell'edificio."
+nightone.phoneguy.linethirtythree,"Potresti aver notato che non ci sono porte da chiudere. Ma ehi, hai una luce!"
+nightone.phoneguy.linethirtyfour,"E pure se la tua torcia può finire senza energia, l'edificio non può. Dunque, non preoccuparti che il posto diventi buio."
+nightone.phoneguy.linethirtyfive,"Beh, penso che sia tutto. Uh, dovresti essere a cavallo. Uh, controlla le luci, indossa la maschera di Freddy se ti serve,"
+nightone.phoneguy.linethirtysix,"uh, tieni il carillon carico, un gioco da ragazzi."
+nightone.phoneguy.linethirtyseven,"Passa una buona notte, ci sentiamo domani."
+nighttwo.phoneguy.lineone,"Ah...ciao, salve! Uh, vedi, ti ho detto che la prima notte non sarebbe stata un problema. Sei un talento naturale!"
+nighttwo.phoneguy.linetwo,"Uh, ormai sono sicuro che hai notato i vecchi modelli seduti nell'ufficina."
+nighttwo.phoneguy.linethree,"Uh, provengono dal vecchio luogo. Ora li usiamo solo per parti di ricambio."
+nighttwo.phoneguy.linefour,"All'inizio li volevamo riparare... uh,"
+nighttwo.phoneguy.linefive,"avevano persino iniziato ad adattarli con alcune delle tecnologie più recenti,"
+nighttwo.phoneguy.linesix,"ma erano semplicemente troppo brutti, sai? L'odore... uh,"
+nighttwo.phoneguy.lineseven,dunque la compagnia ha deciso di prendere una direzione completamente nuova e di farli molto adatti ai bambini.
+nighttwo.phoneguy.lineheight,"Uh, quelli più vecchi non dovrebbero essere in grado di camminare in giro,"
+nighttwo.phoneguy.linenine,"ma se lo fanno, il trucco con la maschera di Freddy dovrebbe funzionare anche su di loro, dunque, beh, non importa."
+nighttwo.phoneguy.lineten,Uh...heh...amo i vecchi personaggi. Hai mai visto Foxy il pirata?
+nighttwo.phoneguy.lineeleven,"Oh aspetta...oh giusto, Foxy. Uh, hey ascolta, quello è sempre stato un pò nervoso, uh..."
+nighttwo.phoneguy.linetwelve,"Non sono sicuro che il trucco della maschera di Freddy funzionerò su di lui, uh."
+nighttwo.phoneguy.linethirteen,"se per qualche ragione si attiva durante la notte e lo vedi in piedi nel corridoio,"
+nighttwo.phoneguy.linefourteen,basta che gli lampeggi la tua torcia di tanto in tanto.
+nighttwo.phoneguy.linefifteen,Quei vecchi modelli erano sempre disorientati dalle luci forti.
+nighttwo.phoneguy.linesixteen,"causavano il riavvio del sistema, o qualcosa del genere."
+nighttwo.phoneguy.lineseventeen,"Uh, a pensarci, potresti volerlo provare in ogni stanza che possa avere qualcosa di indesiderato in essa."
+nighttwo.phoneguy.lineeighteen,Potrebbe tenerli fermi per qualche secondo.
+nighttwo.phoneguy.linenineteen,(Quel problema technico?) potrebbe essere anche in alcuno dei nuovi modelli.
+nighttwo.phoneguy.linetwenty,Un'altra cosa - non ti dimenticare il carillon.
+nighttwo.phoneguy.linetwentyone,"Sarò onesto, non mi è mai piaciuta quella specie di marionetta. Stava sempre..."
+nighttwo.phoneguy.linetwentytwo,"pensando, e poteva andare ovunque..."
+nighttwo.phoneguy.linetwentythree,"Non penso che una maschera di Freddy la ingannerebbe, quindi non dimenticarti del carillon."
+nighttwo.phoneguy.linetwentyfour,"In ogni caso, sono sicuro che non sarà un problema. Uh, passa una buona notte, e ci sentiamo domani."
+nightthree.phoneguy.lineone,Ciao ciao! Vedi? Te l'ho detto che non avresti avuto problemi!
+nightthree.phoneguy.linetwo,Emm...uh... Foxy è mai apparso nel corridoio? Probabilmente no. Ero solo curioso.
+nightthree.phoneguy.linethree,"Come ho già detto, lui è sempre stato il mio preferito. Hanno provato a ricreare Foxy, sai?"
+nightthree.phoneguy.linefour,"Uh, credevano che il primo fosse troppo spaventoso,"
+nightthree.phoneguy.linefive,dunque lo hanno ridisegnato per renderlo più adatto hai bambini e lo hanno messo nella Baia dei bambini.
+nightthree.phoneguy.linesix,"Per intrattenere i ragazzi, sai..."
+nightthree.phoneguy.lineseven,Ma i ragazzini di oggi non riescono propio a tenere le mani a posto.
+nightthree.phoneguy.lineheight,Lo staff deve letteralmente rimettere insieme Foxy dopo ogni turno.
+nightthree.phoneguy.linenine,Quindi alla fine hanno smesso di provarci e lo hanno lasciato come una specie di
+nightthree.phoneguy.lineten,"""smonta e ricostruisci"" tipo di attrazzione."
+nightthree.phoneguy.lineeleven,Ora è solo un pasticcio di parti.
+nightthree.phoneguy.linetwelve,"Penso che i dipendenti si riferiscano a lui semplicemente come ""Mangle."" Uh..."
+nightthree.phoneguy.linethirteen,"Oh, hey, prima che vada, uh, volevo tranquillizzarti riguardo a tutte le voci che potresti aver sentito ultimamente."
+nightthree.phoneguy.linefourteen,"Uh, sai come queste storie locali vanno e vengono e raramente significano qualcosa."
+nightthree.phoneguy.linefifteen,"Posso assicurarti personalmente che, qualunque cosa succeda là fuori,"
+nightthree.phoneguy.linesixteen,"e per quanto tragica possa essere, non ha nulla a che fare con noi."
+nightthree.phoneguy.lineseventeen,Sono solo voci e speculazioni... gente che cerca di fare soldi. Sai...
+nightthree.phoneguy.lineeighteen,"Uh, la nostra guardia durante il giorno non ha segnalato nulla di insolito. Ed è di guardia dall'apertura alla chiusura."
+nightthree.phoneguy.linenineteen,"Okay, beh comunque, resta lì e ti parlerò domani."
+nightfour.phoneguy.lineone,"Ciao? Salve? Uh, hey, quarta notte! Te lo avevo detto che ci avresti preso la mano!"
+nightfour.phoneguy.linetwo,"Ok, quindi, giusto per aggiornarti, uh, c'è stata una specie di, uh, indagine in corso."
+nightfour.phoneguy.linethree,"Uh, potremmo finire per dover chiudere per qualche giorno... non so."
+nightfour.phoneguy.linefour,Voglio sottolineare però che in realta è solo una precauzione
+nightfour.phoneguy.linefive,"Uh, Fazbear Entertainment nega qualsiasi illecito."
+nightfour.phoneguy.linesix,Queste cose accadono a volte. Uhm... Si sistemerà tutto in pochi giorni.
+nightfour.phoneguy.lineseven,"Tieni d'occhio la situazione e ti terrò aggiornato. Uh, a proposito,"
+nightfour.phoneguy.lineheight,"cerca di evitare il contatto visivo con qualsiasi animatronico stasera, se possibile."
+nightfour.phoneguy.linenine,"Qualcuno potrebbe aver manomesso i loro sistemi di riconoscimento facciale, non ne siamo sicuri."
+nightfour.phoneguy.lineten,"Ma i personaggi si stanno comportando in modo molto insolito, quasi aggressivo nei confronti dello staff."
+nightfour.phoneguy.lineeleven,"Interagiscono bene con i bambini, ma quando incontrano un adulto, si limitano a... fissarli."
+nightfour.phoneguy.linetwelve,"Uh... Comunque, tieni duro. Passerà tutto. Buona notte!"
+nightfive.phoneguy.lineone,"Salve, ciao? Hey, bel lavoro, notte 5! Um hey, um, tieni gli occhi aperti stasera, ok?"
+nightfive.phoneguy.linetwo,"Um, da quello che ho capito, l'edificio è bloccato, uh"
+nightfive.phoneguy.linethree,"a nessuno è permesso entrare o uscire, sai, soprattutto per quanto riguarda... i precedenti dipendenti."
+nightfive.phoneguy.linefour,"Uhm, quando avremo sistemato tutto, potremmo spostarti al turno di giorno, una posizione è appena diventata... disponibile."
+nightfive.phoneguy.linefive,"Uh, non abbiamo ancora un sostituto per il tuo turno, ma ci stiamo lavorando."
+nightfive.phoneguy.linesix,Proveremo a contattare il proprietario originale del ristorante.
+nightfive.phoneguy.lineseven,"Uh, penso che il nome del posto fosse ""Fredbear's Family Diner"" o qualcosa del genere."
+nightfive.phoneguy.lineheight,"Però è chiuso da anni, dubito che riusciremo a rintracciare qualcuno."
+nightfive.phoneguy.linenine,"Bene, resisti solo per un'altra notte! Uh, aspetta lì! Buona fortuna!"
+nightsix.phoneguy.lineone,"Ciao? Ciao...uh...cosa diavolo stai facendo lì, non hai ricevuto il promemoria,"
+nightsix.phoneguy.linetwo,"uh, il posto è chiuso, almeno per un po'."
+nightsix.phoneguy.linethree,"Qualcuno ha usato uno dei costumi. Ne avevamo uno in avanzo, un costume giallo,"
+nightsix.phoneguy.linefour,qualcuno lo ha indossato...ora nessuno di loro si stà comportando bene.
+nightsix.phoneguy.linefive,"Ascolta, ehm... finisci il tuo turno, è più sicuro che cercare di andartene nel cuore della notte."
+nightsix.phoneguy.linesix,"Uh, abbiamo un altro evento in programma per domani, un compleanno."
+nightsix.phoneguy.lineseven,"Farai il turno di giorno, indosserai la tua uniforme, starai vicino agli animatronici,"
+nightsix.phoneguy.lineheight,"assicurati che non facciano del male a nessuno, okay, per ora resisti solo alla notte,"
+nightsix.phoneguy.linenine,"uh, quando il posto alla fine riaprirà, probabilmente farò io stesso il turno di notte."
+nightsix.phoneguy.lineten,"Ok, buonanotte e buona fortuna."
