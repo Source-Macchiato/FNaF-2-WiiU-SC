@@ -1,0 +1,168 @@
+mainmenu.newgame,Neues Spiel
+mainmenu.continue,Fortsetzen
+mainmenu.customnight,Personalisierte Nacht
+mainmenu.options,Optionen
+mainmenu.credits,Credits
+mainmenu.language,Sprache
+mainmenu.layout,Layout
+mainmenu.online,Online
+mainmenu.analyticdata,Analytische Daten
+mainmenu.audio,Audio
+mainmenu.generalvolume,Allgemeine Lautstärke
+mainmenu.musicvolume,Musiklautstärke
+mainmenu.voicevolume,Stimmenlautstärke
+mainmenu.sfxvolume,Lautstärke der Soundeffekte
+mainmenu.update,Eine neue Version ist verfügbar! Lade sie auf itch.io herunter!
+mainmenu.sharedata,Akzeptierst du die Weitergabe statistischer Information an uns?
+mainmenu.night,Nacht
+customnight.customizenight,Nacht personalisieren
+customnight.twenty,20/20/20/20
+customnight.newandshiny,Neu und Glänzend
+customnight.doubletrouble,Doppelter Ärger
+customnight.nightofmisfits,Nacht der Außenseiter
+customnight.foxyfoxy,Foxy Foxy
+customnight.ladiesnight,Ladies Night
+customnight.freddyscircus,Freddy's Zirkus
+customnight.cupcakechallenge,Cupcake Challenge
+customnight.fazbearfever,Fazbear Fieber
+customnight.goldenfreddy,Golden Freddy
+customnight.ready,Bereit
+difficulty.easy,Einfach
+difficulty.medium,Medium
+difficulty.hard,Schwer
+difficulty.extreme,Extrem
+nextnight.firstnight,Nacht 1
+nextnight.secondnight,Nacht 2
+nextnight.thirdnight,Nacht 3
+nextnight.fourthnight,Nacht 4
+nextnight.fifthnight,Nacht 5
+nextnight.sixthnight,Nacht 6
+nextnight.seventhnight,Nacht 7
+office.flashlight,Taschenlampe
+office.useflashlight,"Drücke & halte <sprite name=""WiiU-A""> um die Taschenlampe zu benutzen."
+camera.partyroomone,Party Raum 1
+camera.partyroomtwo,Party Raum 2
+camera.partyroomthree,Party Raum 3
+camera.partyroomfour,Party Raum 4
+camera.leftairvent,Linker Luftschacht
+camera.rightairvent,Rechter Luftschacht
+camera.mainhall,Hauptflur
+camera.partsservice,Ersatzteile/Dienst
+camera.showstage,Bühne
+camera.gamearea,Spielhalle
+camera.prizecorner,Preishalle
+camera.kidscove,Kinderbereich
+monitor.musicbox,Spieluhr aufziehen
+monitor.holdmusicbox,"Halte <sprite name=""WiiU-B"">"
+subtitle.phoneringtone,*Telefon klingelt*
+nightone.phoneguy.lineone,"Ähhm, hallo? Hallo, hallo? Ähhm, hallo und herzlich Willkommen in deinen neuen Sommerjob, hier im neuen und verbesserten Freddy Fazbear's Pizza. "
+nightone.phoneguy.linetwo,"Ähhm, Ich bin hier um dich in einigen Dingen einzuführen, welche du in der ersten Woche hier erwarten kannst"
+nightone.phoneguy.linethree,und um dir zu helfen dich in dieser neuen und spannenden Karriere wohlzufühlen.
+nightone.phoneguy.linefour,"Ähhm, zuerst möchte ich, dass du alles vergisst was du möglicherweise vom alten Lokal gehört hast, du weißt."
+nightone.phoneguy.linefive,"Ähhm, manche Leute haben immer noch einen etwas negativen Eindruck von der Firma."
+nightone.phoneguy.linesix,"Ähhm... Das alte Restaurant hat man ganz schön lange vergammeln lassen, aber ich möchte dich beruhigen,"
+nightone.phoneguy.lineseven,"Fazbear Entertainment engagiert sich für Familienspaß und über alles andere, Sicherheit."
+nightone.phoneguy.lineheight,"Sie haben ein kleines Vermögen für die neuen Figuren ausgegeben, ähhm, Gesichtserkennung,"
+nightone.phoneguy.linenine,"erweiterte Mobilität, Sie lassen sie sogar während des Tages frei herumlaufen. Ist das nicht schön? *räuspern* Aber am wichtigsten ist, "
+nightone.phoneguy.lineten,"sie sind alle mit einer Art Datenbank für Kriminelle verbunden, also können die einen Räuber von einer Meile aus spüren."
+nightone.phoneguy.lineeleven,"Hach, wir sollten eigentlich die bezahlen damit sie dich bewachen können."
+nightone.phoneguy.linetwelve,"Ähhm, jetzt da wir Das hinter uns haben, es gibt keine neue System ohne... Kicks."
+nightone.phoneguy.linethirteen,Ähhm... Du bist grad mal erst der zweite Nachtwächter der hier arbeitet.
+nightone.phoneguy.linefourteen,"Ähhm, der erste Typ ist mit seiner Woche durch, aber er hat sich über die Verhältnisse... beschwert."
+nightone.phoneguy.linefifteen,"Ähhm, wir haben ihn rüber zur Tagesschicht geschickt, also hey, glück gehabt, richtig?"
+nightone.phoneguy.linesixteen,"Hauptsächlich war sein Bedenken, dass bestimmte Charaktere während der Nacht anscheinend herumliefen,"
+nightone.phoneguy.lineseventeen,"und sogar versucht haben in sein Büro zu kommen. Nun, von was wir wissen sollte so etwas unmöglich sein."
+nightone.phoneguy.lineeighteen,"Ähhm, dieses Restaurant sollte der sicherste Ort auf Erden sein."
+nightone.phoneguy.linenineteen,"So, unsere Ingenieure haben keine richtige Erklärung dafür, also ist die mögliche Theorie..."
+nightone.phoneguy.linetwenty,"den Figuren hat man nie einen richtigen ""Nacht-Modus"" gegeben. Also wenn es ruhig wird, denken sie, dass sie im falschen Raum sind,"
+nightone.phoneguy.linetwentyone,also dann suchen sie wo die Leute sind und in diesem Fall ist es ihr Büro.
+nightone.phoneguy.linetwentytwo,"Also unsere temporäre Lösung Dafür ist: Es gibt eine Spieluhr hinten in der Preishalle,"
+nightone.phoneguy.linetwentythree,"und sie ist so manipuliert, dass Sie von der Ferne aufgezogen werden kann."
+nightone.phoneguy.linetwentyfour,"Also so, ab und zu mal solltest du rüber zum Video der Preishalle wechseln und die Uhr ein paar Sekunden lang aufziehen."
+nightone.phoneguy.linetwentyfive,"Es sieht nicht so aus als würde es alle Figuren beeinflussen, aber Dies tut es... bei einem von denen. *räuspern*"
+nightone.phoneguy.linetwentysix,"Ähhm, und was dem Rest betrifft, haben wir sogar eine einfachere Lösung."
+nightone.phoneguy.linetwentyseven,"Du siehst, es gibt vielleicht einen kleinen Glitch im System,"
+nightone.phoneguy.linetwentyheight,"etwas über den Figuren, wie sie dich als einen Endoskelett ohne Anzug sehen"
+nightone.phoneguy.linetwentynine,"und dass die dich in einen Anzug stopfen möchten, aber keine Sorge, wir haben dir einen leeren Freddy Fazbear Kopf gegeben, Problem gelöst!"
+nightone.phoneguy.linethirty,"Du kannst ihn jederzeit aufsetzen, und ihn tragen so lange wie du möchtest."
+nightone.phoneguy.linethirtyone,"Schließlich wird alles, was einwandern wird, auch wieder auswandern."
+nightone.phoneguy.linethirtytwo,"Ähhm, noch etwas was bemerkbar ist, ist das moderne Design vom Gebäude."
+nightone.phoneguy.linethirtythree,"Dir ist wahrscheinlich aufgefallen, dass es keine Türen zum Schließen gibt, heh. Aber hey, du hast eine Taschenlampe!"
+nightone.phoneguy.linethirtyfour,"Und auch wenn deine Taschenlampe leer werden kann, kann das Gebäude dies nicht tun. Also brauchst du dir keine Sorgen zu machen, dass das Gebäude dunkel werden kann."
+nightone.phoneguy.linethirtyfive,"Ja, Ich glaube das war's. Ähhm, du solltest erleuchtet sein. Ähhm, prüfe die Leuchten, zieh den Freddy Kopf an wenn es nötig ist,"
+nightone.phoneguy.linethirtysix,"ähhm, lass die Spieluhr aufgedreht, ein wahres Kinderspiel."
+nightone.phoneguy.linethirtyseven,"Habe eine gute Nacht, und ich werde morgen mit dir plaudern."
+nighttwo.phoneguy.lineone,"Ah... Hallo, hallo! Ähhm, siehst du, Ich hab dir gesagt, dass die erste Nacht kein Problem sein wird. Du bist ein Naturtalent!"
+nighttwo.phoneguy.linetwo,"Ähhm, inzwischen bin ich mir sicher, dass du die alten Modelle im Hinterzimmer gesehen hast."
+nighttwo.phoneguy.linethree,"Ähhm, Diese sind vom vorherigen Ort. Wir nutzen Die nur noch für Ersatzteile."
+nighttwo.phoneguy.linefour,"Zuerst kam die Idee, Diese zu reparieren... ähhm,"
+nighttwo.phoneguy.linefive,"Sie haben sogar damit angefangen sie mit ein bisschen von unserer neuen Technologie nachzurüsten,"
+nighttwo.phoneguy.linesix,"aber sie waren so hässlich, weißt du? Der Geruch... ähhm,"
+nighttwo.phoneguy.lineseven,also hat sich die Firma dazu entschieden eine komplett neue Richtung zu gehen und sie super kinderfreundlich zu machen.
+nighttwo.phoneguy.lineheight,"Ähhm, diese älteren Dinger sollten nicht die Möglichkeit haben herumzulaufen,"
+nighttwo.phoneguy.linenine,"aber wenn sie es tun, dann sollte der ganze Freddy Kopf Trick bei denen auch funktionieren, also, was auch immer."
+nighttwo.phoneguy.lineten,Ähhm...heh...Ich liebe diese alten Charaktere. Hast du jemals Foxy den Piraten gesehen?
+nighttwo.phoneguy.lineeleven,"Oh warte, warte mal... oh ja, Foxy. Ähhm, hey hör zu, dieser war immer etwas nervös, ähhm..."
+nighttwo.phoneguy.linetwelve,"Ich bin mir nicht sicher ob der Freddy Kopf Trick bei Foxy funktionieren wird, ähhm."
+nighttwo.phoneguy.linethirteen,"Wenn er sich aus welchem Grund auch immer während der Nacht aktiviert und du ihn am weiten Ende des Flurs siehst,"
+nighttwo.phoneguy.linefourteen,dann brauchst du ihn nur hin und wieder anzuleuchten.
+nighttwo.phoneguy.linefifteen,Diese älteren Modelle haben sich bei grellen Licht immer desorientiert.
+nighttwo.phoneguy.linesixteen,"Es hat einen Systemneustart verursacht, oder so etwas."
+nighttwo.phoneguy.lineseventeen,"Ähhm, wenn ich darüber nachdenke, du möchtest das vielleicht mal in jeden Raum versuchen, wo etwas unerwünschtes sei."
+nighttwo.phoneguy.lineeighteen,Es könnte sie für ein paar Sekunden an Ort und Stelle festhalten.
+nighttwo.phoneguy.linenineteen,Dieser Glitch könnte auch in ein paar von den neueren Modellen sein.
+nighttwo.phoneguy.linetwenty,Eine Sache noch- vergesse die Spieluhr nicht.
+nighttwo.phoneguy.linetwentyone,"Um ehrlich zu sein, Ich mochte dieses Puppending noch nie. Es hat immer..."
+nighttwo.phoneguy.linetwentytwo,gedacht und es kann auch überall hingehen...
+nighttwo.phoneguy.linetwentythree,"Ich denke nicht, dass eine Freddy Maske ihn reinlegen wird, also vergiss einfach die Spieluhr nicht."
+nighttwo.phoneguy.linetwentyfour,"Was auch immer, Ich bin mir sicher, dass es kein Problem sein wird. Ähhm, hab eine gute Nacht und morgen werde ich wieder reden."
+nightthree.phoneguy.lineone,"Hallo hallo! Siehste? Ich hab dir gesagt, dass du keine Probleme haben wirst!"
+nightthree.phoneguy.linetwo,Ist...ähhm...Ist Foxy jemals im Flur aufgetaucht? Wahrscheinlich nicht. Ich war nur neugierig.
+nightthree.phoneguy.linethree,"Wie ich erzählt habe, er war schon immer mein Favorit. Sie haben versucht Foxy erneut zu erstellen, weißt du?"
+nightthree.phoneguy.linefour,"Ähhm, sie dachten, dass der erste zu gruselig war,"
+nightthree.phoneguy.linefive,"also haben sie ihn redesigned, damit er kinderfreundlicher ist und haben ihn in den Kinderbereich gestellt."
+nightthree.phoneguy.linesix,"Um die kleinen Würstchen zu unterhalten, du weißt ja..."
+nightthree.phoneguy.lineseven,Aber Kinder heutzutage können deren Finger einfach nicht bei sich selbst behalten.
+nightthree.phoneguy.lineheight,Die Mitarbeiter mussten Foxy halt wirklich nach jeder Schicht wieder zusammenlegen.
+nightthree.phoneguy.linenine,Also haben sie irgendwann mal aufgehört es zu versuchen und ihn als so 'ner Art
+nightthree.phoneguy.lineten,"""Auseinander nehmen und Zusammenlegen"" Attraktion liegen gelassen."
+nightthree.phoneguy.lineeleven,Mittlerweile ist er nur noch ein Durcheinander von Teilen.
+nightthree.phoneguy.linetwelve,"Mitarbeiter nennen ihn laut meines Wissens ""Die Mangle."" Ähhm..."
+nightthree.phoneguy.linethirteen,"Oh, hey, bevor ich gehe, ähhm, Ich möchte deine Gedanken ein bisschen entlüften von Gerüchten die du möglicherweise in letzter Zeit gehört hast."
+nightthree.phoneguy.linefourteen,"Ähhm, du weißt ja wie diese lokalen Geschichten kommen und gehen und selten was bedeuten."
+nightthree.phoneguy.linefifteen,"Ich kann dir persönlich versichern, dass was auch immer da draußen vorsicht geht"
+nightthree.phoneguy.linesixteen,"und wie tragisch es sein mag, es hat rein gar nichts mit uns zu tun."
+nightthree.phoneguy.lineseventeen,E-Es sind alles nur Gerüchte und Spekulationen... Leute versuchen nur ein bisschen Kohle zu machen. Du weißt ja... 
+nightthree.phoneguy.lineeighteen,"Ähhm, unser Wachmann hat während des Tages nichts Unauffälliges gemeldet. Und seine Schicht ist sobald der Laden öffnet, bis er schließt."
+nightthree.phoneguy.linenineteen,"Okay, naja trotzdem, bleib einfach dran und Ich sprech mit dir morgen."
+nightfour.phoneguy.lineone,"Hallo? Hallo? Ähhm, hallo da, Nacht 4! Ich hab dir gesagt du würdest den Dreh raus kriegen!"
+nightfour.phoneguy.linetwo,"Okay, also ähhm, nur um dich auf den neuesten Stand zu bringen, da war irgendetwas wie, ähhm, eine Untersuchung die sich ablief."
+nightfour.phoneguy.linethree,"Ähhm, wir werden vielleicht für ei-ein paar Tage schließen müssen... Bin mir unsicher."
+nightfour.phoneguy.linefour,Ich will aber erläutern dass es sich einfach nur um eine Vorsichtsmaßnahme handelt.
+nightfour.phoneguy.linefive,"Ähhm, Fazbear Entertainment bestreitet jegliches Fehlverhalten."
+nightfour.phoneguy.linesix,Sachen wie Diese passieren manchmal. Ähhm... Alles wird sich in ein paar Tagen geklärt haben.
+nightfour.phoneguy.lineseven,"Behalte alles im Auge und Ich werde dich auf dem neusten Stand halten. Ähhm, nur als Randbemerkung,"
+nightfour.phoneguy.lineheight,versuch Augenkontakt mit den Animatronics heute Nacht zu vermeiden wenn es möglich ist.
+nightfour.phoneguy.linenine,Jemand hat möglicherweise deren Gesichtserkennungssysteme manipuliert - Wir sind nicht ganz sicher.
+nightfour.phoneguy.lineten,"Aber die Figuren haben sich sehr komisch, fast schon aggressiv zu den Mitarbeitern verhalten."
+nightfour.phoneguy.lineeleven,"Ähhm, mit Kindern interagieren sie ganz normal, aber sobald sie einen Erwachsenen begegnen... starren sie einfach."
+nightfour.phoneguy.linetwelve,"Ähhm... Was auch immer, bleib dran. Es wird alles vorübergehen. Gute Nacht!"
+nightfive.phoneguy.lineone,"Hallo, hallo? Hey, gut gemacht, Nacht 5! Ähhm hey, ähhm, halte ein scharfes Auge auf den Kameras heute Abend, okay?"
+nightfive.phoneguy.linetwo,"Ähhm, von was Ich verstehe, das Gebäude ist im Lockdown, ähhm..."
+nightfive.phoneguy.linethree,"Keiner ist rein oder raus erlaubt, du weißt, insbesondere in Bezug auf alle … ehemaligen Mitarbeiter."
+nightfive.phoneguy.linefour,"Ähhm, wenn wir das alles geklärt bekommen, werden wir dich vielleicht zur Tagesschicht bewegen, eine Position wurde vor kurzem... frei."
+nightfive.phoneguy.linefive,"Ähhm, wir haben noch keinen Ersatz für deine Schicht, aber wir arbeiten dran."
+nightfive.phoneguy.linesix,"Ähhm, wir werden versuchen den ursprünglichen Restaurantbesitzer zu kontaktieren."
+nightfive.phoneguy.lineseven,"Ähhm, Ich glaube der name des Ortes war ""Fredbear's Family Diner"" oder irgendwas Ähnliches."
+nightfive.phoneguy.lineheight,"Diese Bude ist jedoch schon seit Jahren geschlossen. Ich bezweifle, dass wir Irgendjemanden aufspüren werden."
+nightfive.phoneguy.linenine,"Ähhm, dann überstehe einfach noch eine Nacht! Ähhm, bleib dran! Gute Nacht!"
+nightsix.phoneguy.lineone,Hallo? Hallo...ähhm...was zur Hölle machst du hier? Hast du das Memo nicht bekommen?
+nightsix.phoneguy.linetwo,"Ähhm, der Ort ist geschlossen, je-jedenfalls für eine Weile."
+nightsix.phoneguy.linethree,"Jemand hat einen von den Anzügen benutzt. Wir hatten ein Ersatz hinten, einen gelben."
+nightsix.phoneguy.linefour,Jemand hat es benutzt... Jetzt verhalten keine von ihnen sich richtig.
+nightsix.phoneguy.linefive,"Hör zu beende ein-einfach deine Schicht, e-es ist sicherer als wenn du mitten in der Nacht versuchts zu gehen."
+nightsix.phoneguy.linesix,"Ähhm, wir haben noch ein Ereignis mehr für Morgen geplant, e-ein Geburtstag."
+nightsix.phoneguy.lineseven,"Du wirst auf Tagesschicht sein. Trag deine Uniform, bleib nah zu den Animatronics,"
+nightsix.phoneguy.lineheight,stell sicher dass sie niemanden wehtuen okay? Ähhm jetzt solltest du es erstmal die Nacht durchmachen.
+nightsix.phoneguy.linenine,"Ähhm, wenn der Ort eventuell wieder öffnet, werde Ich wahrscheinlich die Nachtschicht selbst übernehmen."
+nightsix.phoneguy.lineten,"Okay, gute Nacht und viel Glück."
