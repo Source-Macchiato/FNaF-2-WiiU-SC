@@ -24,7 +24,6 @@ public class MenuManager : MonoBehaviour
 {
     // Prefab for creating buttons dynamically
     [Header("Prefabs")]
-    public GameObject[] buttonPrefab;
     public GameObject cardPrefab;
     public GameObject switcherPrefab;
     public GameObject cardSwitcherPrefab;
