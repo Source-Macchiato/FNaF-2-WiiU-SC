@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class SwitcherData : MonoBehaviour
@@ -8,30 +7,15 @@ public class SwitcherData : MonoBehaviour
     public int currentOptionId;
     public string[] optionsName;
 
-    private Text textComponent;
-    private TMP_Text tmpTextComponent;
-
-    void Start()
-    {
-        textComponent = transform.Find("Text").GetComponent<Text>();
-        tmpTextComponent = transform.Find("Text").GetComponent<TextMeshProUGUI>();
-    }
+    public TMP_Text text;
 
     void Update()
     {
-        if (textComponent != null)
+        if (text != null)
         {
-            if (textComponent.text != optionsName[currentOptionId] || textComponent.text == null)
+            if (text.text != optionsName[currentOptionId] || text.text == null)
             {
-                textComponent.text = optionsName[currentOptionId];
-            }
-        }
-
-        if (tmpTextComponent != null)
-        {
-            if (tmpTextComponent.text != optionsName[currentOptionId] || tmpTextComponent.text == null)
-            {
-                tmpTextComponent.text = optionsName[currentOptionId];
+                text.text = optionsName[currentOptionId];
             }
         }
     }

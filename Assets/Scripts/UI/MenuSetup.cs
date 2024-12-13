@@ -10,30 +10,16 @@ public class MenuSetup : MonoBehaviour
 
     void Start()
     {
-        // Adding buttons to the main menu with corresponding actions
-        //menuManager.AddButton(0, 0, NewGame, "mainmenu.newgame");
-        //menuManager.AddButton(0, 0, Continue, "mainmenu.continue");
-        //menuManager.AddButton(0, 0, Options, "mainmenu.options");
-        //menuManager.AddButton(0, 0, Credits, "mainmenu.credits");
-
-        //menuManager.AddButton("Language", Language, 1, "mainmenu.language");
-        //menuManager.AddButton("Layout", Layout, 1, "mainmenu.layout");
-        //menuManager.AddButton("Online", Online, 1, "mainmenu.online");
-
         //menuManager.AddButton("Analytic Data", Analytics, 4, "mainmenu.analyticdata");
 
         // Set back callbacks for specific menus
         menuManager.SetBackCallback(2, OnBackFromCredits);
-        //menuManager.SetBackCallback(2, OnBackFromLanguage);
-
-        // Display main menu after loaded all buttons
+        menuManager.SetBackCallback(3, OnBackFromLanguage);
     }
 
     // Buttons functions
     public void NewGame()
     {
-        //          !! Have to do : CanNavigate on MenuManager !!!
-        // I know bbg, the system was almost finished so now it's done
         menuManager.canNavigate = false;
 
         // Reset night number and save it
@@ -70,7 +56,7 @@ public class MenuSetup : MonoBehaviour
         menuManager.ChangeMenu(1);
     }
 
-    void Language()
+    public void Language()
     {
         menuManager.ChangeMenu(3);
     }
@@ -104,7 +90,7 @@ public class MenuSetup : MonoBehaviour
     // Callback functions
     void OnBackFromLanguage()
     {
-        
+        menuData.SaveAndUpdateLanguage();
     }
 
     void OnBackFromCredits()

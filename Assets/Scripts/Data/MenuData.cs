@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class MenuData : MonoBehaviour
 {
     public int nightNumber;
-    public Text currentLanguageText;
+    public SwitcherData languageSwitcher;
     public GameObject gameTitle;
 
     // Scripts
@@ -58,7 +58,7 @@ public class MenuData : MonoBehaviour
 
     public void SaveAndUpdateLanguage()
     {
-        saveManager.SaveLanguage(currentLanguageText.text);
+        saveManager.SaveLanguage(languageSwitcher.optionsName[languageSwitcher.currentOptionId]);
         bool saveResult = saveGameState.DoSave();
 
         // Reload the language

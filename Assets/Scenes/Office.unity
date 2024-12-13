@@ -9896,6 +9896,7 @@ GameObject:
   - component: {fileID: 1738672032}
   - component: {fileID: 1738672030}
   - component: {fileID: 1738672031}
+  - component: {fileID: 1738672033}
   m_Layer: 5
   m_Name: PressAndHold
   m_TagString: Untagged
@@ -10054,6 +10055,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1738672028}
+--- !u!114 &1738672033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1738672028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: office.useflashlight
+  mainFont: {fileID: 11400000, guid: abbbb92d46f9c444f93761eb2811e0c8, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &1740873504
 GameObject:
   m_ObjectHideFlags: 0
@@ -10260,6 +10275,7 @@ GameObject:
   - component: {fileID: 1775698851}
   - component: {fileID: 1775698853}
   - component: {fileID: 1775698852}
+  - component: {fileID: 1775698854}
   m_Layer: 5
   m_Name: NightText
   m_TagString: Untagged
@@ -10409,6 +10425,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1775698850}
+--- !u!114 &1775698854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1775698850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: mainmenu.night
+  mainFont: {fileID: 11400000, guid: abbbb92d46f9c444f93761eb2811e0c8, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &1776230289
 GameObject:
   m_ObjectHideFlags: 0
