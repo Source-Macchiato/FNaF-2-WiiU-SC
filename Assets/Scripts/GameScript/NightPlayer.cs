@@ -34,7 +34,6 @@ public class NightPlayer : MonoBehaviour {
 	private bool WindUpBeingHeld;
 
 	[Header("UI Info")]
-	public GameObject WinNight;
 	public TextMeshProUGUI AM;
 	public TextMeshProUGUI NightText;
 
@@ -424,9 +423,10 @@ public class NightPlayer : MonoBehaviour {
 
 	void TimedEvents()
 	{
+		// When night is finished load 6AM scene
 		if (AMTime == "6")
 		{
-			StartCoroutine(WinNightIE());
+			SceneManager.LoadScene("6AM");
 		}
 
 		if (AMTime == "12" && currentNight == 3)
@@ -506,46 +506,6 @@ public class NightPlayer : MonoBehaviour {
 			GoldenFreddyAI = Random.Range(0, 1);
 		}
 	}
-
-	IEnumerator WinNightIE()
-    {
-        CanvasGroup[] canvasGroups = FindObjectsOfType<CanvasGroup>();
-
-        float duration = 1.0f;
-        float elapsedTime = 0f;
-
-        // Cache initial alpha values
-        float[] initialAlphas = new float[canvasGroups.Length];
-        for (int i = 0; i < canvasGroups.Length; i++)
-        {
-            initialAlphas[i] = canvasGroups[i].alpha;
-        }
-
-        // Gradually reduce alpha to 0 over the specified duration
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(1.0f, 0.0f, elapsedTime / duration);
-
-            for (int i = 0; i < canvasGroups.Length; i++)
-            {
-                canvasGroups[i].alpha = alpha;
-            }
-
-            yield return null; // Wait for the next frame
-        }
-
-        // Ensure alpha is set to 0 and set interactable to false
-        for (int i = 0; i < canvasGroups.Length; i++)
-        {
-            canvasGroups[i].alpha = 0;
-            canvasGroups[i].interactable = false;
-            canvasGroups[i].blocksRaycasts = false;
-			canvasGroups[i].gameObject.SetActive(false);
-        }
-		WinNight.SetActive(true);
-		gameObject.SetActive(false);
-    }
 
 	IEnumerator JumpscareSequence()
 	{
@@ -2123,7 +2083,7 @@ public class NightPlayer : MonoBehaviour {
 		// Handle keyboard inputs
         if (Input.GetKeyDown(KeyCode.A))
         {
-			HandleCameraAndFoxyStates();
+            HandleCameraAndFoxyStates();
         }
 
         if (Input.GetKey(KeyCode.A))

@@ -12,11 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 41507a72b82150b40be1b8c155fff934
   - enabled: 1
+    path: Assets/Scenes/Warning.unity
+    guid: 30bcefc2c093d35428004d42726a21b4
+  - enabled: 1
     path: Assets/Scenes/Dream.unity
     guid: 8f77fc049e0180948bdcc9a288e514ef
   - enabled: 1
     path: Assets/Scenes/Office.unity
     guid: 288f3474d2ff8a748a4a6c630856196d
   - enabled: 1
+    path: Assets/Scenes/6AM.unity
+    guid: bca900bec948ab64ebb129be4b6295d5
+  - enabled: 1
     path: Assets/Scenes/NextNight.unity
     guid: 257eb42c06eb07749a8e786551c27219
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: f1eebc2ea53122443aea0d7008f675ec
