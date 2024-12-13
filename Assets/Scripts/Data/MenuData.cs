@@ -31,6 +31,8 @@ public class MenuData : MonoBehaviour
         // Disable advertisement by default
         advertisementIsActive = false;
         advertisementImage.SetActive(false);
+
+        SaveIntroDreamPlayed();
     }
 	
 	// Update is called once per frame
