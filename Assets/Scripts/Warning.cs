@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Warning : MonoBehaviour
 {
     public GameObject loadingScreen;
+    public Animator warningAnimator;
+
+    private bool skipRequested = false;
 
     LevelLoader levelLoader;
 
@@ -19,12 +21,34 @@ public class Warning : MonoBehaviour
         StartCoroutine(InitCoroutine());
     }
 
+    void Update()
+    {
+        if (Input.anyKeyDown && !skipRequested)
+        {
+            skipRequested = true;
+        }
+    }
+
     IEnumerator InitCoroutine()
     {
-        yield return new WaitForSeconds(5);
+        // Wait 4 seconds or until skip is requested
+        float elapsedTime = 0f;
+        while (elapsedTime < 4f && !skipRequested)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
 
+        // Play fade out animation
+        warningAnimator.Play("Fade Out");
+
+        // Wait one second
+        yield return new WaitForSeconds(1);
+
+        // Display loading screen
         loadingScreen.SetActive(true);
 
+        // Request level to load
         if (SaveManager.LoadIntroDreamPlayed() == 0)
         {
             levelLoader.LoadLevel("Dream");
