@@ -15,7 +15,7 @@ public class NextNight : MonoBehaviour
         // Get LevelLoader script
         levelLoader = FindObjectOfType<LevelLoader>();
 
-        // Disable loading screen when the game starts
+        // Disable loading screen when the level starts
         loadingScreen.SetActive(false);
 
         // Get night number
