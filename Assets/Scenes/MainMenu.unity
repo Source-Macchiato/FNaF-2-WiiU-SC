@@ -613,7 +613,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nightNumber: 0
-  languageSwitcher: {fileID: 1839757226}
   gameTitle: {fileID: 1201855469}
   advertisementImage: {fileID: 1856333725}
   AnimEnabled:
@@ -993,7 +992,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 513
+  m_textAlignment: 516
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5089,7 +5088,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 513
+  m_textAlignment: 516
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -6553,7 +6552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textId: Custom Night
+  textId: mainmenu.customnight
   mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
   arabicFont: {fileID: 0}
 --- !u!114 &1118377366

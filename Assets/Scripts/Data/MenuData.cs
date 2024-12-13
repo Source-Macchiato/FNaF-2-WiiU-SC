@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuData : MonoBehaviour
 {
     public int nightNumber;
-    public SwitcherData languageSwitcher;
     public GameObject gameTitle;
 
     // Scripts
@@ -58,11 +56,20 @@ public class MenuData : MonoBehaviour
 
     public void SaveAndUpdateLanguage()
     {
-        saveManager.SaveLanguage(languageSwitcher.optionsName[languageSwitcher.currentOptionId]);
-        bool saveResult = saveGameState.DoSave();
+        // Get SwitcherData scripts
+        SwitcherData[] switchers = FindObjectsOfType<SwitcherData>();
 
-        // Reload the language
-        I18n.LoadLanguage();
+        foreach (SwitcherData switcher in switchers)
+        {
+            if (switcher.switcherId == "switcher.translation")
+            {
+                saveManager.SaveLanguage(switcher.optionsName[switcher.currentOptionId]);
+                bool saveResult = saveGameState.DoSave();
+
+                // Reload the language
+                I18n.LoadLanguage();
+            }
+        }
     }
 
     public void SaveNightNumber()
@@ -82,6 +89,29 @@ public class MenuData : MonoBehaviour
         {
             saveManager.SaveIntroDreamPlayed(1);
             bool saveResult = saveGameState.DoSave();
+        }
+    }
+
+    public void LoadLanguageAndUpdateSwitcher()
+    {
+        // Get SwitcherData scripts
+        SwitcherData[] switchers = FindObjectsOfType<SwitcherData>();
+
+        // Get language
+        string language = I18n.GetLanguage();
+
+        foreach (SwitcherData switcher in switchers)
+        {
+            if (switcher.switcherId == "switcher.translation")
+            {
+                // Find language index
+                int languageIndex = System.Array.IndexOf(switcher.optionsName, language);
+
+                if (languageIndex >= 0 && languageIndex < switcher.optionsName.Length)
+                {
+                    switcher.currentOptionId = languageIndex;
+                }
+            }
         }
     }
 }

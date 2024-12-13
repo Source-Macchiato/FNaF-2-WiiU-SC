@@ -59,6 +59,8 @@ public class MenuSetup : MonoBehaviour
     public void Language()
     {
         menuManager.ChangeMenu(3);
+
+        menuData.LoadLanguageAndUpdateSwitcher();
     }
 
     public void Credits()
