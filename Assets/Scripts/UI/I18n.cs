@@ -21,30 +21,7 @@ public class I18n
 
         Texts.Clear();
 
-        string lang;
-
-        string languagePlayerPrefs = SaveManager.LoadLanguage();
-
-        if (languagePlayerPrefs == "English")
-        {
-            lang = "en";
-        }
-        else if (languagePlayerPrefs == "French")
-        {
-            lang = "fr";
-        }
-        else if (languagePlayerPrefs == "Spanish")
-        {
-            lang = "es";
-        }
-        else if (languagePlayerPrefs == "Italian")
-        {
-            lang = "it";
-        }
-        else
-        {
-            lang = Get2LetterISOCodeFromSystemLanguage().ToLower();
-        }
+        string lang = GetLanguage();
 
         string filePath = "I18n/" + lang;
 
@@ -65,7 +42,7 @@ public class I18n
             string line;
             while ((line = reader.ReadLine()) != null)
             {
-                // Gérer les champs CSV correctement avec Regex pour séparer clé et valeur
+                // Separate CSV with key and value
                 string[] parts = ParseCsvLine(line);
                 if (parts.Length != 2)
                 {
@@ -123,40 +100,28 @@ public class I18n
 
     public static string GetLanguage()
     {
-        string languagePlayerPrefs = SaveManager.LoadLanguage();
+        string loadedLanguage = SaveManager.LoadLanguage();
 
-        if (languagePlayerPrefs == "English")
+        if (loadedLanguage != null)
         {
-            return "en";
-        }
-        else if (languagePlayerPrefs == "French")
-        {
-            return "fr";
-        }
-        else if (languagePlayerPrefs == "Spanish")
-        {
-            return "es";
-        }
-        else if (languagePlayerPrefs == "Italian")
-        {
-            return "it";
+            return loadedLanguage;
         }
         else
         {
-            return Get2LetterISOCodeFromSystemLanguage().ToLower();
+            return Get2LetterISOCodeFromSystemLanguage();
         }
     }
 
     public static string Get2LetterISOCodeFromSystemLanguage()
     {
         SystemLanguage lang = Application.systemLanguage;
-        string res = "EN";
+        string res = "en";
         switch (lang)
         {
-            case SystemLanguage.English: res = "EN"; break;
-            case SystemLanguage.French: res = "FR"; break;
-            case SystemLanguage.Spanish: res = "ES"; break;
-            case SystemLanguage.Italian: res = "IT"; break;
+            case SystemLanguage.English: res = "en"; break;
+            case SystemLanguage.French: res = "fr"; break;
+            case SystemLanguage.Spanish: res = "es"; break;
+            case SystemLanguage.Italian: res = "it"; break;
         }
         return res;
     }
