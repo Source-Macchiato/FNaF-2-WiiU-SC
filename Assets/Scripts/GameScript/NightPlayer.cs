@@ -64,6 +64,7 @@ public class NightPlayer : MonoBehaviour {
 	public int WitheredChicaAI;
 	public int WitheredFreddyAI;
 	public int WitheredFoxyAI;
+	private Dictionary<int, Dictionary<string, Action>> nightEvents;
 	public string AMTime;
 	public float PuppetTime = 30f;
 	public float PuppetDeathTimer = 15f;
@@ -230,7 +231,8 @@ public class NightPlayer : MonoBehaviour {
 
     void Start()
 	{
-		currentNight = SaveManager.LoadNightNumber();
+		currentNight = 3;
+		//currentNight = SaveManager.LoadNightNumber()
         // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
