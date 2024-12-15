@@ -6586,7 +6586,6 @@ MonoBehaviour:
   Mangle: {fileID: 555077695}
   CameraButton: {fileID: 859730001}
   MaskButton: {fileID: 1758855468}
-  WinNight: {fileID: 584476041}
   AM: {fileID: 754174880}
   NightText: {fileID: 420895430}
   WG: {fileID: 0}
@@ -6600,7 +6599,7 @@ MonoBehaviour:
   FazbearFeverAI: 
   GoldenFreddyChallengeAI: 
   currentAI: 
-  currentNight: 4
+  currentNight: 0
   TimeMultiplier: 1
   isNight7: 0
   PuppetAI: 0
@@ -6608,9 +6607,9 @@ MonoBehaviour:
   MangleAI: 0
   BBAI: 0
   PaperpalsAI: 0
-  ToyBonnieAI: 7
-  ToyChicaAI: 7
-  ToyFreddyAI: 7
+  ToyBonnieAI: 0
+  ToyChicaAI: 0
+  ToyFreddyAI: 0
   WitheredBonnieAI: 0
   WitheredChicaAI: 0
   WitheredFreddyAI: 0
