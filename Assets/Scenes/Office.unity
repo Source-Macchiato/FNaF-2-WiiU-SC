@@ -4856,14 +4856,14 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300040, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: f11d87c1c76037b488e9db2e7e09fb11, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0.01
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
 --- !u!222 &950004310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6588,6 +6588,7 @@ Transform:
   - {fileID: 1116756264}
   - {fileID: 536791345}
   - {fileID: 174597508}
+  - {fileID: 1313177518}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7152,29 +7153,29 @@ MonoBehaviour:
   LeftVentEndoSprite: {fileID: 21300000, guid: 19792d67b1e8a0a4f9f5fc80934e41e7, type: 3}
   SwitchCameraSound: {fileID: 413012736}
   WindUpButton: {fileID: 491469156}
-  FullnessCircle: {fileID: 950004309}
+  FullnessCircle: {fileID: 0}
   CircleSprites:
-  - {fileID: 21300000, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300002, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300004, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300006, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300008, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300010, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300012, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300014, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300016, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300018, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300020, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300022, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300024, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300026, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300028, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300030, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300032, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300034, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300036, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300038, guid: 492113a718bff014ea507808ea888b40, type: 3}
-  - {fileID: 21300040, guid: 492113a718bff014ea507808ea888b40, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Cam9Sprites:
   - {fileID: 21300000, guid: f653d5e1c9a720846a6c1aa8741a1c2d, type: 3}
   - {fileID: 21300000, guid: 0329d06ece5b29945baefd8359b04cfa, type: 3}
@@ -8388,6 +8389,47 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1297138383}
+--- !u!1 &1313177517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1313177518}
+  - component: {fileID: 1313177519}
+  m_Layer: 0
+  m_Name: MusicBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1313177518
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313177517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1131915624}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1313177519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313177517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b7ec993626d9a4fa289b8ff9b95b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progress: {fileID: 950004309}
 --- !u!1 &1314717663
 GameObject:
   m_ObjectHideFlags: 0
@@ -9264,7 +9306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -102.3, y: -213.7}
+  m_AnchoredPosition: {x: -102.3, y: -213.70001}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1472750461
@@ -10183,7 +10225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1723799669
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12315,7 +12357,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
