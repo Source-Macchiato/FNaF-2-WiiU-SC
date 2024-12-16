@@ -5,20 +5,32 @@ using WiiU = UnityEngine.WiiU;
 public class MusicBox : MonoBehaviour
 {
 	public Image progress;
+    public AudioSource musicBoxTheme;
 
 	private float unwindTime;
     private float currentUnwindTime;
     private bool windUpMusicBox = false;
 
+    private int nightNumber;
+
     // References to WiiU controllers
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
+
+    // Scripts
+    private NightPlayer nightPlayer;
 
     void Start()
 	{
         // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
+
+        // Get scripts
+        nightPlayer = FindObjectOfType<NightPlayer>();
+
+        // Get night number
+        nightNumber = SaveManager.LoadNightNumber();
 
         // Assign unwind time
         unwindTime = UnwindSpeed();
@@ -64,9 +76,7 @@ public class MusicBox : MonoBehaviour
     {
         if (windUpMusicBox)
         {
-            Debug.Log("Is winding up");
-
-            currentUnwindTime += Time.deltaTime * 20f;
+            currentUnwindTime += Time.deltaTime * 3f;
             currentUnwindTime = Mathf.Clamp(currentUnwindTime, 0f, unwindTime);
         }
     }
@@ -75,26 +85,23 @@ public class MusicBox : MonoBehaviour
     {
         if (!windUpMusicBox)
         {
-            Debug.Log("Is unwinding");
-
-            currentUnwindTime -= Time.deltaTime;
-            currentUnwindTime = Mathf.Clamp(currentUnwindTime, 0f, unwindTime);
+            // At night 1 if the time is not 2am or more the music box will not unwind
+            if (nightNumber != 0 && nightPlayer.currentTime < 2)
+            {
+                currentUnwindTime -= Time.deltaTime;
+                currentUnwindTime = Mathf.Clamp(currentUnwindTime, 0f, unwindTime);
+            }
         }
     }
 
     private void UpdateProgressFill()
     {
-        // Calculer le pourcentage de déchargement
-        float percentage = currentUnwindTime / unwindTime;
-
-        // Assurez-vous que le fillAmount ne descend pas en dessous de 0.01
-        progress.fillAmount = Mathf.Max(percentage, 0.01f);
+        // Calculate unloading
+        progress.fillAmount = currentUnwindTime / unwindTime;
     }
 
     private float UnwindSpeed()
     {
-        int nightNumber = SaveManager.LoadNightNumber();
-
         if (nightNumber == 0 || nightNumber == 1) // Night 1 or 2
         {
             return 50f;
@@ -119,5 +126,10 @@ public class MusicBox : MonoBehaviour
         {
             return 0f;
         }
+    }
+
+    public void ChangeMusicBoxVolume(float volume)
+    {
+        musicBoxTheme.volume = volume;
     }
 }

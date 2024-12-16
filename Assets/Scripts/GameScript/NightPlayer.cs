@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using WiiU = UnityEngine.WiiU;
-using TMPro;
 
 public class NightPlayer : MonoBehaviour {
 
@@ -20,7 +19,6 @@ public class NightPlayer : MonoBehaviour {
 	public AudioSource NoFlashlightBatterys;
 	public GameObject MuteCallButton;
 	private bool CamsActive;
-	public AudioSource puppetsMusic;
 	public AudioSource jackInTheBox;
 	public AudioSource WindUpSound;
 	public GameObject BBSounds;
@@ -44,8 +42,11 @@ public class NightPlayer : MonoBehaviour {
 	public int[] FazbearFeverAI;
 	public int[] GoldenFreddyChallengeAI;
 	public int[] currentAI;
+
 	public int currentNight;
     public int currentTime;
+    public int currentCam = 09;
+
     public float TimeMultiplier;
 	public bool isNight7;
 	public int PuppetAI;
@@ -133,7 +134,6 @@ public class NightPlayer : MonoBehaviour {
 	public Sprite[] PuppetCameraSprites;
 	public Sprite PuppetCameraEndoSprite;
 	public Sprite LeftVentEndoSprite;
-	private int currentCam = 09;
 	public AudioSource SwitchCameraSound;
 	public GameObject WindUpButton;
 	public Image FullnessCircle;
@@ -1082,7 +1082,6 @@ public class NightPlayer : MonoBehaviour {
 			}
 			else
 			{
-				puppetsMusic.mute = true;
 				Color color = FullnessCircle.color;
         		color.a = 0f;
         		FullnessCircle.color = color;
@@ -1100,7 +1099,6 @@ public class NightPlayer : MonoBehaviour {
 				{
 					PuppetTime += Time.deltaTime * 1.5f;
 					PuppetDeathTimer = 15f;
-					puppetsMusic.mute = false;
 				}
 			}
 
@@ -1163,7 +1161,6 @@ public class NightPlayer : MonoBehaviour {
 		Debug.Log(state);
 		if (state != "Jumpscare" && canDeathSeqeuence == true) {
 		canDeathSeqeuence = false;
-		puppetsMusic.Stop();
 		jackInTheBox.Play();
 		yield return new WaitForSeconds(5f);
 		if (state == "Cameras" || state == "MonitorUp")
@@ -2269,23 +2266,11 @@ public class NightPlayer : MonoBehaviour {
 		MainCameras.SetActive(true);
 		currentCam = Camera;
 		SwitchCameraSound.Play();
-		puppetsMusic.volume = 0f;
 		WindUpButton.SetActive(false);
 		RoomName.sprite = RoomNames[Camera-1];
 		MainCameraBG.gameObject.SetActive(true);
 		SignalDisrupted.SetActive(false);
-		switch (Camera)
-		{
-			case 11:
-			puppetsMusic.volume = 1f;
-			WindUpButton.SetActive(true);
-			break;
-			case 12:
-			case 10:
-			case 09:
-			puppetsMusic.volume = 0.5f;
-			break;
-		}
+
 		if (flashlightActive)
 		{
 			MainCameraBG.sprite = FlashlightedCams[Camera-1];
@@ -2300,7 +2285,6 @@ public class NightPlayer : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(0.276f);
 		JJ.SetActive(false);
-		puppetsMusic.mute = false;
 		CameraButton.SetActive(true);
 		CameraUI.SetActive(true);
 		MainCameras.SetActive(true);
@@ -2318,7 +2302,6 @@ public class NightPlayer : MonoBehaviour {
 	{
 		MonitorAnimator.gameObject.SetActive(true);
 		OnCams.mute = true;
-		puppetsMusic.mute = true;
 		CameraUI.SetActive(false);
 		MainCameras.SetActive(false);
 		MonitorAnimator.Play("MonitorDown");
