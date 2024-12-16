@@ -122,6 +122,8 @@ public class I18n
             case SystemLanguage.French: res = "fr"; break;
             case SystemLanguage.Spanish: res = "es"; break;
             case SystemLanguage.Italian: res = "it"; break;
+            case SystemLanguage.German: res = "de"; break;
+            case SystemLanguage.Turkish: res = "tr"; break;
         }
         return res;
     }

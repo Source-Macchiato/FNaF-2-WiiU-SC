@@ -1,0 +1,168 @@
+mainmenu.newgame,Yeni oyun
+mainmenu.continue,Devam et
+mainmenu.customnight,Özel gece
+mainmenu.options,Ayarlar
+mainmenu.credits,Emeği geçenler
+mainmenu.language,Dil
+mainmenu.layout,Düzen
+mainmenu.online,Çevrimiçi
+mainmenu.analyticdata,Analitik veriler
+mainmenu.audio,Ses
+mainmenu.generalvolume,Ana ses
+mainmenu.musicvolume,Müzik sesi
+mainmenu.voicevolume,Diyalog ses seviyesi
+mainmenu.sfxvolume,Ses efektleri seviyesi
+mainmenu.update,"Yeni bir sürüm mevcut, hemen itch.io üzerinden indir!"
+mainmenu.sharedata,Bize istatistiksel bilgi paylaşımını kabul ediyor musunuz?
+mainmenu.night,Gece
+customnight.customizenight,Geceyi özelleştir
+customnight.twenty,20/20/20/20
+customnight.newandshiny,Yeni ve parlak
+customnight.doubletrouble,İki katı belâ
+customnight.nightofmisfits,Uyumsuzların gecesi
+customnight.foxyfoxy,Foxy Foxy
+customnight.ladiesnight,Bayanlar gecesi
+customnight.freddyscircus,Freddy'nin sirki
+customnight.cupcakechallenge,Cupcake meydan okuması
+customnight.fazbearfever,Fazbear coşkusu
+customnight.goldenfreddy,Golden Freddy
+customnight.ready,Hazır
+difficulty.easy,Kolay
+difficulty.medium,Orta
+difficulty.hard,Zor
+difficulty.extreme,Aşırı zor
+nextnight.firstnight,1. Gece
+nextnight.secondnight,2. Gece
+nextnight.thirdnight,3. Gece
+nextnight.fourthnight,4. Gece
+nextnight.fifthnight,5. Gece
+nextnight.sixthnight,6. Gece
+nextnight.seventhnight,7. Gece
+office.flashlight,el feneri
+office.useflashlight,"Feneri kullanmak için <sprite name=""WiiU-A""> tuşuna basılı tutun."
+camera.partyroomone,Parti odası 1
+camera.partyroomtwo,Parti odası 2
+camera.partyroomthree,Parti odası 3
+camera.partyroomfour,Parti odası 4
+camera.leftairvent,Sol hava kanalı
+camera.rightairvent,Sağ hava kanalı
+camera.mainhall,Ana koridor
+camera.partsservice,Parçalar/Servis
+camera.showstage,Sahneyi göster
+camera.gamearea,Oyun alanı
+camera.prizecorner,Ödül köşesi
+camera.kidscove,Çocuk alanı
+monitor.musicbox,Müzik kutusunu sar
+monitor.holdmusicbox,"basılı tut <sprite name=""WiiU-B"">"
+subtitle.phoneringtone,*Telefon zilsesi*
+nightone.phoneguy.lineone,"Uh, merhaba? merhaba, merhaba? Uh, merhaba ve yeni ve geliştirilmiş Freddy Fazbear's Pizza'daki yeni yaz işinize hoş geldiniz."
+nightone.phoneguy.linetwo,"Uh, size burada geçireceğiniz ilk hafta boyunca karşılaşabileceğiniz bazı şeyleri anlatmak"
+nightone.phoneguy.linethree,ve bu yeni ve heyecan verici kariyer yolculuğuna başlamanıza yardımcı olmak için buradayım.
+nightone.phoneguy.linefour,"Uh, şimdi, eski mekanla ilgili duyduğunuz herşeyi unutmanızı istiyorum, biliyorsunuz"
+nightone.phoneguy.linefive,"Uh, bazı insanlar hala şirket hakkında bir nebze olumsuz bir izlenime sahip."
+nightone.phoneguy.linesix,"O eski restoran uzunca bir süre çürümeye terk edildi ancak sizi temin ederim ki,"
+nightone.phoneguy.lineseven,"Fazbear şirketi, aile eğlencesine ve her şeyden önce güvenliğe önem vermektedir."
+nightone.phoneguy.lineheight,"Bu yeni animatronikler için bir servet harcadılar, uh, yüz tanıma teknolojisi,"
+nightone.phoneguy.linenine,"ileri düzey hareket kabiliyeti, hatta gündüzleri dolaşmalarına bile izin veriyolar. Ne kadar harika, değil mi? *boğazını temizler* Ama en önemlisi,"
+nightone.phoneguy.lineten,"hepsi bir tür suçlu veritabanına bağlı, böylece bir sapığı bir mil uzaktan tespit edebiliyorlar."
+nightone.phoneguy.lineeleven,"Aslında, sizi korumaları için onlara para ödemeliyiz."
+nightone.phoneguy.linetwelve,"Uh, ancak, her yeni sistemin bir sorunu vardır.."
+nightone.phoneguy.linethirteen,Uh... o mekanda çalışan ikinci güvenlik görevlisisiniz.
+nightone.phoneguy.linefourteen,"Uh, ilk eleman haftasını tamamladı, ama... koşullardan şikayet etti."
+nightone.phoneguy.linefifteen,"Uh, onu gündüz vardiyasına geçirdik, yani, ne kadar şanslısınız, değil mi?"
+nightone.phoneguy.linesixteen,"Uh, esas olarak bazı karakterlerin geceleyin hareket ettiğinden "
+nightone.phoneguy.lineseventeen,"ve hatta ofisine girmeye çalıştıklarından endişelerini dile getirdi. Şimdi, bildiğimiz kadarıyla, bu imkansız olmalı."
+nightone.phoneguy.lineeighteen,"Uh, o restoran dünyadaki en güvenli yer olmalı."
+nightone.phoneguy.linenineteen,"Yani mühendislerimizin bunun için bir açıklaması olmasa da, geçerli teori şu..."
+nightone.phoneguy.linetwenty,"Robotlara asla düzgün bir 'gece modu' verilmediğinden ortam sessizleştiğinde, yanlış odada olduklarını düşünüyorlar"
+nightone.phoneguy.linetwentyone,"ve insanlar nerede diye bakmaya gidiyolar ve bu durumda, o yer sizin ofisiniz."
+nightone.phoneguy.linetwentytwo,Geçici çözümümüz şu: Ödül Tezgahı'nın yanında uzaktan 
+nightone.phoneguy.linetwentythree,sarılacak şekilde düzenlenmiş bir müzik kutusu var.
+nightone.phoneguy.linetwentyfour,"Ara sıra, Ödül Tezgahı kamerasına geçip, birkaç saniye boyunca sarın."
+nightone.phoneguy.linetwentyfive,Tüm animatronikleri etkilemesede bir tanesini etkiliyor... *boğazını temizler*
+nightone.phoneguy.linetwentysix,"ve geriye kalan animatronikler için, daha da kolay bir çözümümüz var."
+nightone.phoneguy.linetwentyseven,"Şöyle ki, sistemde robotların sizi kostümünü giymemiş bir dış iskelet"
+nightone.phoneguy.linetwentyheight,olarak görmesi ve sizi bir kostümün içine sokmak istemesi gibi bir arıza olabilir.
+nightone.phoneguy.linetwentynine,"Bu yüzden size boş bir Freddy Fazbear maskesi verdik, sorun çözüldü!"
+nightone.phoneguy.linethirty,İstediğiniz zaman takabilir ve ne kadar isterseniz o kadar süre takılı tutabilirsiniz.
+nightone.phoneguy.linethirtyone,"Nihayetinde, içeri giren her şey geri dışarı çıkacaktır."
+nightone.phoneguy.linethirtytwo,"Uh, Bahsedilmeye değer bir başka şey de binanın modern tasarımı."
+nightone.phoneguy.linethirtythree,"Kapatabileceğiniz herhangi bir kapı olmadığını fark etmiş olabilirsiniz. Ama hey, bir feneriniz var!"
+nightone.phoneguy.linethirtyfour,"ve fenerinizin enerjisi bitebilse de, binanınki bitemez. Yani, mekanın elektriğinin kesilmesi hakkında endişelenmeyin."
+nightone.phoneguy.linethirtyfive,"Sanırım bu kadar. Uh, her şey yolunda olmalı. Işıkları kontrol edin, gerekiyorsa Freddy maskesini takın,"
+nightone.phoneguy.linethirtysix,"müzik kutusunu sarılı tutun, çocuk oyuncağı."
+nightone.phoneguy.linethirtyseven,"İyi geceler, yarın konuşuruz."
+nighttwo.phoneguy.lineone,"Uh...merhaba, merhaba! Uh, size ilk gecenin sorun olmayacağını söylemiştim. Doğuştan yeteneklisiniz!"
+nighttwo.phoneguy.linetwo,Eminim ki şimdiye kadar arka odada oturan eski modelleri fark etmişsinizdir.
+nighttwo.phoneguy.linethree,"Uh, onlar önceki mekandan. Artık sadece parça olarak kullanıyoruz."
+nighttwo.phoneguy.linefour,"Başlangıçta amaç onları tamir etmekti... uh,"
+nighttwo.phoneguy.linefive,"Hatta bazı yeni teknolojilerle onları yeniden donatmaya başladılar,"
+nighttwo.phoneguy.linesix,"ancak o kadar çirkindiler ki, anlarsınız ya? O koku... uh,"
+nighttwo.phoneguy.lineseven,Bu yüzden şirket tamamen yeni bir yöne gitmeye ve onları süper çocuk dostu yapmaya karar verdi.
+nighttwo.phoneguy.lineheight,"Uh, o eski modellerin dolaşamamaları lazım,"
+nighttwo.phoneguy.linenine,"ancak dolaşırlarsa, Freddy maskesi onlar üzerindede işe yaramalı, neyse"
+nighttwo.phoneguy.lineten,Uh... O eski karakterleri seviyorum. Hiç korsan Foxyi gördünüz mü?
+nighttwo.phoneguy.lineeleven,"Uh, evet Foxy. Uh, dinle, o her zaman garipti, uh..."
+nighttwo.phoneguy.linetwelve,"Freddy maskesinin Foxy üzerinde işe yarayıp yaramayacağından emin değilim, uh"
+nighttwo.phoneguy.linethirteen,"Herhangi bir sebepten ötürü geceleyin aktifleşirse ve onu koridorun sonunda ayakta görürseniz,"
+nighttwo.phoneguy.linefourteen,ona arada bi fenerinin ışığını tutun.
+nighttwo.phoneguy.linefifteen,O eski modellerin kafaları hep parlak ışıkta karışırdı.
+nighttwo.phoneguy.linesixteen,Bir sistem yeniden başlatmasına yada benzeri birşeye sebep olurdu.
+nighttwo.phoneguy.lineseventeen,"Uh, şimdi düşündüm de, istenmeyen bir şeyin olduğu herhangi bir odada bunu denemek isteyebilirsiniz."
+nighttwo.phoneguy.lineeighteen,Onları birkaç saniye yerinde tutabilir.
+nighttwo.phoneguy.linenineteen,(O arıza?) belki bazı yeni modellerede geçmiş olabilir.
+nighttwo.phoneguy.linetwenty,Bir şey daha - müzik kutusunu unutma.
+nighttwo.phoneguy.linetwentyone,"Dürüst olacağım, o kuklayı hiçbir zaman sevmedim. O her zaman..."
+nighttwo.phoneguy.linetwentytwo,"düşünüyor, ve her yere gidebilir..."
+nighttwo.phoneguy.linetwentythree,"Freddy maskesinin onu kandıracağını düşünmüyorum, o yüzden müzik kutusunu unutmayın."
+nighttwo.phoneguy.linetwentyfour,"Neyse, eminim sorun olmayacaktır. Uh, iyi geceler, yarın görüşürüz."
+nightthree.phoneguy.lineone,Merhaba merhaba! Sana sorun yaşamayacağını söylemiştim!
+nightthree.phoneguy.linetwo,"Foxy, koridorda hiç göründü mü? Muhtemelen hayır. Sadece merak ediyordum."
+nightthree.phoneguy.linethree,"Dediğim gibi, o her zaman favorimdi. Foxy'yi yeniden yapmaya çalıştılar, biliyor musunuz?"
+nightthree.phoneguy.linefour,"Uh, ilkinin fazla korkunç olduğunu düşündüler"
+nightthree.phoneguy.linefive,o yüzden onu daha çocuk dostu olucak şekilde yeniden yaptılar
+nightthree.phoneguy.linesix,ve ufaklıkları eğlendirmek için çocuk alanına koydular. Ama bildiğiniz üzere
+nightthree.phoneguy.lineseven,günümüzde çocuklar ellerine kollarına sahip çıkamıyorlar.
+nightthree.phoneguy.lineheight,"Çalılanlar, her vardiyadan sonra Foxy'yi kelimenin tam anlamıyla yeniden bir araya getirmek zorunda kalıyorlardı."
+nightthree.phoneguy.linenine,Eninde sonunda uğraşmayı bırakıp onu bir tür...
+nightthree.phoneguy.lineten,parçalayıp yeniden bir araya getirme eğlencesi olarak bıraktılar.
+nightthree.phoneguy.lineeleven,Artık o sadece bir parça yığını.
+nightthree.phoneguy.linetwelve,Sanırım çalışanlar ona 'Mangle' diye hitap ediyorlar.
+nightthree.phoneguy.linethirteen,"Uh, hey, gitmeden önce, şey, son zamanlarda duymuş olabiliceğiniz söylentiler"
+nightthree.phoneguy.linefourteen,hakkında sizi rahatlatmak istiyorum. Bu söylentiler gelip geçiçilerdir ve çoğu zaman bir anlam taşımazlar.
+nightthree.phoneguy.linefifteen,"Size şahsen temin ederim ki, dışarıda ne oluyorsa olsun"
+nightthree.phoneguy.linesixteen,"ve ne kadar trajik olursa olsun, bizim işletmemizle hiçbir alakası yoktur."
+nightthree.phoneguy.lineseventeen,Bunların hepsi sadece söylenti ve tahminlerden ibaret... İnsanlar birkaç kuruş kazanmanın peşinde..
+nightthree.phoneguy.lineeighteen,"Şey, gündüz nöbetçimiz hiçbir gariplik bildirmedi. ve o, açılıştan kapanışa kadar nöbette."
+nightthree.phoneguy.linenineteen,"Tamam, her neyse, dayanın, yarın konuşuruz."
+nightfour.phoneguy.lineone,"Merhaba? Merhaba? Şey, dördüncü gece! İşe alışacağınızı söylemiştim!"
+nightfour.phoneguy.linetwo,"Tamam, uh, size haberleri vereyim.. bir tür soruşturma yapılıyor."
+nightfour.phoneguy.linethree,"Uh, birkaç gün kapatmak zorunda kalabiliriz... bilmiyorum."
+nightfour.phoneguy.linefour,"Ancak vurgulamak isterim ki, bu gerçekten sadece bir önlem."
+nightfour.phoneguy.linefive,"Uh, Fazbear şirketi herhangi bir hatayı kabul etmiyor."
+nightfour.phoneguy.linesix,Bunlar bazen olur. Uh... her şey birkaç güne hallolacaktır.
+nightfour.phoneguy.lineseven,"Her şeye dikkat edin ve sizi bilgilendirmeye devam edeceğim. Uh, ancak"
+nightfour.phoneguy.lineheight,"bu gece mümkünse, animatroniklerle göz teması kurmaktan kaçının."
+nightfour.phoneguy.linenine,"Biri, yüz tanıma sistemleriyle oynamış olabilir – emin değiliz."
+nightfour.phoneguy.lineten,"karakterler personele karşı gerçekten çok garip, neredeyse agresif davranıyorlar."
+nightfour.phoneguy.lineeleven,"Çocuklarla gayet iyi geçiniyorlar ancak, bir yetişkinle karşılaştıklarında sadece... boş boş bakıyorlar."
+nightfour.phoneguy.linetwelve,"Uh... her neyse, dayan. Her şey geçicek. İyi geceler!"
+nightfive.phoneguy.lineone,"Merhaba, merhaba? Hey, aferin beşinci gece! Uh, şey, bu gece her şeye dikkat edin tamam mı?"
+nightfive.phoneguy.linetwo,"Uh, anladığım kadarıyla, bina kilit altında,"
+nightfive.phoneguy.linethree,"kimsenin girip çıkmasına izin verilmiyor, özellikle de eski çalışanlarla ilgili olarak."
+nightfive.phoneguy.linefour,"Her şeyi hallettiğimizde, sizi gündüz vardiyasına alabiliriz, yeni bir pozisyon açıldı. "
+nightfive.phoneguy.linefive,"Uh, henüz sizin vardiyanıza birini bulamadık ancak üzerinde çalışıyoruz. "
+nightfive.phoneguy.linesix,Restoranın asıl sahibine ulaşmaya çalışacağız. 
+nightfive.phoneguy.lineseven,Sanırım mekanın adı “Fredbear'ın Aile Lokantası” ya da onun gibi bir şeydi. 
+nightfive.phoneguy.lineheight,"Gerçi yıllardır kapalı, birini bulabileceğimizden şüpheliyim."
+nightfive.phoneguy.linenine,Sadece bir gece daha dayanın! İyi geceler!
+nightsix.phoneguy.lineone,"Merhaba? Merhaba... uh... orada ne yapıyorsunuz, bildiriyi almadınız mı?"
+nightsix.phoneguy.linetwo,"Uh, mekan kapalı, en azından bir süreliğine."
+nightsix.phoneguy.linethree,"Biri kostümlerden birini kullandı. Arkada sarı renkte bir tane yedek vardı,"
+nightsix.phoneguy.linefour,biri onu kullandı... şimdi hiçbiri düzgün davranmıyor.
+nightsix.phoneguy.linefive,"Dinle, s-sadece vardiyanızı bitirin, gece yarısı çıkmaya çalışmaktan daha güvenli."
+nightsix.phoneguy.linesix,"Uh, yarın için bir etkinliğimiz daha var, bir doğum günü."
+nightsix.phoneguy.lineseven,"Gündüz vardiyasındasınız, üniformanızı giyin, animatroniklere yakın durun,"
+nightsix.phoneguy.lineheight,"kimseye zarar vermediklerinden emin olun, tamam mı? Uh, şimdilik sadece geceyi atlatmaya çalışın,"
+nightsix.phoneguy.linenine,"Uh, mekan nihayet tekrar açıldığında, muhtemelen gece vardiyasını ben alırım."
+nightsix.phoneguy.lineten,"Tamam, iyi geceler ve bol şans."
