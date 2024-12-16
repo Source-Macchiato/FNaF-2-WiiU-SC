@@ -136,7 +136,6 @@ public class NightPlayer : MonoBehaviour {
 	public Sprite PuppetCameraEndoSprite;
 	public Sprite LeftVentEndoSprite;
 	public AudioSource SwitchCameraSound;
-	public GameObject WindUpButton;
 	public Image FullnessCircle;
 	public Sprite[] CircleSprites;
 	public Sprite[] Cam9Sprites;
@@ -2267,7 +2266,6 @@ public class NightPlayer : MonoBehaviour {
 		MainCameras.SetActive(true);
 		currentCam = Camera;
 		SwitchCameraSound.Play();
-		WindUpButton.SetActive(false);
 		RoomName.sprite = RoomNames[Camera-1];
 		MainCameraBG.gameObject.SetActive(true);
 		SignalDisrupted.SetActive(false);

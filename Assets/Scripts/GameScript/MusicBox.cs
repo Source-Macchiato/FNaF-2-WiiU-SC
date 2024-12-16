@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using WiiU = UnityEngine.WiiU;
 
@@ -6,6 +7,8 @@ public class MusicBox : MonoBehaviour
 {
 	public Image progress;
     public AudioSource musicBoxTheme;
+    public AudioSource windUpSound;
+    public GameObject musicBoxContainer;
 
 	private float unwindTime;
     private float currentUnwindTime;
@@ -71,12 +74,14 @@ public class MusicBox : MonoBehaviour
         UnwindMusicBox();
         UpdateProgressFill();
         HandleMuteWithMonitor();
+        HandleMusicBoxVisibility();
     }
 
     private void WindUpMusicBox()
     {
         if (windUpMusicBox)
         {
+            // Increase timer value
             currentUnwindTime += Time.deltaTime * 3f;
             currentUnwindTime = Mathf.Clamp(currentUnwindTime, 0f, unwindTime);
         }
@@ -143,6 +148,34 @@ public class MusicBox : MonoBehaviour
             if (!musicBoxTheme.mute)
             {
                 musicBoxTheme.mute = true;
+            }
+        }
+    }
+
+    private void HandleMusicBoxVisibility()
+    {
+        if (nightPlayer.isMonitorUp)
+        {
+            if (nightPlayer.currentCam == 11)
+            {
+                if (!musicBoxContainer.activeSelf)
+                {
+                    musicBoxContainer.SetActive(true);
+                }
+            }
+            else
+            {
+                if (musicBoxContainer.activeSelf)
+                {
+                    musicBoxContainer.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            if (musicBoxContainer.activeSelf)
+            {
+                musicBoxContainer.SetActive(false);
             }
         }
     }

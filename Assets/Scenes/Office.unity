@@ -7111,6 +7111,7 @@ MonoBehaviour:
   currentNight: 0
   currentTime: 0
   currentCam: 9
+  isMonitorUp: 0
   TimeMultiplier: 1
   isNight7: 0
   PuppetAI: 0
@@ -7238,7 +7239,6 @@ MonoBehaviour:
     type: 3}
   LeftVentEndoSprite: {fileID: 21300000, guid: 19792d67b1e8a0a4f9f5fc80934e41e7, type: 3}
   SwitchCameraSound: {fileID: 413012736}
-  WindUpButton: {fileID: 491469156}
   FullnessCircle: {fileID: 0}
   CircleSprites:
   - {fileID: 0}
@@ -7997,7 +7997,7 @@ GameObject:
   - component: {fileID: 1242395679}
   - component: {fileID: 1242395680}
   m_Layer: 5
-  m_Name: WindUp Audio
+  m_Name: WindUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8024,12 +8024,13 @@ AudioSource:
   m_GameObject: {fileID: 1242395678}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243731315198083176, guid: 063cc35e74633ac499c982964f0cc2ff,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: a1a5760d59c6a4a4180818cde1f2723e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8517,7 +8518,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progress: {fileID: 950004309}
   musicBoxTheme: {fileID: 709061082}
-  monitor: {fileID: 980370711}
+  windUpSound: {fileID: 1242395680}
+  musicBoxContainer: {fileID: 1472750459}
 --- !u!1 &1314717663
 GameObject:
   m_ObjectHideFlags: 0
