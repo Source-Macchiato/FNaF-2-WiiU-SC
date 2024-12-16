@@ -33,10 +33,6 @@ public class NightPlayer : MonoBehaviour {
 	public GameObject MaskButton;
 	private bool WindUpBeingHeld;
 
-	[Header("UI Info")]
-	public TextMeshProUGUI AM;
-	public TextMeshProUGUI NightText;
-
 	[Header("Info")]
 	public WinGame WG;
 	public int[] NewandShinyAI;
@@ -50,7 +46,8 @@ public class NightPlayer : MonoBehaviour {
 	public int[] GoldenFreddyChallengeAI;
 	public int[] currentAI;
 	public int currentNight;
-	public float TimeMultiplier;
+    public int currentTime;
+    public float TimeMultiplier;
 	public bool isNight7;
 	public int PuppetAI;
 	public int GoldenFreddyAI;
@@ -65,7 +62,6 @@ public class NightPlayer : MonoBehaviour {
 	public int WitheredFreddyAI;
 	public int WitheredFoxyAI;
 	//private Dictionary<int, Dictionary<string, Action>> nightEvents;
-	public string AMTime;
 	public float PuppetTime = 30f;
 	public float PuppetDeathTimer = 15f;
 	public int previousFullNessCircleIndex = -1; // Initialized to -1 to indicate no previous sprite
@@ -231,23 +227,24 @@ public class NightPlayer : MonoBehaviour {
 
     void Start()
 	{
-		currentNight = 3;
-		//currentNight = SaveManager.LoadNightNumber()
         // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
 
         moveInOffice = FindObjectOfType<MoveInOffice>();
 
+        currentNight = 3;
+        //currentNight = SaveManager.LoadNightNumber() tu es homosexuel
+
         MainOfficeDefaultSprite = MainOfficeImage.sprite;
 		currentFlashlightDuration = FlashlightDuration;
-		NightText.text = currentNight.ToString();
 		StartCoroutine(TimeCoroutine());
         CameraUI.SetActive(false); // Disable minimap when game starts
 
         if (isNight7)
 		{
 			// Alyx modify this plz
+			// ok
 			GoldenFreddyAI = DataManager.GetValue<int>("GFAICN", "data:/");
 			MangleAI = DataManager.GetValue<int>("MAICN", "data:/");
 			BBAI = DataManager.GetValue<int>("BBAICN", "data:/");
@@ -394,58 +391,37 @@ public class NightPlayer : MonoBehaviour {
         }
     }
 
-	IEnumerator TimeCoroutine()
-	{
-		AM.text = "12";
-		AMTime = "12";
-		TimedEvents();
-		yield return new WaitForSeconds(70f * TimeMultiplier);
-		AM.text = "1";
-		AMTime = "1";
-		TimedEvents();
-		yield return new WaitForSeconds(70f * TimeMultiplier);
-		AM.text = "2";
-		AMTime = "2";
-		TimedEvents();
-		yield return new WaitForSeconds(70f * TimeMultiplier);
-		AM.text = "3";
-		AMTime = "3";
-		TimedEvents();
-		yield return new WaitForSeconds(70f * TimeMultiplier);
-		AM.text = "4";
-		AMTime = "4";
-		TimedEvents();
-		yield return new WaitForSeconds(70f * TimeMultiplier);
-		AM.text = "5";
-		AMTime = "5";
-		TimedEvents();
-		yield return new WaitForSeconds(70f * TimeMultiplier);
-		AM.text = "6";
-		AMTime = "6";
-		TimedEvents();
-	}
+    IEnumerator TimeCoroutine()
+    {
+        for (int i = 0; i <= 6; i++)
+        {
+            currentTime = i;
+            TimedEvents();
+            yield return new WaitForSeconds(70f * TimeMultiplier);
+        }
+    }
 
-	void TimedEvents()
+    void TimedEvents()
 	{
 		// When night is finished load 6AM scene
-		if (AMTime == "6")
+		if (currentTime == 6)
 		{
 			SceneManager.LoadScene("6AM");
 		}
 
-		if (AMTime == "12" && currentNight == 2)
+		if (currentTime == 0 && currentNight == 2)
 		{
 			GoldenFreddyAI = Random.Range(0, 1);
         }
-		if (AMTime == "12" && currentNight == 3 || currentNight == 4)
+		if (currentTime == 0 && currentNight == 3 || currentNight == 4)
 		{
             GoldenFreddyAI = Random.Range(0, 1) * 100;
         }
-		if (AMTime == "12" && currentNight == 5)
+		if (currentTime == 0 && currentNight == 5)
 		{
 			GoldenFreddyAI = Random.Range(0, 1) * 10;
 		}
-		if (AMTime == "1" && currentNight == 2)
+		if (currentTime == 1 && currentNight == 2)
 		{
 			ToyBonnieAI = 1;
 			WitheredChicaAI = 4;
@@ -453,14 +429,14 @@ public class NightPlayer : MonoBehaviour {
 			WitheredFoxyAI = 3;
 			ToyChicaAI = 1;
 		}
-		if (AMTime == "2" && currentNight == 3)
+		if (currentTime == 2 && currentNight == 3)
 		{
 			WitheredChicaAI = 4;
 			WitheredFreddyAI = 3;
 			WitheredBonnieAI = 4;
 			ToyBonnieAI = 1;
 		}
-		if (AMTime == "1" && currentNight == 4)
+		if (currentTime == 1 && currentNight == 4)
 		{
 			WitheredFoxyAI = 7;
 			ToyFreddyAI = 1;
@@ -469,7 +445,7 @@ public class NightPlayer : MonoBehaviour {
 			WitheredFreddyAI = 5;
 			WitheredBonnieAI = 5;
 		}
-		if (AMTime == "2" && currentNight == 5)
+		if (currentTime == 2 && currentNight == 5)
 		{
 			ToyBonnieAI = 5;
 			GoldenFreddyAI = 3;
@@ -483,23 +459,23 @@ public class NightPlayer : MonoBehaviour {
 			WitheredBonnieAI = 10;
 		}
 
-		if (AMTime == "1" && currentNight == 0)
+		if (currentTime == 1 && currentNight == 0)
 		{
 			PuppetAI = 1;
 		}
-		if (AMTime == "2" && currentNight == 0)
+		if (currentTime == 2 && currentNight == 0)
 		{
 			ToyBonnieAI = 2;
 			ToyChicaAI = 2;
 		}
-		else if (AMTime == "3" && currentNight == 0)
+		else if (currentTime == 3 && currentNight == 0)
 		{
 			ToyBonnieAI = 3;
 			ToyChicaAI = 2;
 			ToyFreddyAI = 2;
 		}
 
-		if (AMTime == "1" && currentNight == 1)
+		if (currentTime == 1 && currentNight == 1)
 		{
 			ToyBonnieAI = 3;
 			ToyChicaAI = 3;
@@ -1211,7 +1187,8 @@ public class NightPlayer : MonoBehaviour {
 
 				if (WindUpBeingHeld)
 				{
-					PuppetTime += Time.deltaTime  * 1.5f; PuppetDeathTimer = 15f;
+					PuppetTime += Time.deltaTime * 1.5f;
+					PuppetDeathTimer = 15f;
 					puppetsMusic.mute = false;
 				}
 			}
@@ -2406,16 +2383,6 @@ public class NightPlayer : MonoBehaviour {
 		{
 			MainCameraBG.sprite = DefaultCams[Camera-1];
 		}
-	}
-
-	public void PuppetButtonDown()
-	{
-		WindUpBeingHeld = true;
-	}
-
-	public void PuppetButtonUp()
-	{
-		WindUpBeingHeld = false;
 	}
 
 	IEnumerator MonitorUpIE()
