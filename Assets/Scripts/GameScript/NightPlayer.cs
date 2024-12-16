@@ -34,7 +34,6 @@ public class NightPlayer : MonoBehaviour {
 	private bool WindUpBeingHeld;
 
 	[Header("Info")]
-	public WinGame WG;
 	public int[] NewandShinyAI;
 	public int[] DoubleTroubleAI;
 	public int[] NightofMisfitsAI;
@@ -52,7 +51,7 @@ public class NightPlayer : MonoBehaviour {
 	public int PuppetAI;
 	public int GoldenFreddyAI;
 	public int MangleAI;
-	public int BBAI;
+	public int BalloonBoyAI;
 	public int PaperpalsAI;
 	public int ToyBonnieAI;
 	public int ToyChicaAI;
@@ -245,24 +244,24 @@ public class NightPlayer : MonoBehaviour {
 		{
 			// Alyx modify this plz
 			// ok
-			GoldenFreddyAI = DataManager.GetValue<int>("GFAICN", "data:/");
-			MangleAI = DataManager.GetValue<int>("MAICN", "data:/");
-			BBAI = DataManager.GetValue<int>("BBAICN", "data:/");
-			ToyBonnieAI = DataManager.GetValue<int>("TBAICN", "data:/");
-			ToyChicaAI = DataManager.GetValue<int>("TCAICN", "data:/");
-			ToyFreddyAI = DataManager.GetValue<int>("TFAICN", "data:/");
-			WitheredBonnieAI = DataManager.GetValue<int>("WBAICN", "data:/");
-			WitheredChicaAI = DataManager.GetValue<int>("WCAICN", "data:/");
-			WitheredFreddyAI = DataManager.GetValue<int>("WFAICN", "data:/");
-			WitheredFoxyAI = DataManager.GetValue<int>("WFOAICN", "data:/");
+			GoldenFreddyAI = PlayerPrefs.GetInt("GoldenFreddyAI", 0);
+			MangleAI = PlayerPrefs.GetInt("MangleAI", 0);
+            BalloonBoyAI = PlayerPrefs.GetInt("BalloonBoyAI", 0);
+			ToyBonnieAI = PlayerPrefs.GetInt("ToyBonnieAI", 0);
+			ToyChicaAI = PlayerPrefs.GetInt("ToyChicaAI", 0);
+			ToyFreddyAI = PlayerPrefs.GetInt("ToyFreddyAI", 0);
+			WitheredBonnieAI = PlayerPrefs.GetInt("WitheredBonnieAI", 0);
+			WitheredChicaAI = PlayerPrefs.GetInt("WitheredChicaAI", 0);
+			WitheredFreddyAI = PlayerPrefs.GetInt("WitheredFreddyAI", 0);
+			WitheredFoxyAI = PlayerPrefs.GetInt("WitheredFoxyAI", 0);
 		}
 		if (Random.value < 0.01) {PaperpalsAI = 1;}
 		PuppetAI = Mathf.Clamp(PuppetAI,0, 6);
 		WitheredFoxyAI = Mathf.Clamp(WitheredFoxyAI,0, 17);
-		SetActivePlushies();
+
 		if (isNight7)
 		{
-			CheckAndHandleChallenges();
+			SetCurrentAI();
 		}
 
 		MovingSpeeds = new float[] { -250, -250	};
@@ -270,65 +269,19 @@ public class NightPlayer : MonoBehaviour {
 
 	public void SetCurrentAI()
 	{
-    currentAI = new int[]
-    {
-        GoldenFreddyAI,
-        MangleAI,
-        BBAI,
-        ToyBonnieAI,
-        ToyChicaAI,
-        ToyFreddyAI,
-        WitheredBonnieAI,
-        WitheredChicaAI,
-        WitheredFreddyAI,
-        WitheredFoxyAI
-    };
-	}
-
-	public void CheckAndHandleChallenges()
-	{
-    SetCurrentAI();
-
-    if (IsAIMatching(NewandShinyAI))
-    {
-        WG.WhatChallengeIsThis = "New And Shiny Completed";
-    }
-    else if (IsAIMatching(DoubleTroubleAI))
-    {
-        WG.WhatChallengeIsThis = "Double Trouble Completed";
-    }
-    else if (IsAIMatching(NightofMisfitsAI))
-    {
-        WG.WhatChallengeIsThis = "Night of Misfits Completed";
-    }
-    else if (IsAIMatching(FoxyFoxyAI))
-    {
-        WG.WhatChallengeIsThis = "Foxy Foxy Completed";
-    }
-    else if (IsAIMatching(LadiesNightAI))
-    {
-        WG.WhatChallengeIsThis = "Ladies Night Completed";
-    }
-    else if (IsAIMatching(FreddysCircusAI))
-    {
-        WG.WhatChallengeIsThis = "Freddy's Circus Completed";
-    }
-    else if (IsAIMatching(CupcakeChallengeAI))
-    {
-        WG.WhatChallengeIsThis = "Cupcake Challenge Completed";
-    }
-    else if (IsAIMatching(FazbearFeverAI))
-    {
-        WG.WhatChallengeIsThis = "Fazbear Fever Completed";
-    }
-    else if (IsAIMatching(GoldenFreddyChallengeAI))
-    {
-        WG.WhatChallengeIsThis = "Golden Freddy Mode Completed";
-    }
-    else
-    {
-        Debug.Log("No matching challenge found for the current AI setup.");
-    }
+		currentAI = new int[]
+		{
+			GoldenFreddyAI,
+			MangleAI,
+            BalloonBoyAI,
+			ToyBonnieAI,
+			ToyChicaAI,
+			ToyFreddyAI,
+			WitheredBonnieAI,
+			WitheredChicaAI,
+			WitheredFreddyAI,
+			WitheredFoxyAI
+		};
 	}
 
 	private bool IsAIMatching(int[] challengeAI)
@@ -348,48 +301,6 @@ public class NightPlayer : MonoBehaviour {
 
     return true;
 	}
-
-	void SetActivePlushies()
-    {
-        // Assuming Plushies[0] = Toy Bonnie Figure, Plushies[1] = Bonnie Plush, etc.
-
-        if (DataManager.GetValue<bool>("New And Shiny Completed", "data:/"))
-        {
-            Plushies[0].SetActive(true); // Toy Bonnie action figure
-        }
-        if (DataManager.GetValue<bool>("Double Trouble Completed", "data:/"))
-        {
-            Plushies[1].SetActive(true); // Bonnie plush
-        }
-        if (DataManager.GetValue<bool>("Night of Misfits Completed", "data:/"))
-        {
-            Plushies[2].SetActive(true); // BB plush
-        }
-        if (DataManager.GetValue<bool>("Foxy Foxy Completed", "data:/"))
-        {
-            Plushies[3].SetActive(true); // Foxy plush
-        }
-        if (DataManager.GetValue<bool>("Ladies Night Completed", "data:/"))
-        {
-            Plushies[4].SetActive(true); // Chica Plush
-        }
-        if (DataManager.GetValue<bool>("Freddy's Circus Completed", "data:/"))
-        {
-            Plushies[5].SetActive(true); // Freddy Plush
-        }
-        if (DataManager.GetValue<bool>("Cupcake Challenge Completed", "data:/"))
-        {
-            Plushies[6].SetActive(true); // Chica's Cupcake
-        }
-        if (DataManager.GetValue<bool>("Fazbear Fever Completed", "data:/"))
-        {
-            Plushies[7].SetActive(true); // Withered Freddy's microphone
-        }
-        if (DataManager.GetValue<bool>("Golden Freddy Mode Completed", "data:/"))
-        {
-            Plushies[8].SetActive(true); // Golden Freddy Plush
-        }
-    }
 
     IEnumerator TimeCoroutine()
     {
@@ -453,7 +364,7 @@ public class NightPlayer : MonoBehaviour {
 			ToyFreddyAI = 5;
 			ToyChicaAI = 5;
 			MangleAI = 10;
-			BBAI = 9;
+            BalloonBoyAI = 9;
 			WitheredChicaAI = 10;
 			WitheredFreddyAI = 10;
 			WitheredBonnieAI = 10;
@@ -482,7 +393,7 @@ public class NightPlayer : MonoBehaviour {
 			ToyFreddyAI = 2;
 			WitheredFoxyAI = 1;
 			MangleAI = 3;
-			BBAI = 3;
+            BalloonBoyAI = 3;
 			GoldenFreddyAI = Random.Range(0, 1);
 		}
 	}
@@ -841,7 +752,7 @@ public class NightPlayer : MonoBehaviour {
 		if (BBMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
-			if (BBAI >= randNum || BBAI == randNum)
+			if (BalloonBoyAI >= randNum || BalloonBoyAI == randNum)
 			{
 				AudioSource[] audioSources = BBSounds.GetComponents<AudioSource>();
 
@@ -946,7 +857,7 @@ public class NightPlayer : MonoBehaviour {
 		{
 			GoldenFreddyCameraTime -= Time.deltaTime;
 		}
-		if (BBAI >= 1)
+		if (BalloonBoyAI >= 1)
 		{
 			BBMovement -= Time.deltaTime;
 		}
