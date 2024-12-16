@@ -46,6 +46,7 @@ public class NightPlayer : MonoBehaviour {
 	public int currentNight;
     public int currentTime;
     public int currentCam = 09;
+	public bool isMonitorUp = false;
 
     public float TimeMultiplier;
 	public bool isNight7;
@@ -2284,6 +2285,9 @@ public class NightPlayer : MonoBehaviour {
 	IEnumerator MonitorUpIE()
 	{
 		yield return new WaitForSeconds(0.276f);
+
+		isMonitorUp = true; // Important for handle monitor state
+
 		JJ.SetActive(false);
 		CameraButton.SetActive(true);
 		CameraUI.SetActive(true);
@@ -2300,6 +2304,8 @@ public class NightPlayer : MonoBehaviour {
 
 	IEnumerator MonitorDownIE()
 	{
+		isMonitorUp = false; // Important for handle monitor state
+
 		MonitorAnimator.gameObject.SetActive(true);
 		OnCams.mute = true;
 		CameraUI.SetActive(false);

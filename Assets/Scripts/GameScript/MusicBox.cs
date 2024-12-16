@@ -70,6 +70,7 @@ public class MusicBox : MonoBehaviour
         WindUpMusicBox();
         UnwindMusicBox();
         UpdateProgressFill();
+        HandleMuteWithMonitor();
     }
 
     private void WindUpMusicBox()
@@ -125,6 +126,24 @@ public class MusicBox : MonoBehaviour
         else
         {
             return 0f;
+        }
+    }
+
+    private void HandleMuteWithMonitor()
+    {
+        if (nightPlayer.isMonitorUp)
+        {
+            if (musicBoxTheme.mute)
+            {
+                musicBoxTheme.mute = false;
+            }
+        }
+        else
+        {
+            if (!musicBoxTheme.mute)
+            {
+                musicBoxTheme.mute = true;
+            }
         }
     }
 

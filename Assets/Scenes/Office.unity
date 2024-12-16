@@ -3582,7 +3582,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1313177519}
         m_MethodName: ChangeMusicBoxVolume
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4803,7 +4803,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1313177519}
         m_MethodName: ChangeMusicBoxVolume
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5134,7 +5134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &980370712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5285,7 +5285,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1313177519}
         m_MethodName: ChangeMusicBoxVolume
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5450,7 +5450,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1313177519}
         m_MethodName: ChangeMusicBoxVolume
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6188,7 +6188,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1313177519}
         m_MethodName: ChangeMusicBoxVolume
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8517,6 +8517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progress: {fileID: 950004309}
   musicBoxTheme: {fileID: 709061082}
+  monitor: {fileID: 980370711}
 --- !u!1 &1314717663
 GameObject:
   m_ObjectHideFlags: 0
@@ -8884,7 +8885,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1313177519}
         m_MethodName: ChangeMusicBoxVolume
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12023,7 +12024,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1313177519}
         m_MethodName: ChangeMusicBoxVolume
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12309,7 +12310,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1313177519}
         m_MethodName: ChangeMusicBoxVolume
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
