@@ -59,6 +59,40 @@ public class MusicBox : MonoBehaviour
             }
         }
 
+        switch (remoteState.devType)
+        {
+            case WiiU.RemoteDevType.ProController:
+                if (remoteState.pro.IsPressed(WiiU.ProControllerButton.B))
+                {
+                    windUpMusicBox = true;
+                }
+                else
+                {
+                    windUpMusicBox = false;
+                }
+                break;
+            case WiiU.RemoteDevType.Classic:
+                if (remoteState.classic.IsPressed(WiiU.ClassicButton.B))
+                {
+                    windUpMusicBox = true;
+                }
+                else
+                {
+                    windUpMusicBox = false;
+                }
+                break;
+            default:
+                if (remoteState.IsPressed(WiiU.RemoteButton.B))
+                {
+                    windUpMusicBox = true;
+                }
+                else
+                {
+                    windUpMusicBox = false;
+                }
+                break;
+        }
+
         if (Application.isEditor)
         {
             if (Input.GetKey(KeyCode.B))
