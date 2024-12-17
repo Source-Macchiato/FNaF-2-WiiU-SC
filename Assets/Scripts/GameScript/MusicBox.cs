@@ -172,7 +172,7 @@ public class MusicBox : MonoBehaviour
 
     private void HandleMuteWithMonitor()
     {
-        if (nightPlayer.isMonitorUp)
+        if (nightPlayer.isMonitorActive)
         {
             if (musicBoxTheme.mute)
             {
@@ -190,7 +190,7 @@ public class MusicBox : MonoBehaviour
 
     private void HandleMusicBoxVisibility()
     {
-        if (nightPlayer.isMonitorUp)
+        if (nightPlayer.isMonitorActive)
         {
             if (nightPlayer.currentCam == 11)
             {
@@ -218,7 +218,7 @@ public class MusicBox : MonoBehaviour
 
     private void HandleWindUpSound()
     {
-        if (nightPlayer.isMonitorUp)
+        if (nightPlayer.isMonitorActive)
         {
             // Unmute sound when monitor is up
             if (windUpSound.mute)

@@ -22,10 +22,6 @@ public class NightPlayer : MonoBehaviour {
 	public AudioSource VentCrawl;
 	public AudioSource Mangle;
 
-	[Header("Buttons")]
-	public GameObject CameraButton;
-	public GameObject MaskButton;
-
 	[Header("Info")]
 	public int[] NewandShinyAI;
 	public int[] DoubleTroubleAI;
@@ -41,7 +37,8 @@ public class NightPlayer : MonoBehaviour {
 	public int currentNight;
     public int currentTime;
     public int currentCam = 09;
-	public bool isMonitorUp = false;
+
+	public bool isMonitorActive = false;
 	public bool isJumpscared = false;
 
     public float TimeMultiplier;
@@ -2017,7 +2014,7 @@ public class NightPlayer : MonoBehaviour {
 
 	private void CameraManager()
 	{
-		if (CameraButton.activeSelf && !isJumpscared)
+		if (!isJumpscared)
 		{
             if (ToyBonniePrepared)
             {
@@ -2199,8 +2196,6 @@ public class NightPlayer : MonoBehaviour {
 			if (CamsActive)
 			{
 				state = "MonitorUp";
-				MaskButton.SetActive(false);
-				CameraButton.SetActive(false);
 				MonitorUp.Play();
 				MonitorAnimator.Play("MonitorUp");
 				StartCoroutine(MonitorUpIE());
@@ -2208,8 +2203,6 @@ public class NightPlayer : MonoBehaviour {
 			else
 			{
 				state = "MonitorDown";
-				MaskButton.SetActive(true);
-				CameraButton.SetActive(false);
 				MonitorDown.Play();
 				StartCoroutine(MonitorDownIE());
 			}
@@ -2240,16 +2233,16 @@ public class NightPlayer : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(0.276f);
 
-		isMonitorUp = true; // Important for handle monitor state
+		isMonitorActive = true; // Important for handle monitor state
 
 		JJ.SetActive(false);
-		CameraButton.SetActive(true);
 		CameraUI.SetActive(true);
 		MainCameras.SetActive(true);
 		state = "Cameras";
 		MonitorAnimator.gameObject.SetActive(false);
 		OnCams.mute = false;
 		SwitchCameraSound.Play();
+
 		if (BBCamera == 15)
 		{
 			StartCoroutine(BaloonBoyInOffice());
@@ -2258,7 +2251,7 @@ public class NightPlayer : MonoBehaviour {
 
 	IEnumerator MonitorDownIE()
 	{
-		isMonitorUp = false; // Important for handle monitor state
+		isMonitorActive = false; // Important for handle monitor state
 
 		MonitorAnimator.gameObject.SetActive(true);
 		OnCams.mute = true;
@@ -2300,7 +2293,6 @@ public class NightPlayer : MonoBehaviour {
 			JJ.SetActive(true);
 		}
 		yield return new WaitForSeconds(0.183f);
-		CameraButton.SetActive(true);
 
 		if (maskManager.isMaskActive == false)
 		{

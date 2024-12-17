@@ -64,7 +64,10 @@ public class MaskManager : MonoBehaviour
             }
             else
             {
-                EnableMask();
+                if (!nightPlayer.isMonitorActive)
+                {
+                    EnableMask();
+                }
             }
         }
     }
