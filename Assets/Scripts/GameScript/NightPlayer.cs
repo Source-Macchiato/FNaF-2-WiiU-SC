@@ -2231,11 +2231,11 @@ public class NightPlayer : MonoBehaviour {
 
 	IEnumerator MonitorUpIE()
 	{
-		yield return new WaitForSeconds(0.276f);
+        isMonitorActive = true; // Important for handle monitor state
 
-		isMonitorActive = true; // Important for handle monitor state
+        moveInOffice.canMove = false; // Prevent to move in office when the monitor is active
 
-		moveInOffice.canMove = false; // Prevent to move in office when the monitor is active
+        yield return new WaitForSeconds(0.276f);
 
 		JJ.SetActive(false);
 		CameraUI.SetActive(true);
