@@ -110,6 +110,50 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &16103770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 16103771}
+  - component: {fileID: 16103772}
+  m_Layer: 0
+  m_Name: MaskManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &16103771
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 16103770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1131915624}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &16103772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 16103770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641890997b81ebf45ac8e076c2593af9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskAnimator: {fileID: 150194539}
+  putMaskOnAudio: {fileID: 371900578}
+  putMaskOffAudio: {fileID: 2145098003}
+  deepBreathsAudio: {fileID: 1058841199}
 --- !u!1 &16994589
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &150194536
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1484,7 +1528,7 @@ GameObject:
   - component: {fileID: 371900577}
   - component: {fileID: 371900578}
   m_Layer: 5
-  m_Name: PutUpMask
+  m_Name: PutMaskOn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5846,7 +5890,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6790,6 +6834,7 @@ Transform:
   - {fileID: 536791345}
   - {fileID: 174597508}
   - {fileID: 1313177518}
+  - {fileID: 16103771}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7193,9 +7238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectsToMove:
   - {fileID: 2101765863}
-  MovingSpeeds:
-  - -250
-  - -250
   MaxXMovement: []
   MinXMovement: []
   Jumpscare: {fileID: 891353585}
@@ -7351,7 +7393,6 @@ MonoBehaviour:
     type: 3}
   LeftVentEndoSprite: {fileID: 21300000, guid: 19792d67b1e8a0a4f9f5fc80934e41e7, type: 3}
   SwitchCameraSound: {fileID: 413012736}
-  FullnessCircle: {fileID: 0}
   CircleSprites:
   - {fileID: 0}
   - {fileID: 0}
@@ -8632,6 +8673,7 @@ MonoBehaviour:
   musicBoxTheme: {fileID: 709061082}
   windUpSound: {fileID: 1242395680}
   musicBoxContainer: {fileID: 1472750459}
+  windUpMusicBox: 0
 --- !u!1 &1314717663
 GameObject:
   m_ObjectHideFlags: 0
@@ -13323,7 +13365,7 @@ GameObject:
   - component: {fileID: 2145098002}
   - component: {fileID: 2145098003}
   m_Layer: 5
-  m_Name: PutDownMask
+  m_Name: PutMaskOff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

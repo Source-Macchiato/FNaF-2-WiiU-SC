@@ -217,6 +217,7 @@ public class NightPlayer : MonoBehaviour {
 
 	private MoveInOffice moveInOffice;
 	private MusicBox musicBox;
+	private MaskManager maskManager;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -230,9 +231,10 @@ public class NightPlayer : MonoBehaviour {
 
         moveInOffice = FindObjectOfType<MoveInOffice>();
 		musicBox = FindObjectOfType<MusicBox>();
+		maskManager = FindObjectOfType<MaskManager>();
 
         currentNight = 3;
-        //currentNight = SaveManager.LoadNightNumber() tu es homosexuel
+        //currentNight = SaveManager.LoadNightNumber()
 
         MainOfficeDefaultSprite = MainOfficeImage.sprite;
 		currentFlashlightDuration = FlashlightDuration;
@@ -2097,100 +2099,92 @@ public class NightPlayer : MonoBehaviour {
 
 	IEnumerator FlashAnimatronic(string animatronicName)
 	{
-    switch (animatronicName)
-    {
-        case "ToyBonnie":
-            ToyBonnieFlashed = true;
-            ToyBonnieMovement += 6.66f;
-            yield return new WaitForSeconds(6.66f);
-            ToyBonnieFlashed = false;
-            break;
-        case "ToyChica":
-            ToyChicaFlashed = true;
-            ToyChicaMovement += 6.66f;
-            yield return new WaitForSeconds(6.66f);
-            ToyChicaFlashed = false;
-            break;
-        case "ToyFreddy":
-            ToyFreddyFlashed = true;
-            ToyFreddyMovement += 6.66f;
-            yield return new WaitForSeconds(6.66f);
-            ToyFreddyFlashed = false;
-            break;
-        case "Mangle":
-            MangleFlashed = true;
-            MangleMovement += 6.66f;
-            yield return new WaitForSeconds(6.66f);
-            MangleFlashed = false;
-            break;
-        case "Paperpals":
-            PaperpalsFlashed = true;
-            PaperpalsMovement += 6.66f;
-            yield return new WaitForSeconds(6.66f);
-            PaperpalsFlashed = false;
-            break;
-        case "WitheredFreddy":
-            WitheredFreddyFlashed = true;
-            WitheredFreddyMovement += 6.66f;
-            yield return new WaitForSeconds(6.66f);
-            WitheredFreddyFlashed = false;
-            break;
-        case "WitheredBonnie":
-            WitheredBonnieFlashed = true;
-            WitheredBonnieMovement += 6.66f;
-            yield return new WaitForSeconds(6.66f);
-            WitheredBonnieFlashed = false;
-            break;
-        case "WitheredChica":
-            WitheredChicaFlashed = true;
-            WitheredChicaMovement += 6.66f;
-            yield return new WaitForSeconds(6.66f);
-            WitheredChicaFlashed = false;
-            break;
-    }
+		switch (animatronicName)
+		{
+			case "ToyBonnie":
+				ToyBonnieFlashed = true;
+				ToyBonnieMovement += 6.66f;
+				yield return new WaitForSeconds(6.66f);
+				ToyBonnieFlashed = false;
+				break;
+			case "ToyChica":
+				ToyChicaFlashed = true;
+				ToyChicaMovement += 6.66f;
+				yield return new WaitForSeconds(6.66f);
+				ToyChicaFlashed = false;
+				break;
+			case "ToyFreddy":
+				ToyFreddyFlashed = true;
+				ToyFreddyMovement += 6.66f;
+				yield return new WaitForSeconds(6.66f);
+				ToyFreddyFlashed = false;
+				break;
+			case "Mangle":
+				MangleFlashed = true;
+				MangleMovement += 6.66f;
+				yield return new WaitForSeconds(6.66f);
+				MangleFlashed = false;
+				break;
+			case "Paperpals":
+				PaperpalsFlashed = true;
+				PaperpalsMovement += 6.66f;
+				yield return new WaitForSeconds(6.66f);
+				PaperpalsFlashed = false;
+				break;
+			case "WitheredFreddy":
+				WitheredFreddyFlashed = true;
+				WitheredFreddyMovement += 6.66f;
+				yield return new WaitForSeconds(6.66f);
+				WitheredFreddyFlashed = false;
+				break;
+			case "WitheredBonnie":
+				WitheredBonnieFlashed = true;
+				WitheredBonnieMovement += 6.66f;
+				yield return new WaitForSeconds(6.66f);
+				WitheredBonnieFlashed = false;
+				break;
+			case "WitheredChica":
+				WitheredChicaFlashed = true;
+				WitheredChicaMovement += 6.66f;
+				yield return new WaitForSeconds(6.66f);
+				WitheredChicaFlashed = false;
+				break;
+		}
 	}
 
 	public void Mask()
 	{
 		if (state != "Jumpscare" && state != "Cameras" && state != "MonitorUp")
 		{
-		maskActive = !maskActive;
-		MaskAnimator.gameObject.SetActive(true);
-		if (GoldenFreddyInOffice)
-		{
-			GoldenFreddyOffice.SetActive(false);
-			GoldenFreddyCameraTime = 5f;
-			GoldenFreddyMovement = 1.67f;
-			GoldenFreddyInOffice = false;
-		}
-		if (maskActive)
-		{
-			MaskAnimator.Play("MaskDown");
-			PutOnMask.Play();
-			state = "OfficeMask";
-			StartCoroutine(HeavyBreathing());
-			CameraButton.SetActive(false);
-		}
-		else
-		{
-			MaskAnimator.Play("MaskUp");
-			PutDownMask.Play();
-			state = "Office";
-			DeepBreathing.mute = true;
-			CameraButton.SetActive(true);
-			if (BlackoutActive)
+			if (GoldenFreddyInOffice)
 			{
-				switch (currentBlackout)
+				GoldenFreddyOffice.SetActive(false);
+				GoldenFreddyCameraTime = 5f;
+				GoldenFreddyMovement = 1.67f;
+				GoldenFreddyInOffice = false;
+			}
+
+			if (maskActive)
+			{
+				state = "OfficeMask";
+			}
+			else
+			{
+				state = "Office";
+
+				if (BlackoutActive)
 				{
-					case "ToyBonnie":
-					ToyBonnieCamera = 13;
-					StartCoroutine(ToyBonnieFunction(false));
-					BlackoutActive = false;
-					ToyBonnieBlackout.gameObject.SetActive(false);
-					break;
+					switch (currentBlackout)
+					{
+						case "ToyBonnie":
+						ToyBonnieCamera = 13;
+						StartCoroutine(ToyBonnieFunction(false));
+						BlackoutActive = false;
+						ToyBonnieBlackout.gameObject.SetActive(false);
+						break;
+					}
 				}
 			}
-		}
 		}
 	}
 
@@ -2394,12 +2388,6 @@ public class NightPlayer : MonoBehaviour {
 		RWQOffice.SetActive(false);
 		RWQActive = false;
 		RWQCrashTimer = 4f;
-	}
-
-	IEnumerator HeavyBreathing()
-	{
-		yield return new WaitForSeconds(0.367f);
-		if (maskActive) {DeepBreathing.mute = false;}
 	}
 
 	public void MuteCall()
