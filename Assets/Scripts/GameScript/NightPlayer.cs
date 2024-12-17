@@ -2041,41 +2041,62 @@ public class NightPlayer : MonoBehaviour {
 
     void FlashCam(int camNumber)
 	{
-    if (ToyBonnieCamera == camNumber)
-    {
-        if (!ToyBonnieFlashed)
+		if (ToyBonnieCamera == camNumber)
 		{
-			StartCoroutine(FlashAnimatronic("ToyBonnie"));
+			if (!ToyBonnieFlashed)
+			{
+				StartCoroutine(FlashAnimatronic("ToyBonnie"));
+			}
 		}
-    }
-    if (ToyChicaCamera == camNumber)
-    {
-        if (!ToyChicaFlashed) {StartCoroutine(FlashAnimatronic("ToyChica"));}
-    }
-    if (ToyFreddyCamera == camNumber)
-    {
-        if (!ToyFreddyFlashed) {StartCoroutine(FlashAnimatronic("ToyFreddy"));}
-    }
-    if (MangleCamera == camNumber)
-    {
-        if (!MangleFlashed) {StartCoroutine(FlashAnimatronic("Mangle"));}
-    }
-    if (PaperpalsCamera == camNumber)
-    {
-        if (!PaperpalsFlashed) {StartCoroutine(FlashAnimatronic("Paperpals"));}
-    }
-    if (WitheredFreddyCamera == camNumber)
-    {
-        if (!WitheredFreddyFlashed) {StartCoroutine(FlashAnimatronic("WitheredFreddy"));}
-    }
-    if (WitheredBonnieCamera == camNumber)
-    {
-        if (!WitheredFreddyFlashed) {StartCoroutine(FlashAnimatronic("WitheredBonnie"));}
-    }
-    if (WitheredChicaCamera == camNumber)
-    {
-        if (!WitheredFreddyFlashed) {StartCoroutine(FlashAnimatronic("WitheredChica"));}
-    }
+		if (ToyChicaCamera == camNumber)
+		{
+			if (!ToyChicaFlashed)
+			{
+				StartCoroutine(FlashAnimatronic("ToyChica"));
+			}
+		}
+		if (ToyFreddyCamera == camNumber)
+		{
+			if (!ToyFreddyFlashed)
+			{
+				StartCoroutine(FlashAnimatronic("ToyFreddy"));
+			}
+		}
+		if (MangleCamera == camNumber)
+		{
+			if (!MangleFlashed)
+			{
+				StartCoroutine(FlashAnimatronic("Mangle"));
+			}
+		}
+		if (PaperpalsCamera == camNumber)
+		{
+			if (!PaperpalsFlashed)
+			{
+				StartCoroutine(FlashAnimatronic("Paperpals"));
+			}
+		}
+		if (WitheredFreddyCamera == camNumber)
+		{
+			if (!WitheredFreddyFlashed)
+			{
+				StartCoroutine(FlashAnimatronic("WitheredFreddy"));
+			}
+		}
+		if (WitheredBonnieCamera == camNumber)
+		{
+			if (!WitheredFreddyFlashed)
+			{
+				StartCoroutine(FlashAnimatronic("WitheredBonnie"));
+			}
+		}
+		if (WitheredChicaCamera == camNumber)
+		{
+			if (!WitheredFreddyFlashed)
+			{
+				StartCoroutine(FlashAnimatronic("WitheredChica"));
+			}
+		}
 	}
 
 
@@ -2136,7 +2157,8 @@ public class NightPlayer : MonoBehaviour {
 
 	public void Mask()
 	{
-		if (!isJumpscared && state != "Cameras" && state != "MonitorUp")
+		// Help idk where to move this
+		if (!isJumpscared)
 		{
 			if (GoldenFreddyInOffice)
 			{
