@@ -2235,6 +2235,8 @@ public class NightPlayer : MonoBehaviour {
 
 		isMonitorActive = true; // Important for handle monitor state
 
+		moveInOffice.canMove = false; // Prevent to move in office when the monitor is active
+
 		JJ.SetActive(false);
 		CameraUI.SetActive(true);
 		MainCameras.SetActive(true);
@@ -2252,6 +2254,8 @@ public class NightPlayer : MonoBehaviour {
 	IEnumerator MonitorDownIE()
 	{
 		isMonitorActive = false; // Important for handle monitor state
+
+		moveInOffice.canMove = true; // When the monitor is off we can move in the office
 
 		MonitorAnimator.gameObject.SetActive(true);
 		OnCams.mute = true;
