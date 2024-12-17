@@ -610,7 +610,7 @@ public class NightPlayer : MonoBehaviour {
 					StartCoroutine(DisruptCamera(6));
 					break;
 					case 13:
-					if (maskManager.isMaskActive != true)
+					if (!maskManager.isMaskActive)
 					{
 						MangleCamera = 16;
 						ManglePrepared = true;
@@ -776,7 +776,7 @@ public class NightPlayer : MonoBehaviour {
 				BBCamera = 13;
 				break;
 				case 13:
-				if (maskManager.isMaskActive == false)
+				if (!maskManager.isMaskActive)
 				{
 					BBCamera = 15;
 				}
@@ -1019,36 +1019,36 @@ public class NightPlayer : MonoBehaviour {
 
 	IEnumerator BaloonBoyInOffice()
 	{
-    // Set up the initial state for BaloonBoy
-    BBCamera = 16;
-    BaloonBoy.SetActive(true);
+		// Set up the initial state for BaloonBoy
+		BBCamera = 16;
+		BaloonBoy.SetActive(true);
 
-    // Get the specific AudioSource component
-    AudioSource bbSound = BBSounds.GetComponents<AudioSource>()[2];
+		// Get the specific AudioSource component
+		AudioSource bbSound = BBSounds.GetComponents<AudioSource>()[2];
 
-    // Play the sound every 3 seconds for 15 seconds
-    float duration = 15f;
-    float interval = 1.8f;
-    float elapsedTime = 0f;
+		// Play the sound every 3 seconds for 15 seconds
+		float duration = 15f;
+		float interval = 1.8f;
+		float elapsedTime = 0f;
 
-	flashlightActive = false;
-	FlashLightAudio.mute = true;
-	NoFlashlightBatterys.mute = false;
+		flashlightActive = false;
+		FlashLightAudio.mute = true;
+		NoFlashlightBatterys.mute = false;
 
-    while (elapsedTime < duration && BaloonBoy.activeSelf)
-    {
-        // Play the sound
-        bbSound.Play();
+		while (elapsedTime < duration && BaloonBoy.activeSelf)
+		{
+			// Play the sound
+			bbSound.Play();
 
-        // Wait for the interval
-        yield return new WaitForSeconds(interval);
+			// Wait for the interval
+			yield return new WaitForSeconds(interval);
 
-        // Update the elapsed time
-        elapsedTime += interval;
-    }
+			// Update the elapsed time
+			elapsedTime += interval;
+		}
 
-	BBCamera = 10;
-	BBMovement = 9f;
+		BBCamera = 10;
+		BBMovement = 9f;
 	}
 
 	void PuppetBox()
@@ -1133,7 +1133,6 @@ public class NightPlayer : MonoBehaviour {
 			}
 			else if (maskManager.isMaskActive)
 			{
-				Mask();
 				JumpscareAnimator.Play("Puppet");
 				Jumpscare.Play();
 			}
@@ -2013,14 +2012,6 @@ public class NightPlayer : MonoBehaviour {
                 GoldenFreddyInHall = false;
                 GoldenFreddyPrepared = false;
             }
-        }
-	}
-
-	private void MaskManager()
-	{
-		if (MaskButton.activeSelf && !isJumpscared)
-		{
-            Mask();
         }
 	}
 

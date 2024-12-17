@@ -14,11 +14,16 @@ public class MaskManager : MonoBehaviour
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
 
+    // Scripts
+    NightPlayer nightPlayer;
+
     void Start()
 	{
         // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
+
+        nightPlayer = FindObjectOfType<NightPlayer>();
     }
 	
 	void Update()
@@ -42,47 +47,65 @@ public class MaskManager : MonoBehaviour
                 ToggleMask();
             }
         }
+
+        if (nightPlayer.isJumpscared && isMaskActive)
+        {
+            DisableMask();
+        }
     }
 
     private void ToggleMask()
     {
-        if (isMaskActive) // Put mask off
+        if (!nightPlayer.isJumpscared)
         {
-            isMaskActive = false;
-
-            maskAnimator.Play("Off");
-            putMaskOffAudio.Play();
-
-            // If mask on audio is playing stop it
-            if (putMaskOnAudio.isPlaying)
+            if (isMaskActive)
             {
-                putMaskOnAudio.Stop();
+                DisableMask();
             }
-
-            // Stop deep breaths when mask is removed
-            if (deepBreathsAudio.isPlaying)
+            else
             {
-                deepBreathsAudio.Stop();
+                EnableMask();
             }
         }
-        else // Put mask on
+    }
+
+    private void EnableMask()
+    {
+        isMaskActive = true;
+
+        maskAnimator.Play("On");
+        putMaskOnAudio.Play();
+
+        // If mask of audio is playing stop it
+        if (putMaskOffAudio.isPlaying)
         {
-            isMaskActive = true;
+            putMaskOffAudio.Stop();
+        }
 
-            maskAnimator.Play("On");
-            putMaskOnAudio.Play();
+        // Start deep breaths when mask is put on
+        if (!deepBreathsAudio.isPlaying)
+        {
+            deepBreathsAudio.Play();
+        }
+    }
 
-            // If mask of audio is playing stop it
-            if (putMaskOffAudio.isPlaying)
-            {
-                putMaskOffAudio.Stop();
-            }
+    private void DisableMask()
+    {
+        isMaskActive = false;
 
-            // Start deep breaths when mask is put on
-            if (!deepBreathsAudio.isPlaying)
-            {
-                deepBreathsAudio.Play();
-            }
+        maskAnimator.Play("Off");
+        putMaskOffAudio.Play();
+
+        // If mask on audio is playing stop it
+        if (putMaskOnAudio.isPlaying)
+        {
+            putMaskOnAudio.Stop();
+        }
+
+        // Stop deep breaths when mask is removed
+        if (deepBreathsAudio.isPlaying)
+        {
+            deepBreathsAudio.Stop();
         }
     }
 }
