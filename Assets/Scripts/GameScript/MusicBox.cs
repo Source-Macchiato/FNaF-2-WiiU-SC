@@ -13,6 +13,7 @@ public class MusicBox : MonoBehaviour
 	private float unwindTime;
     private float currentUnwindTime;
     private bool windUpMusicBox = false;
+    private bool isWindUpSoundPlaying = false;
 
     private int nightNumber;
 
@@ -75,6 +76,7 @@ public class MusicBox : MonoBehaviour
         UpdateProgressFill();
         HandleMuteWithMonitor();
         HandleMusicBoxVisibility();
+        HandleWindUpSound();
     }
 
     private void WindUpMusicBox()
@@ -178,6 +180,50 @@ public class MusicBox : MonoBehaviour
                 musicBoxContainer.SetActive(false);
             }
         }
+    }
+
+    private void HandleWindUpSound()
+    {
+        if (nightPlayer.isMonitorUp)
+        {
+            // Unmute sound when monitor is up
+            if (windUpSound.mute)
+            {
+                windUpSound.mute = false;
+            }
+
+            if (nightPlayer.currentCam == 11)
+            {
+                if (windUpMusicBox && !isWindUpSoundPlaying)
+                {
+                    StartCoroutine(PlayWindUpSoundWithDelay());
+                }
+            }
+        }
+        else
+        {
+            // Mute sound when monitor is down
+            if (!windUpSound.mute)
+            {
+                windUpSound.mute = true;
+            }
+        }
+    }
+
+    private IEnumerator PlayWindUpSoundWithDelay()
+    {
+        isWindUpSoundPlaying = true;
+
+        // Jouer le son entièrement
+        windUpSound.Play();
+
+        // Attendre que le son soit terminé
+        yield return new WaitForSeconds(windUpSound.clip.length);
+
+        // Ajouter un délai avant de permettre un nouveau déclenchement
+        yield return new WaitForSeconds(0.15f);
+
+        isWindUpSoundPlaying = false;
     }
 
     public void ChangeMusicBoxVolume(float volume)
