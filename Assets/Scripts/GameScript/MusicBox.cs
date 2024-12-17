@@ -12,7 +12,7 @@ public class MusicBox : MonoBehaviour
 
 	private float unwindTime;
     private float currentUnwindTime;
-    private bool windUpMusicBox = false;
+    public bool windUpMusicBox = false;
     private bool isWindUpSoundPlaying = false;
 
     private int nightNumber;

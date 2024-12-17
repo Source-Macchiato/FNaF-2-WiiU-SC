@@ -9,7 +9,6 @@ public class NightPlayer : MonoBehaviour {
 	[Header("Movement")]
 
     public Transform[] ObjectsToMove;
-    public float[] MovingSpeeds = new float[] { -250, -250 };
     public float[] MaxXMovement;
     public float[] MinXMovement;
 
@@ -29,7 +28,6 @@ public class NightPlayer : MonoBehaviour {
 	[Header("Buttons")]
 	public GameObject CameraButton;
 	public GameObject MaskButton;
-	private bool WindUpBeingHeld;
 
 	[Header("Info")]
 	public int[] NewandShinyAI;
@@ -136,7 +134,6 @@ public class NightPlayer : MonoBehaviour {
 	public Sprite PuppetCameraEndoSprite;
 	public Sprite LeftVentEndoSprite;
 	public AudioSource SwitchCameraSound;
-	public Image FullnessCircle;
 	public Sprite[] CircleSprites;
 	public Sprite[] Cam9Sprites;
 	public Sprite[] Cam8Sprites;
@@ -219,6 +216,7 @@ public class NightPlayer : MonoBehaviour {
 	public string flashLightTarget = "MainHallway";
 
 	private MoveInOffice moveInOffice;
+	private MusicBox musicBox;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -231,6 +229,7 @@ public class NightPlayer : MonoBehaviour {
         remote = WiiU.Remote.Access(0);
 
         moveInOffice = FindObjectOfType<MoveInOffice>();
+		musicBox = FindObjectOfType<MusicBox>();
 
         currentNight = 3;
         //currentNight = SaveManager.LoadNightNumber() tu es homosexuel
@@ -263,8 +262,6 @@ public class NightPlayer : MonoBehaviour {
 		{
 			SetCurrentAI();
 		}
-
-		MovingSpeeds = new float[] { -250, -250	};
     }
 
 	public void SetCurrentAI()
@@ -1067,7 +1064,7 @@ public class NightPlayer : MonoBehaviour {
 		{
 			if (PuppetTime != 0f)
 			{
-				if (WindUpBeingHeld && currentCam == 11 && state == "Cameras")
+				if (musicBox.windUpMusicBox)
     			{
         			PuppetTime += Time.deltaTime * 2.4f;
         			PuppetDeathTimer = 15f;
@@ -1076,15 +1073,9 @@ public class NightPlayer : MonoBehaviour {
     			{
         			PuppetTime -= Time.deltaTime * ((float)PuppetAI * 0.16f);
     			}
-				Color color = FullnessCircle.color;
-        		color.a = 1f;
-        		FullnessCircle.color = color;
 			}
 			else
 			{
-				Color color = FullnessCircle.color;
-        		color.a = 0f;
-        		FullnessCircle.color = color;
 				if (PuppetDeathTimer >= 0.01f)
 				{
 					PuppetDeathTimer -= Time.deltaTime;
@@ -1095,46 +1086,15 @@ public class NightPlayer : MonoBehaviour {
 					StartCoroutine(PuppetDeathSequence());
 				}
 
-				if (WindUpBeingHeld)
+				if (musicBox.windUpMusicBox)
 				{
 					PuppetTime += Time.deltaTime * 1.5f;
 					PuppetDeathTimer = 15f;
 				}
 			}
 
+			// Work for Alyx on MusicBox script
 			PuppetTime = Mathf.Clamp(PuppetTime, 0f, 30f);
-
-			// Calculate the sprite index based on currentValue
-        	int numberOfSprites = CircleSprites.Length;
-        	int spriteIndex = Mathf.FloorToInt((PuppetTime / 30f) * (numberOfSprites - 1));
-
-        	// Clamp the index to ensure it is within bounds
-        	spriteIndex = Mathf.Clamp(spriteIndex, 0, numberOfSprites - 1);
-
-        	// Check if there was a sprite change
-        	if (spriteIndex != previousFullNessCircleIndex)
-        	{
-            // Check if the change was positive
-            if (spriteIndex > previousFullNessCircleIndex)
-            {
-                Debug.Log("Sprite index increased");
-                if (WindUpBeingHeld)
-				{
-					WindUpSound.Play();
-				}
-            }
-            else
-            {
-                Debug.Log("Sprite index decreased");
-                // Add additional logic for negative change here
-            }
-
-            // Set the displayed sprite
-            FullnessCircle.sprite = CircleSprites[spriteIndex];
-
-            // Update the previous sprite index
-            previousFullNessCircleIndex = spriteIndex;
-        	}
 
 			float percentage = (PuppetTime / 30f) * 100f;
 
@@ -1153,6 +1113,7 @@ public class NightPlayer : MonoBehaviour {
 				PuppetWarning.Play("WarningHeavy");
 				PuppetWarningState = "WarningHeavy";
 			}
+			// ---
 		}
 	}
 
