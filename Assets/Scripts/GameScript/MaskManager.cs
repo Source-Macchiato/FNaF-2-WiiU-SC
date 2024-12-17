@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using WiiU = UnityEngine.WiiU;
 
 public class MaskManager : MonoBehaviour
@@ -9,7 +8,7 @@ public class MaskManager : MonoBehaviour
     public AudioSource putMaskOffAudio;
     public AudioSource deepBreathsAudio;
 
-    private bool isMaskActive = false;
+    public bool isMaskActive = false;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;

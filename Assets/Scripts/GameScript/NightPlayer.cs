@@ -7,10 +7,7 @@ using WiiU = UnityEngine.WiiU;
 public class NightPlayer : MonoBehaviour {
 
 	[Header("Movement")]
-
     public Transform[] ObjectsToMove;
-    public float[] MaxXMovement;
-    public float[] MinXMovement;
 
 	[Header("Audio")]
 	public AudioSource Jumpscare;
@@ -45,6 +42,7 @@ public class NightPlayer : MonoBehaviour {
     public int currentTime;
     public int currentCam = 09;
 	public bool isMonitorUp = false;
+	public bool isJumpscared = false;
 
     public float TimeMultiplier;
 	public bool isNight7;
@@ -158,14 +156,6 @@ public class NightPlayer : MonoBehaviour {
 	public Sprite[] WitheredBonnieDefaultCams;
 	public Sprite[] WitheredBonnieFlashlightCams;
 	public GameObject[] MangleInRooms;
-
-	[Header("Mask")]
-
-	public AudioSource PutOnMask;
-	public AudioSource PutDownMask;
-	public AudioSource DeepBreathing;
-	public Animator MaskAnimator;
-	private bool maskActive;
 
 	[Header("Flashlight")]
 
@@ -397,12 +387,16 @@ public class NightPlayer : MonoBehaviour {
 		}
 	}
 
-	IEnumerator JumpscareSequence()
+	private IEnumerator JumpscareSequence()
 	{
 		Debug.Log("Death!! State: "+ state);
-		state = "Jumpscare";
+
+		isJumpscared = true;
+
 		yield return new WaitForSeconds(0.45f);
+
 		Jumpscare.Stop();
+
 		SceneManager.LoadScene("GameOver");
 	}
     
@@ -616,7 +610,7 @@ public class NightPlayer : MonoBehaviour {
 					StartCoroutine(DisruptCamera(6));
 					break;
 					case 13:
-					if (maskActive != true)
+					if (maskManager.isMaskActive != true)
 					{
 						MangleCamera = 16;
 						ManglePrepared = true;
@@ -782,7 +776,7 @@ public class NightPlayer : MonoBehaviour {
 				BBCamera = 13;
 				break;
 				case 13:
-				if (maskActive != true)
+				if (maskManager.isMaskActive == false)
 				{
 					BBCamera = 15;
 				}
@@ -866,7 +860,7 @@ public class NightPlayer : MonoBehaviour {
 	{
 		if (ToyBonnieCamera == 13)
 		{
-			if (state == "OfficeMask" && BlackoutActive == false)
+			if (maskManager.isMaskActive && BlackoutActive == false)
 			{
 				ToyBonnieCamera = 9;
 				ToyBonnieMovement = 11f;
@@ -887,7 +881,7 @@ public class NightPlayer : MonoBehaviour {
 	{
 		if (ToyChicaCamera == 13)
 		{
-			if (state == "OfficeMask" && BlackoutActive == false)
+			if (maskManager.isMaskActive && BlackoutActive == false)
 			{
 				ToyChicaPrepared = false;
 				ToyChicaCamera = 9;
@@ -947,12 +941,9 @@ public class NightPlayer : MonoBehaviour {
             {
                 preparedJumpscare = true;
             }
-            if (state == "OfficeMask")
+            if (maskManager.isMaskActive)
             {
                 timeForMask -= Time.deltaTime;
-            }
-            else if (state == "MonitorDown" || state == "Office")
-            {
             }
 
 			timeForMask += Time.deltaTime;
@@ -971,7 +962,7 @@ public class NightPlayer : MonoBehaviour {
 
         if (preparedJumpscare)
         {
-            if (state == "Cameras" || state == "MonitorUp")
+            if (!maskManager.isMaskActive && state == "Cameras" || !maskManager.isMaskActive && state == "MonitorUp")
             {
                 StartCoroutine(MonitorDownIE());
                 yield return new WaitForSeconds(0.183f);
@@ -979,13 +970,13 @@ public class NightPlayer : MonoBehaviour {
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
-            else if (state == "MonitorDown" || state == "Office" || state == "OfficeBlackout")
+            else if (!maskManager.isMaskActive && state == "MonitorDown" || !maskManager.isMaskActive && state == "Office" || !maskManager.isMaskActive && state == "OfficeBlackout")
             {
                 JumpscareAnimator.Play(Animatronic);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
-			else if (state == "OfficeMask")
+			else if (maskManager.isMaskActive)
             {
 				Mask();
                 JumpscareAnimator.Play(Animatronic);
@@ -1122,31 +1113,34 @@ public class NightPlayer : MonoBehaviour {
 	IEnumerator PuppetDeathSequence()
 	{
 		Debug.Log(state);
-		if (state != "Jumpscare" && canDeathSeqeuence == true) {
-		canDeathSeqeuence = false;
-		jackInTheBox.Play();
-		yield return new WaitForSeconds(5f);
-		if (state == "Cameras" || state == "MonitorUp")
+		if (!isJumpscared && canDeathSeqeuence == true)
 		{
-			StartCoroutine(MonitorDownIE());
-			yield return new WaitForSeconds(0.183f);
-			JumpscareAnimator.Play("Puppet");
-			Jumpscare.Play();
+			canDeathSeqeuence = false;
+			jackInTheBox.Play();
+			yield return new WaitForSeconds(5f);
+
+			if (!maskManager.isMaskActive && state == "Cameras" || !maskManager.isMaskActive && state == "MonitorUp")
+			{
+				StartCoroutine(MonitorDownIE());
+				yield return new WaitForSeconds(0.183f);
+				JumpscareAnimator.Play("Puppet");
+				Jumpscare.Play();
+			}
+			else if (!maskManager.isMaskActive && state == "MonitorDown" || !maskManager.isMaskActive && state == "Office" || !maskManager.isMaskActive && state == "OfficeBlackout")
+			{
+				JumpscareAnimator.Play("Puppet");
+				Jumpscare.Play();
+			}
+			else if (maskManager.isMaskActive)
+			{
+				Mask();
+				JumpscareAnimator.Play("Puppet");
+				Jumpscare.Play();
+			}
+
+			StartCoroutine(JumpscareSequence());
 		}
-		else if (state == "MonitorDown" || state == "Office" || state == "OfficeBlackout")
-		{
-			JumpscareAnimator.Play("Puppet");
-			Jumpscare.Play();
-		}
-		else if (state == "OfficeMask")
-		{
-			Mask();
-			JumpscareAnimator.Play("Puppet");
-			Jumpscare.Play();
-		}
-		state = "Jumpscare";
-		StartCoroutine(JumpscareSequence());
-	}}
+	}
 
 	void StateChecks()
 	{
@@ -1686,10 +1680,11 @@ public class NightPlayer : MonoBehaviour {
 		ToyChicaMaskTimer -= Time.deltaTime;
 		BBMaskTimer -= Time.deltaTime;
 		MangleMaskTimer -= Time.deltaTime;
+
 		if (ToyBonnieMaskTimer < 0f)
 		{
 			ToyBonnieMaskTimer = 1f;
-			if (maskActive && ToyBonnieCamera == 13 && Random.value < 0.49f)
+			if (maskManager.isMaskActive && ToyBonnieCamera == 13 && Random.value < 0.49f)
 			{
 				StartCoroutine(ToyBonnieFunction(false));
 			}
@@ -1697,7 +1692,7 @@ public class NightPlayer : MonoBehaviour {
 		if (ToyChicaMaskTimer < 0f)
 		{
 			ToyChicaMaskTimer = 1f;
-			if (maskActive && ToyChicaCamera == 13 && Random.value < 0.1f)
+			if (maskManager.isMaskActive && ToyChicaCamera == 13 && Random.value < 0.1f)
 			{
 				StartCoroutine(ToyChicaFunction(false));
 			}
@@ -1705,7 +1700,7 @@ public class NightPlayer : MonoBehaviour {
 		if (BBMaskTimer < 0f)
 		{
 			BBMaskTimer = 1f;
-			if (maskActive && BBCamera == 13 && Random.value < 0.1f)
+			if (maskManager.isMaskActive && BBCamera == 13 && Random.value < 0.1f)
 			{
 				BBCamera = 10;
 				BBMovement = 5f;
@@ -1714,7 +1709,7 @@ public class NightPlayer : MonoBehaviour {
 		if (MangleMaskTimer < 0f)
 		{
 			MangleMaskTimer = 1f;
-			if (maskActive && MangleCamera == 13 && Random.value < 0.1f)
+			if (maskManager.isMaskActive && MangleCamera == 13 && Random.value < 0.1f)
 			{
 				MangleCamera = 12;
 				MangleMovement = 5f;
@@ -1913,11 +1908,6 @@ public class NightPlayer : MonoBehaviour {
 				CameraManager();
 			}
 
-			if (gamePadState.IsTriggered(WiiU.GamePadButton.R))
-			{
-				MaskManager();
-			}
-
 			// Is pressed
 			if (gamePadState.IsPressed(WiiU.GamePadButton.A))
 			{
@@ -1933,30 +1923,28 @@ public class NightPlayer : MonoBehaviour {
 		}
 
 		// Handle keyboard inputs
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            HandleCameraAndFoxyStates();
-        }
+        if (Application.isEditor)
+		{
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                HandleCameraAndFoxyStates();
+            }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-			EnableFlashLight();
-        }
+            if (Input.GetKey(KeyCode.A))
+            {
+                EnableFlashLight();
+            }
 
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-			IsGoldenFreddyInHall();
-			DisableFlashLight();
-        }
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                IsGoldenFreddyInHall();
+                DisableFlashLight();
+            }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            CameraManager();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-			MaskManager();
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                CameraManager();
+            }
         }
     }
 
@@ -1995,7 +1983,7 @@ public class NightPlayer : MonoBehaviour {
 
 	private void EnableFlashLight()
 	{
-		if (state != "Jumpscare")
+		if (!isJumpscared)
 		{
             if (currentFlashlightDuration >= 0.01)
             {
@@ -2030,7 +2018,7 @@ public class NightPlayer : MonoBehaviour {
 
 	private void MaskManager()
 	{
-		if (MaskButton.activeSelf && state != "Jumpscare")
+		if (MaskButton.activeSelf && !isJumpscared)
 		{
             Mask();
         }
@@ -2038,7 +2026,7 @@ public class NightPlayer : MonoBehaviour {
 
 	private void CameraManager()
 	{
-		if (CameraButton.activeSelf && state != "Jumpscare")
+		if (CameraButton.activeSelf && !isJumpscared)
 		{
             if (ToyBonniePrepared)
             {
@@ -2064,7 +2052,10 @@ public class NightPlayer : MonoBehaviour {
 	{
     if (ToyBonnieCamera == camNumber)
     {
-        if (!ToyBonnieFlashed) {StartCoroutine(FlashAnimatronic("ToyBonnie"));}
+        if (!ToyBonnieFlashed)
+		{
+			StartCoroutine(FlashAnimatronic("ToyBonnie"));
+		}
     }
     if (ToyChicaCamera == camNumber)
     {
@@ -2154,7 +2145,7 @@ public class NightPlayer : MonoBehaviour {
 
 	public void Mask()
 	{
-		if (state != "Jumpscare" && state != "Cameras" && state != "MonitorUp")
+		if (!isJumpscared && state != "Cameras" && state != "MonitorUp")
 		{
 			if (GoldenFreddyInOffice)
 			{
@@ -2164,11 +2155,7 @@ public class NightPlayer : MonoBehaviour {
 				GoldenFreddyInOffice = false;
 			}
 
-			if (maskActive)
-			{
-				state = "OfficeMask";
-			}
-			else
+			if (!maskManager.isMaskActive)
 			{
 				state = "Office";
 
@@ -2190,28 +2177,29 @@ public class NightPlayer : MonoBehaviour {
 
 	public void Cams()
 	{
-		if (state != "OfficeMask" && maskActive == false)
+		if (maskManager.isMaskActive == false)
 		{
-			Debug.Log("Cameras!!! State: "+state);
-		CamsActive = !CamsActive;
-		MonitorAnimator.gameObject.SetActive(true);
-		if (CamsActive)
-		{
-			state = "MonitorUp";
-			MaskButton.SetActive(false);
-			CameraButton.SetActive(false);
-			MonitorUp.Play();
-			MonitorAnimator.Play("MonitorUp");
-			StartCoroutine(MonitorUpIE());
-		}
-		else
-		{
-			state = "MonitorDown";
-			MaskButton.SetActive(true);
-			CameraButton.SetActive(false);
-			MonitorDown.Play();
-			StartCoroutine(MonitorDownIE());
-		}
+			Debug.Log("Cameras!!! State: " + state);
+
+			CamsActive = !CamsActive;
+			MonitorAnimator.gameObject.SetActive(true);
+			if (CamsActive)
+			{
+				state = "MonitorUp";
+				MaskButton.SetActive(false);
+				CameraButton.SetActive(false);
+				MonitorUp.Play();
+				MonitorAnimator.Play("MonitorUp");
+				StartCoroutine(MonitorUpIE());
+			}
+			else
+			{
+				state = "MonitorDown";
+				MaskButton.SetActive(true);
+				CameraButton.SetActive(false);
+				MonitorDown.Play();
+				StartCoroutine(MonitorDownIE());
+			}
 		}
 	}
 
@@ -2300,18 +2288,20 @@ public class NightPlayer : MonoBehaviour {
 		}
 		yield return new WaitForSeconds(0.183f);
 		CameraButton.SetActive(true);
-		if (state != "OfficeMask")
+
+		if (maskManager.isMaskActive == false)
 		{
 			Debug.Log(state);
 			state = "Office";
 		}
+
 		MonitorAnimator.gameObject.SetActive(false);
 	}
 
 	IEnumerator MangleDeath()
 	{
 		yield return new WaitForSeconds(Random.Range(23f, 60f));
-		if (state == "Cameras" || state == "MonitorUp")
+		if (!maskManager.isMaskActive && state == "Cameras" || !maskManager.isMaskActive && state == "MonitorUp")
         {
             StartCoroutine(MonitorDownIE());
             yield return new WaitForSeconds(0.183f);
@@ -2320,13 +2310,13 @@ public class NightPlayer : MonoBehaviour {
             StartCoroutine(JumpscareSequence());
 			MangleOffice.SetActive(false);
         }
-        else if (state == "MonitorDown" || state == "Office" || state == "OfficeBlackout")
+        else if (!maskManager.isMaskActive && state == "MonitorDown" || !maskManager.isMaskActive && state == "Office" || !maskManager.isMaskActive && state == "OfficeBlackout")
         {
             JumpscareAnimator.Play("Mangle");
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
         }
-		else if (state == "OfficeMask")
+		else if (maskManager.isMaskActive)
         {
 			Mask();
             JumpscareAnimator.Play("Mangle");
@@ -2346,34 +2336,34 @@ public class NightPlayer : MonoBehaviour {
 
 	IEnumerator FoxyJumpscare()
 	{
-		if (state == "Cameras" || state == "MonitorUp")
-            {
-                StartCoroutine(MonitorDownIE());
-                yield return new WaitForSeconds(0.183f);
-                JumpscareAnimator.Play("WitheredFoxy");
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-            }
-            else if (state == "MonitorDown" || state == "Office" || state == "OfficeBlackout")
-            {
-                JumpscareAnimator.Play("WitheredFoxy");
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-            }
-			else if (state == "OfficeMask")
-            {
-				Mask();
-                JumpscareAnimator.Play("WitheredFoxy");
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-            }
-			else
-			{
-				JumpscareAnimator.Play("WitheredFoxy");
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-				Debug.Log(state);
-			}
+		if (!maskManager.isMaskActive && state == "Cameras" || !maskManager.isMaskActive && state == "MonitorUp")
+        {
+            StartCoroutine(MonitorDownIE());
+            yield return new WaitForSeconds(0.183f);
+            JumpscareAnimator.Play("WitheredFoxy");
+            Jumpscare.Play();
+            StartCoroutine(JumpscareSequence());
+        }
+        else if (!maskManager.isMaskActive && state == "MonitorDown" || !maskManager.isMaskActive && state == "Office" || !maskManager.isMaskActive && state == "OfficeBlackout")
+        {
+            JumpscareAnimator.Play("WitheredFoxy");
+            Jumpscare.Play();
+            StartCoroutine(JumpscareSequence());
+        }
+		else if (maskManager.isMaskActive)
+        {
+			Mask();
+            JumpscareAnimator.Play("WitheredFoxy");
+            Jumpscare.Play();
+            StartCoroutine(JumpscareSequence());
+        }
+		else
+		{
+			JumpscareAnimator.Play("WitheredFoxy");
+            Jumpscare.Play();
+            StartCoroutine(JumpscareSequence());
+			Debug.Log(state);
+		}
 	}
 
 	void RWQ()
