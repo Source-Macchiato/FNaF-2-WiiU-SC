@@ -120,6 +120,7 @@ public class NightPlayer : MonoBehaviour {
 	public AudioSource OnCams;
 	public GameObject CameraUI;
 	public GameObject MainCameras;
+	public GameObject rec;
 	public Image MainCameraBG;
 	public Image RoomName;
 	public Sprite[] RoomNames;
@@ -227,6 +228,7 @@ public class NightPlayer : MonoBehaviour {
 		currentFlashlightDuration = FlashlightDuration;
 		StartCoroutine(TimeCoroutine());
         CameraUI.SetActive(false); // Disable minimap when game starts
+		rec.SetActive(false);
 
         if (isNight7)
 		{
@@ -2240,6 +2242,8 @@ public class NightPlayer : MonoBehaviour {
 		JJ.SetActive(false);
 		CameraUI.SetActive(true);
 		MainCameras.SetActive(true);
+		rec.SetActive(true);
+
 		state = "Cameras";
 		MonitorAnimator.gameObject.SetActive(false);
 		OnCams.mute = false;
@@ -2261,6 +2265,8 @@ public class NightPlayer : MonoBehaviour {
 		OnCams.mute = true;
 		CameraUI.SetActive(false);
 		MainCameras.SetActive(false);
+		rec.SetActive(false);
+
 		MonitorAnimator.Play("MonitorDown");
 		if (Random.value < 0.000001f)
 		{

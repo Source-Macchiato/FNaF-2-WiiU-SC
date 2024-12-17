@@ -7392,6 +7392,7 @@ MonoBehaviour:
   OnCams: {fileID: 1204673110}
   CameraUI: {fileID: 352760811}
   MainCameras: {fileID: 980370711}
+  rec: {fileID: 324372358}
   MainCameraBG: {fileID: 1325638747}
   RoomName: {fileID: 1776230291}
   RoomNames:
