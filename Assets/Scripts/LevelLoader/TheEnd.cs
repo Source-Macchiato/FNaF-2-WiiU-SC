@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class TheEnd : MonoBehaviour
 {
+	public AudioSource musicBoxAudio;
 	public Image endingScreen;
 	public Sprite[] endingSprites;
 
@@ -54,7 +55,10 @@ public class TheEnd : MonoBehaviour
 	
 	private IEnumerator LoadNextScene()
 	{
-		yield return new WaitForSeconds(20f);
+		yield return new WaitForSeconds(19f);
+
+		// Stop music box
+		musicBoxAudio.Stop();
 
 		// Enable loading screen
 		levelLoader.loadingScreen.SetActive(true);

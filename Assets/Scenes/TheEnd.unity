@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be0cb6ef1c1bb845a08a688c8647414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicBoxAudio: {fileID: 2028213995}
   endingScreen: {fileID: 1120626134}
   endingSprites:
   - {fileID: 21300000, guid: 2df971c7095355445a53117afa483eac, type: 3}
@@ -548,6 +549,8 @@ GameObject:
   - component: {fileID: 1120626133}
   - component: {fileID: 1120626135}
   - component: {fileID: 1120626134}
+  - component: {fileID: 1120626136}
+  - component: {fileID: 1120626137}
   m_Layer: 5
   m_Name: EndingScreen
   m_TagString: Untagged
@@ -606,6 +609,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1120626132}
+--- !u!95 &1120626136
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120626132}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d42172a17e80304d9fd47c232787e3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!225 &1120626137
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120626132}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1341751312
 GameObject:
   m_ObjectHideFlags: 0
