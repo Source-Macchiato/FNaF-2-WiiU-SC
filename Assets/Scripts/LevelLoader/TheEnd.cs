@@ -20,7 +20,7 @@ public class TheEnd : MonoBehaviour
 		// Get scripts
 		levelLoader = FindObjectOfType<LevelLoader>();
 
-		// Disable loading screen when the game starts
+		// Disable loading screen when the scene starts
 		levelLoader.loadingScreen.SetActive(false);
 
 		// Get night number
