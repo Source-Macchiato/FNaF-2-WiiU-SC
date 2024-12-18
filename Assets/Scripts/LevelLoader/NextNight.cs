@@ -6,7 +6,6 @@ public class NextNight : MonoBehaviour
     private int nightNumber;
 
     public GameObject[] nightDisplayers;
-    public GameObject loadingScreen;
 
     LevelLoader levelLoader;
 
@@ -16,7 +15,7 @@ public class NextNight : MonoBehaviour
         levelLoader = FindObjectOfType<LevelLoader>();
 
         // Disable loading screen when the level starts
-        loadingScreen.SetActive(false);
+        levelLoader.loadingScreen.SetActive(false);
 
         // Get night number
         nightNumber = SaveManager.LoadNightNumber();
@@ -28,14 +27,14 @@ public class NextNight : MonoBehaviour
         }
 
         // The timer before load the next scene
-        StartCoroutine(InitCoroutine());
+        StartCoroutine(LoadOffice());
     }
 
-    IEnumerator InitCoroutine()
+    IEnumerator LoadOffice()
     {
         yield return new WaitForSeconds(5);
 
-        loadingScreen.SetActive(true);
+        levelLoader.loadingScreen.SetActive(true);
 
         levelLoader.LoadLevel("Office");
     }
