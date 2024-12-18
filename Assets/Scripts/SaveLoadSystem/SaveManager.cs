@@ -9,9 +9,9 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void SaveNightNumber(float nightNumber)
+    public void SaveNightNumber(int nightNumber)
     {
-        PlayerPrefs.SetFloat("NightNumber", nightNumber);
+        PlayerPrefs.SetInt("NightNumber", nightNumber);
         PlayerPrefs.Save();
     }
 
