@@ -51,6 +51,16 @@ public class MenuSetup : MonoBehaviour
         }
     }
 
+    public void SixthNight()
+    {
+        menuManager.canNavigate = false;
+
+        menuData.nightNumber = 5;
+        menuData.SaveNightNumber();
+
+        SceneManager.LoadScene("NextNight");
+    }
+
     public void Options()
     {
         menuManager.ChangeMenu(1);
