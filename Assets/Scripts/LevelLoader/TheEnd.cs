@@ -10,6 +10,8 @@ public class TheEnd : MonoBehaviour
 	private int nightNumber;
 
 	// Scripts
+	SaveGameState saveGameState;
+	SaveManager saveManager;
 	LevelLoader levelLoader;
 
 	void Start()
@@ -24,17 +26,26 @@ public class TheEnd : MonoBehaviour
 		nightNumber = SaveManager.LoadNightNumber();
 
 		// Display right image and save stars
-		if (nightNumber == 4) // If night 5
+		if (nightNumber == 5) // If night 5
 		{
 			endingScreen.sprite = endingSprites[0];
+
+			saveManager.SaveUnlockedStars(0, true);
+			bool saveResult = saveGameState.DoSave();
 		}
-		else if (nightNumber == 5) // If night 6
+		else if (nightNumber == 6) // If night 6
 		{
 			endingScreen.sprite = endingSprites[1];
+
+			saveManager.SaveUnlockedStars(1, true);
+			bool saveResult = saveGameState.DoSave();
 		}
-		else if (nightNumber == 6) // If night 7 / Custom Night
+		else if (nightNumber == 7) // If night 7 / Custom Night
 		{
 			endingScreen.sprite = endingSprites[2];
+
+			saveManager.SaveUnlockedStars(2, true);
+			bool saveResult = saveGameState.DoSave();
 		}
 
 		// Load next scene

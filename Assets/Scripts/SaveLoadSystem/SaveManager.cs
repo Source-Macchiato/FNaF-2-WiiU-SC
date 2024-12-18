@@ -33,6 +33,12 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SaveUnlockedStars(int starId, bool unlock)
+    {
+        PlayerPrefs.SetInt("Star_" + starId, unlock ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
     // Load
     public static string LoadLanguage()
 	{
@@ -91,6 +97,18 @@ public class SaveManager : MonoBehaviour
         else
         {
             return 0;
+        }
+    }
+
+    public static bool LoadUnlockedStars(int starId)
+    {
+        if (PlayerPrefs.HasKey("Star_" + starId))
+        {
+            return PlayerPrefs.GetInt("Star_" + starId, 0) == 1;
+        }
+        else
+        {
+            return false;
         }
     }
 }
