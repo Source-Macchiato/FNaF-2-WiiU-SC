@@ -19,10 +19,21 @@ public class GameOver : MonoBehaviour
 		StartCoroutine(LoadNextScene());
     }
 
+	void Update()
+	{
+
+	}
+
 	private IEnumerator LoadNextScene()
 	{
-		yield return new WaitForSeconds(6f);
+		yield return new WaitForSeconds(5f);
 
 		stareAudio.Stop();
+
+		yield return new WaitForSeconds(10f);
+
+		levelLoader.loadingScreen.SetActive(true);
+
+		levelLoader.LoadLevel("MainMenu");
 	}
 }
