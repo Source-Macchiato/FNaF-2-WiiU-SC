@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Warning : MonoBehaviour
 {
-    public GameObject loadingScreen;
     public Animator warningAnimator;
 
     private bool skipRequested = false;
@@ -16,7 +15,7 @@ public class Warning : MonoBehaviour
         levelLoader = FindObjectOfType<LevelLoader>();
 
         // Disable loading screen when the level starts
-        loadingScreen.SetActive(false);
+        levelLoader.loadingScreen.SetActive(false);
 
         StartCoroutine(InitCoroutine());
     }
@@ -43,10 +42,10 @@ public class Warning : MonoBehaviour
         warningAnimator.Play("Fade Out");
 
         // Wait one second
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
 
         // Display loading screen
-        loadingScreen.SetActive(true);
+        levelLoader.loadingScreen.SetActive(true);
 
         // Request level to load
         if (SaveManager.LoadIntroDreamPlayed() == 0)
