@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SixAM : MonoBehaviour
 {
 	public Animator fadeAnimator;
+	public AudioSource happyChildrenAudio;
 
 	private int nightNumber;
 
@@ -40,7 +40,11 @@ public class SixAM : MonoBehaviour
 
 	private IEnumerator LoadNextScene()
 	{
-		yield return new WaitForSeconds(9f);
+		yield return new WaitForSeconds(4f);
+
+		happyChildrenAudio.Play();
+
+		yield return new WaitForSeconds(5f);
 
 		fadeAnimator.Play("Fade Out");
 

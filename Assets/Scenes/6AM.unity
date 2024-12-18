@@ -1457,6 +1457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeAnimator: {fileID: 1565515008}
+  happyChildrenAudio: {fileID: 472167562}
 --- !u!1 &1868753336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1656,16 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224277016434010454, guid: a25ab2cef410fc04db5b65aeca30a3db,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224277016434010454, guid: a25ab2cef410fc04db5b65aeca30a3db,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a25ab2cef410fc04db5b65aeca30a3db, type: 2}
