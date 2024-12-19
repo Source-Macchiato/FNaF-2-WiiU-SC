@@ -1,29 +1,24 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RenderMovie : MonoBehaviour
 {
     public AudioSource cafeSound;
     public MovieTexture movTexture;
-    bool hasStarted = false;
 
     void Start()
     {
         movTexture.Play();
         cafeSound.Play();
+
+        StartCoroutine(LoadNextScene());
     }
 
-    void Update()
+    private IEnumerator LoadNextScene()
     {
-        if (!hasStarted && movTexture.isPlaying)
-        {
-            hasStarted = true;
+        yield return new WaitForSeconds(cafeSound.clip.length);
 
-        }
-
-        if (hasStarted && !movTexture.isPlaying)
-        {
-            SceneManager.LoadScene("Warning");
-        }
+        SceneManager.LoadScene("Warning");
     }
 }
