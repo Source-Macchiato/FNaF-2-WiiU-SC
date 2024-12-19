@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -30,8 +31,6 @@ public class DreamManager : MonoBehaviour
     public AudioSource robotAudio;
     public AudioSource staticEndAudio;
 
-    public float timer;
-
     // Scripts
     MoveInOffice moveInOffice;
 
@@ -51,88 +50,87 @@ public class DreamManager : MonoBehaviour
         statusContainer.SetActive(false);
 
         CharactersStatus();
+
+        StartCoroutine(DreamEvents());
     }
 	
 	void Update()
 	{
         NoiseWhenMoving();
-
-        // Play and stop robot audio
-        if (timer >= 30f && timer <= 32f)
-        {
-            if (robotAudio.isPlaying == false)
-            {
-                robotAudio.Play();
-            }
-        }
-        else
-        {
-            if (robotAudio.isPlaying == true)
-            {
-                robotAudio.Stop();
-            }
-        }
-
-        // Play and stop static end audio
-        if (timer >= 32f && timer <= 34f)
-        {
-            if (staticEndAudio.isPlaying == false)
-            {
-                staticEndAudio.Play();
-            }
-
-            if (stripsContainer.activeSelf == false)
-            {
-                stripsContainer.SetActive(true);
-            }
-        }
-        else
-        {
-            if (staticEndAudio.isPlaying == true)
-            {
-                staticEndAudio.Stop();
-            }
-
-            if (stripsContainer.activeSelf == true)
-            {
-                stripsContainer.SetActive(false);
-            }
-        }
-
-        // When the cut scene ends
-        if (timer >= 34f)
-        {
-            // Stops other audios
-            if (scarySpaceAudio.isPlaying == true)
-            {
-                scarySpaceAudio.Stop();
-            }
-
-            if (childrenLaughtingAudio.isPlaying == true)
-            {
-                childrenLaughtingAudio.Stop();
-            }
-
-            // Disable moving in office
-            if (moveInOffice.canMove == true)
-            {
-                moveInOffice.canMove = false;
-            }
-
-            // Enable status container
-            if (statusContainer.activeSelf == false)
-            {
-                statusContainer.SetActive(true);
-            }
-        }
-
-        if (timer >= 35f)
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
-
-        timer = Time.time;
 	}
+
+    private IEnumerator DreamEvents()
+    {
+        yield return new WaitForSeconds(30f);
+
+        // Play robot audio
+        if (robotAudio.isPlaying == false)
+        {
+            robotAudio.Play();
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        // Stop robot audio
+        if (robotAudio.isPlaying == true)
+        {
+            robotAudio.Stop();
+        }
+
+        // Play static audio
+        if (staticEndAudio.isPlaying == false)
+        {
+            staticEndAudio.Play();
+        }
+
+        // Display strips
+        if (stripsContainer.activeSelf == false)
+        {
+            stripsContainer.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        // Stop static audio
+        if (staticEndAudio.isPlaying == true)
+        {
+            staticEndAudio.Stop();
+        }
+
+        // Hide strips
+        if (stripsContainer.activeSelf == true)
+        {
+            stripsContainer.SetActive(false);
+        }
+
+        // Stop scary space audio
+        if (scarySpaceAudio.isPlaying == true)
+        {
+            scarySpaceAudio.Stop();
+        }
+
+        // Stop children laughting audio
+        if (childrenLaughtingAudio.isPlaying == true)
+        {
+            childrenLaughtingAudio.Stop();
+        }
+
+        // Disable moving in office
+        if (moveInOffice.canMove == true)
+        {
+            moveInOffice.canMove = false;
+        }
+
+        // Enable status container
+        if (statusContainer.activeSelf == false)
+        {
+            statusContainer.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene("MainMenu");
+    }
 
 	private void NoiseWhenMoving()
 	{
@@ -169,7 +167,7 @@ public class DreamManager : MonoBehaviour
 
             statusText.text = "err";
         }
-        if (nightNumber == 1)
+        if (nightNumber == 1) // If night 2
         {
             chicaImage.sprite = chicaSprites[1];
             bonnieImage.sprite = bonnieSprites[1];
@@ -178,7 +176,7 @@ public class DreamManager : MonoBehaviour
 
             statusText.text = "it's me";
         }
-        else if (nightNumber == 2)
+        else if (nightNumber == 2) // If night 3
         {
             chicaImage.sprite = chicaSprites[2];
             bonnieImage.sprite = bonnieSprites[3];
@@ -187,7 +185,7 @@ public class DreamManager : MonoBehaviour
 
             statusText.text = "it's me";
         }
-        else if (nightNumber == 3)
+        else if (nightNumber == 3) // If night 4
         {
             chicaImage.sprite = chicaSprites[3];
             bonnieImage.sprite = bonnieSprites[3];
