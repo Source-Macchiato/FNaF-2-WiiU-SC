@@ -3,14 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class RenderMovie : MonoBehaviour
 {
-    public AudioSource SrcMacchiatoSound;
+    public AudioSource cafeSound;
     public MovieTexture movTexture;
     bool hasStarted = false;
 
     void Start()
     {
         movTexture.Play();
-        SrcMacchiatoSound.Play();
+        cafeSound.Play();
     }
 
     void Update()

@@ -1114,7 +1114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.5, y: -12.2}
+  m_AnchoredPosition: {x: 27.5, y: -12.200012}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &827835546
@@ -2554,4 +2554,3 @@ MonoBehaviour:
   machineTurnAudio: {fileID: 1798428511}
   robotAudio: {fileID: 1002804614}
   staticEndAudio: {fileID: 1843238495}
-  timer: 0
