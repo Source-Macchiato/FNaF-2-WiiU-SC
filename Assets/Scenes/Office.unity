@@ -7355,6 +7355,7 @@ MonoBehaviour:
   currentNight: 0
   currentTime: 0
   currentCam: 9
+  timeText: {fileID: 754174880}
   isMonitorActive: 0
   isJumpscared: 0
   TimeMultiplier: 1

@@ -1,10 +1,26 @@
 ﻿using UnityEngine;
 using System.IO;
 using WiiU = UnityEngine.WiiU;
+using System.Threading;
 
 public class SaveGameState : MonoBehaviour
 {
     public bool DoSave()
+    {
+        bool saved = false;
+        Thread t = new Thread(new ThreadStart(
+            delegate
+            {
+                saved = Save();
+            })
+        );
+
+        t.Start();
+
+        return saved;
+    }
+
+    bool Save()
     {
         WiiU.SaveCommand cmd = WiiU.Save.SaveCommand(WiiU.Save.accountNo);
 

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using WiiU = UnityEngine.WiiU;
+using TMPro;
 
 public class NightPlayer : MonoBehaviour {
 
@@ -37,6 +38,8 @@ public class NightPlayer : MonoBehaviour {
 	public int currentNight;
     public int currentTime;
     public int currentCam = 09;
+
+	public TMP_Text timeText;
 
 	public bool isMonitorActive = false;
 	public bool isJumpscared = false;
@@ -295,6 +298,10 @@ public class NightPlayer : MonoBehaviour {
         for (int i = 0; i <= 6; i++)
         {
             currentTime = i;
+			if (i == 0)
+				timeText.text = "12";
+			else
+				timeText.text = currentTime.ToString();
             TimedEvents();
             yield return new WaitForSeconds(70f * TimeMultiplier);
         }
