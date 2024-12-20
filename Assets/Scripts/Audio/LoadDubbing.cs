@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using WiiU = UnityEngine.WiiU;
 
 public class LoadDubbing : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class LoadDubbing : MonoBehaviour
     private string dubbingLanguage;
 
 	void Start()
-	{
+    {
+        WiiU.AudioSourceOutput.Assign(phoneCallAudio, WiiU.AudioOutput.TV | WiiU.AudioOutput.GamePad);
         nightNumber = SaveManager.LoadNightNumber();
 
         if (nightNumber >= 0 && nightNumber <= 5)

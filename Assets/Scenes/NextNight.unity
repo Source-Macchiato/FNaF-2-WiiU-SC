@@ -475,7 +475,6 @@ MonoBehaviour:
   - {fileID: 653139365}
   - {fileID: 2034633319}
   - {fileID: 1450271279}
-  loadingScreen: {fileID: 579463543}
 --- !u!1 &440042961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1108,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 742825351}
+  - component: {fileID: 742825352}
   m_Layer: 0
   m_Name: Audios
   m_TagString: Untagged
@@ -1130,6 +1130,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742825352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742825350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &926174643
 GameObject:
   m_ObjectHideFlags: 0
