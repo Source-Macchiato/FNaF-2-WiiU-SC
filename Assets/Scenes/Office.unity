@@ -1755,6 +1755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb8e6038facd3c49ab8d79243539b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buzzLightAudio: {fileID: 416454946}
+  isLightActive: 0
 --- !u!1 &413012734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1877,7 @@ GameObject:
   - component: {fileID: 416454945}
   - component: {fileID: 416454946}
   m_Layer: 5
-  m_Name: FlahsLightBuzz
+  m_Name: Buzzlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1902,8 +1904,9 @@ AudioSource:
   m_GameObject: {fileID: 416454944}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243731315198083176, guid: 063cc35e74633ac499c982964f0cc2ff,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: acd107948482b0b4093c413cd352bca0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

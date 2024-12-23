@@ -3,6 +3,10 @@ using WiiU = UnityEngine.WiiU;
 
 public class LightsManager : MonoBehaviour
 {
+    public AudioSource buzzLightAudio;
+
+    public bool isLightActive = false;
+
     // References to WiiU controllers
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
@@ -30,7 +34,11 @@ public class LightsManager : MonoBehaviour
         {
             if (gamePadState.IsPressed(WiiU.GamePadButton.A))
             {
-                
+                isLightActive = true;
+            }
+            else
+            {
+                isLightActive = false;
             }
         }
 
@@ -39,29 +47,82 @@ public class LightsManager : MonoBehaviour
             case WiiU.RemoteDevType.ProController:
                 if (remoteState.pro.IsPressed(WiiU.ProControllerButton.A))
                 {
-
+                    isLightActive = true;
+                }
+                else
+                {
+                    isLightActive = false;
                 }
                 break;
             case WiiU.RemoteDevType.Classic:
                 if (remoteState.classic.IsPressed(WiiU.ClassicButton.A))
                 {
-
+                    isLightActive = true;
+                }
+                else
+                {
+                    isLightActive = false;
                 }
                 break;
             default:
                 if (remoteState.IsPressed(WiiU.RemoteButton.A))
                 {
-
+                    isLightActive = true;
+                }
+                else
+                {
+                    isLightActive = false;
                 }
                 break;
         }
+
+        if (Application.isEditor)
+        {
+            if (Input.GetKey(KeyCode.A))
+            {
+                isLightActive = true;
+            }
+            else
+            {
+                isLightActive = false;
+            }
+        }
+
+        ToggleLight();
     }
 
-    private void ToggleLights()
+    private void ToggleLight()
     {
         if (!nightPlayer.isJumpscared)
         {
+            if (isLightActive)
+            {
+                EnableLight();
+            }
+            else
+            {
+                DisableLight();
+            }
+        }
+        else
+        {
+            DisableLight();
+        }
+    }
 
+    private void EnableLight()
+    {
+        if (!buzzLightAudio.isPlaying)
+        {
+            buzzLightAudio.Play();
+        }
+    }
+
+    private void DisableLight()
+    {
+        if (buzzLightAudio.isPlaying)
+        {
+            buzzLightAudio.Stop();
         }
     }
 }
