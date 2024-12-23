@@ -192,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 21151308}
   m_Layer: 5
-  m_Name: Lights
+  m_Name: LightButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7925,17 +7925,17 @@ MonoBehaviour:
   ToyFreddyOffice: {fileID: 353090572}
   JumpscareAnimator: {fileID: 55881369}
   PuppetWarning: {fileID: 584476043}
-  LeftButtonImage: {fileID: 199684462}
-  RightButtonImage: {fileID: 1665519323}
-  LeftButtonLit: {fileID: 21300000, guid: e2382dfa1600ca84cb36997020127ce9, type: 3}
-  LeftButtonUnLit: {fileID: 21300000, guid: ecab07f461ce7e5479b3139ae30c77ed, type: 3}
-  RightButtonLit: {fileID: 21300000, guid: ad19ff67de4877f4a9e5de126408b859, type: 3}
-  RightButtonUnLit: {fileID: 21300000, guid: d133722432c5b9f43beb312c7dda2be3, type: 3}
   officeImage: {fileID: 1243597345}
   defaultOffice: {fileID: 21300000, guid: 9e1b4b9414f367c478e47f0aa00c852c, type: 3}
   leftLightOffice: {fileID: 21300000, guid: 08b97a499eef3334380f95145270755b, type: 3}
   centerLightOffice: {fileID: 21300000, guid: 0f649793172b33e41acffc76e6b1b002, type: 3}
   rightLightOffice: {fileID: 21300000, guid: a0913b6813731a242a0bcf307eeb8cef, type: 3}
+  leftButtonImage: {fileID: 199684462}
+  rightButtonImage: {fileID: 1665519323}
+  leftButtonOff: {fileID: 21300000, guid: fab388a1e0a97ec49acf320f597b3c95, type: 3}
+  leftButtonOn: {fileID: 21300000, guid: 8eb86f3a1b13303478ca21ecd0e6800c, type: 3}
+  rightButtonOff: {fileID: 21300000, guid: 20970bdc0c4d61d4ba17eafeb8f4eede, type: 3}
+  rightButtonOn: {fileID: 21300000, guid: 4ca6a2b858662a346994fa3a831cdfa1, type: 3}
   state: Office
 --- !u!1 &1204673108
 GameObject:

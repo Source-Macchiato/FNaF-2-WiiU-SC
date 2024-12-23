@@ -189,12 +189,6 @@ public class NightPlayer : MonoBehaviour
 	private bool RWQActive;
 	public Animator JumpscareAnimator;
 	public Animator PuppetWarning;
-	public Image LeftButtonImage;
-	public Image RightButtonImage;
-	public Sprite LeftButtonLit;
-	public Sprite LeftButtonUnLit;
-	public Sprite RightButtonLit;
-	public Sprite RightButtonUnLit;
 
 	[Header("Lights system")]
 	// Office image
@@ -205,6 +199,16 @@ public class NightPlayer : MonoBehaviour
     public Sprite leftLightOffice;
     public Sprite centerLightOffice;
     public Sprite rightLightOffice;
+
+	// Buttons images
+	public Image leftButtonImage;
+	public Image rightButtonImage;
+
+	// Buttons sprites
+	public Sprite leftButtonOff;
+	public Sprite leftButtonOn;
+	public Sprite rightButtonOff;
+	public Sprite rightButtonOn;
 
 	[Header("State")]
     public string state = "Office";
@@ -1170,7 +1174,7 @@ public class NightPlayer : MonoBehaviour
 		// System for change office sprites
 		if (state == "Office" && lightsManager.isLightActive)
 		{
-			if (lightsManager.leftLightEnabled)
+			if (lightsManager.leftLightEnabled) // Left light
 			{
 				if (ToyChicaCamera == 13)
 				{
@@ -1185,10 +1189,11 @@ public class NightPlayer : MonoBehaviour
 					officeImage.sprite = leftLightOffice;
 				}
 
-				LeftButtonImage.sprite = LeftButtonLit;
-				RightButtonImage.sprite = RightButtonUnLit;
+				// When enable the left button sprite and disable the right button sprite
+				leftButtonImage.sprite = leftButtonOn;
+				rightButtonImage.sprite = rightButtonOff;
 			}
-			else if (lightsManager.centerLightEnabled)
+			else if (lightsManager.centerLightEnabled) // Center light
 			{
 				if (WitheredFoxyCamera == 14 && WitheredBonnieCamera == 14)
 				{
@@ -1239,8 +1244,9 @@ public class NightPlayer : MonoBehaviour
 					}
 				}
 
-				LeftButtonImage.sprite = LeftButtonUnLit;
-				RightButtonImage.sprite = RightButtonUnLit;
+				// We disable all buttons sprites
+				leftButtonImage.sprite = leftButtonOff;
+				rightButtonImage.sprite = rightButtonOff;
 			}
 			else if (lightsManager.rightLightEnabled)
 			{
@@ -1257,8 +1263,9 @@ public class NightPlayer : MonoBehaviour
 					officeImage.sprite = rightLightOffice;
 				}
 
-				LeftButtonImage.sprite = LeftButtonUnLit;
-				RightButtonImage.sprite = RightButtonLit;
+				// When enable the right button sprite and disable the left button sprite
+				leftButtonImage.sprite = leftButtonOff;
+				rightButtonImage.sprite = rightButtonOn;
 			}
 		}
 		else if (state == "Cameras" && flashlightActive && currentFlashlightDuration >= 0.01 && currentCam == 11)
@@ -1665,9 +1672,14 @@ public class NightPlayer : MonoBehaviour
 		{
 			MainCameraBG.sprite = DefaultCams[currentCam - 1];
 		}
-		else // We really should clean this code in later updates
+		else // We really should clean this code in later updates because have a script that long is not a good idea for our mental health
 		{
+			// Set the default sprite to office image
 			officeImage.sprite = defaultOffice;
+
+			// We disable all buttons sprites
+			leftButtonImage.sprite = leftButtonOff;
+			rightButtonImage.sprite = rightButtonOff;
 		}
 
 		ToyBonnieMaskTimer -= Time.deltaTime;
