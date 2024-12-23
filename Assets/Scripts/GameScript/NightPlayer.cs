@@ -11,7 +11,6 @@ public class NightPlayer : MonoBehaviour
 	public AudioSource Jumpscare;
 	public AudioSource phoneCall;
 	public AudioSource NoFlashlightBatterys;
-	public GameObject MuteCallButton;
 	private bool CamsActive;
 	public AudioSource jackInTheBox;
 	public AudioSource WindUpSound;
@@ -159,9 +158,7 @@ public class NightPlayer : MonoBehaviour
 	[Header("Flashlight")]
 
 	public float FlashlightDuration;
-	private float currentFlashlightDuration;
-	public AudioSource FlashLightAudio;
-	private bool flashlightActive;
+	public float currentFlashlightDuration;
 	public Sprite Battery4Bars;
 	public Sprite Battery3Bars;
 	public Sprite Battery2Bars;
@@ -1045,10 +1042,6 @@ public class NightPlayer : MonoBehaviour
 		float interval = 1.8f;
 		float elapsedTime = 0f;
 
-		flashlightActive = false;
-		FlashLightAudio.mute = true;
-		NoFlashlightBatterys.mute = false;
-
 		while (elapsedTime < duration && BaloonBoy.activeSelf)
 		{
 			// Play the sound
@@ -1165,7 +1158,7 @@ public class NightPlayer : MonoBehaviour
 			//	UnityEngine.N3DS.Debug.Crash("RWQFSFASXC");
 			}
 		}
-		if (flashlightActive)
+		if (lightsManager.isLightActive)
 		{
 			currentFlashlightDuration -= Time.deltaTime;
 			DeactivateRWQ();
@@ -1268,7 +1261,7 @@ public class NightPlayer : MonoBehaviour
 				rightButtonImage.sprite = rightButtonOn;
 			}
 		}
-		else if (state == "Cameras" && flashlightActive && currentFlashlightDuration >= 0.01 && currentCam == 11)
+		else if (state == "Cameras" && lightsManager.isLightActive && currentFlashlightDuration >= 0.01 && currentCam == 11)
 		{
 			// Check for the special case when puppetDeathTimer is 0f
 			if (PuppetDeathTimer <= 0.01f || PuppetDeathTimer == 0.01f)
@@ -1310,7 +1303,7 @@ public class NightPlayer : MonoBehaviour
 		}*/
 		else if (state == "Cameras" && currentCam == 4)
 		{
-			if (flashlightActive)
+			if (lightsManager.isLightActive)
 			{
 				if (ToyBonnieCamera == 4)
 				{
@@ -1345,7 +1338,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 12 && flashlightActive)
+		else if (state == "Cameras" && currentCam == 12 && lightsManager.isLightActive)
 		{
 			if (MangleCamera != 12)
 			{
@@ -1362,7 +1355,7 @@ public class NightPlayer : MonoBehaviour
 		}
 		else if (state == "Cameras" && currentCam == 10)
 		{
-			if (!flashlightActive)
+			if (!lightsManager.isLightActive)
 			{
 				Debug.Log("ToyFreddy Cam : " + ToyFreddyCamera);
 				if (ToyFreddyCamera == 10)
@@ -1388,7 +1381,7 @@ public class NightPlayer : MonoBehaviour
 		}
 		else if (state == "Cameras" && currentCam == 3)
 		{
-			if (flashlightActive)
+			if (lightsManager.isLightActive)
 			{
 				if (ToyBonnieCamera == 3)
 				{
@@ -1421,7 +1414,7 @@ public class NightPlayer : MonoBehaviour
 		}
 		else if (state == "Cameras" && currentCam == 2)
 		{
-			if (flashlightActive)
+			if (lightsManager.isLightActive)
 			{
 				if (WitheredChicaCamera == 2)
 				{
@@ -1454,7 +1447,7 @@ public class NightPlayer : MonoBehaviour
 		}
 		else if (state == "Cameras" && currentCam == 6)
 		{
-			if (flashlightActive)
+			if (lightsManager.isLightActive)
 			{
 				if (ToyBonnieCamera == 6)
 				{
@@ -1487,7 +1480,7 @@ public class NightPlayer : MonoBehaviour
 		}
 		else if (state == "Cameras" && currentCam == 7)
 		{
-			if (!flashlightActive)
+			if (!lightsManager.isLightActive)
 			{
 				if (ToyChicaCamera == 7)
 				{
@@ -1520,7 +1513,7 @@ public class NightPlayer : MonoBehaviour
 		}
 		else if (state == "Cameras" && currentCam == 1)
 		{
-			if (!flashlightActive)
+			if (!lightsManager.isLightActive)
 			{
 				if (ToyChicaCamera == 1)
 				{
@@ -1546,11 +1539,10 @@ public class NightPlayer : MonoBehaviour
 					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
 			}
-			Debug.Log(flashlightActive + MainCameraBG.sprite.name + "Bonnie Cam: " + WitheredBonnieCamera);
 		}
 		else if (state == "Cameras" && currentCam == 5)
 		{
-			if (!flashlightActive)
+			if (!lightsManager.isLightActive)
 			{
 				if (ToyChicaCamera == 5)
 				{
@@ -1589,7 +1581,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 8 && flashlightActive)
+		else if (state == "Cameras" && currentCam == 8 && lightsManager.isLightActive)
 		{
 			if (WitheredFoxyCamera == 8 && WitheredFoxyAI >= 1)
 			{
@@ -1625,7 +1617,7 @@ public class NightPlayer : MonoBehaviour
 		}
 		else if (state == "Cameras" && currentCam == 9)
 		{
-			if (!flashlightActive)
+			if (!lightsManager.isLightActive)
 			{
 				if (ToyBonnieCamera == 9 && ToyChicaCamera == 9 && ToyFreddyCamera == 9)
 				{
@@ -1664,11 +1656,11 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && flashlightActive && currentFlashlightDuration >= 0.01)
+		else if (state == "Cameras" && lightsManager.isLightActive && currentFlashlightDuration >= 0.01)
 		{
 			MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 		}
-		else if (state == "Cameras" && !flashlightActive)
+		else if (state == "Cameras" && !lightsManager.isLightActive)
 		{
 			MainCameraBG.sprite = DefaultCams[currentCam - 1];
 		}
@@ -1913,19 +1905,6 @@ public class NightPlayer : MonoBehaviour
 			{
 				CameraManager();
 			}
-
-			// Is pressed
-			if (gamePadState.IsPressed(WiiU.GamePadButton.A))
-			{
-				EnableFlashLight();
-			}
-
-			// Is released
-			if (gamePadState.IsReleased(WiiU.GamePadButton.A))
-			{
-				IsGoldenFreddyInHall();
-				DisableFlashLight();
-			}
 		}
 
 		// Handle keyboard inputs
@@ -1934,17 +1913,6 @@ public class NightPlayer : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 HandleCameraAndFoxyStates();
-            }
-
-            if (Input.GetKey(KeyCode.A))
-            {
-                EnableFlashLight();
-            }
-
-            if (Input.GetKeyUp(KeyCode.A))
-            {
-                IsGoldenFreddyInHall();
-                DisableFlashLight();
             }
 
             if (Input.GetKeyDown(KeyCode.L))
@@ -1985,25 +1953,6 @@ public class NightPlayer : MonoBehaviour
                 }
             }
         }
-    }
-
-	private void EnableFlashLight()
-	{
-		if (!isJumpscared)
-		{
-            if (currentFlashlightDuration >= 0.01)
-            {
-                flashlightActive = true;
-                FlashLightAudio.mute = false;
-            }
-        }
-	}
-
-	private void DisableFlashLight()
-	{
-        flashlightActive = false;
-        FlashLightAudio.mute = true;
-        NoFlashlightBatterys.mute = true;
     }
 
 	private void IsGoldenFreddyInHall()
@@ -2228,7 +2177,7 @@ public class NightPlayer : MonoBehaviour
 		MainCameraBG.gameObject.SetActive(true);
 		SignalDisrupted.SetActive(false);
 
-		if (flashlightActive)
+		if (lightsManager.isLightActive)
 		{
 			MainCameraBG.sprite = FlashlightedCams[Camera-1];
 		}
@@ -2400,12 +2349,6 @@ public class NightPlayer : MonoBehaviour
 		RWQOffice.SetActive(false);
 		RWQActive = false;
 		RWQCrashTimer = 4f;
-	}
-
-	public void MuteCall()
-	{
-		phoneCall.mute = true;
-		MuteCallButton.SetActive(false);
 	}
 
 	void UpdateBatteryUI()

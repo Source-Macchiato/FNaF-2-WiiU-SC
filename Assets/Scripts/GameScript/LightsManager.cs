@@ -12,6 +12,8 @@ public class LightsManager : MonoBehaviour
     public bool centerLightEnabled = false;
     public bool rightLightEnabled = false;
 
+    private bool activateLight = false;
+
     // References to WiiU controllers
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
@@ -43,11 +45,11 @@ public class LightsManager : MonoBehaviour
         {
             if (gamePadState.IsPressed(WiiU.GamePadButton.A))
             {
-                isLightActive = true;
+                activateLight = true;
             }
             else
             {
-                isLightActive = false;
+                activateLight = false;
             }
         }
 
@@ -56,31 +58,31 @@ public class LightsManager : MonoBehaviour
             case WiiU.RemoteDevType.ProController:
                 if (remoteState.pro.IsPressed(WiiU.ProControllerButton.A))
                 {
-                    isLightActive = true;
+                    activateLight = true;
                 }
                 else
                 {
-                    isLightActive = false;
+                    activateLight = false;
                 }
                 break;
             case WiiU.RemoteDevType.Classic:
                 if (remoteState.classic.IsPressed(WiiU.ClassicButton.A))
                 {
-                    isLightActive = true;
+                    activateLight = true;
                 }
                 else
                 {
-                    isLightActive = false;
+                    activateLight = false;
                 }
                 break;
             default:
                 if (remoteState.IsPressed(WiiU.RemoteButton.A))
                 {
-                    isLightActive = true;
+                    activateLight = true;
                 }
                 else
                 {
-                    isLightActive = false;
+                    activateLight = false;
                 }
                 break;
         }
@@ -89,11 +91,11 @@ public class LightsManager : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.A))
             {
-                isLightActive = true;
+                activateLight = true;
             }
             else
             {
-                isLightActive = false;
+                activateLight = false;
             }
         }
 
@@ -105,7 +107,7 @@ public class LightsManager : MonoBehaviour
     {
         if (!nightPlayer.isJumpscared)
         {
-            if (isLightActive && !nightPlayer.isMonitorActive && !maskManager.isMaskActive)
+            if (activateLight && !nightPlayer.isMonitorActive && !maskManager.isMaskActive && nightPlayer.currentFlashlightDuration >= 0.01)
             {
                 EnableLight();
             }
@@ -122,6 +124,8 @@ public class LightsManager : MonoBehaviour
 
     private void EnableLight()
     {
+        isLightActive = true;
+
         // Light buzz audio
         if (!buzzLightAudio.isPlaying)
         {
@@ -131,6 +135,8 @@ public class LightsManager : MonoBehaviour
 
     private void DisableLight()
     {
+        isLightActive = false;
+
         if (buzzLightAudio.isPlaying)
         {
             buzzLightAudio.Stop();
