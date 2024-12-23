@@ -2257,7 +2257,6 @@ public class NightPlayer : MonoBehaviour {
 		MonitorAnimator.gameObject.SetActive(false);
 		OnCams.mute = false;
 		SwitchCameraSound.Play();
-		WhiteStripes.Play("WhiteStrip");
 
 		if (BBCamera == 15)
 		{
