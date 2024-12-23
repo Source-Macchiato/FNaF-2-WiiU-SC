@@ -40,6 +40,28 @@ public class MaskManager : MonoBehaviour
             }
         }
 
+        switch (remoteState.devType)
+        {
+            case WiiU.RemoteDevType.ProController:
+                if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.R))
+                {
+                    ToggleMask();
+                }
+                break;
+            case WiiU.RemoteDevType.Classic:
+                if (remoteState.classic.IsTriggered(WiiU.ClassicButton.R))
+                {
+                    ToggleMask();
+                }
+                break;
+            default:
+                if (remoteState.IsTriggered(WiiU.RemoteButton.Two))
+                {
+                    ToggleMask();
+                }
+                break;
+        }
+
         if (Application.isEditor)
         {
             if (Input.GetKeyDown(KeyCode.R))
