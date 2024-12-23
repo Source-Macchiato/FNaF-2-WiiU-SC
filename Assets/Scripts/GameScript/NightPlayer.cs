@@ -133,6 +133,7 @@ public class NightPlayer : MonoBehaviour {
 	public Sprite PuppetCameraEndoSprite;
 	public Sprite LeftVentEndoSprite;
 	public AudioSource SwitchCameraSound;
+	public Animator WhiteStripes;
 	public Sprite[] CircleSprites;
 	public Sprite[] Cam9Sprites;
 	public Sprite[] Cam8Sprites;
@@ -2224,6 +2225,7 @@ public class NightPlayer : MonoBehaviour {
 		MainCameras.SetActive(true);
 		currentCam = Camera;
 		SwitchCameraSound.Play();
+		WhiteStripes.Play("WhiteStrip");
 		RoomName.sprite = RoomNames[Camera-1];
 		MainCameraBG.gameObject.SetActive(true);
 		SignalDisrupted.SetActive(false);
@@ -2255,6 +2257,7 @@ public class NightPlayer : MonoBehaviour {
 		MonitorAnimator.gameObject.SetActive(false);
 		OnCams.mute = false;
 		SwitchCameraSound.Play();
+		WhiteStripes.Play("WhiteStrip");
 
 		if (BBCamera == 15)
 		{
