@@ -1761,6 +1761,9 @@ MonoBehaviour:
   leftLightEnabled: 0
   centerLightEnabled: 0
   rightLightEnabled: 0
+  cameraLightEnabled: 0
+  flashlightDuration: 115
+  currentFlashlightDuration: 0
 --- !u!1 &413012734
 GameObject:
   m_ObjectHideFlags: 0
@@ -7409,7 +7412,6 @@ MonoBehaviour:
   Jumpscare: {fileID: 891353585}
   phoneCall: {fileID: 1058738593}
   NoFlashlightBatterys: {fileID: 1107776713}
-  MuteCallButton: {fileID: 0}
   jackInTheBox: {fileID: 1186146288}
   WindUpSound: {fileID: 1242395680}
   BBSounds: {fileID: 976962221}
@@ -7900,8 +7902,6 @@ MonoBehaviour:
   - {fileID: 584476041}
   - {fileID: 584476041}
   - {fileID: 584476041}
-  FlashlightDuration: 115
-  FlashLightAudio: {fileID: 584476042}
   Battery4Bars: {fileID: 21300008, guid: 46578d76d26c88a47a9fcd1f29fe7cef, type: 3}
   Battery3Bars: {fileID: 21300006, guid: 46578d76d26c88a47a9fcd1f29fe7cef, type: 3}
   Battery2Bars: {fileID: 21300004, guid: 46578d76d26c88a47a9fcd1f29fe7cef, type: 3}

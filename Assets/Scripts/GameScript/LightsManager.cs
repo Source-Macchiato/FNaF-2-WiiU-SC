@@ -157,10 +157,20 @@ public class LightsManager : MonoBehaviour
     {
         if (nightPlayer.isMonitorActive)
         {
-            leftLightEnabled = false;
-            centerLightEnabled = false;
-            rightLightEnabled = false;
-            cameraLightEnabled = true;
+            if (currentFlashlightDuration >= 0.01)
+            {
+                leftLightEnabled = false;
+                centerLightEnabled = false;
+                rightLightEnabled = false;
+                cameraLightEnabled = true;
+            }
+            else
+            {
+                leftLightEnabled = false;
+                centerLightEnabled = false;
+                rightLightEnabled = false;
+                cameraLightEnabled = false;
+            }
         }
         else
         {
