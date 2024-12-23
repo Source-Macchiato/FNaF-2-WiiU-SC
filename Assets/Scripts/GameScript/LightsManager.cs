@@ -110,9 +110,9 @@ public class LightsManager : MonoBehaviour
 
     private void ToggleLight()
     {
-        if (!nightPlayer.isJumpscared && activateLight && !nightPlayer.isMonitorActive && !maskManager.isMaskActive)
+        if (!nightPlayer.isJumpscared && activateLight && !maskManager.isMaskActive)
         {
-            if (!leftLightEnabled && !centerLightEnabled && !rightLightEnabled)
+            if (!leftLightEnabled && !centerLightEnabled && !rightLightEnabled && !cameraLightEnabled)
             {
                 DisableLight();
             }
@@ -120,10 +120,6 @@ public class LightsManager : MonoBehaviour
             {
                 EnableLight();
             }
-        }
-        else if (!nightPlayer.isJumpscared && activateLight && nightPlayer.isMonitorActive && !maskManager.isMaskActive)
-        {
-            EnableLight();
         }
         else
         {
@@ -141,7 +137,7 @@ public class LightsManager : MonoBehaviour
             buzzLightAudio.Play();
         }
 
-        if (centerLightEnabled)
+        if (centerLightEnabled || cameraLightEnabled)
         {
             currentFlashlightDuration -= Time.deltaTime;
         }
@@ -159,77 +155,47 @@ public class LightsManager : MonoBehaviour
 
     private void CurrentLightPosition()
     {
-        float positionX = officeRect.localPosition.x;
-
-        if (positionX <= (moveInOffice.leftEdge - 160) && positionX >= (moveInOffice.rightEdge + 160)) // Center
+        if (nightPlayer.isMonitorActive)
         {
-            if (currentFlashlightDuration >= 0.01)
-            {
-                if (leftLightEnabled)
-                {
-                    leftLightEnabled = false;
-                }
-
-                if (!centerLightEnabled)
-                {
-                    centerLightEnabled = true;
-                }
-
-                if (rightLightEnabled)
-                {
-                    rightLightEnabled = false;
-                }
-            }
-            else
-            {
-                if (leftLightEnabled)
-                {
-                    leftLightEnabled = false;
-                }
-
-                if (centerLightEnabled)
-                {
-                    centerLightEnabled = false;
-                }
-
-                if (rightLightEnabled)
-                {
-                    rightLightEnabled = false;
-                }
-            }
+            leftLightEnabled = false;
+            centerLightEnabled = false;
+            rightLightEnabled = false;
+            cameraLightEnabled = true;
         }
-        else if (positionX > (moveInOffice.leftEdge - 160)) // Left
+        else
         {
-            if (!leftLightEnabled)
+            float positionX = officeRect.localPosition.x;
+
+            if (positionX <= (moveInOffice.leftEdge - 160) && positionX >= (moveInOffice.rightEdge + 160)) // Center
+            {
+                if (currentFlashlightDuration >= 0.01)
+                {
+                    leftLightEnabled = false;
+                    centerLightEnabled = true;
+                    rightLightEnabled = false;
+                    cameraLightEnabled = false;
+                }
+                else
+                {
+                    leftLightEnabled = false;
+                    centerLightEnabled = false;
+                    rightLightEnabled = false;
+                    cameraLightEnabled = false;
+                }
+            }
+            else if (positionX > (moveInOffice.leftEdge - 160)) // Left
             {
                 leftLightEnabled = true;
-            }
-            
-            if (centerLightEnabled)
-            {
                 centerLightEnabled = false;
-            }
-
-            if (rightLightEnabled)
-            {
                 rightLightEnabled = false;
+                cameraLightEnabled = false;
             }
-        }
-        else if (positionX < (moveInOffice.rightEdge + 160)) // Right
-        {
-            if (leftLightEnabled)
+            else if (positionX < (moveInOffice.rightEdge + 160)) // Right
             {
                 leftLightEnabled = false;
-            }
-
-            if (centerLightEnabled)
-            {
                 centerLightEnabled = false;
-            }
-
-            if (!rightLightEnabled)
-            {
                 rightLightEnabled = true;
+                cameraLightEnabled = false;
             }
         }
     }
