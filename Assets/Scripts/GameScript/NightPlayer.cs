@@ -2221,8 +2221,6 @@ public class NightPlayer : MonoBehaviour {
 
 	public void SwitchCam(int Camera)
 	{
-		MainCameras.SetActive(false);
-		MainCameras.SetActive(true);
 		currentCam = Camera;
 		SwitchCameraSound.Play();
 		WhiteStripes.Play("WhiteStrip");
