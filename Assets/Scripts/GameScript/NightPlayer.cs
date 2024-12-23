@@ -5,11 +5,8 @@ using UnityEngine.SceneManagement;
 using WiiU = UnityEngine.WiiU;
 using TMPro;
 
-public class NightPlayer : MonoBehaviour {
-
-	[Header("Movement")]
-    public Transform[] ObjectsToMove;
-
+public class NightPlayer : MonoBehaviour
+{
 	[Header("Audio")]
 	public AudioSource Jumpscare;
 	public AudioSource phoneCall;
@@ -192,24 +189,30 @@ public class NightPlayer : MonoBehaviour {
 	private bool RWQActive;
 	public Animator JumpscareAnimator;
 	public Animator PuppetWarning;
-	public Image MainOfficeImage;
 	public Image LeftButtonImage;
 	public Image RightButtonImage;
-	public Sprite OfficeFlashlightSprite;
-	public Sprite OfficeLeftFlashlightSprite;
-	public Sprite OfficeRightFlashlightSprite;
 	public Sprite LeftButtonLit;
 	public Sprite LeftButtonUnLit;
 	public Sprite RightButtonLit;
 	public Sprite RightButtonUnLit;
-	private Sprite MainOfficeDefaultSprite;
 
-	public string state = "Office";
-	public string flashLightTarget = "MainHallway";
+	[Header("Lights system")]
+	// Office image
+    public Image officeImage;
+
+	// Office sprites
+    public Sprite defaultOffice;
+    public Sprite leftLightOffice;
+    public Sprite centerLightOffice;
+    public Sprite rightLightOffice;
+
+	[Header("State")]
+    public string state = "Office";
 
 	private MoveInOffice moveInOffice;
 	private MusicBox musicBox;
 	private MaskManager maskManager;
+	private LightsManager lightsManager;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -224,11 +227,11 @@ public class NightPlayer : MonoBehaviour {
         moveInOffice = FindObjectOfType<MoveInOffice>();
 		musicBox = FindObjectOfType<MusicBox>();
 		maskManager = FindObjectOfType<MaskManager>();
+		lightsManager = FindObjectOfType<LightsManager>();
 
         currentNight = 3;
         //currentNight = SaveManager.LoadNightNumber()
 
-        MainOfficeDefaultSprite = MainOfficeImage.sprite;
 		currentFlashlightDuration = FlashlightDuration;
 		StartCoroutine(TimeCoroutine());
         CameraUI.SetActive(false); // Disable minimap when game starts
@@ -1163,120 +1166,119 @@ public class NightPlayer : MonoBehaviour {
 			currentFlashlightDuration -= Time.deltaTime;
 			DeactivateRWQ();
 		}
-		if (state == "Office" && flashlightActive && currentFlashlightDuration >= 0.01)
+
+		// System for change office sprites
+		if (state == "Office" && lightsManager.isLightActive)
 		{
-			switch (flashLightTarget)
+			if (lightsManager.leftLightEnabled)
 			{
-				case "MainHallway":
-				if (WitheredFoxyCamera == 14 && WitheredBonnieCamera == 14)
+				if (ToyChicaCamera == 13)
 				{
-					MainCameraBG.sprite = WitheredBonnieFlashlightCams[14];
+					officeImage.sprite = ToyChicaFlashlightCams[12];
 				}
-				else if (WitheredFoxyCamera == 14)
+				else if (BBCamera == 13)
 				{
-					MainOfficeImage.sprite = WitheredFoxyFlashlightCams[13];
-				}
-				else if (WitheredFreddyCamera == 14)
-				{
-					MainOfficeImage.sprite = WitheredFreddyFlashlightCams[13];
-				}
-				else if (WitheredBonnieCamera == 14)
-				{
-					MainOfficeImage.sprite = WitheredBonnieFlashlightCams[13];
-					//Debug.Log(WitheredBonnieCamera + WitheredBonnieFlashlightCams[13].name + MainCameraBG.sprite.name);
-				}
-				else if (ToyFreddyCamera == 14)
-				{
-					MainOfficeImage.sprite = ToyFreddyFlashlightCams[13];
-				}
-				else if (ToyFreddyCamera == 15)
-				{
-					MainOfficeImage.sprite = ToyFreddyFlashlightCams[14];
-				}
-				else if (ToyChicaCamera == 14)
-				{
-					MainOfficeImage.sprite = ToyChicaFlashlightCams[13];
+					officeImage.sprite = BBFlashlightCams[12];
 				}
 				else
 				{
-					MainOfficeImage.sprite = OfficeFlashlightSprite;
+					officeImage.sprite = leftLightOffice;
 				}
+
+				LeftButtonImage.sprite = LeftButtonLit;
+				RightButtonImage.sprite = RightButtonUnLit;
+			}
+			else if (lightsManager.centerLightEnabled)
+			{
+				if (WitheredFoxyCamera == 14 && WitheredBonnieCamera == 14)
+				{
+					officeImage.sprite = WitheredBonnieFlashlightCams[14];
+				}
+				else if (WitheredFoxyCamera == 14)
+				{
+					officeImage.sprite = WitheredFoxyFlashlightCams[13];
+				}
+				else if (WitheredFreddyCamera == 14)
+				{
+					officeImage.sprite = WitheredFreddyFlashlightCams[13];
+				}
+				else if (WitheredBonnieCamera == 14)
+				{
+					officeImage.sprite = WitheredBonnieFlashlightCams[13];
+				}
+				else if (ToyFreddyCamera == 14)
+				{
+					officeImage.sprite = ToyFreddyFlashlightCams[13];
+				}
+				else if (ToyFreddyCamera == 15)
+				{
+					officeImage.sprite = ToyFreddyFlashlightCams[14];
+				}
+				else if (ToyChicaCamera == 14)
+				{
+					officeImage.sprite = ToyChicaFlashlightCams[13];
+				}
+				else
+				{
+					officeImage.sprite = centerLightOffice;
+				}
+
 				if (GoldenFreddyAI >= 1)
 				{
 					if (GoldenFreddyAI >= GoldenFreddyrandNum && GoldenFreddyCameraTime <= 0 && GoldenFreddyPrepared == true)
 					{
 						GoldenFreddyInOffice = true;
-						MainOfficeImage.sprite = GoldenFreddyFlashlightCams[13];
+						officeImage.sprite = GoldenFreddyFlashlightCams[13];
 						GoldenFreddyInHall = true;
 						GoldenFreddyPrepared = false;
 					}
 					else
 					{
-						MainOfficeImage.sprite = OfficeFlashlightSprite;
+						officeImage.sprite = centerLightOffice;
 						Debug.Log(GoldenFreddyrandNum.ToString() + GoldenFreddyAI.ToString() + GoldenFreddyCameraTime.ToString() + GoldenFreddyInOffice.ToString() + GoldenFreddyPrepared.ToString());
 					}
 				}
+
 				LeftButtonImage.sprite = LeftButtonUnLit;
 				RightButtonImage.sprite = RightButtonUnLit;
-				break;
-				case "LeftButton":
-				if (ToyChicaCamera == 13)
-				{
-					MainOfficeImage.sprite = ToyChicaFlashlightCams[12];
-				}
-				else if (BBCamera == 13)
-				{
-					MainOfficeImage.sprite = BBFlashlightCams[12];
-				}
-				else
-				{
-					MainOfficeImage.sprite = OfficeLeftFlashlightSprite;
-				}
-				LeftButtonImage.sprite = LeftButtonLit;
-				RightButtonImage.sprite = RightButtonUnLit;
-				break;
-				case "RightButton":
+			}
+			else if (lightsManager.rightLightEnabled)
+			{
 				if (ToyBonnieCamera == 13)
 				{
-					MainOfficeImage.sprite = ToyBonnieFlashlightCams[12];
+					officeImage.sprite = ToyBonnieFlashlightCams[12];
 				}
 				else if (MangleCamera == 13)
 				{
-					MainOfficeImage.sprite = MangleFlashlightCams[12];
+					officeImage.sprite = MangleFlashlightCams[12];
 				}
 				else
 				{
-					MainOfficeImage.sprite = OfficeRightFlashlightSprite;
+					officeImage.sprite = rightLightOffice;
 				}
+
 				LeftButtonImage.sprite = LeftButtonUnLit;
 				RightButtonImage.sprite = RightButtonLit;
-				break;
 			}
-		}
-		else if (state == "Office" && !flashlightActive)
-		{
-			MainOfficeImage.sprite = MainOfficeDefaultSprite;
-			LeftButtonImage.sprite = LeftButtonUnLit;
-			RightButtonImage.sprite = RightButtonUnLit;
 		}
 		else if (state == "Cameras" && flashlightActive && currentFlashlightDuration >= 0.01 && currentCam == 11)
 		{
 			// Check for the special case when puppetDeathTimer is 0f
-    		if (PuppetDeathTimer <= 0.01f || PuppetDeathTimer == 0.01f)
-    		{
-        		// 9/10 chance to select puppetSprites[3], 1/10 chance to select puppetCameraEndoSprite
-        		if (puppetEndoChance < 0.1f)
-        		{
-            		MainCameraBG.sprite = PuppetCameraEndoSprite;
-        		}
-        		else
-        		{
-            		MainCameraBG.sprite = PuppetCameraSprites[4];
-        		}
-    		}
-    		else
-    		{
-        		// Calculate the sprite index based on puppetDeathTimer
+			if (PuppetDeathTimer <= 0.01f || PuppetDeathTimer == 0.01f)
+			{
+				// 9/10 chance to select puppetSprites[3], 1/10 chance to select puppetCameraEndoSprite
+				if (puppetEndoChance < 0.1f)
+				{
+					MainCameraBG.sprite = PuppetCameraEndoSprite;
+				}
+				else
+				{
+					MainCameraBG.sprite = PuppetCameraSprites[4];
+				}
+			}
+			else
+			{
+				// Calculate the sprite index based on puppetDeathTimer
 				int spriteIndex = Mathf.FloorToInt((15f - PuppetDeathTimer) / 1f); // This maps 5 -> 0, 4 -> 1, 3 -> 2, etc.
 				Debug.Log(PuppetDeathTimer);
 
@@ -1284,9 +1286,9 @@ public class NightPlayer : MonoBehaviour {
 				spriteIndex = Mathf.Clamp(spriteIndex, 1, PuppetCameraSprites.Length - 1);
 
 
-        		// Set the displayed sprite based on the calculated index
-        		MainCameraBG.sprite = PuppetCameraSprites[spriteIndex-1];
-    		}
+				// Set the displayed sprite based on the calculated index
+				MainCameraBG.sprite = PuppetCameraSprites[spriteIndex - 1];
+			}
 		}
 		/*else if (state == "Cameras" && flashlightActive && currentFlashlightDuration >= 0.01 && currentCam == 5)
 		{
@@ -1317,7 +1319,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
 			}
 			else
@@ -1332,7 +1334,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = DefaultCams[currentCam-1];
+					MainCameraBG.sprite = DefaultCams[currentCam - 1];
 				}
 			}
 		}
@@ -1348,7 +1350,7 @@ public class NightPlayer : MonoBehaviour {
 			}
 			else if (MangleCamera == 12)
 			{
-				MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+				MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 			}
 		}
 		else if (state == "Cameras" && currentCam == 10)
@@ -1362,7 +1364,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = DefaultCams[currentCam-1];
+					MainCameraBG.sprite = DefaultCams[currentCam - 1];
 				}
 			}
 			else
@@ -1373,7 +1375,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
 			}
 		}
@@ -1391,7 +1393,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
 			}
 			else
@@ -1406,7 +1408,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = DefaultCams[currentCam-1];
+					MainCameraBG.sprite = DefaultCams[currentCam - 1];
 				}
 			}
 		}
@@ -1424,7 +1426,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
 			}
 			else
@@ -1439,7 +1441,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = DefaultCams[currentCam-1];
+					MainCameraBG.sprite = DefaultCams[currentCam - 1];
 				}
 			}
 		}
@@ -1461,7 +1463,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
 			}
 			else
@@ -1472,7 +1474,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = DefaultCams[currentCam-1];
+					MainCameraBG.sprite = DefaultCams[currentCam - 1];
 				}
 			}
 		}
@@ -1486,7 +1488,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = DefaultCams[currentCam-1];
+					MainCameraBG.sprite = DefaultCams[currentCam - 1];
 				}
 			}
 			else
@@ -1505,7 +1507,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
 			}
 		}
@@ -1519,7 +1521,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = DefaultCams[currentCam-1];
+					MainCameraBG.sprite = DefaultCams[currentCam - 1];
 				}
 			}
 			else
@@ -1534,7 +1536,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
 			}
 			Debug.Log(flashlightActive + MainCameraBG.sprite.name + "Bonnie Cam: " + WitheredBonnieCamera);
@@ -1553,7 +1555,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = DefaultCams[currentCam-1];
+					MainCameraBG.sprite = DefaultCams[currentCam - 1];
 				}
 			}
 			else
@@ -1576,7 +1578,7 @@ public class NightPlayer : MonoBehaviour {
 				}
 				else
 				{
-					MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
 			}
 		}
@@ -1607,7 +1609,7 @@ public class NightPlayer : MonoBehaviour {
 			}
 			else if (WitheredFoxyCamera == 8 && WitheredFreddyCamera == 8 && WitheredChicaCamera == 8 && WitheredBonnieCamera == 8)
 			{
-				MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+				MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 			}
 			else
 			{
@@ -1620,13 +1622,13 @@ public class NightPlayer : MonoBehaviour {
 			{
 				if (ToyBonnieCamera == 9 && ToyChicaCamera == 9 && ToyFreddyCamera == 9)
 				{
-					MainCameraBG.sprite = DefaultCams[currentCam-1];
+					MainCameraBG.sprite = DefaultCams[currentCam - 1];
 				}
-				else if (ToyBonnieCamera !=9 && ToyChicaCamera == 9 && ToyFreddyCamera == 9) 
+				else if (ToyBonnieCamera != 9 && ToyChicaCamera == 9 && ToyFreddyCamera == 9)
 				{
 					MainCameraBG.sprite = Cam9Sprites[0];
 				}
-				else if (ToyBonnieCamera !=9 && ToyChicaCamera != 9 && ToyFreddyCamera == 9) 
+				else if (ToyBonnieCamera != 9 && ToyChicaCamera != 9 && ToyFreddyCamera == 9)
 				{
 					MainCameraBG.sprite = Cam9Sprites[2];
 				}
@@ -1639,13 +1641,13 @@ public class NightPlayer : MonoBehaviour {
 			{
 				if (ToyBonnieCamera == 9 && ToyChicaCamera == 9 && ToyFreddyCamera == 9)
 				{
-					MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+					MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 				}
-				else if (ToyBonnieCamera !=9 && ToyChicaCamera == 9 && ToyFreddyCamera == 9) 
+				else if (ToyBonnieCamera != 9 && ToyChicaCamera == 9 && ToyFreddyCamera == 9)
 				{
 					MainCameraBG.sprite = Cam9Sprites[1];
 				}
-				else if (ToyBonnieCamera !=9 && ToyChicaCamera != 9 && ToyFreddyCamera == 9) 
+				else if (ToyBonnieCamera != 9 && ToyChicaCamera != 9 && ToyFreddyCamera == 9)
 				{
 					MainCameraBG.sprite = Cam9Sprites[3];
 				}
@@ -1657,29 +1659,15 @@ public class NightPlayer : MonoBehaviour {
 		}
 		else if (state == "Cameras" && flashlightActive && currentFlashlightDuration >= 0.01)
 		{
-			MainCameraBG.sprite = FlashlightedCams[currentCam-1];
+			MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 		}
 		else if (state == "Cameras" && !flashlightActive)
 		{
-			MainCameraBG.sprite = DefaultCams[currentCam-1];
+			MainCameraBG.sprite = DefaultCams[currentCam - 1];
 		}
-
-		if (state == "Office")
+		else // We really should clean this code in later updates
 		{
-    		float positionX = ObjectsToMove[0].localPosition.x;
-
-    		if (positionX <= (moveInOffice.leftEdge - 160) && positionX >= (moveInOffice.rightEdge + 160))
-    		{
-        		flashLightTarget = "MainHallway";
-    		}
-    		else if (positionX > (moveInOffice.leftEdge - 160))
-    		{
-        		flashLightTarget = "LeftButton";
-    		}
-    		else if (positionX < (moveInOffice.rightEdge + 160))
-    		{
-        		flashLightTarget = "RightButton";
-    		}
+			officeImage.sprite = defaultOffice;
 		}
 
 		ToyBonnieMaskTimer -= Time.deltaTime;
@@ -1970,7 +1958,7 @@ public class NightPlayer : MonoBehaviour {
 				FlashCam(currentCam);
 			}
 
-            if (state == "Office" && flashLightTarget == "MainHallway")
+            if (state == "Office" && lightsManager.centerLightEnabled)
             {
                 FlashCam(14);
                 FlashCam(15);
@@ -2008,7 +1996,7 @@ public class NightPlayer : MonoBehaviour {
 
 	private void IsGoldenFreddyInHall()
 	{
-		if (BBCamera != 16 && flashLightTarget == "MainHallway" && state == "office")
+		if (BBCamera != 16 && lightsManager.centerLightEnabled && state == "office")
 		{
             if (GoldenFreddyInHall == true)
             {

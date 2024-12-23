@@ -5,7 +5,12 @@ public class LightsManager : MonoBehaviour
 {
     public AudioSource buzzLightAudio;
 
+    public RectTransform officeRect;
+
     public bool isLightActive = false;
+    public bool leftLightEnabled = false;
+    public bool centerLightEnabled = false;
+    public bool rightLightEnabled = false;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -13,6 +18,8 @@ public class LightsManager : MonoBehaviour
 
     // Scripts
     NightPlayer nightPlayer;
+    MaskManager maskManager;
+    MoveInOffice moveInOffice;
 
     void Start()
 	{
@@ -22,6 +29,8 @@ public class LightsManager : MonoBehaviour
 
         // Get scripts
         nightPlayer = FindObjectOfType<NightPlayer>();
+        maskManager = FindObjectOfType<MaskManager>();
+        moveInOffice = FindObjectOfType<MoveInOffice>();
     }
 	
 	void Update()
@@ -89,13 +98,14 @@ public class LightsManager : MonoBehaviour
         }
 
         ToggleLight();
+        CurrentLightPosition();
     }
 
     private void ToggleLight()
     {
         if (!nightPlayer.isJumpscared)
         {
-            if (isLightActive)
+            if (isLightActive && !nightPlayer.isMonitorActive && !maskManager.isMaskActive)
             {
                 EnableLight();
             }
@@ -112,6 +122,7 @@ public class LightsManager : MonoBehaviour
 
     private void EnableLight()
     {
+        // Light buzz audio
         if (!buzzLightAudio.isPlaying)
         {
             buzzLightAudio.Play();
@@ -123,6 +134,63 @@ public class LightsManager : MonoBehaviour
         if (buzzLightAudio.isPlaying)
         {
             buzzLightAudio.Stop();
+        }
+    }
+
+    private void CurrentLightPosition()
+    {
+        float positionX = officeRect.localPosition.x;
+
+        if (positionX <= (moveInOffice.leftEdge - 160) && positionX >= (moveInOffice.rightEdge + 160)) // Center
+        {
+            if (leftLightEnabled)
+            {
+                leftLightEnabled = false;
+            }
+
+            if (!centerLightEnabled)
+            {
+                centerLightEnabled = true;   
+            }
+
+            if (rightLightEnabled)
+            {
+                rightLightEnabled = false;
+            }
+        }
+        else if (positionX > (moveInOffice.leftEdge - 160)) // Left
+        {
+            if (!leftLightEnabled)
+            {
+                leftLightEnabled = true;
+            }
+            
+            if (centerLightEnabled)
+            {
+                centerLightEnabled = false;
+            }
+
+            if (rightLightEnabled)
+            {
+                rightLightEnabled = false;
+            }
+        }
+        else if (positionX < (moveInOffice.rightEdge + 160)) // Right
+        {
+            if (leftLightEnabled)
+            {
+                leftLightEnabled = false;
+            }
+
+            if (centerLightEnabled)
+            {
+                centerLightEnabled = false;
+            }
+
+            if (!rightLightEnabled)
+            {
+                rightLightEnabled = true;
+            }
         }
     }
 }

@@ -1756,7 +1756,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buzzLightAudio: {fileID: 416454946}
+  officeRect: {fileID: 2101765863}
   isLightActive: 0
+  leftLightEnabled: 0
+  centerLightEnabled: 0
+  rightLightEnabled: 0
 --- !u!1 &413012734
 GameObject:
   m_ObjectHideFlags: 0
@@ -7402,8 +7406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a734b9dd5f5044d8d3a7fb40edd39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectsToMove:
-  - {fileID: 2101765863}
   Jumpscare: {fileID: 891353585}
   phoneCall: {fileID: 1058738593}
   NoFlashlightBatterys: {fileID: 1107776713}
@@ -7923,21 +7925,18 @@ MonoBehaviour:
   ToyFreddyOffice: {fileID: 353090572}
   JumpscareAnimator: {fileID: 55881369}
   PuppetWarning: {fileID: 584476043}
-  MainOfficeImage: {fileID: 1243597345}
   LeftButtonImage: {fileID: 199684462}
   RightButtonImage: {fileID: 1665519323}
-  OfficeFlashlightSprite: {fileID: 21300000, guid: 0f649793172b33e41acffc76e6b1b002,
-    type: 3}
-  OfficeLeftFlashlightSprite: {fileID: 21300000, guid: 08b97a499eef3334380f95145270755b,
-    type: 3}
-  OfficeRightFlashlightSprite: {fileID: 21300000, guid: a0913b6813731a242a0bcf307eeb8cef,
-    type: 3}
   LeftButtonLit: {fileID: 21300000, guid: e2382dfa1600ca84cb36997020127ce9, type: 3}
   LeftButtonUnLit: {fileID: 21300000, guid: ecab07f461ce7e5479b3139ae30c77ed, type: 3}
   RightButtonLit: {fileID: 21300000, guid: ad19ff67de4877f4a9e5de126408b859, type: 3}
   RightButtonUnLit: {fileID: 21300000, guid: d133722432c5b9f43beb312c7dda2be3, type: 3}
+  officeImage: {fileID: 1243597345}
+  defaultOffice: {fileID: 21300000, guid: 9e1b4b9414f367c478e47f0aa00c852c, type: 3}
+  leftLightOffice: {fileID: 21300000, guid: 08b97a499eef3334380f95145270755b, type: 3}
+  centerLightOffice: {fileID: 21300000, guid: 0f649793172b33e41acffc76e6b1b002, type: 3}
+  rightLightOffice: {fileID: 21300000, guid: a0913b6813731a242a0bcf307eeb8cef, type: 3}
   state: Office
-  flashLightTarget: MainHallway
 --- !u!1 &1204673108
 GameObject:
   m_ObjectHideFlags: 0
