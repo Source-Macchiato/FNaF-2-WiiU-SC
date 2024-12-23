@@ -2223,7 +2223,7 @@ public class NightPlayer : MonoBehaviour {
 	{
 		currentCam = Camera;
 		SwitchCameraSound.Play();
-		WhiteStripes.Play("WhiteStrip");
+		WhiteStripes.Play("WhiteStrip", -1, 0f);
 		RoomName.sprite = RoomNames[Camera-1];
 		MainCameraBG.gameObject.SetActive(true);
 		SignalDisrupted.SetActive(false);
