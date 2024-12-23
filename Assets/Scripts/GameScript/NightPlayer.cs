@@ -157,8 +157,7 @@ public class NightPlayer : MonoBehaviour
 
 	[Header("Flashlight")]
 
-	public float FlashlightDuration;
-	public float currentFlashlightDuration;
+	
 	public Sprite Battery4Bars;
 	public Sprite Battery3Bars;
 	public Sprite Battery2Bars;
@@ -233,7 +232,6 @@ public class NightPlayer : MonoBehaviour
         currentNight = 3;
         //currentNight = SaveManager.LoadNightNumber()
 
-		currentFlashlightDuration = FlashlightDuration;
 		StartCoroutine(TimeCoroutine());
         CameraUI.SetActive(false); // Disable minimap when game starts
 		rec.SetActive(false);
@@ -1160,12 +1158,11 @@ public class NightPlayer : MonoBehaviour
 		}
 		if (lightsManager.isLightActive)
 		{
-			currentFlashlightDuration -= Time.deltaTime;
 			DeactivateRWQ();
 		}
 
 		// System for change office sprites
-		if (state == "Office" && lightsManager.isLightActive)
+		if (!maskManager.isMaskActive && !isMonitorActive && lightsManager.isLightActive)
 		{
 			if (lightsManager.leftLightEnabled) // Left light
 			{
@@ -1261,7 +1258,7 @@ public class NightPlayer : MonoBehaviour
 				rightButtonImage.sprite = rightButtonOn;
 			}
 		}
-		else if (state == "Cameras" && lightsManager.isLightActive && currentFlashlightDuration >= 0.01 && currentCam == 11)
+		else if (!maskManager.isMaskActive && isMonitorActive && lightsManager.isLightActive && currentCam == 11)
 		{
 			// Check for the special case when puppetDeathTimer is 0f
 			if (PuppetDeathTimer <= 0.01f || PuppetDeathTimer == 0.01f)
@@ -1290,7 +1287,7 @@ public class NightPlayer : MonoBehaviour
 				MainCameraBG.sprite = PuppetCameraSprites[spriteIndex - 1];
 			}
 		}
-		/*else if (state == "Cameras" && flashlightActive && currentFlashlightDuration >= 0.01 && currentCam == 5)
+        /*else if (!maskManager.isMaskActive && isMonitorActive && flashlightActive && currentCam == 5)
 		{
 			if (puppetEndoChance < 0.001)
 			{
@@ -1301,7 +1298,7 @@ public class NightPlayer : MonoBehaviour
 				MainCameraBG.sprite = FlashlightedCams[currentCam-1];
 			}
 		}*/
-		else if (state == "Cameras" && currentCam == 4)
+        else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 4)
 		{
 			if (lightsManager.isLightActive)
 			{
@@ -1338,7 +1335,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 12 && lightsManager.isLightActive)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 12 && lightsManager.isLightActive)
 		{
 			if (MangleCamera != 12)
 			{
@@ -1353,7 +1350,7 @@ public class NightPlayer : MonoBehaviour
 				MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 			}
 		}
-		else if (state == "Cameras" && currentCam == 10)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 10)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1379,7 +1376,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 3)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 3)
 		{
 			if (lightsManager.isLightActive)
 			{
@@ -1412,7 +1409,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 2)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 2)
 		{
 			if (lightsManager.isLightActive)
 			{
@@ -1445,7 +1442,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 6)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 6)
 		{
 			if (lightsManager.isLightActive)
 			{
@@ -1478,7 +1475,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 7)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 7)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1511,7 +1508,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 1)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 1)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1540,7 +1537,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 5)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 5)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1581,7 +1578,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && currentCam == 8 && lightsManager.isLightActive)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 8 && lightsManager.isLightActive)
 		{
 			if (WitheredFoxyCamera == 8 && WitheredFoxyAI >= 1)
 			{
@@ -1615,7 +1612,7 @@ public class NightPlayer : MonoBehaviour
 				MainCameraBG.sprite = MainCameraBG.sprite = Cam8Sprites[2];
 			}
 		}
-		else if (state == "Cameras" && currentCam == 9)
+		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 9)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1656,11 +1653,11 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (state == "Cameras" && lightsManager.isLightActive && currentFlashlightDuration >= 0.01)
+		else if (!maskManager.isMaskActive && isMonitorActive && lightsManager.isLightActive)
 		{
 			MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 		}
-		else if (state == "Cameras" && !lightsManager.isLightActive)
+		else if (!maskManager.isMaskActive && isMonitorActive && !lightsManager.isLightActive)
 		{
 			MainCameraBG.sprite = DefaultCams[currentCam - 1];
 		}
@@ -2351,27 +2348,27 @@ public class NightPlayer : MonoBehaviour
 		RWQCrashTimer = 4f;
 	}
 
-	void UpdateBatteryUI()
+	void UpdateBatteryUI() // The UI doesn't works like that, to fix
     {
-        float threshold = FlashlightDuration / 5;
+        float threshold = lightsManager.flashlightDuration / 5;
         
-        if (currentFlashlightDuration <= 0)
+        if (lightsManager.currentFlashlightDuration <= 0)
         {
             BatteryImage.sprite = Battery0Bars;
         }
-        else if (currentFlashlightDuration <= threshold)
+        else if (lightsManager.currentFlashlightDuration <= threshold)
         {
             BatteryImage.sprite = Battery1Bars;
         }
-        else if (currentFlashlightDuration <= threshold * 2)
+        else if (lightsManager.currentFlashlightDuration <= threshold * 2)
         {
             BatteryImage.sprite = Battery2Bars;
         }
-        else if (currentFlashlightDuration <= threshold * 3)
+        else if (lightsManager.currentFlashlightDuration <= threshold * 3)
         {
             BatteryImage.sprite = Battery3Bars;
         }
-        else if (currentFlashlightDuration <= threshold * 4)
+        else if (lightsManager.currentFlashlightDuration <= threshold * 4)
         {
             BatteryImage.sprite = Battery4Bars;
         }

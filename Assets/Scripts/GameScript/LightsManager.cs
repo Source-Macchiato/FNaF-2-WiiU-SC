@@ -11,7 +11,10 @@ public class LightsManager : MonoBehaviour
     public bool leftLightEnabled = false;
     public bool centerLightEnabled = false;
     public bool rightLightEnabled = false;
-
+    public bool cameraLightEnabled = false;
+    public float flashlightDuration = 115f;
+    public float currentFlashlightDuration;
+    
     private bool activateLight = false;
 
     // References to WiiU controllers
@@ -33,6 +36,8 @@ public class LightsManager : MonoBehaviour
         nightPlayer = FindObjectOfType<NightPlayer>();
         maskManager = FindObjectOfType<MaskManager>();
         moveInOffice = FindObjectOfType<MoveInOffice>();
+
+        currentFlashlightDuration = flashlightDuration;
     }
 	
 	void Update()
@@ -105,16 +110,20 @@ public class LightsManager : MonoBehaviour
 
     private void ToggleLight()
     {
-        if (!nightPlayer.isJumpscared)
+        if (!nightPlayer.isJumpscared && activateLight && !nightPlayer.isMonitorActive && !maskManager.isMaskActive)
         {
-            if (activateLight && !nightPlayer.isMonitorActive && !maskManager.isMaskActive && nightPlayer.currentFlashlightDuration >= 0.01)
-            {
-                EnableLight();
-            }
-            else
+            if (!leftLightEnabled && !centerLightEnabled && !rightLightEnabled)
             {
                 DisableLight();
             }
+            else
+            {
+                EnableLight();
+            }
+        }
+        else if (!nightPlayer.isJumpscared && activateLight && nightPlayer.isMonitorActive && !maskManager.isMaskActive)
+        {
+            EnableLight();
         }
         else
         {
@@ -130,6 +139,11 @@ public class LightsManager : MonoBehaviour
         if (!buzzLightAudio.isPlaying)
         {
             buzzLightAudio.Play();
+        }
+
+        if (centerLightEnabled)
+        {
+            currentFlashlightDuration -= Time.deltaTime;
         }
     }
 
@@ -149,19 +163,39 @@ public class LightsManager : MonoBehaviour
 
         if (positionX <= (moveInOffice.leftEdge - 160) && positionX >= (moveInOffice.rightEdge + 160)) // Center
         {
-            if (leftLightEnabled)
+            if (currentFlashlightDuration >= 0.01)
             {
-                leftLightEnabled = false;
-            }
+                if (leftLightEnabled)
+                {
+                    leftLightEnabled = false;
+                }
 
-            if (!centerLightEnabled)
-            {
-                centerLightEnabled = true;   
-            }
+                if (!centerLightEnabled)
+                {
+                    centerLightEnabled = true;
+                }
 
-            if (rightLightEnabled)
+                if (rightLightEnabled)
+                {
+                    rightLightEnabled = false;
+                }
+            }
+            else
             {
-                rightLightEnabled = false;
+                if (leftLightEnabled)
+                {
+                    leftLightEnabled = false;
+                }
+
+                if (centerLightEnabled)
+                {
+                    centerLightEnabled = false;
+                }
+
+                if (rightLightEnabled)
+                {
+                    rightLightEnabled = false;
+                }
             }
         }
         else if (positionX > (moveInOffice.leftEdge - 160)) // Left
