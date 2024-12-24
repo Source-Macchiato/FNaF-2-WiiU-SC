@@ -3614,6 +3614,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3421cea278efd4844b3fbb73983d679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimap: {fileID: 352760811}
+  rec: {fileID: 324372358}
+  monitorContainer: {fileID: 980370711}
+  monitorAnimator: {fileID: 1193675043}
+  monitorOnAudio: {fileID: 1467827104}
+  monitorOffAudio: {fileID: 1723988793}
+  isMonitorActive: 0
 --- !u!1 &737213204
 GameObject:
   m_ObjectHideFlags: 0
@@ -7341,7 +7348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1193675042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7473,7 +7480,6 @@ MonoBehaviour:
   currentTime: 0
   currentCam: 9
   timeText: {fileID: 754174880}
-  isMonitorActive: 0
   isJumpscared: 0
   TimeMultiplier: 1
   isNight7: 0
@@ -7544,14 +7550,7 @@ MonoBehaviour:
   BlackoutActive: 0
   currentBlackout: 
   BlackoutPrepared: 0
-  MonitorAnimator: {fileID: 1193675043}
   SignalDisrupted: {fileID: 1069253979}
-  MonitorUp: {fileID: 1467827104}
-  MonitorDown: {fileID: 1723988793}
-  OnCams: {fileID: 1204673110}
-  CameraUI: {fileID: 352760811}
-  MainCameras: {fileID: 980370711}
-  rec: {fileID: 324372358}
   MainCameraBG: {fileID: 1140072035}
   RoomName: {fileID: 1776230291}
   RoomNames:
@@ -7988,7 +7987,7 @@ GameObject:
   - component: {fileID: 1204673109}
   - component: {fileID: 1204673110}
   m_Layer: 5
-  m_Name: OnCams
+  m_Name: OnMonitor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8015,7 +8014,8 @@ AudioSource:
   m_GameObject: {fileID: 1204673108}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243731315198083176, guid: 063cc35e74633ac499c982964f0cc2ff,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -9717,7 +9717,7 @@ GameObject:
   - component: {fileID: 1467827103}
   - component: {fileID: 1467827104}
   m_Layer: 5
-  m_Name: Monitor Up
+  m_Name: MonitorOn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9744,7 +9744,8 @@ AudioSource:
   m_GameObject: {fileID: 1467827102}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243731315198083176, guid: 063cc35e74633ac499c982964f0cc2ff,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -10844,7 +10845,7 @@ GameObject:
   - component: {fileID: 1723988792}
   - component: {fileID: 1723988793}
   m_Layer: 5
-  m_Name: Monitor Down
+  m_Name: MonitorOff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10871,7 +10872,8 @@ AudioSource:
   m_GameObject: {fileID: 1723988791}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243731315198083176, guid: 063cc35e74633ac499c982964f0cc2ff,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

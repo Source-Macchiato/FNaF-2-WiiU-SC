@@ -11,7 +11,6 @@ public class NightPlayer : MonoBehaviour
 	public AudioSource Jumpscare;
 	public AudioSource phoneCall;
 	public AudioSource NoFlashlightBatterys;
-	private bool CamsActive;
 	public AudioSource jackInTheBox;
 	public AudioSource WindUpSound;
 	public GameObject BBSounds;
@@ -111,14 +110,7 @@ public class NightPlayer : MonoBehaviour
 	public bool BlackoutPrepared;
 
 	[Header("Cams")]
-	public Animator MonitorAnimator;
 	public GameObject SignalDisrupted;
-	public AudioSource MonitorUp;
-	public AudioSource MonitorDown;
-	public AudioSource OnCams;
-	public GameObject CameraUI;
-	public GameObject MainCameras;
-	public GameObject rec;
 	public Image MainCameraBG;
 	public Image RoomName;
 	public Sprite[] RoomNames;
@@ -235,8 +227,6 @@ public class NightPlayer : MonoBehaviour
         //currentNight = SaveManager.LoadNightNumber()
 
 		StartCoroutine(TimeCoroutine());
-        CameraUI.SetActive(false); // Disable minimap when game starts
-		rec.SetActive(false);
 
         if (isNight7)
 		{
@@ -431,7 +421,7 @@ public class NightPlayer : MonoBehaviour
 			{
 				if (monitorManager.isMonitorActive)
 			{
-				StartCoroutine(MonitorDownIE());
+				//StartCoroutine(MonitorDownIE());
 				yield return new WaitForSeconds(0.183f);
 				JumpscareAnimator.Play("GoldenFreddy");
 				Jumpscare.Play();
@@ -975,7 +965,7 @@ public class NightPlayer : MonoBehaviour
         {
             if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
             {
-                StartCoroutine(MonitorDownIE());
+                //StartCoroutine(MonitorDownIE());
                 yield return new WaitForSeconds(0.183f);
                 JumpscareAnimator.Play(Animatronic);
                 Jumpscare.Play();
@@ -1128,7 +1118,7 @@ public class NightPlayer : MonoBehaviour
 
 			if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
 			{
-				StartCoroutine(MonitorDownIE());
+				//StartCoroutine(MonitorDownIE());
 				yield return new WaitForSeconds(0.183f);
 				JumpscareAnimator.Play("Puppet");
 				Jumpscare.Play();
@@ -1899,11 +1889,6 @@ public class NightPlayer : MonoBehaviour
 			{
 				HandleCameraAndFoxyStates();
 			}
-
-			if (gamePadState.IsTriggered(WiiU.GamePadButton.L))
-			{
-				CameraManager();
-			}
 		}
 
 		// Handle keyboard inputs
@@ -1913,15 +1898,9 @@ public class NightPlayer : MonoBehaviour
             {
                 HandleCameraAndFoxyStates();
             }
-
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                CameraManager();
-            }
         }
     }
 
-    // Input functions
     private void HandleCameraAndFoxyStates()
 	{
         if (BBCamera == 16)
@@ -1956,7 +1935,7 @@ public class NightPlayer : MonoBehaviour
 
 	private void IsGoldenFreddyInHall()
 	{
-		if (BBCamera != 16 && lightsManager.centerLightEnabled && state == "office")
+		if (BBCamera != 16 && lightsManager.centerLightEnabled && !maskManager.isMaskActive && !monitorManager.isMonitorActive)
 		{
             if (GoldenFreddyInHall == true)
             {
@@ -1988,7 +1967,7 @@ public class NightPlayer : MonoBehaviour
             }
             else
             {
-                Cams();
+                // This part was for remove the monitor if jumpscared, now useless
             }
         }
 	}
@@ -2125,44 +2104,18 @@ public class NightPlayer : MonoBehaviour
 
 			if (!maskManager.isMaskActive)
 			{
-				state = "Office";
-
 				if (BlackoutActive)
 				{
 					switch (currentBlackout)
 					{
 						case "ToyBonnie":
-						ToyBonnieCamera = 13;
-						StartCoroutine(ToyBonnieFunction(false));
-						BlackoutActive = false;
-						ToyBonnieBlackout.gameObject.SetActive(false);
-						break;
+							ToyBonnieCamera = 13;
+							StartCoroutine(ToyBonnieFunction(false));
+							BlackoutActive = false;
+							ToyBonnieBlackout.gameObject.SetActive(false);
+							break;
 					}
 				}
-			}
-		}
-	}
-
-	public void Cams()
-	{
-		if (maskManager.isMaskActive == false)
-		{
-			Debug.Log("Cameras!!! State: " + state);
-
-			CamsActive = !CamsActive;
-			MonitorAnimator.gameObject.SetActive(true);
-			if (CamsActive)
-			{
-				state = "MonitorUp";
-				MonitorUp.Play();
-				MonitorAnimator.Play("MonitorUp");
-				StartCoroutine(MonitorUpIE());
-			}
-			else
-			{
-				state = "MonitorDown";
-				MonitorDown.Play();
-				StartCoroutine(MonitorDownIE());
 			}
 		}
 	}
@@ -2186,43 +2139,16 @@ public class NightPlayer : MonoBehaviour
 		}
 	}
 
-	IEnumerator MonitorUpIE()
+	void MonitorUp()
 	{
-        monitorManager.isMonitorActive = true; // Important for handle monitor state
-
-        moveInOffice.canMove = false; // Prevent to move in office when the monitor is active
-
-        yield return new WaitForSeconds(0.276f);
-
-		JJ.SetActive(false);
-		CameraUI.SetActive(true);
-		MainCameras.SetActive(true);
-		rec.SetActive(true);
-
-		state = "Cameras";
-		MonitorAnimator.gameObject.SetActive(false);
-		OnCams.mute = false;
-		SwitchCameraSound.Play();
-
 		if (BBCamera == 15)
 		{
 			StartCoroutine(BaloonBoyInOffice());
 		}
 	}
 
-	IEnumerator MonitorDownIE()
+	void MonitorDown()
 	{
-        monitorManager.isMonitorActive = false; // Important for handle monitor state
-
-		moveInOffice.canMove = true; // When the monitor is off we can move in the office
-
-		MonitorAnimator.gameObject.SetActive(true);
-		OnCams.mute = true;
-		CameraUI.SetActive(false);
-		MainCameras.SetActive(false);
-		rec.SetActive(false);
-
-		MonitorAnimator.Play("MonitorDown");
 		if (Random.value < 0.000001f)
 		{
 			RWQ();
@@ -2257,15 +2183,6 @@ public class NightPlayer : MonoBehaviour
 		{
 			JJ.SetActive(true);
 		}
-		yield return new WaitForSeconds(0.183f);
-
-		if (maskManager.isMaskActive == false)
-		{
-			Debug.Log(state);
-			state = "Office";
-		}
-
-		MonitorAnimator.gameObject.SetActive(false);
 	}
 
 	IEnumerator MangleDeath()
@@ -2273,7 +2190,7 @@ public class NightPlayer : MonoBehaviour
 		yield return new WaitForSeconds(Random.Range(23f, 60f));
 		if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
         {
-            StartCoroutine(MonitorDownIE());
+            //StartCoroutine(MonitorDownIE());
             yield return new WaitForSeconds(0.183f);
             JumpscareAnimator.Play("Mangle");
             Jumpscare.Play();
@@ -2308,7 +2225,7 @@ public class NightPlayer : MonoBehaviour
 	{
 		if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
         {
-            StartCoroutine(MonitorDownIE());
+            //StartCoroutine(MonitorDownIE());
             yield return new WaitForSeconds(0.183f);
             JumpscareAnimator.Play("WitheredFoxy");
             Jumpscare.Play();
