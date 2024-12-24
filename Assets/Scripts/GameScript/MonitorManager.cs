@@ -15,6 +15,8 @@ public class MonitorManager : MonoBehaviour
 
     public bool isMonitorActive = false;
 
+    private bool isToggling = false;
+
     // References to WiiU controllers
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
@@ -93,7 +95,7 @@ public class MonitorManager : MonoBehaviour
 
     private void ToggleMonitor()
     {
-        if (!nightPlayer.isJumpscared)
+        if (!nightPlayer.isJumpscared && !isToggling)
         {
             if (isMonitorActive)
             {
@@ -111,6 +113,7 @@ public class MonitorManager : MonoBehaviour
 
     private IEnumerator EnableMonitor()
     {
+        isToggling = true;
         isMonitorActive = true;
         moveInOffice.canMove = false;
 
@@ -125,10 +128,14 @@ public class MonitorManager : MonoBehaviour
         minimap.SetActive(true);
         rec.SetActive(true);
         nightPlayer.JJ.SetActive(false);
+
+        isToggling = false;
     }
 
     private IEnumerator DisableMonitor()
     {
+        isToggling = true;
+
         monitorOffAudio.Play();
 
         minimap.SetActive(false);
@@ -141,5 +148,7 @@ public class MonitorManager : MonoBehaviour
 
         isMonitorActive = false;
         moveInOffice.canMove = true;
+
+        isToggling = false;
     }
 }
