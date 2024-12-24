@@ -857,7 +857,7 @@ public class NightPlayer : MonoBehaviour
 		{
 			WitheredFoxyMovement -= Time.deltaTime;
 		}
-		if (GoldenFreddyAI >= 1 && state == "Cameras")
+		if (GoldenFreddyAI >= 1 && monitorManager.isMonitorActive)
 		{
 			GoldenFreddyCameraTime -= Time.deltaTime;
 		}
@@ -878,7 +878,7 @@ public class NightPlayer : MonoBehaviour
 				ToyBonniePrepared = false;
 				StartCoroutine(BlackoutCoroutine("ToyBonnie"));
 			}
-			else if (state == "Cameras" && isMO)
+			else if (monitorManager.isMonitorActive && isMO)
 			{
 				yield return new WaitForSeconds(0.183f);
 				JumpscareAnimator.Play("ToyBonnie");
@@ -899,7 +899,7 @@ public class NightPlayer : MonoBehaviour
 				ToyChicaMovement = 11f;
 				//StartCoroutine(BlackoutCoroutine("ToyChica"));
 			}
-			else if (state == "Cameras" && isMO)
+			else if (monitorManager.isMonitorActive && isMO)
 			{
 				yield return new WaitForSeconds(0.183f);
 				JumpscareAnimator.Play("ToyChica");
@@ -973,7 +973,7 @@ public class NightPlayer : MonoBehaviour
 
         if (preparedJumpscare)
         {
-            if (!maskManager.isMaskActive && state == "Cameras" || !maskManager.isMaskActive && state == "MonitorUp")
+            if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
             {
                 StartCoroutine(MonitorDownIE());
                 yield return new WaitForSeconds(0.183f);
@@ -1126,7 +1126,7 @@ public class NightPlayer : MonoBehaviour
 			jackInTheBox.Play();
 			yield return new WaitForSeconds(5f);
 
-			if (!maskManager.isMaskActive && state == "Cameras" || !maskManager.isMaskActive && state == "MonitorUp")
+			if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
 			{
 				StartCoroutine(MonitorDownIE());
 				yield return new WaitForSeconds(0.183f);
@@ -1717,11 +1717,11 @@ public class NightPlayer : MonoBehaviour
 		MangleInRooms[10].SetActive(false);
 		MangleInRooms[6].SetActive(false);
 		MangleInRooms[0].SetActive(false);
-		if (currentCam == MangleCamera && MangleCamera != 12 && state == "Cameras")
+		if (currentCam == MangleCamera && MangleCamera != 12 && monitorManager.isMonitorActive)
 		{
 			Mangle.mute = false;
 		}
-		else if (currentCam != MangleCamera && MangleCamera != 16 && state == "Cameras")
+		else if (currentCam != MangleCamera && MangleCamera != 16 && monitorManager.isMonitorActive)
 		{
 			Mangle.mute = true;
 		}
@@ -1932,7 +1932,7 @@ public class NightPlayer : MonoBehaviour
 		{
             puppetEndoChance = Random.value;
             GoldenFreddyrandNum = Random.Range(0, 20);
-            if (state == "Cameras")
+            if (monitorManager.isMonitorActive)
 			{
 				FlashCam(currentCam);
 			}
@@ -2271,7 +2271,7 @@ public class NightPlayer : MonoBehaviour
 	IEnumerator MangleDeath()
 	{
 		yield return new WaitForSeconds(Random.Range(23f, 60f));
-		if (!maskManager.isMaskActive && state == "Cameras" || !maskManager.isMaskActive && state == "MonitorUp")
+		if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
         {
             StartCoroutine(MonitorDownIE());
             yield return new WaitForSeconds(0.183f);
@@ -2306,7 +2306,7 @@ public class NightPlayer : MonoBehaviour
 
 	IEnumerator FoxyJumpscare()
 	{
-		if (!maskManager.isMaskActive && state == "Cameras" || !maskManager.isMaskActive && state == "MonitorUp")
+		if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
         {
             StartCoroutine(MonitorDownIE());
             yield return new WaitForSeconds(0.183f);
