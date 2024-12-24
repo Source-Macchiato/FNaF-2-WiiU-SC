@@ -23,6 +23,7 @@ public class MusicBox : MonoBehaviour
 
     // Scripts
     private NightPlayer nightPlayer;
+    private MonitorManager monitorManager;
 
     void Start()
 	{
@@ -32,6 +33,7 @@ public class MusicBox : MonoBehaviour
 
         // Get scripts
         nightPlayer = FindObjectOfType<NightPlayer>();
+        monitorManager = FindObjectOfType<MonitorManager>();
 
         // Get night number
         nightNumber = SaveManager.LoadNightNumber();
@@ -172,7 +174,7 @@ public class MusicBox : MonoBehaviour
 
     private void HandleMuteWithMonitor()
     {
-        if (nightPlayer.isMonitorActive)
+        if (monitorManager.isMonitorActive)
         {
             if (musicBoxTheme.mute)
             {
@@ -190,7 +192,7 @@ public class MusicBox : MonoBehaviour
 
     private void HandleMusicBoxVisibility()
     {
-        if (nightPlayer.isMonitorActive)
+        if (monitorManager.isMonitorActive)
         {
             if (nightPlayer.currentCam == 11)
             {
@@ -218,7 +220,7 @@ public class MusicBox : MonoBehaviour
 
     private void HandleWindUpSound()
     {
-        if (nightPlayer.isMonitorActive)
+        if (monitorManager.isMonitorActive)
         {
             // Unmute sound when monitor is up
             if (windUpSound.mute)

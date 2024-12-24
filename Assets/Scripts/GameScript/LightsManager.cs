@@ -25,6 +25,7 @@ public class LightsManager : MonoBehaviour
     NightPlayer nightPlayer;
     MaskManager maskManager;
     MoveInOffice moveInOffice;
+    MonitorManager monitorManager;
 
     void Start()
 	{
@@ -36,6 +37,7 @@ public class LightsManager : MonoBehaviour
         nightPlayer = FindObjectOfType<NightPlayer>();
         maskManager = FindObjectOfType<MaskManager>();
         moveInOffice = FindObjectOfType<MoveInOffice>();
+        monitorManager = FindObjectOfType<MonitorManager>();
 
         currentFlashlightDuration = flashlightDuration;
     }
@@ -155,7 +157,7 @@ public class LightsManager : MonoBehaviour
 
     private void CurrentLightPosition()
     {
-        if (nightPlayer.isMonitorActive)
+        if (monitorManager.isMonitorActive)
         {
             if (currentFlashlightDuration >= 0.01)
             {
