@@ -92,13 +92,6 @@ public class MaskManager : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            if (isMaskActive)
-            {
-                DisableMask();
-            }
-        }
     }
 
     private void EnableMask()
