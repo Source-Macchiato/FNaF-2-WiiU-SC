@@ -2139,59 +2139,59 @@ public class NightPlayer : MonoBehaviour
 		}
 	}
 
-	void MonitorUp()
+	// Monitor
+	public void ActionsMonitorOn()
 	{
-		if (BBCamera == 15)
-		{
-			StartCoroutine(BaloonBoyInOffice());
-		}
-	}
+        if (BBCamera == 15)
+        {
+            StartCoroutine(BaloonBoyInOffice());
+        }
+    }
 
-	void MonitorDown()
+	public void ActionsMonitorOff()
 	{
-		if (Random.value < 0.000001f)
-		{
+        if (Random.value < 0.000001f)
+        {
 			RWQ();
-		}
-		if (BBCamera != 16)
-		{
+        }
+        if (BBCamera != 16)
+        {
 			BaloonBoy.SetActive(false);
-		}
-		if (WitheredFoxyPrepared)
-		{
-			StartCoroutine(FoxyJumpscare());
-		}
-		if (ManglePrepared == true)
-		{
+        }
+        if (WitheredFoxyPrepared)
+        {
+			FoxyJumpscare();
+        }
+        if (ManglePrepared == true)
+        {
 			ManglePrepared = false;
 			MangleOffice.SetActive(true);
 			StartCoroutine(MangleDeath());
-		}
-		else if (GoldenFreddyPrepared)
-		{
+        }
+        else if (GoldenFreddyPrepared)
+        {
 			int randNum = Random.Range(0, 20);
 
-			if (GoldenFreddyAI >= randNum)
-			{
-				GoldenFreddyCameraTime = 5f;
-				GoldenFreddyInOffice = true;
-				GoldenFreddyPrepared = false;
-				GoldenFreddyOffice.SetActive(true);
-			}
-		}
-		if (Random.value < 0.05f)
-		{
+            if (GoldenFreddyAI >= randNum)
+            {
+                GoldenFreddyCameraTime = 5f;
+                GoldenFreddyInOffice = true;
+                GoldenFreddyPrepared = false;
+                GoldenFreddyOffice.SetActive(true);
+            }
+        }
+        if (Random.value < 0.05f)
+        {
 			JJ.SetActive(true);
-		}
-	}
+        }
+    }
+	// ---
 
 	IEnumerator MangleDeath()
 	{
 		yield return new WaitForSeconds(Random.Range(23f, 60f));
 		if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
         {
-            //StartCoroutine(MonitorDownIE());
-            yield return new WaitForSeconds(0.183f);
             JumpscareAnimator.Play("Mangle");
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
@@ -2221,12 +2221,10 @@ public class NightPlayer : MonoBehaviour
 		}
 	}
 
-	IEnumerator FoxyJumpscare()
+	void FoxyJumpscare()
 	{
 		if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
         {
-            //StartCoroutine(MonitorDownIE());
-            yield return new WaitForSeconds(0.183f);
             JumpscareAnimator.Play("WitheredFoxy");
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());

@@ -100,12 +100,16 @@ public class MonitorManager : MonoBehaviour
             if (isMonitorActive)
             {
                 StartCoroutine(DisableMonitor());
+
+                nightPlayer.ActionsMonitorOff();
             }
             else
             {
                 if (!maskManager.isMaskActive)
                 {
                     StartCoroutine(EnableMonitor());
+
+                    nightPlayer.ActionsMonitorOn();
                 }
             }
         }
