@@ -16,6 +16,7 @@ public class MaskManager : MonoBehaviour
 
     // Scripts
     NightPlayer nightPlayer;
+    MonitorManager monitorManager;
 
     void Start()
 	{
@@ -23,10 +24,12 @@ public class MaskManager : MonoBehaviour
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
 
+        // Get scripts
         nightPlayer = FindObjectOfType<NightPlayer>();
+        monitorManager = FindObjectOfType<MonitorManager>();
     }
-	
-	void Update()
+
+    void Update()
 	{
         // Get the current state of the GamePad and Remote
         WiiU.GamePadState gamePadState = gamePad.state;
@@ -86,7 +89,7 @@ public class MaskManager : MonoBehaviour
             }
             else
             {
-                if (!nightPlayer.isMonitorActive)
+                if (!monitorManager.isMonitorActive)
                 {
                     EnableMask();
                 }
