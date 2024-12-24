@@ -37,7 +37,6 @@ public class NightPlayer : MonoBehaviour
 
 	public TMP_Text timeText;
 
-	public bool isMonitorActive = false;
 	public bool isJumpscared = false;
 
     public float TimeMultiplier;
@@ -213,6 +212,7 @@ public class NightPlayer : MonoBehaviour
 	private MusicBox musicBox;
 	private MaskManager maskManager;
 	private LightsManager lightsManager;
+	private MonitorManager monitorManager;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -224,10 +224,12 @@ public class NightPlayer : MonoBehaviour
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
 
+		// Get scripts
         moveInOffice = FindObjectOfType<MoveInOffice>();
 		musicBox = FindObjectOfType<MusicBox>();
 		maskManager = FindObjectOfType<MaskManager>();
 		lightsManager = FindObjectOfType<LightsManager>();
+		monitorManager = FindObjectOfType<MonitorManager>();
 
         currentNight = 3;
         //currentNight = SaveManager.LoadNightNumber()
@@ -427,7 +429,7 @@ public class NightPlayer : MonoBehaviour
 			GoldenFreddyMovement -= Time.deltaTime;
 			if (GoldenFreddyMovement <= 0f)
 			{
-				if (state == "Cameras" || state == "MonitorUp")
+				if (monitorManager.isMonitorActive)
 			{
 				StartCoroutine(MonitorDownIE());
 				yield return new WaitForSeconds(0.183f);
@@ -435,7 +437,7 @@ public class NightPlayer : MonoBehaviour
 				Jumpscare.Play();
 				StartCoroutine(JumpscareSequence());
 			}
-			else if (state == "MonitorDown" || state == "Office" || state == "OfficeBlackout")
+			else if (!monitorManager.isMonitorActive && !maskManager.isActiveAndEnabled || state == "OfficeBlackout")
 			{
 				JumpscareAnimator.Play("GoldenFreddy");
 				Jumpscare.Play();
@@ -979,7 +981,7 @@ public class NightPlayer : MonoBehaviour
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
-            else if (!maskManager.isMaskActive && state == "MonitorDown" || !maskManager.isMaskActive && state == "Office" || !maskManager.isMaskActive && state == "OfficeBlackout")
+            else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
             {
                 JumpscareAnimator.Play(Animatronic);
                 Jumpscare.Play();
@@ -1131,7 +1133,7 @@ public class NightPlayer : MonoBehaviour
 				JumpscareAnimator.Play("Puppet");
 				Jumpscare.Play();
 			}
-			else if (!maskManager.isMaskActive && state == "MonitorDown" || !maskManager.isMaskActive && state == "Office" || !maskManager.isMaskActive && state == "OfficeBlackout")
+			else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
 			{
 				JumpscareAnimator.Play("Puppet");
 				Jumpscare.Play();
@@ -1162,7 +1164,7 @@ public class NightPlayer : MonoBehaviour
 		}
 
 		// System for change office sprites
-		if (!maskManager.isMaskActive && !isMonitorActive && lightsManager.isLightActive)
+		if (!maskManager.isMaskActive && !monitorManager.isMonitorActive && lightsManager.isLightActive)
 		{
 			if (lightsManager.leftLightEnabled) // Left light
 			{
@@ -1258,7 +1260,7 @@ public class NightPlayer : MonoBehaviour
 				rightButtonImage.sprite = rightButtonOn;
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && lightsManager.isLightActive && currentCam == 11)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && lightsManager.isLightActive && currentCam == 11)
 		{
 			// Check for the special case when puppetDeathTimer is 0f
 			if (PuppetDeathTimer <= 0.01f || PuppetDeathTimer == 0.01f)
@@ -1298,7 +1300,7 @@ public class NightPlayer : MonoBehaviour
 				MainCameraBG.sprite = FlashlightedCams[currentCam-1];
 			}
 		}*/
-        else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 4)
+        else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 4)
 		{
 			if (lightsManager.isLightActive)
 			{
@@ -1335,7 +1337,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 12 && lightsManager.isLightActive)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 12 && lightsManager.isLightActive)
 		{
 			if (MangleCamera != 12)
 			{
@@ -1350,7 +1352,7 @@ public class NightPlayer : MonoBehaviour
 				MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 10)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 10)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1376,7 +1378,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 3)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 3)
 		{
 			if (lightsManager.isLightActive)
 			{
@@ -1409,7 +1411,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 2)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 2)
 		{
 			if (lightsManager.isLightActive)
 			{
@@ -1442,7 +1444,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 6)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 6)
 		{
 			if (lightsManager.isLightActive)
 			{
@@ -1475,7 +1477,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 7)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 7)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1508,7 +1510,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 1)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 1)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1537,7 +1539,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 5)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 5)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1578,7 +1580,7 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 8 && lightsManager.isLightActive)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 8 && lightsManager.isLightActive)
 		{
 			if (WitheredFoxyCamera == 8 && WitheredFoxyAI >= 1)
 			{
@@ -1612,7 +1614,7 @@ public class NightPlayer : MonoBehaviour
 				MainCameraBG.sprite = MainCameraBG.sprite = Cam8Sprites[2];
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && currentCam == 9)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 9)
 		{
 			if (!lightsManager.isLightActive)
 			{
@@ -1653,11 +1655,11 @@ public class NightPlayer : MonoBehaviour
 				}
 			}
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && lightsManager.isLightActive)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && lightsManager.isLightActive)
 		{
 			MainCameraBG.sprite = FlashlightedCams[currentCam - 1];
 		}
-		else if (!maskManager.isMaskActive && isMonitorActive && !lightsManager.isLightActive)
+		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && !lightsManager.isLightActive)
 		{
 			MainCameraBG.sprite = DefaultCams[currentCam - 1];
 		}
@@ -1723,7 +1725,7 @@ public class NightPlayer : MonoBehaviour
 		{
 			Mangle.mute = true;
 		}
-		else if (MangleCamera != 16 && state == "Office")
+		else if (MangleCamera != 16 && !maskManager.isMaskActive && !monitorManager.isMonitorActive)
 		{
 			Mangle.mute = true;
 		}
@@ -1935,7 +1937,7 @@ public class NightPlayer : MonoBehaviour
 				FlashCam(currentCam);
 			}
 
-            if (state == "Office" && lightsManager.centerLightEnabled)
+            if (!maskManager.isMaskActive && !monitorManager.isMonitorActive && lightsManager.centerLightEnabled)
             {
                 FlashCam(14);
                 FlashCam(15);
@@ -2186,7 +2188,7 @@ public class NightPlayer : MonoBehaviour
 
 	IEnumerator MonitorUpIE()
 	{
-        isMonitorActive = true; // Important for handle monitor state
+        monitorManager.isMonitorActive = true; // Important for handle monitor state
 
         moveInOffice.canMove = false; // Prevent to move in office when the monitor is active
 
@@ -2210,7 +2212,7 @@ public class NightPlayer : MonoBehaviour
 
 	IEnumerator MonitorDownIE()
 	{
-		isMonitorActive = false; // Important for handle monitor state
+        monitorManager.isMonitorActive = false; // Important for handle monitor state
 
 		moveInOffice.canMove = true; // When the monitor is off we can move in the office
 
@@ -2278,7 +2280,7 @@ public class NightPlayer : MonoBehaviour
             StartCoroutine(JumpscareSequence());
 			MangleOffice.SetActive(false);
         }
-        else if (!maskManager.isMaskActive && state == "MonitorDown" || !maskManager.isMaskActive && state == "Office" || !maskManager.isMaskActive && state == "OfficeBlackout")
+        else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
         {
             JumpscareAnimator.Play("Mangle");
             Jumpscare.Play();
@@ -2312,7 +2314,7 @@ public class NightPlayer : MonoBehaviour
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
         }
-        else if (!maskManager.isMaskActive && state == "MonitorDown" || !maskManager.isMaskActive && state == "Office" || !maskManager.isMaskActive && state == "OfficeBlackout")
+        else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
         {
             JumpscareAnimator.Play("WitheredFoxy");
             Jumpscare.Play();

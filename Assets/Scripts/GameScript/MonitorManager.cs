@@ -94,11 +94,11 @@ public class MonitorManager : MonoBehaviour
 
     private void EnableMonitor()
     {
-
+        isMonitorActive = true;
     }
 
     private void DisableMonitor()
     {
-
+        isMonitorActive = false;
     }
 }
