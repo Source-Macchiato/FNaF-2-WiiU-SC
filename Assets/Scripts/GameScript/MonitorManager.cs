@@ -122,7 +122,6 @@ public class MonitorManager : MonoBehaviour
         moveInOffice.canMove = false;
 
         monitorOnAudio.Play();
-        nightPlayer.SwitchCameraSound.Play();
 
         monitorAnimator.Play("On");
 
