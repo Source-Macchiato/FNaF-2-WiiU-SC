@@ -122,7 +122,7 @@ public class MonitorManager : MonoBehaviour
 
         monitorAnimator.Play("On");
 
-        yield return new WaitForSeconds(0.276f);
+        yield return new WaitForSeconds(0.233f);
 
         monitorContainer.SetActive(true);
         minimap.SetActive(true);
@@ -144,7 +144,7 @@ public class MonitorManager : MonoBehaviour
 
         monitorAnimator.Play("Off");
 
-        yield return new WaitForSeconds(0.130f);
+        yield return new WaitForSeconds(0.233f);
 
         isMonitorActive = false;
         moveInOffice.canMove = true;
