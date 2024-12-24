@@ -200,7 +200,6 @@ public class NightPlayer : MonoBehaviour
 	[Header("State")]
     public string state = "Office";
 
-	private MoveInOffice moveInOffice;
 	private MusicBox musicBox;
 	private MaskManager maskManager;
 	private LightsManager lightsManager;
@@ -217,14 +216,13 @@ public class NightPlayer : MonoBehaviour
         remote = WiiU.Remote.Access(0);
 
 		// Get scripts
-        moveInOffice = FindObjectOfType<MoveInOffice>();
 		musicBox = FindObjectOfType<MusicBox>();
 		maskManager = FindObjectOfType<MaskManager>();
 		lightsManager = FindObjectOfType<LightsManager>();
 		monitorManager = FindObjectOfType<MonitorManager>();
 
         currentNight = 3;
-        //currentNight = SaveManager.LoadNightNumber()
+        //currentNight = SaveManager.LoadNightNumber();
 
 		StartCoroutine(TimeCoroutine());
 
