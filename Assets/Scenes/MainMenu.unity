@@ -614,6 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nightNumber: 0
   gameTitle: {fileID: 1201855469}
+  nightNumberText: {fileID: 212758079}
   advertisementImage: {fileID: 1856333725}
   AnimEnabled:
   - {fileID: 199440261}
@@ -1731,7 +1732,7 @@ GameObject:
   - component: {fileID: 212758080}
   - component: {fileID: 212758079}
   m_Layer: 5
-  m_Name: NightNumber
+  m_Name: NumberText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1855,7 +1856,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -8066,7 +8067,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}

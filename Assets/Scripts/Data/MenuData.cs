@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using RTLTMPro;
 
 public class MenuData : MonoBehaviour
 {
     public int nightNumber;
     public GameObject gameTitle;
+    public RTLTextMeshPro nightNumberText;
 
     // Scripts
     SaveGameState saveGameState;
@@ -31,6 +33,20 @@ public class MenuData : MonoBehaviour
         advertisementImage.SetActive(false);
 
         SaveIntroDreamPlayed();
+
+        // System for display night number and prevent being out of range
+        if (nightNumber >= 0 && nightNumber <= 4) // If is between night 1 and night 5
+        {
+            nightNumberText.text = (nightNumber + 1).ToString();
+        }
+        else if (nightNumber >= 5) // If is night 6 or more
+        {
+            nightNumberText.text = "5";
+        }
+        else // Or if is another value, in the case less than night 1
+        {
+            nightNumberText.text = "1";
+        }
     }
 	
 	// Update is called once per frame
