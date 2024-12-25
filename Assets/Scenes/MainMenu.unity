@@ -615,6 +615,8 @@ MonoBehaviour:
   nightNumber: 0
   gameTitle: {fileID: 1201855469}
   nightNumberText: {fileID: 212758079}
+  nightNumberContainer: {fileID: 865554649}
+  continueButtonGameObject: {fileID: 240784068}
   advertisementImage: {fileID: 1856333725}
   AnimEnabled:
   - {fileID: 199440261}

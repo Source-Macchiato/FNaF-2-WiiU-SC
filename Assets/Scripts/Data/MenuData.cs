@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using RTLTMPro;
 
 public class MenuData : MonoBehaviour
@@ -7,6 +8,8 @@ public class MenuData : MonoBehaviour
     public int nightNumber;
     public GameObject gameTitle;
     public RTLTextMeshPro nightNumberText;
+    public GameObject nightNumberContainer;
+    public GameObject continueButtonGameObject;
 
     // Scripts
     SaveGameState saveGameState;
@@ -57,6 +60,9 @@ public class MenuData : MonoBehaviour
         {
             SceneManager.LoadScene("NextNight");
         }
+
+        // Display night text only when continue button is selected
+        nightNumberContainer.SetActive(EventSystem.current.currentSelectedGameObject == continueButtonGameObject);
     }
 
     public void LoadAdvertisement()
