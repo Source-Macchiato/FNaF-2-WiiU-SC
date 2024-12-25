@@ -5184,7 +5184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 89.9, y: -165.5}
+  m_AnchoredPosition: {x: 89.899994, y: -165.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &865554651
@@ -7938,6 +7938,7 @@ GameObject:
   - component: {fileID: 1325556488}
   - component: {fileID: 1325556490}
   - component: {fileID: 1325556489}
+  - component: {fileID: 1325556491}
   m_Layer: 5
   m_Name: NightText
   m_TagString: Untagged
@@ -8091,6 +8092,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325556487}
+--- !u!114 &1325556491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1325556487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: mainmenu.night
+  mainFont: {fileID: 11400000, guid: 352052185e1c5db41ab36a0e986e4ccb, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &1360405634
 GameObject:
   m_ObjectHideFlags: 0
