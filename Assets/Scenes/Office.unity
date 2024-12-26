@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 100473387}
   - component: {fileID: 100473389}
   - component: {fileID: 100473388}
+  - component: {fileID: 100473390}
   m_Layer: 0
   m_Name: WindUpText
   m_TagString: Untagged
@@ -622,6 +623,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 100473386}
+--- !u!114 &100473390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 100473386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: monitor.musicbox
+  mainFont: {fileID: 11400000, guid: abbbb92d46f9c444f93761eb2811e0c8, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &136335135
 GameObject:
   m_ObjectHideFlags: 0
