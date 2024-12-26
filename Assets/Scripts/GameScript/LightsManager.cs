@@ -50,11 +50,11 @@ public class LightsManager : MonoBehaviour
 
         if (gamePadState.gamePadErr == WiiU.GamePadError.None)
         {
-            if (gamePadState.IsPressed(WiiU.GamePadButton.A))
+            if (gamePadState.IsTriggered(WiiU.GamePadButton.A))
             {
                 activateLight = true;
             }
-            else
+            else if (gamePadState.IsReleased(WiiU.GamePadButton.A))
             {
                 activateLight = false;
             }
@@ -63,31 +63,31 @@ public class LightsManager : MonoBehaviour
         switch (remoteState.devType)
         {
             case WiiU.RemoteDevType.ProController:
-                if (remoteState.pro.IsPressed(WiiU.ProControllerButton.A))
+                if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.A))
                 {
                     activateLight = true;
                 }
-                else
+                else if (remoteState.pro.IsReleased(WiiU.ProControllerButton.A))
                 {
                     activateLight = false;
                 }
                 break;
             case WiiU.RemoteDevType.Classic:
-                if (remoteState.classic.IsPressed(WiiU.ClassicButton.A))
+                if (remoteState.classic.IsTriggered(WiiU.ClassicButton.A))
                 {
                     activateLight = true;
                 }
-                else
+                else if (remoteState.classic.IsReleased(WiiU.ClassicButton.A))
                 {
                     activateLight = false;
                 }
                 break;
             default:
-                if (remoteState.IsPressed(WiiU.RemoteButton.A))
+                if (remoteState.IsTriggered(WiiU.RemoteButton.A))
                 {
                     activateLight = true;
                 }
-                else
+                else if (remoteState.IsReleased(WiiU.RemoteButton.A))
                 {
                     activateLight = false;
                 }
@@ -96,11 +96,11 @@ public class LightsManager : MonoBehaviour
 
         if (Application.isEditor)
         {
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 activateLight = true;
             }
-            else
+            else if (Input.GetKeyUp(KeyCode.A))
             {
                 activateLight = false;
             }
