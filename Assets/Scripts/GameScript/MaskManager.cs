@@ -89,7 +89,7 @@ public class MaskManager : MonoBehaviour
             }
             else
             {
-                if (!monitorManager.isMonitorActive)
+                if (!monitorManager.isMonitorActive && !monitorManager.isToggling)
                 {
                     EnableMask();
                 }

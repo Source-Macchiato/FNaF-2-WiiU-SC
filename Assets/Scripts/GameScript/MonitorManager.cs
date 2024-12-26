@@ -14,8 +14,7 @@ public class MonitorManager : MonoBehaviour
     public AudioSource monitorOffAudio;
 
     public bool isMonitorActive = false;
-
-    private bool isToggling = false;
+    public bool isToggling = false;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
