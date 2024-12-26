@@ -18,6 +18,8 @@ public class TheEnd : MonoBehaviour
 	void Start()
 	{
 		// Get scripts
+		saveGameState = FindObjectOfType<SaveGameState>();
+		saveManager = FindObjectOfType<SaveManager>();
 		levelLoader = FindObjectOfType<LevelLoader>();
 
 		// Disable loading screen when the scene starts
