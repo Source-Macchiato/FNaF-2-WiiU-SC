@@ -51,11 +51,11 @@ public class MusicBox : MonoBehaviour
 
         if (gamePadState.gamePadErr == WiiU.GamePadError.None)
         {
-            if (gamePadState.IsPressed(WiiU.GamePadButton.B))
+            if (gamePadState.IsTriggered(WiiU.GamePadButton.B))
             {
                 windUpMusicBox = true;
             }
-            else
+            else if (gamePadState.IsReleased(WiiU.GamePadButton.B))
             {
                 windUpMusicBox = false;
             }
@@ -64,31 +64,31 @@ public class MusicBox : MonoBehaviour
         switch (remoteState.devType)
         {
             case WiiU.RemoteDevType.ProController:
-                if (remoteState.pro.IsPressed(WiiU.ProControllerButton.B))
+                if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.B))
                 {
                     windUpMusicBox = true;
                 }
-                else
+                else if (remoteState.pro.IsReleased(WiiU.ProControllerButton.B))
                 {
                     windUpMusicBox = false;
                 }
                 break;
             case WiiU.RemoteDevType.Classic:
-                if (remoteState.classic.IsPressed(WiiU.ClassicButton.B))
+                if (remoteState.classic.IsTriggered(WiiU.ClassicButton.B))
                 {
                     windUpMusicBox = true;
                 }
-                else
+                else if (remoteState.classic.IsReleased(WiiU.ClassicButton.B))
                 {
                     windUpMusicBox = false;
                 }
                 break;
             default:
-                if (remoteState.IsPressed(WiiU.RemoteButton.B))
+                if (remoteState.IsTriggered(WiiU.RemoteButton.B))
                 {
                     windUpMusicBox = true;
                 }
-                else
+                else if (remoteState.IsReleased(WiiU.RemoteButton.B))
                 {
                     windUpMusicBox = false;
                 }
@@ -97,11 +97,11 @@ public class MusicBox : MonoBehaviour
 
         if (Application.isEditor)
         {
-            if (Input.GetKey(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 windUpMusicBox = true;
             }
-            else
+            else if (Input.GetKeyUp(KeyCode.B))
             {
                 windUpMusicBox = false;
             }
