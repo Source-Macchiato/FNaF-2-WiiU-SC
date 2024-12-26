@@ -7163,6 +7163,7 @@ Transform:
   - {fileID: 16103771}
   - {fileID: 385999682}
   - {fileID: 726419643}
+  - {fileID: 1886414154}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7632,6 +7633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a734b9dd5f5044d8d3a7fb40edd39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aiManager: {fileID: 0}
   Jumpscare: {fileID: 891353585}
   phoneCall: {fileID: 1058738593}
   NoFlashlightBatterys: {fileID: 1107776713}
@@ -12844,6 +12846,63 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!1 &1886414153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1886414154}
+  - component: {fileID: 1886414155}
+  m_Layer: 0
+  m_Name: AIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1886414154
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886414153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1131915624}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1886414155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886414153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbecbe590741804ea0a7e25523a73bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nightPlayer: {fileID: 1204379961}
+  currentTime: 0
+  currentNight: 0
+  TimeMultiplier: 0
+  isNight7: 0
+  PuppetAI: 0
+  ToyFreddyAI: 0
+  ToyBonnieAI: 0
+  ToyChicaAI: 0
+  WitheredFreddyAI: 0
+  WitheredBonnieAI: 0
+  WitheredChicaAI: 0
+  WitheredFoxyAI: 0
+  GoldenFreddyAI: 0
+  MangleAI: 0
+  BalloonBoyAI: 0
+  PaperpalsAI: 0
 --- !u!1 &1899779033
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using TMPro;
 
 public class NightPlayer : MonoBehaviour
 {
+	public AIManager aiManager;
 	[Header("Audio")]
 	public AudioSource Jumpscare;
 	public AudioSource phoneCall;
@@ -209,6 +210,15 @@ public class NightPlayer : MonoBehaviour
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
 
+	private int[,] startingDifficulties = {
+    {0, 0, 0, 0}, // Night 1 - Freddy, Bonnie, Chica, Foxy
+    {0, 3, 1, 1}, // Night 2
+    {1, 0, 5, 2}, // Night 3
+    {1, 2, 4, 6}, // Night 4
+    {3, 5, 7, 5}, // Night 5
+    {4, 10, 12, 16} // Night 6
+};
+
     void Start()
 	{
         // Access the WiiU GamePad and Remote
@@ -295,96 +305,12 @@ public class NightPlayer : MonoBehaviour
 				timeText.text = "12";
 			else
 				timeText.text = currentTime.ToString();
-            TimedEvents();
+            aiManager.TimedEvents();
             yield return new WaitForSeconds(70f * TimeMultiplier);
         }
     }
 
-    void TimedEvents()
-	{
-		// When night is finished load 6AM scene
-		if (currentTime == 6)
-		{
-			SceneManager.LoadScene("6AM");
-		}
-
-		if (currentTime == 0 && currentNight == 2)
-		{
-			GoldenFreddyAI = Random.Range(0, 1);
-        }
-		if (currentTime == 0 && currentNight == 3 || currentNight == 4)
-		{
-            GoldenFreddyAI = Random.Range(0, 1) * 100;
-        }
-		if (currentTime == 0 && currentNight == 5)
-		{
-			GoldenFreddyAI = Random.Range(0, 1) * 10;
-		}
-		if (currentTime == 1 && currentNight == 2)
-		{
-			ToyBonnieAI = 1;
-			WitheredChicaAI = 4;
-			WitheredFreddyAI = 3;
-			WitheredFoxyAI = 3;
-			ToyChicaAI = 1;
-		}
-		if (currentTime == 2 && currentNight == 3)
-		{
-			WitheredChicaAI = 4;
-			WitheredFreddyAI = 3;
-			WitheredBonnieAI = 4;
-			ToyBonnieAI = 1;
-		}
-		if (currentTime == 1 && currentNight == 4)
-		{
-			WitheredFoxyAI = 7;
-			ToyFreddyAI = 1;
-			MangleAI = 10;
-			WitheredChicaAI = 10;
-			WitheredFreddyAI = 5;
-			WitheredBonnieAI = 5;
-		}
-		if (currentTime == 2 && currentNight == 5)
-		{
-			ToyBonnieAI = 5;
-			GoldenFreddyAI = 3;
-			WitheredFoxyAI = 15;
-			ToyFreddyAI = 5;
-			ToyChicaAI = 5;
-			MangleAI = 10;
-            BalloonBoyAI = 9;
-			WitheredChicaAI = 10;
-			WitheredFreddyAI = 10;
-			WitheredBonnieAI = 10;
-		}
-
-		if (currentTime == 1 && currentNight == 0)
-		{
-			PuppetAI = 1;
-		}
-		if (currentTime == 2 && currentNight == 0)
-		{
-			ToyBonnieAI = 2;
-			ToyChicaAI = 2;
-		}
-		else if (currentTime == 3 && currentNight == 0)
-		{
-			ToyBonnieAI = 3;
-			ToyChicaAI = 2;
-			ToyFreddyAI = 2;
-		}
-
-		if (currentTime == 1 && currentNight == 1)
-		{
-			ToyBonnieAI = 3;
-			ToyChicaAI = 3;
-			ToyFreddyAI = 2;
-			WitheredFoxyAI = 1;
-			MangleAI = 3;
-            BalloonBoyAI = 3;
-			GoldenFreddyAI = Random.Range(0, 1);
-		}
-	}
+    
 
 	private IEnumerator JumpscareSequence()
 	{
@@ -401,6 +327,17 @@ public class NightPlayer : MonoBehaviour
     
     void Update()
 	{
+		ToyFreddyAI =  aiManager.ToyFreddyAI;
+		ToyBonnieAI = aiManager.ToyBonnieAI;
+		ToyChicaAI = aiManager.ToyChicaAI;
+		WitheredFreddyAI = aiManager.WitheredFreddyAI;
+		WitheredBonnieAI = aiManager.WitheredBonnieAI;
+		WitheredChicaAI = aiManager.WitheredChicaAI;
+		WitheredFoxyAI  = aiManager.WitheredFoxyAI; 
+		GoldenFreddyAI = aiManager.GoldenFreddyAI;
+		MangleAI = aiManager.MangleAI;
+		BalloonBoyAI = aiManager.BalloonBoyAI;
+		PaperpalsAI = aiManager.PaperpalsAI; 
 		InputFunction();
 		StateChecks();
 		UpdateBatteryUI();
