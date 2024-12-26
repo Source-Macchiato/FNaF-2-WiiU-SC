@@ -82,17 +82,7 @@ public class MenuSetup : MonoBehaviour
             Transform creditsChild = menuManager.GetCurrentMenu().transform.GetChild(0);
             menuManager.currentScrollRect = creditsChild.GetComponent<ScrollRect>();
         }
-    }
-
-    void Layout()
-    {
-
-    }
-
-    void Online()
-    {
-        menuManager.ChangeMenu(4);
-    }
+    }   
 
     void Analytics()
     {
