@@ -118,14 +118,15 @@ public class MonitorManager : MonoBehaviour
     private IEnumerator EnableMonitor()
     {
         isToggling = true;
-        isMonitorActive = true;
-        moveInOffice.canMove = false;
 
         monitorOnAudio.Play();
 
         monitorAnimator.Play("On");
 
         yield return new WaitForSeconds(0.233f);
+
+        isMonitorActive = true;
+        moveInOffice.canMove = false;
 
         monitorContainer.SetActive(true);
         minimap.SetActive(true);
@@ -147,10 +148,10 @@ public class MonitorManager : MonoBehaviour
 
         monitorAnimator.Play("Off");
 
-        yield return new WaitForSeconds(0.233f);
-
         isMonitorActive = false;
         moveInOffice.canMove = true;
+
+        yield return new WaitForSeconds(0.233f);
 
         isToggling = false;
     }

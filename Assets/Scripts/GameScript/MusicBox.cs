@@ -107,11 +107,13 @@ public class MusicBox : MonoBehaviour
             }
         }
 
+        // Handle music box container visibility
+        musicBoxContainer.SetActive(nightPlayer.currentCam == 11 && monitorManager.isMonitorActive);
+
         WindUpMusicBox();
         UnwindMusicBox();
         UpdateProgressFill();
         HandleMuteWithMonitor();
-        HandleMusicBoxVisibility();
         HandleWindUpSound();
     }
 
@@ -186,34 +188,6 @@ public class MusicBox : MonoBehaviour
             if (!musicBoxTheme.mute)
             {
                 musicBoxTheme.mute = true;
-            }
-        }
-    }
-
-    private void HandleMusicBoxVisibility()
-    {
-        if (monitorManager.isMonitorActive)
-        {
-            if (nightPlayer.currentCam == 11)
-            {
-                if (!musicBoxContainer.activeSelf)
-                {
-                    musicBoxContainer.SetActive(true);
-                }
-            }
-            else
-            {
-                if (musicBoxContainer.activeSelf)
-                {
-                    musicBoxContainer.SetActive(false);
-                }
-            }
-        }
-        else
-        {
-            if (musicBoxContainer.activeSelf)
-            {
-                musicBoxContainer.SetActive(false);
             }
         }
     }
