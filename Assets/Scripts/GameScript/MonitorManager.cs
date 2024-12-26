@@ -7,6 +7,7 @@ public class MonitorManager : MonoBehaviour
     public GameObject minimap;
     public GameObject rec;
     public GameObject monitorContainer;
+    public GameObject roomName;
 
     public Animator monitorAnimator;
 
@@ -40,6 +41,7 @@ public class MonitorManager : MonoBehaviour
         minimap.SetActive(false);
         rec.SetActive(false);
         monitorContainer.SetActive(false);
+        roomName.SetActive(false);
     }
 	
 	void Update()
@@ -131,6 +133,7 @@ public class MonitorManager : MonoBehaviour
         minimap.SetActive(true);
         rec.SetActive(true);
         nightPlayer.JJ.SetActive(false);
+        roomName.SetActive(true);
 
         isToggling = false;
     }
@@ -144,6 +147,7 @@ public class MonitorManager : MonoBehaviour
         minimap.SetActive(false);
         rec.SetActive(false);
         monitorContainer.SetActive(false);
+        roomName.SetActive(false);
 
         monitorAnimator.Play("Off");
 
