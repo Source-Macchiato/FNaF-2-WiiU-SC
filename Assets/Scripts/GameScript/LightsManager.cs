@@ -18,6 +18,7 @@ public class LightsManager : MonoBehaviour
     public float currentFlashlightDuration;
     
     private bool activateLight = false;
+    private int nightNumber = 0;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -42,6 +43,8 @@ public class LightsManager : MonoBehaviour
         monitorManager = FindObjectOfType<MonitorManager>();
 
         currentFlashlightDuration = flashlightDuration;
+
+        nightNumber = SaveManager.LoadNightNumber();
     }
 	
 	void Update()
@@ -217,7 +220,7 @@ public class LightsManager : MonoBehaviour
 
     private void DisablePressAndHoldText()
     {
-        if (currentFlashlightDuration <= flashlightDuration - 2f && pressAndHold.activeSelf)
+        if ((currentFlashlightDuration <= flashlightDuration - 2f && pressAndHold.activeSelf) || nightNumber != 0)
         {
             pressAndHold.SetActive(false);
         }
