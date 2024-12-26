@@ -2234,7 +2234,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 145, y: 85}
+  m_SizeDelta: {x: 145, y: 87.1}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &491469158
 MonoBehaviour:
@@ -12867,6 +12867,7 @@ GameObject:
   - component: {fileID: 1913935542}
   - component: {fileID: 1913935544}
   - component: {fileID: 1913935543}
+  - component: {fileID: 1913935545}
   m_Layer: 5
   m_Name: ClickAndHoldText
   m_TagString: Untagged
@@ -13017,6 +13018,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1913935541}
+--- !u!114 &1913935545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1913935541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: monitor.holdmusicbox
+  mainFont: {fileID: 11400000, guid: abbbb92d46f9c444f93761eb2811e0c8, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &1920363640
 GameObject:
   m_ObjectHideFlags: 0
