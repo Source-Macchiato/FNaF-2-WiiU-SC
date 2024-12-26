@@ -7,6 +7,8 @@ public class LightsManager : MonoBehaviour
 
     public RectTransform officeRect;
 
+    public GameObject pressAndHold;
+
     public bool isLightActive = false;
     public bool leftLightEnabled = false;
     public bool centerLightEnabled = false;
@@ -108,6 +110,7 @@ public class LightsManager : MonoBehaviour
 
         ToggleLight();
         CurrentLightPosition();
+        DisablePressAndHoldText();
     }
 
     private void ToggleLight()
@@ -209,6 +212,14 @@ public class LightsManager : MonoBehaviour
                 rightLightEnabled = true;
                 cameraLightEnabled = false;
             }
+        }
+    }
+
+    private void DisablePressAndHoldText()
+    {
+        if (currentFlashlightDuration <= flashlightDuration - 2f && pressAndHold.activeSelf)
+        {
+            pressAndHold.SetActive(false);
         }
     }
 }
