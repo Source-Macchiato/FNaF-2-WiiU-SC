@@ -7633,7 +7633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a734b9dd5f5044d8d3a7fb40edd39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiManager: {fileID: 0}
+  aiManager: {fileID: 1886414155}
   Jumpscare: {fileID: 891353585}
   phoneCall: {fileID: 1058738593}
   NoFlashlightBatterys: {fileID: 1107776713}
@@ -7727,6 +7727,7 @@ MonoBehaviour:
   BlackoutActive: 0
   currentBlackout: 
   BlackoutPrepared: 0
+  Screen: {fileID: 1325638749}
   SignalDisrupted: {fileID: 1069253979}
   MainCameraBG: {fileID: 1140072035}
   RoomName: {fileID: 1776230291}
@@ -12892,17 +12893,6 @@ MonoBehaviour:
   TimeMultiplier: 0
   isNight7: 0
   PuppetAI: 0
-  ToyFreddyAI: 0
-  ToyBonnieAI: 0
-  ToyChicaAI: 0
-  WitheredFreddyAI: 0
-  WitheredBonnieAI: 0
-  WitheredChicaAI: 0
-  WitheredFoxyAI: 0
-  GoldenFreddyAI: 0
-  MangleAI: 0
-  BalloonBoyAI: 0
-  PaperpalsAI: 0
 --- !u!1 &1899779033
 GameObject:
   m_ObjectHideFlags: 0

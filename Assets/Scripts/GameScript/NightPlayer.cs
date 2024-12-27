@@ -347,6 +347,8 @@ public class NightPlayer : MonoBehaviour
 		MovementOpportunityMain();
 		MovementOpportunityHandler();
 		StartCoroutine(GoldenFreddyFunction());
+
+		//if player is on cam 1,2, 3, 4, 5, or 6, play Idle
 		if(new int[] { 1, 2, 3, 4, 5, 6 }.Contains(currentCam))
 		{
 			Screen.Play("Idle");
