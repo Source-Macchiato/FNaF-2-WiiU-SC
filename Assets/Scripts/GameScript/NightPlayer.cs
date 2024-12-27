@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -111,6 +112,7 @@ public class NightPlayer : MonoBehaviour
 	public bool BlackoutPrepared;
 
 	[Header("Cams")]
+	public Animator Screen;
 	public GameObject SignalDisrupted;
 	public Image MainCameraBG;
 	public Image RoomName;
@@ -345,6 +347,13 @@ public class NightPlayer : MonoBehaviour
 		MovementOpportunityMain();
 		MovementOpportunityHandler();
 		StartCoroutine(GoldenFreddyFunction());
+		if(new int[] { 1, 2, 3, 4, 5, 6 }.Contains(currentCam))
+		{
+			Screen.Play("Idle");
+		}
+		else {
+			Screen.Play("Background");
+		}
     }
 
 	IEnumerator GoldenFreddyFunction()
