@@ -152,21 +152,23 @@ public class AIManager : MonoBehaviour {
     }
 
     public void TimedEvents() {
-        if (nightConfigurations.ContainsKey(currentNight)) {
-            var nightConfig = nightConfigurations[currentNight];
-            if (nightConfig.ContainsKey(currentTime)) {
-                var timeConfig = nightConfig[currentTime];
-                foreach (var ai in timeConfig) {
+    if (nightConfigurations.ContainsKey(currentNight)) {
+        var nightConfig = nightConfigurations[currentNight];
+        if (nightConfig.ContainsKey(currentTime)) {
+            var timeConfig = nightConfig[currentTime];
+            foreach (var ai in timeConfig) {
+                if (aiLevels.ContainsKey(ai.Key)) {
                     aiLevels[ai.Key] = ai.Value;
                 }
             }
         }
-
-        // Check if night 6 is complete
-        if (currentNight == 6 && currentTime >= 6) {
-            SceneManager.LoadScene("6AM");
-        }
     }
+
+    // Vérifier si nuit 6 est complète
+    if (currentNight == 6 && currentTime >= 6) {
+        SceneManager.LoadScene("6AM");
+    }
+}
     //Get AI Level in other scripts (like nightplayer)
     public int GetAILevel(string aiName) {
     if (aiLevels.ContainsKey(aiName)) {
