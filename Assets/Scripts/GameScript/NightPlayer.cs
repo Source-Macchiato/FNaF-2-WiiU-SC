@@ -328,7 +328,6 @@ public class NightPlayer : MonoBehaviour
     void Update()
 	{
 		ToyFreddyAI = aiManager.GetAILevel("ToyFreddyAI");
-		Debug.Log("Toy Freddy AI Level: " + toyFreddyAILevel);
 		ToyBonnieAI = aiManager.GetAILevel("ToyBonnieAI");
 		ToyChicaAI = aiManager.GetAILevel("ToyChicaAI");
 		WitheredFreddyAI = aiManager.GetAILevel("WitheredFreddyAI");
