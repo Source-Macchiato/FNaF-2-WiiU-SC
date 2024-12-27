@@ -327,17 +327,18 @@ public class NightPlayer : MonoBehaviour
     
     void Update()
 	{
-		ToyFreddyAI =  aiManager.ToyFreddyAI;
-		ToyBonnieAI = aiManager.ToyBonnieAI;
-		ToyChicaAI = aiManager.ToyChicaAI;
-		WitheredFreddyAI = aiManager.WitheredFreddyAI;
-		WitheredBonnieAI = aiManager.WitheredBonnieAI;
-		WitheredChicaAI = aiManager.WitheredChicaAI;
-		WitheredFoxyAI  = aiManager.WitheredFoxyAI; 
-		GoldenFreddyAI = aiManager.GoldenFreddyAI;
-		MangleAI = aiManager.MangleAI;
-		BalloonBoyAI = aiManager.BalloonBoyAI;
-		PaperpalsAI = aiManager.PaperpalsAI; 
+		ToyFreddyAI = aiManager.GetAILevel("ToyFreddyAI");
+		Debug.Log("Toy Freddy AI Level: " + toyFreddyAILevel);
+		ToyBonnieAI = aiManager.GetAILevel("ToyBonnieAI");
+		ToyChicaAI = aiManager.GetAILevel("ToyChicaAI");
+		WitheredFreddyAI = aiManager.GetAILevel("WitheredFreddyAI");
+		WitheredBonnieAI = aiManager.GetAILevel("WitheredBonnieAI");
+		WitheredChicaAI = aiManager.GetAILevel("WitheredChicaAI");
+		WitheredFoxyAI  = aiManager.GetAILevel("WitheredFoxyAI");
+		GoldenFreddyAI = aiManager.GetAILevel("GoldenFreddyAI");
+		MangleAI = aiManager.GetAILevel("MangleAI");
+		BalloonBoyAI = aiManager.GetAILevel("BalloonBoyAI");
+		PaperpalsAI = aiManager.GetAILevel("PaperpalsAI");
 		InputFunction();
 		StateChecks();
 		UpdateBatteryUI();
