@@ -43,24 +43,43 @@ public class DebugMode : MonoBehaviour {
     public Text memoryUsageText;
     public Text activeGameObjectsText;
 
+    //gamepad init
+    WiiU.GamePad gamePad;
+
     private void Start() {
         //gamepad shit
-        //gamePad = WiiU.GamePad.access;
+        gamePad = WiiU.GamePad.access;
+        DebugModeActive = false;
     }
     private void Update()
     {
         //some wiiu shit with some gamepad shit idk
-        //WiiU.GamePadState gamePadState = gamePad.state;
-        /**     --UNFINISHED--
+        WiiU.GamePadState gamePadState = gamePad.state;
         if(gamePadState.gamePadErr == WiiU.GamePadError.None)
         {
-            if (gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R))
+            if (gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R) && !DebugModeActive)
             {
-            DebugObject.SetActive(true);
-            SetDebug();
+                Debug.Log("Debug mode activated");
+                DebugModeActive = true;
             }
-            else{DebugObject.SetActive(false);}
-        } **/
+            else if (gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R) && DebugModeActive)
+            {
+                Debug.Log("Debug mode disabled");
+                DebugModeActive = false;
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.O) && !DebugModeActive)
+        {
+            Debug.Log("Debug mode activated");
+            DebugModeActive = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.O) && DebugModeActive)
+        {
+            Debug.Log("Debug mode disabled");
+            DebugModeActive = false;
+        }
+
+
         if(DebugModeActive)
         {
             DebugObject.SetActive(true);
