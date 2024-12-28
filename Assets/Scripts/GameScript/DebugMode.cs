@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using WiiU = UnityEngine.WiiU;
 public class DebugMode : MonoBehaviour {
     public NightPlayer nightPlayer;
     public GameObject DebugObject;
@@ -21,15 +22,35 @@ public class DebugMode : MonoBehaviour {
     [Header("FPS Counter")]
     public Text fpsText; 
     private float deltaTime;
+
+    private void Start() {
+        //gamepad shit
+        //gamePad = WiiU.GamePad.access;
+    }
     private void Update()
     {
+        //some wiiu shit with some gamepad shit idk
+        //WiiU.GamePadState gamePadState = gamePad.state;
+        /**     --UNFINISHED--
+        if(gamePadState.gamePadErr == WiiU.GamePadError.None)
+        {
+            if (gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R))
+            {
+            DebugObject.SetActive(true);
+            SetDebug();
+            }
+            else{DebugObject.SetActive(false);}
+        } **/
         if(DebugModeActive)
         {
             DebugObject.SetActive(true);
             SetDebug();
         }
-        else {DebugObject.SetActive(false);}
+        else{DebugObject.SetActive(false);}
+        
     }
+
+    //SetDebug to start the debug if 
     void SetDebug()
     {
         //time elapse each frames
