@@ -39,7 +39,7 @@ public class AIManager : MonoBehaviour {
 
             // Night 1
             { 0, new Dictionary<int, Dictionary<string, int>>() {
-                { 0, new Dictionary<string, int>() {
+                { 1, new Dictionary<string, int>() {
                     { "ToyBonnieAI", 2 },
                     { "ToyChicaAI", 2 }
                 }},
@@ -153,15 +153,22 @@ public class AIManager : MonoBehaviour {
 
     public void TimedEvents() {
     if (nightConfigurations.ContainsKey(currentNight)) {
+        Debug.Log("Found configuration for Night:"+currentNight);
         var nightConfig = nightConfigurations[currentNight];
         if (nightConfig.ContainsKey(currentTime)) {
+            Debug.Log("Found configuration for Time:"+currentTime);
             var timeConfig = nightConfig[currentTime];
             foreach (var ai in timeConfig) {
                 if (aiLevels.ContainsKey(ai.Key)) {
                     aiLevels[ai.Key] = ai.Value;
+                    Debug.Log("{ai.Key} set to "+ai.Value);
                 }
             }
+        } else {
+            Debug.Log("No configuration for Time:"+currentTime);
         }
+    } else {
+        Debug.Log("No configuration for Night:"+currentNight);
     }
 
     // Vérifier si nuit 6 est complète

@@ -238,8 +238,8 @@ public class NightPlayer : MonoBehaviour
 		lightsManager = FindObjectOfType<LightsManager>();
 		monitorManager = FindObjectOfType<MonitorManager>();
 
-        currentNight = 3;
-        //currentNight = SaveManager.LoadNightNumber();
+
+        currentNight = SaveManager.LoadNightNumber();
 
         if (isNight7)
 		{
