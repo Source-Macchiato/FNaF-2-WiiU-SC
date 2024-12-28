@@ -17,6 +17,22 @@ public class DebugMode : MonoBehaviour {
     public Text WFoxy;
     public Text Mangle;
     public Text BaloonBoy;
+    [Header("AI Level")]
+    public Text LevelToyFreddy;
+    public Text LevelToyBonnie;
+    public Text LevelToyChica;
+    public Text LevelWFreddy;
+    public Text LevelWBonnie;
+    public Text LevelWChica;
+    public Text LevelWFoxy;
+    public Text LevelMangle;
+    public Text LevelBaloonBoy;
+    public Text LevelPaperpals;
+    public Text LevelPuppet;
+
+    [Header("MusicBox")]
+    public Text MusicBox;
+    public Text PuppetTimerDeath;
 
     //FPS Counter
     [Header("FPS Counter")]
@@ -53,14 +69,6 @@ public class DebugMode : MonoBehaviour {
     //SetDebug to start the debug if 
     void SetDebug()
     {
-        //time elapse each frames
-        deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
-        //FPS calc
-        float fps = 1.0f / deltaTime;
-
-        //display the FPS
-        fpsText.text = Mathf.Ceil(fps).ToString();
-
         // set Animatronics Cams Info on each text
         ToyFreddy.text = nightPlayer.ToyFreddyCamera.ToString();
         ToyBonnie.text = nightPlayer.ToyBonnieCamera.ToString();
@@ -71,6 +79,32 @@ public class DebugMode : MonoBehaviour {
         WFoxy.text = nightPlayer.WitheredFoxyCamera.ToString();
         Mangle.text = nightPlayer.MangleCamera.ToString();
         BaloonBoy.text = nightPlayer.BBCamera.ToString();
+
+        //AI level
+        LevelToyFreddy.text = nightPlayer.ToyFreddyAI.ToString();
+        LevelToyBonnie.text = nightPlayer.ToyBonnieAI.ToString();
+        LevelToyChica.text = nightPlayer.ToyChicaAI.ToString();
+        LevelWFreddy.text = nightPlayer.WitheredFreddyAI.ToString();
+        LevelWBonnie.text = nightPlayer.WitheredBonnieAI.ToString();
+        LevelWChica.text = nightPlayer.WitheredChicaAI.ToString();
+        LevelWFoxy.text = nightPlayer.WitheredFoxyAI.ToString();
+        LevelMangle.text = nightPlayer.MangleAI.ToString();
+        LevelBaloonBoy.text = nightPlayer.BalloonBoyAI.ToString();
+        LevelPaperpals.text = nightPlayer.PaperpalsAI.ToString();
+        LevelPuppet.text = nightPlayer.PuppetAI.ToString();
+
+        //MusicBox Timer
+        MusicBox.text = nightPlayer.PuppetTime.ToString();
+        //Puppet Deatth Timer
+        PuppetTimerDeath.text = nightPlayer.PuppetDeathTimer.ToString();
+
+        //time elapse each frames
+        deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+        //FPS calc
+        float fps = 1.0f / deltaTime;
+
+        //display the FPS
+        fpsText.text = Mathf.Ceil(fps).ToString();
 
 
     }
