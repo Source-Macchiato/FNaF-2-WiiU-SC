@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using WiiU = UnityEngine.WiiU;
 public class DebugMode : MonoBehaviour {
     public NightPlayer nightPlayer;
+    public LightsManager lightsManager;
     public GameObject DebugObject;
     public bool DebugModeActive;
 
@@ -100,7 +101,7 @@ public class DebugMode : MonoBehaviour {
         LevelPuppet.text = nightPlayer.PuppetAI.ToString();
 
         //State of the player
-        StateText.text = nightPlayer.state.ToString();
+        StateText.text = lightsManager.currentFlashlightDuration.ToString();
 
         //MusicBox Timer
         MusicBox.text = nightPlayer.PuppetTime.ToString();
