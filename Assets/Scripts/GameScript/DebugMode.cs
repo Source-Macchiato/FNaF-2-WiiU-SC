@@ -30,6 +30,9 @@ public class DebugMode : MonoBehaviour {
     public Text LevelPaperpals;
     public Text LevelPuppet;
 
+    [Header("State")]
+    public Text StateText;
+
     [Header("MusicBox")]
     public Text MusicBox;
     public Text PuppetTimerDeath;
@@ -55,30 +58,10 @@ public class DebugMode : MonoBehaviour {
     {
         //some wiiu shit with some gamepad shit idk
         WiiU.GamePadState gamePadState = gamePad.state;
-        if(gamePadState.gamePadErr == WiiU.GamePadError.None)
-        {
-            if (gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R) && !DebugModeActive)
-            {
-                Debug.Log("Debug mode activated");
-                DebugModeActive = true;
-            }
-            else if (gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R) && DebugModeActive)
-            {
-                Debug.Log("Debug mode disabled");
-                DebugModeActive = false;
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.O) && !DebugModeActive)
-        {
-            Debug.Log("Debug mode activated");
-            DebugModeActive = true;
-        }
-        else if(Input.GetKeyDown(KeyCode.O) && DebugModeActive)
-        {
-            Debug.Log("Debug mode disabled");
-            DebugModeActive = false;
-        }
-
+        //togle debug mode via GamePad
+        if (gamePadState.gamePadErr == WiiU.GamePadError.None){ToggleDebugMode(gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R));}
+        //Togle debug mode via the 'O' Key
+        ToggleDebugMode(Input.GetKeyDown(KeyCode.O));
 
         if(DebugModeActive)
         {
@@ -116,6 +99,9 @@ public class DebugMode : MonoBehaviour {
         LevelPaperpals.text = nightPlayer.PaperpalsAI.ToString();
         LevelPuppet.text = nightPlayer.PuppetAI.ToString();
 
+        //State of the player
+        StateText.text = nightPlayer.state.ToString();
+
         //MusicBox Timer
         MusicBox.text = nightPlayer.PuppetTime.ToString();
         //Puppet Deatth Timer
@@ -138,6 +124,15 @@ public class DebugMode : MonoBehaviour {
         activeGameObjectsText.text = activeObjects.ToString();
 
 
+    }
+
+    void ToggleDebugMode(bool condition)
+    {
+        if (condition)
+        {
+            DebugModeActive = !DebugModeActive;
+            Debug.Log(DebugModeActive ? "Debug mode activated" : "Debug mode disabled");
+        }
     }
     
 }

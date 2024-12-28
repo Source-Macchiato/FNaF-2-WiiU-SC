@@ -208,6 +208,11 @@ public class NightPlayer : MonoBehaviour
 	private LightsManager lightsManager;
 	private MonitorManager monitorManager;
 
+	public float AMTime = 0; //
+	public int currentHour = 0;
+	private bool isHourComplete = false; // Indique si une heure a été complétée
+    private const float HourDuration = 70f; // Durée d'une heure en secondes
+
     // References to WiiU controllers
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
@@ -235,8 +240,6 @@ public class NightPlayer : MonoBehaviour
 
         currentNight = 3;
         //currentNight = SaveManager.LoadNightNumber();
-
-		StartCoroutine(TimeCoroutine());
 
         if (isNight7)
 		{
@@ -298,19 +301,38 @@ public class NightPlayer : MonoBehaviour
     return true;
 	}
 
-    IEnumerator TimeCoroutine()
+    public void UpdateTime()
     {
-        for (int i = 0; i <= 6; i++)
+        if (currentTime > 6)
+            return; // Stopper quand l'heure dépasse 6
+
+        // Incrémente AMTime en fonction du temps écoulé
+        AMTime += Time.deltaTime;
+
+        // Vérifie si une heure est passée
+        if (AMTime >= HourDuration * TimeMultiplier && !isHourComplete)
         {
-            currentTime = i;
-			if (i == 0)
-				timeText.text = "12";
-			else
-				timeText.text = currentTime.ToString();
+            isHourComplete = true;
+            AMTime = 0f; // Réinitialiser le temps pour la prochaine heure
+            currentTime++; // Incrémenter l'heure
+
+            // Mettre à jour le texte de l'heure
+            if (currentTime == 0)
+                timeText.text = "12";
+            else
+                timeText.text = currentTime.ToString();
+
+            // Appeler les événements liés à l'heure
             aiManager.TimedEvents();
-            yield return new WaitForSeconds(70f * TimeMultiplier);
+        }
+
+        // Permet de continuer après avoir complété l'heure
+        if (AMTime < HourDuration * TimeMultiplier)
+        {
+            isHourComplete = false;
         }
     }
+
 
     
 
@@ -329,6 +351,7 @@ public class NightPlayer : MonoBehaviour
     
     void Update()
 	{
+		UpdateTime();
 		ToyFreddyAI = aiManager.GetAILevel("ToyFreddyAI");
 		ToyBonnieAI = aiManager.GetAILevel("ToyBonnieAI");
 		ToyChicaAI = aiManager.GetAILevel("ToyChicaAI");

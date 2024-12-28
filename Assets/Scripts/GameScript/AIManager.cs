@@ -39,7 +39,7 @@ public class AIManager : MonoBehaviour {
 
             // Night 1
             { 0, new Dictionary<int, Dictionary<string, int>>() {
-                { 1, new Dictionary<string, int>() {
+                { 0, new Dictionary<string, int>() {
                     { "ToyBonnieAI", 2 },
                     { "ToyChicaAI", 2 }
                 }},
