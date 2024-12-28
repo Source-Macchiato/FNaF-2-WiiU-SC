@@ -304,29 +304,22 @@ public class NightPlayer : MonoBehaviour
     public void UpdateTime()
     {
         if (currentTime > 6)
-            return; // Stopper quand l'heure dépasse 6
-
-        // Incrémente AMTime en fonction du temps écoulé
+            return;
         AMTime += Time.deltaTime;
 
-        // Vérifie si une heure est passée
         if (AMTime >= HourDuration * TimeMultiplier && !isHourComplete)
         {
             isHourComplete = true;
-            AMTime = 0f; // Réinitialiser le temps pour la prochaine heure
-            currentTime++; // Incrémenter l'heure
+            AMTime = 0f; 
+            currentTime++; 
 
-            // Mettre à jour le texte de l'heure
             if (currentTime == 0)
                 timeText.text = "12";
             else
                 timeText.text = currentTime.ToString();
 
-            // Appeler les événements liés à l'heure
             aiManager.TimedEvents();
         }
-
-        // Permet de continuer après avoir complété l'heure
         if (AMTime < HourDuration * TimeMultiplier)
         {
             isHourComplete = false;
