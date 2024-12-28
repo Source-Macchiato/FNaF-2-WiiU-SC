@@ -39,6 +39,10 @@ public class DebugMode : MonoBehaviour {
     public Text fpsText; 
     private float deltaTime;
 
+    [Header("Performance Info")]
+    public Text memoryUsageText;
+    public Text activeGameObjectsText;
+
     private void Start() {
         //gamepad shit
         //gamePad = WiiU.GamePad.access;
@@ -105,6 +109,14 @@ public class DebugMode : MonoBehaviour {
 
         //display the FPS
         fpsText.text = Mathf.Ceil(fps).ToString();
+
+        //Memory Usage
+        long memoryUsage = System.GC.GetTotalMemory(false) / (1024 * 1024);
+        memoryUsageText.text = ""+memoryUsage.ToString()+"Mb";
+
+        //ActiveGameObject
+        int activeObjects = FindObjectsOfType<GameObject>().Length;
+        activeGameObjectsText.text = activeObjects.ToString();
 
 
     }
