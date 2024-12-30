@@ -152,35 +152,46 @@ public class AIManager : MonoBehaviour {
     }
 
     public void TimedEvents() {
-    if (nightConfigurations.ContainsKey(currentNight)) {
-        Debug.Log("Found configuration for Night:"+currentNight);
-        var nightConfig = nightConfigurations[currentNight];
-        if (nightConfig.ContainsKey(currentTime)) {
-            Debug.Log("Found configuration for Time:"+currentTime);
-            var timeConfig = nightConfig[currentTime];
-            foreach (var ai in timeConfig) {
-                if (aiLevels.ContainsKey(ai.Key)) {
-                    aiLevels[ai.Key] = ai.Value;
-                    Debug.Log("{ai.Key} set to "+ai.Value);
+        if (nightConfigurations.ContainsKey(currentNight))
+        {
+            Debug.Log("Found configuration for Night:" + currentNight);
+            var nightConfig = nightConfigurations[currentNight];
+            if (nightConfig.ContainsKey(currentTime))
+            {
+                Debug.Log("Found configuration for Time:" + currentTime);
+                var timeConfig = nightConfig[currentTime];
+                foreach (var ai in timeConfig)
+                {
+                    if (aiLevels.ContainsKey(ai.Key))
+                    {
+                        aiLevels[ai.Key] = ai.Value;
+                        Debug.Log("{ai.Key} set to " + ai.Value);
+                    }
                 }
             }
-        } else {
-            Debug.Log("No configuration for Time:"+currentTime);
+            else
+            {
+                Debug.Log("No configuration for Time:" + currentTime);
+            }
         }
-    } else {
-        Debug.Log("No configuration for Night:"+currentNight);
+        else
+        {
+            Debug.Log("No configuration for Night:" + currentNight);
+        }
+
+        if (currentTime >= 6)
+        {
+            SceneManager.LoadScene("6AM");
+        }
     }
 
-    // Vérifier si nuit 6 est complète
-    if (currentNight == 6 && currentTime >= 6) {
-        SceneManager.LoadScene("6AM");
-    }
-}
     //Get AI Level in other scripts (like nightplayer)
-    public int GetAILevel(string aiName) {
-    if (aiLevels.ContainsKey(aiName)) {
-        return aiLevels[aiName];
+    public int GetAILevel(string aiName)
+    {
+        if (aiLevels.ContainsKey(aiName))
+        {
+            return aiLevels[aiName];
+        }
+        return -1;
     }
-    return -1;
-}
 }

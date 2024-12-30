@@ -17,7 +17,7 @@ public class RenderMovie : MonoBehaviour
 
     private IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(cafeSound.clip.length);
+        yield return new WaitUntil(() => !cafeSound.isPlaying);
 
         SceneManager.LoadScene("Warning");
     }
