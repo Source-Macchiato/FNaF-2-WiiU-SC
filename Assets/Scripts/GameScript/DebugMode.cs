@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using WiiU = UnityEngine.WiiU;
-public class DebugMode : MonoBehaviour {
+
+public class DebugMode : MonoBehaviour
+{
     public NightPlayer nightPlayer;
     public LightsManager lightsManager;
     public GameObject DebugObject;
-    public bool DebugModeActive;
+    public bool DebugModeActive = false;
 
     //Text of the cam number of each animatronics
     [Header("Animatronics Cams Info")]
@@ -47,33 +49,56 @@ public class DebugMode : MonoBehaviour {
     public Text memoryUsageText;
     public Text activeGameObjectsText;
 
-    //gamepad init
+    // References to WiiU controllers
     WiiU.GamePad gamePad;
+    WiiU.Remote remote;
 
-    private void Start() {
-        //gamepad shit
+    private void Start()
+    {
+        // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
-        DebugModeActive = false;
+        remote = WiiU.Remote.Access(0);
     }
     private void Update()
     {
-        //some wiiu shit with some gamepad shit idk
+        // Get the current state of the GamePad and Remote
         WiiU.GamePadState gamePadState = gamePad.state;
-        //togle debug mode via GamePad
-        if (gamePadState.gamePadErr == WiiU.GamePadError.None){ToggleDebugMode(gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R));}
-        //Togle debug mode via the 'O' Key
-        ToggleDebugMode(Input.GetKeyDown(KeyCode.O));
+        WiiU.RemoteState remoteState = remote.state;
+
+        if (gamePadState.gamePadErr == WiiU.GamePadError.None)
+        {
+            ToggleDebugMode(gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R));
+        }
+
+        switch (remoteState.devType)
+        {
+            case WiiU.RemoteDevType.ProController:
+                ToggleDebugMode(remoteState.pro.IsTriggered(WiiU.ProControllerButton.L) && remoteState.pro.IsTriggered(WiiU.ProControllerButton.R));
+                break;
+            case WiiU.RemoteDevType.Classic:
+                ToggleDebugMode(remoteState.classic.IsTriggered(WiiU.ClassicButton.L) && remoteState.classic.IsTriggered(WiiU.ClassicButton.R));
+                break;
+            default:
+                break;
+        }
+
+        if (Application.isEditor)
+        {
+            ToggleDebugMode(Input.GetKeyDown(KeyCode.O));
+        }
 
         if(DebugModeActive)
         {
             DebugObject.SetActive(true);
             SetDebug();
         }
-        else{DebugObject.SetActive(false);}
-        
+        else
+        {
+            DebugObject.SetActive(false);
+        }
     }
 
-    //SetDebug to start the debug if 
+    // SetDebug to start the debug if 
     void SetDebug()
     {
         // set Animatronics Cams Info on each text
