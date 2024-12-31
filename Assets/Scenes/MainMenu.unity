@@ -3769,6 +3769,7 @@ GameObject:
   - component: {fileID: 660467560}
   - component: {fileID: 660467562}
   - component: {fileID: 660467561}
+  - component: {fileID: 660467563}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -3827,6 +3828,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 660467559}
+--- !u!95 &660467563
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 660467559}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11c5c980f4f6f6445bcaf066a2f89932, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &676096924
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,6 +4986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardId: card.tvonly
   cursorImage: {fileID: 1227553756}
+  cursorAnimator: {fileID: 1227553758}
 --- !u!1 &805304476
 GameObject:
   m_ObjectHideFlags: 0
@@ -5194,6 +5213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardId: card.tvgamepadclassic
   cursorImage: {fileID: 1265286803}
+  cursorAnimator: {fileID: 1265286805}
 --- !u!1 &809522654
 GameObject:
   m_ObjectHideFlags: 0
@@ -8190,6 +8210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardId: card.tvgamepadalternative
   cursorImage: {fileID: 1744444967}
+  cursorAnimator: {fileID: 1744444969}
 --- !u!1 &1181332363
 GameObject:
   m_ObjectHideFlags: 0
@@ -8659,6 +8680,7 @@ GameObject:
   - component: {fileID: 1227553755}
   - component: {fileID: 1227553757}
   - component: {fileID: 1227553756}
+  - component: {fileID: 1227553758}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -8717,6 +8739,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1227553754}
+--- !u!95 &1227553758
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1227553754}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11c5c980f4f6f6445bcaf066a2f89932, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1249645312
 GameObject:
   m_ObjectHideFlags: 0
@@ -9003,6 +9042,7 @@ GameObject:
   - component: {fileID: 1265286802}
   - component: {fileID: 1265286804}
   - component: {fileID: 1265286803}
+  - component: {fileID: 1265286805}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -9061,6 +9101,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265286801}
+--- !u!95 &1265286805
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1265286801}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11c5c980f4f6f6445bcaf066a2f89932, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1275513062
 GameObject:
   m_ObjectHideFlags: 0
@@ -11488,6 +11545,7 @@ GameObject:
   - component: {fileID: 1744444966}
   - component: {fileID: 1744444968}
   - component: {fileID: 1744444967}
+  - component: {fileID: 1744444969}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -11546,6 +11604,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1744444965}
+--- !u!95 &1744444969
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1744444965}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11c5c980f4f6f6445bcaf066a2f89932, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1770346582
 GameObject:
   m_ObjectHideFlags: 0
@@ -13663,6 +13738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardId: card.gamepadonly
   cursorImage: {fileID: 660467561}
+  cursorAnimator: {fileID: 660467563}
 --- !u!1 &1955964673
 GameObject:
   m_ObjectHideFlags: 0
