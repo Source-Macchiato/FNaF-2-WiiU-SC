@@ -80,7 +80,7 @@ public class MenuData : MonoBehaviour
         advertisementImage.SetActive(true);
     }
 
-    public void SelectLayoutButton()
+    public void DisplaySelectedLayoutButton()
     {
         // Dictionary to map cardId to layoutId
         Dictionary<string, int> cardLayoutMapping = new Dictionary<string, int>();
@@ -130,12 +130,6 @@ public class MenuData : MonoBehaviour
         bool saveResult = saveGameState.DoSave();
     }
 
-    public void SaveLayoutId()
-    {
-        saveManager.SaveLayoutId(layoutId);
-        bool saveResult = saveGameState.DoSave();
-    }
-
     public void ToggleGameTitle(bool visibility)
     {
         gameTitle.SetActive(visibility);
@@ -171,5 +165,23 @@ public class MenuData : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SelectLayoutButton()
+    {
+        // Dictionary to map cardId to layoutId
+        Dictionary<string, int> cardLayoutMapping = new Dictionary<string, int>();
+        cardLayoutMapping.Add("card.tvonly", 0);
+        cardLayoutMapping.Add("card.tvgamepadclassic", 1);
+        cardLayoutMapping.Add("card.tvgamepadalternative", 2);
+        cardLayoutMapping.Add("card.gamepadonly", 3);
+
+        string cardId = EventSystem.current.currentSelectedGameObject.GetComponent<CardData>().cardId;
+
+        layoutId = cardLayoutMapping[cardId];
+
+        // Save layout id
+        saveManager.SaveLayoutId(layoutId);
+        bool saveResult = saveGameState.DoSave();
     }
 }

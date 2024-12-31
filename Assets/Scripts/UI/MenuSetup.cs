@@ -10,7 +10,7 @@ public class MenuSetup : MonoBehaviour
 
     void Start()
     {
-        //menuManager.AddButton("Analytic Data", Analytics, 4, "mainmenu.analyticdata");
+        //menuManager.AddButton("Analytic Data", Analytics, 5, "mainmenu.analyticdata");
 
         // Set back callbacks for specific menus
         menuManager.SetBackCallback(2, OnBackFromCredits);
@@ -88,7 +88,7 @@ public class MenuSetup : MonoBehaviour
     {
         menuManager.ChangeMenu(4);
 
-        menuData.SelectLayoutButton();
+        menuData.DisplaySelectedLayoutButton();
     }
 
     void Analytics()
