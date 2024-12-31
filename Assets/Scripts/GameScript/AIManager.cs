@@ -154,29 +154,18 @@ public class AIManager : MonoBehaviour {
     public void TimedEvents() {
         if (nightConfigurations.ContainsKey(currentNight))
         {
-            Debug.Log("Found configuration for Night:" + currentNight);
             var nightConfig = nightConfigurations[currentNight];
             if (nightConfig.ContainsKey(currentTime))
             {
-                Debug.Log("Found configuration for Time:" + currentTime);
                 var timeConfig = nightConfig[currentTime];
                 foreach (var ai in timeConfig)
                 {
                     if (aiLevels.ContainsKey(ai.Key))
                     {
                         aiLevels[ai.Key] = ai.Value;
-                        Debug.Log("{ai.Key} set to " + ai.Value);
                     }
                 }
             }
-            else
-            {
-                Debug.Log("No configuration for Time:" + currentTime);
-            }
-        }
-        else
-        {
-            Debug.Log("No configuration for Night:" + currentNight);
         }
 
         if (currentTime >= 6)
