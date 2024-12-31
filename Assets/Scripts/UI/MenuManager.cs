@@ -949,7 +949,11 @@ public class MenuManager : MonoBehaviour
         // Toggle visibility for cursors
         if (currentSelection != null)
         {
-            if (currentScrollRect == null && currentPopup == null && EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() == null && EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() == null)
+            if (currentScrollRect == null && currentPopup == null
+                && EventSystem.current.currentSelectedGameObject != null
+                && EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() == null
+                && EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() == null
+                && EventSystem.current.currentSelectedGameObject.GetComponent<CardData>() == null)
             {
                 if (!currentSelection.activeSelf)
                 {
