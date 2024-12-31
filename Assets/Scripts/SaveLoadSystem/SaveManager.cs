@@ -39,6 +39,12 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SaveLayoutId(int layoutId)
+    {
+        PlayerPrefs.SetInt("Layout", layoutId);
+        PlayerPrefs.Save();
+    }
+
     // Load
     public static string LoadLanguage()
 	{
@@ -109,6 +115,20 @@ public class SaveManager : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    public static int LoadLayoutId()
+    {
+        if (PlayerPrefs.HasKey("Layout"))
+        {
+            int layoutId = PlayerPrefs.GetInt("Layout");
+
+            return layoutId;
+        }
+        else
+        {
+            return 1;
         }
     }
 }

@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using RTLTMPro;
 
 public class MenuData : MonoBehaviour
 {
     public int nightNumber;
+    public int layoutId;
     public GameObject gameTitle;
     public RTLTextMeshPro nightNumberText;
     public GameObject nightNumberContainer;
@@ -30,6 +33,7 @@ public class MenuData : MonoBehaviour
 
         // Load
         nightNumber = SaveManager.LoadNightNumber();
+        layoutId = SaveManager.LoadLayoutId();
 
         // Disable advertisement by default
         advertisementIsActive = false;
@@ -76,6 +80,32 @@ public class MenuData : MonoBehaviour
         advertisementImage.SetActive(true);
     }
 
+    public void SelectLayoutButton()
+    {
+        // Dictionary to map cardId to layoutId
+        Dictionary<string, int> cardLayoutMapping = new Dictionary<string, int>();
+        cardLayoutMapping.Add("card.tvonly", 0);
+        cardLayoutMapping.Add("card.tvgamepadclassic", 1);
+        cardLayoutMapping.Add("card.tvgamepadalternative", 2);
+        cardLayoutMapping.Add("card.gamepadonly", 3);
+
+        // Get all CardData scripts
+        CardData[] cards = FindObjectsOfType<CardData>();
+
+        foreach (CardData card in cards)
+        {
+            // Check if cardId matches layoutId
+            if (cardLayoutMapping.ContainsKey(card.cardId) && cardLayoutMapping[card.cardId] == layoutId)
+            {
+                Button button = card.GetComponent<Button>();
+                if (button != null)
+                {
+                    button.Select();
+                }
+            }
+        }
+    }
+
     public void SaveAndUpdateLanguage()
     {
         // Get SwitcherData scripts
@@ -97,6 +127,12 @@ public class MenuData : MonoBehaviour
     public void SaveNightNumber()
     {
         saveManager.SaveNightNumber(nightNumber);
+        bool saveResult = saveGameState.DoSave();
+    }
+
+    public void SaveLayoutId()
+    {
+        saveManager.SaveLayoutId(layoutId);
         bool saveResult = saveGameState.DoSave();
     }
 
