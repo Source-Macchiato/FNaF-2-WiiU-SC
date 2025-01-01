@@ -7,7 +7,7 @@ public class DebugMode : MonoBehaviour
     public NightPlayer nightPlayer;
     public LightsManager lightsManager;
     public GameObject DebugObject;
-    public bool DebugModeActive = false;
+    public bool debugModeActive = false;
 
     //Text of the cam number of each animatronics
     [Header("Animatronics Cams Info")]
@@ -58,6 +58,8 @@ public class DebugMode : MonoBehaviour
         // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
+
+        ToggleDebugMode(false);
     }
     private void Update()
     {
@@ -67,16 +69,25 @@ public class DebugMode : MonoBehaviour
 
         if (gamePadState.gamePadErr == WiiU.GamePadError.None)
         {
-            ToggleDebugMode(gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R));
+            if (gamePadState.IsTriggered(WiiU.GamePadButton.L) && gamePadState.IsTriggered(WiiU.GamePadButton.R))
+            {
+                ToggleDebugMode(!debugModeActive);
+            }
         }
 
         switch (remoteState.devType)
         {
             case WiiU.RemoteDevType.ProController:
-                ToggleDebugMode(remoteState.pro.IsTriggered(WiiU.ProControllerButton.L) && remoteState.pro.IsTriggered(WiiU.ProControllerButton.R));
+                if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.L) && remoteState.pro.IsTriggered(WiiU.ProControllerButton.R))
+                {
+                    ToggleDebugMode(!debugModeActive);
+                }
                 break;
             case WiiU.RemoteDevType.Classic:
-                ToggleDebugMode(remoteState.classic.IsTriggered(WiiU.ClassicButton.L) && remoteState.classic.IsTriggered(WiiU.ClassicButton.R));
+                if (remoteState.classic.IsTriggered(WiiU.ClassicButton.L) && remoteState.classic.IsTriggered(WiiU.ClassicButton.R))
+                {
+                    ToggleDebugMode(!debugModeActive);
+                }
                 break;
             default:
                 break;
@@ -84,17 +95,16 @@ public class DebugMode : MonoBehaviour
 
         if (Application.isEditor)
         {
-            ToggleDebugMode(Input.GetKeyDown(KeyCode.O));
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                ToggleDebugMode(!debugModeActive);
+            }
         }
 
-        if(DebugModeActive)
+        // Call SetDebug every frames if toggle mode is active
+        if (debugModeActive)
         {
-            DebugObject.SetActive(true);
             SetDebug();
-        }
-        else
-        {
-            DebugObject.SetActive(false);
         }
     }
 
@@ -154,11 +164,11 @@ public class DebugMode : MonoBehaviour
 
     void ToggleDebugMode(bool condition)
     {
-        if (condition)
-        {
-            DebugModeActive = !DebugModeActive;
-            Debug.Log(DebugModeActive ? "Debug mode activated" : "Debug mode disabled");
-        }
+        debugModeActive = condition;
+
+        DebugObject.SetActive(debugModeActive);
+
+        Debug.Log(debugModeActive ? "Debug mode activated" : "Debug mode disabled");
     }
     
 }
