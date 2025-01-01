@@ -1016,7 +1016,7 @@ public class NightPlayer : MonoBehaviour
 		{
 			if (PuppetTime != 0f)
 			{
-				if (musicBox.windUpMusicBox)
+				if (!musicBox.isWindUpEmpty)
     			{
         			PuppetTime += Time.deltaTime * 2.4f;
         			PuppetDeathTimer = 15f;
@@ -1038,7 +1038,7 @@ public class NightPlayer : MonoBehaviour
 					StartCoroutine(PuppetDeathSequence());
 				}
 
-				if (musicBox.windUpMusicBox)
+				if (!musicBox.isWindUpEmpty)
 				{
 					PuppetTime += Time.deltaTime * 1.5f;
 					PuppetDeathTimer = 15f;

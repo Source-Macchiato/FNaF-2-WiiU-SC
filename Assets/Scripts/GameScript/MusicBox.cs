@@ -9,10 +9,13 @@ public class MusicBox : MonoBehaviour
     public AudioSource musicBoxTheme;
     public AudioSource windUpSound;
     public GameObject musicBoxContainer;
+    public Animator windUpButtonAnimator;
+
+    public bool isWindUpEmpty = false;
 
 	private float unwindTime;
     private float currentUnwindTime;
-    public bool windUpMusicBox = false;
+    private bool windUpMusicBox = false;
     private bool isWindUpSoundPlaying = false;
 
     private int nightNumber;
@@ -115,6 +118,7 @@ public class MusicBox : MonoBehaviour
         UpdateProgressFill();
         HandleMuteWithMonitor();
         HandleWindUpSound();
+        WindUpButtonBackgroundAnimation();
     }
 
     private void WindUpMusicBox()
@@ -239,5 +243,10 @@ public class MusicBox : MonoBehaviour
     public void ChangeMusicBoxVolume(float volume)
     {
         musicBoxTheme.volume = volume;
+    }
+
+    private void WindUpButtonBackgroundAnimation()
+    {
+        windUpButtonAnimator.SetBool("isWindingUp", windUpMusicBox);
     }
 }
