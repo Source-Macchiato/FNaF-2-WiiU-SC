@@ -6,7 +6,7 @@ public class LayoutManager : MonoBehaviour
 
     public GameObject minimap;
     public GameObject roomName;
-    public GameObject[] subtitles;
+    public GameObject subtitles;
 
     [Header("Screens")]
     public GameObject[] screenOffice;
@@ -59,8 +59,8 @@ public class LayoutManager : MonoBehaviour
         screenMinimap[0].SetActive(true);
         screenMinimap[1].SetActive(false);
 
-        //screenSubtitles[0].SetActive(true);
-        //screenSubtitles[1].SetActive(false);
+        screenSubtitles[0].SetActive(true);
+        screenSubtitles[1].SetActive(false);
 
         // Minimap position
         minimap.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -86,8 +86,8 @@ public class LayoutManager : MonoBehaviour
         screenMinimap[0].SetActive(false);
         screenMinimap[1].SetActive(true);
 
-        //screenSubtitles[0].SetActive(false);
-        //screenSubtitles[1].SetActive(true);
+        screenSubtitles[0].SetActive(false);
+        screenSubtitles[1].SetActive(true);
 
         // Minimap position
         minimap.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
@@ -97,10 +97,6 @@ public class LayoutManager : MonoBehaviour
         roomName.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
         roomName.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
         roomName.transform.localPosition = new Vector3(0f, 248f, 0f);
-
-        //subtitles[0].SetActive(true);
-        //subtitles[1].SetActive(false);
-        //subtitles[2].SetActive(false);
     }
 
     private void TVGamepadAlternative()
@@ -116,6 +112,9 @@ public class LayoutManager : MonoBehaviour
 
         screenMinimap[0].SetActive(false);
         screenMinimap[1].SetActive(true);
+
+        screenSubtitles[0].SetActive(true);
+        screenSubtitles[1].SetActive(false);
 
         // Minimap position
         minimap.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -141,8 +140,8 @@ public class LayoutManager : MonoBehaviour
         screenMinimap[0].SetActive(false);
         screenMinimap[1].SetActive(true);
 
-        //screenSubtitles[0].SetActive(false);
-        //screenSubtitles[1].SetActive(true);
+        screenSubtitles[0].SetActive(false);
+        screenSubtitles[1].SetActive(true);
 
         // Minimap position
         minimap.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -151,21 +150,5 @@ public class LayoutManager : MonoBehaviour
         // Room name position
         roomName.transform.localScale = new Vector3(1f, 1f, 1f);
         roomName.transform.localPosition = new Vector3(38.64502f, 61.5f, 0f);
-    }
-
-    private void ChangeSubtitlePosition(bool cameraStatus)
-    {
-        if (cameraStatus)
-        {
-            subtitles[0].SetActive(false);
-            subtitles[1].SetActive(false);
-            subtitles[2].SetActive(true);
-        }
-        else
-        {
-            subtitles[0].SetActive(false);
-            subtitles[1].SetActive(true);
-            subtitles[2].SetActive(false);
-        }
     }
 }
