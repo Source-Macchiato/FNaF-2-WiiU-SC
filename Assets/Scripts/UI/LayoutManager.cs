@@ -59,8 +59,8 @@ public class LayoutManager : MonoBehaviour
         screenMinimap[0].SetActive(true);
         screenMinimap[1].SetActive(false);
 
-        screenSubtitles[0].SetActive(true);
-        screenSubtitles[1].SetActive(false);
+        //screenSubtitles[0].SetActive(true);
+        //screenSubtitles[1].SetActive(false);
 
         // Minimap position
         minimap.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -141,8 +141,8 @@ public class LayoutManager : MonoBehaviour
         screenMinimap[0].SetActive(false);
         screenMinimap[1].SetActive(true);
 
-        screenSubtitles[0].SetActive(false);
-        screenSubtitles[1].SetActive(true);
+        //screenSubtitles[0].SetActive(false);
+        //screenSubtitles[1].SetActive(true);
 
         // Minimap position
         minimap.transform.localScale = new Vector3(1f, 1f, 1f);

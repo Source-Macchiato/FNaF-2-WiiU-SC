@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using RTLTMPro;
 
 public class SubtitlesManager : MonoBehaviour
 {
-    public GameObject[] subtitlesContainers;
+    public RTLTextMeshPro subtitlesText;
 
     private List<string> subtitleIdentifiers;
     private List<float> displayDurations;
@@ -17,12 +16,6 @@ public class SubtitlesManager : MonoBehaviour
 
     private int nightNumber;
 
-    private TextAsset subtitleFile;
-
-    [Header("Fonts")]
-    public TMP_FontAsset mainFont;
-    public TMP_FontAsset arabicFont;
-
     void Start()
     {
         subtitleIdentifiers = new List<string>();
@@ -32,32 +25,7 @@ public class SubtitlesManager : MonoBehaviour
 
         if (nightNumber >= 0 && nightNumber <= 5)
         {
-            subtitleFile = Resources.Load<TextAsset>("Data/night" + (nightNumber + 1));
-
-            string[] lines = subtitleFile.text.Split('\n');
-            for (int i = 0; i < lines.Length; i++)
-            {
-                string line = lines[i];
-                string[] parts = line.Split(new char[] { ';' });
-                if (parts.Length == 2)
-                {
-                    subtitleIdentifiers.Add(parts[0]);
-                    displayDurations.Add(float.Parse(parts[1]));
-                }
-            }
-
-            displayStartTime = Time.timeSinceLevelLoad;
-        }
-
-        if (nightNumber == 4)
-        {
-            foreach (GameObject subtitleContainer in subtitlesContainers)
-            {
-                if (subtitleContainer.activeSelf)
-                {
-                    subtitleContainer.transform.Rotate(0f, 180f, 0f);
-                }
-            }
+            LoadSubtitlesFromCSV("Data/night" + (nightNumber + 1));
         }
 
         displayStartTime = Time.timeSinceLevelLoad;
@@ -65,7 +33,7 @@ public class SubtitlesManager : MonoBehaviour
 
     void Update()
     {
-        if (nightNumber >= 0 && nightNumber <= 4)
+        if (nightNumber >= 0 && nightNumber <= 5)
         {
             if (!isDelayOver)
             {
@@ -92,29 +60,45 @@ public class SubtitlesManager : MonoBehaviour
                 }
                 else
                 {
-                    foreach (GameObject subtitleContainer in subtitlesContainers)
+                    subtitlesText.text = null;
+                }
+            }
+        }
+    }
+
+    void LoadSubtitlesFromCSV(string filePath)
+    {
+        TextAsset csvFile = Resources.Load<TextAsset>(filePath);
+
+        if (csvFile == null)
+        {
+            Debug.Log("CSV file not found at " + filePath);
+            return;
+        }
+
+        using (StringReader reader = new StringReader(csvFile.text))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] parts = line.Split(',');
+                if (parts.Length == 2)
+                {
+                    subtitleIdentifiers.Add(parts[0]);
+
+                    float duration;
+                    if (float.TryParse(parts[1], out duration))
                     {
-                        Text textComponent = subtitleContainer.GetComponent<Text>();
-                        RTLTextMeshPro tmpTextComponent = subtitleContainer.GetComponent<RTLTextMeshPro>();
-
-                        if (textComponent != null)
-                        {
-                            if (subtitleContainer.activeSelf)
-                            {
-                                textComponent.text = "";
-                                subtitleContainer.SetActive(false);
-                            }
-                        }
-
-                        if (tmpTextComponent != null)
-                        {
-                            if (subtitleContainer.activeSelf)
-                            {
-                                tmpTextComponent.text = "";
-                                subtitleContainer.SetActive(false);
-                            }
-                        }
+                        displayDurations.Add(duration);
                     }
+                    else
+                    {
+                        Debug.LogWarning("Invalid duration format in line: " + line);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Invalid CSV line format: " + line);
                 }
             }
         }
@@ -124,42 +108,7 @@ public class SubtitlesManager : MonoBehaviour
     {
         string translatedText = GetTranslatedText(subtitleIdentifiers[currentIndex]);
 
-        foreach (GameObject subtitleContainer in subtitlesContainers)
-        {
-            Text textComponent = subtitleContainer.GetComponent<Text>();
-            RTLTextMeshPro tmpTextComponent = subtitleContainer.GetComponent<RTLTextMeshPro>();
-
-            if (textComponent != null)
-            {
-                if (subtitleContainer.activeSelf)
-                {
-                    textComponent.text = translatedText;
-                }
-            }
-
-            if (tmpTextComponent != null)
-            {
-                if (subtitleContainer.activeSelf)
-                {
-                    tmpTextComponent.text = translatedText;
-
-                    if (I18n.GetLanguage() == "ar")
-                    {
-                        if (arabicFont != null)
-                        {
-                            tmpTextComponent.font = arabicFont;
-                        }
-                    }
-                    else
-                    {
-                        if (mainFont != null)
-                        {
-                            tmpTextComponent.font = mainFont;
-                        }
-                    }
-                }
-            }
-        }
+        subtitlesText.text = translatedText;
 
         displayStartTime = Time.timeSinceLevelLoad;
     }
