@@ -208,10 +208,10 @@ public class NightPlayer : MonoBehaviour
 	private LightsManager lightsManager;
 	private MonitorManager monitorManager;
 
-	public float AMTime = 0; //
+	public float AMTime = 0;
 	public int currentHour = 0;
-	private bool isHourComplete = false; // Indique si une heure a été complétée
-    private const float HourDuration = 70f; // Durée d'une heure en secondes
+	private bool isHourComplete = false;
+    private const float HourDuration = 70f;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -238,7 +238,7 @@ public class NightPlayer : MonoBehaviour
 		lightsManager = FindObjectOfType<LightsManager>();
 		monitorManager = FindObjectOfType<MonitorManager>();
 
-
+		// Assign current night at start
         currentNight = SaveManager.LoadNightNumber();
 
         if (isNight7)

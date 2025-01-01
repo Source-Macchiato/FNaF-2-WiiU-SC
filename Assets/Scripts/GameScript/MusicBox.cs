@@ -113,12 +113,18 @@ public class MusicBox : MonoBehaviour
         // Handle music box container visibility
         musicBoxContainer.SetActive(nightPlayer.currentCam == 11 && monitorManager.isMonitorActive);
 
+        // Functions
         WindUpMusicBox();
         UnwindMusicBox();
         UpdateProgressFill();
         HandleMuteWithMonitor();
         HandleWindUpSound();
-        WindUpButtonBackgroundAnimation();
+
+        // Change button background image based on windUpMusicBox
+        windUpButtonAnimator.SetBool("isWindingUp", windUpMusicBox);
+
+        // If the timer is empty set isWindUpEmpty on true, and set on false if not
+        isWindUpEmpty = currentUnwindTime <= 0;
     }
 
     private void WindUpMusicBox()
@@ -243,10 +249,5 @@ public class MusicBox : MonoBehaviour
     public void ChangeMusicBoxVolume(float volume)
     {
         musicBoxTheme.volume = volume;
-    }
-
-    private void WindUpButtonBackgroundAnimation()
-    {
-        windUpButtonAnimator.SetBool("isWindingUp", windUpMusicBox);
     }
 }
