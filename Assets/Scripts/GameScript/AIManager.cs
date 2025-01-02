@@ -24,7 +24,7 @@ public class AIManager : MonoBehaviour {
             { "ToyFreddyAI", 0 },
             { "ToyBonnieAI", 0 },
             { "ToyChicaAI", 0 },
-            { "WitheredFreddyAI", 0 },
+            { "WitheredFreddyAI", 20 },
             { "WitheredBonnieAI", 0 },
             { "WitheredChicaAI", 0 },
             { "WitheredFoxyAI", 0 },
@@ -54,7 +54,7 @@ public class AIManager : MonoBehaviour {
                     { "ToyFreddyAI", 2 },
                     { "ToyBonnieAI", 3 },
                     { "ToyChicaAI", 3 },
-                    { "MangleAI", 3 },
+                    { "MangleAI", 0 }, //3
                     { "BalloonBoyAI", 3 },
                     { "WitheredFoxyAI", 3 }
                 }}
@@ -80,14 +80,14 @@ public class AIManager : MonoBehaviour {
             // Night 4
             { 3, new Dictionary<int, Dictionary<string, int>>() {
                 { 12, new Dictionary<string, int>() {
-                    { "MangleAI", 5 },
+                    { "MangleAI", 0 }, //5
                     { "BalloonBoyAI", 3 },
                     { "WitheredBonnieAI", 1 },
                     { "WitheredFoxyAI", 7 }
                 }},
                 { 2, new Dictionary<string, int>() {
                     { "ToyBonnieAI", 1 },
-                    { "MangleAI", 5 },
+                    { "MangleAI", 0 }, //5
                     { "BalloonBoyAI", 3 },
                     { "WitheredFreddyAI", 3 },
                     { "WitheredBonnieAI", 4 },
@@ -101,7 +101,7 @@ public class AIManager : MonoBehaviour {
                     { "ToyFreddyAI", 5 },
                     { "ToyBonnieAI", 2 },
                     { "ToyChicaAI", 2 },
-                    { "MangleAI", 1 },
+                    { "MangleAI", 0 }, //1
                     { "BalloonBoyAI", 5 },
                     { "WitheredFreddyAI", 2 },
                     { "WitheredBonnieAI", 2 },
@@ -112,7 +112,7 @@ public class AIManager : MonoBehaviour {
                     { "ToyFreddyAI", 1 },
                     { "ToyBonnieAI", 2 },
                     { "ToyChicaAI", 2 },
-                    { "MangleAI", 10 },
+                    { "MangleAI", 0 }, //10
                     { "BalloonBoyAI", 5 },
                     { "WitheredFreddyAI", 5 },
                     { "WitheredBonnieAI", 5 },
@@ -123,7 +123,7 @@ public class AIManager : MonoBehaviour {
             // Night 6
             { 5, new Dictionary<int, Dictionary<string, int>>() {
                 { 12, new Dictionary<string, int>() {
-                    { "MangleAI", 3 },
+                    { "MangleAI", 0 },//3
                     { "BalloonBoyAI", 5 },
                     { "WitheredFreddyAI", 5 },
                     { "WitheredBonnieAI", 5 },
@@ -134,7 +134,7 @@ public class AIManager : MonoBehaviour {
                     { "ToyFreddyAI", 5 },
                     { "ToyBonnieAI", 5 },
                     { "ToyChicaAI", 5 },
-                    { "MangleAI", 10 },
+                    { "MangleAI", 0 }, //10
                     { "BalloonBoyAI", 9 },
                     { "WitheredFreddyAI", 10 },
                     { "WitheredBonnieAI", 10 },

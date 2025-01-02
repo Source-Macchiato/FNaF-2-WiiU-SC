@@ -873,7 +873,7 @@ public class NightPlayer : MonoBehaviour
 
         while (!activeBlackout)
         {
-            if (state == "MonitorDown")
+            if (!monitorManager.isMonitorActive)
             {
                 activeBlackout = true;
                 StartCoroutine(BlackoutCoroutine());
