@@ -8,6 +8,7 @@ public class MonitorManager : MonoBehaviour
     public GameObject rec;
     public GameObject monitorContainer;
     public GameObject roomName;
+    public GameObject TempBlack;
 
     public Animator monitorAnimator;
 
@@ -100,6 +101,7 @@ public class MonitorManager : MonoBehaviour
         {
             if (isMonitorActive)
             {
+                TempBlack.SetActive(false);
                 StartCoroutine(DisableMonitor());
 
                 nightPlayer.ActionsMonitorOff();
@@ -108,6 +110,7 @@ public class MonitorManager : MonoBehaviour
             {
                 if (!maskManager.isMaskActive)
                 {
+                    TempBlack.SetActive(true);
                     StartCoroutine(EnableMonitor());
 
                     nightPlayer.ActionsMonitorOn();

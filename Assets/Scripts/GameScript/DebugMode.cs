@@ -48,6 +48,7 @@ public class DebugMode : MonoBehaviour
     [Header("Performance Info")]
     public Text memoryUsageText;
     public Text activeGameObjectsText;
+    public Text BlackOut;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -158,6 +159,9 @@ public class DebugMode : MonoBehaviour
         //ActiveGameObject
         int activeObjects = FindObjectsOfType<GameObject>().Length;
         activeGameObjectsText.text = activeObjects.ToString();
+
+        //blackout
+        BlackOut.text = nightPlayer.currentBlackout.ToString();
 
 
     }
