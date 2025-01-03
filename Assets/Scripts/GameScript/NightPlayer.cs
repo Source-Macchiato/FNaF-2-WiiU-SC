@@ -757,67 +757,36 @@ public class NightPlayer : MonoBehaviour
 
 	void MovementOpportunityMain()
 	{
-		if (BlackoutActive)
-		{
-			ToyBonnieBlackoutTime += Time.deltaTime;
-			if (ToyBonnieBlackoutTime >= 1f)
-			{
-				ToyBonnieBlackoutTime = 0f;
-				if (Random.value < 0.33333333f)
-				{
-					ToyBonnieCamera = 9;
-					ToyBonnieMovement = 10f;
-				}
-			}
-		}
-		else
-		{
-			ToyBonnieBlackoutTime = 0f;
-		}
-		if (ToyBonnieAI >= 1)
-		{
-			ToyBonnieMovement -= Time.deltaTime;
-		}
-		if (ToyChicaAI >= 1)
-		{
-			ToyChicaMovement -= Time.deltaTime;
-		}
-		if (ToyFreddyAI >= 1)
-		{
-			ToyFreddyMovement -= Time.deltaTime;
-		}
-		if (MangleAI >= 1)
-		{
-			MangleMovement -= Time.deltaTime;
-		}
-		if (PaperpalsAI >= 1)
-		{
-			ToyFreddyMovement -= Time.deltaTime;
-		}
-		if (WitheredFreddyAI >= 1)
-		{
-			WitheredFreddyMovement -= Time.deltaTime;
-		}
-		if (WitheredBonnieAI >= 1)
-		{
-			WitheredBonnieMovement -= Time.deltaTime;
-		}
-		if (WitheredChicaAI >= 1)
-		{
-			WitheredChicaMovement -= Time.deltaTime;
-		}
-		if (WitheredFoxyAI >= 1)
-		{
-			WitheredFoxyMovement -= Time.deltaTime;
-		}
-		if (GoldenFreddyAI >= 1 && monitorManager.isMonitorActive)
-		{
-			GoldenFreddyCameraTime -= Time.deltaTime;
-		}
-		if (BalloonBoyAI >= 1)
-		{
-			BBMovement -= Time.deltaTime;
-		}
+	    if (BlackoutActive)
+	    {
+	        ToyBonnieBlackoutTime += Time.deltaTime;
+	        if (ToyBonnieBlackoutTime >= 1f)
+	        {
+	            ToyBonnieBlackoutTime = 0f;
+	            if (Random.value < 0.33333333f)
+	            {
+	                ToyBonnieCamera = 9;
+	                ToyBonnieMovement = 10f;
+	            }
+	        }
+	    }
+	    else
+	    {
+	        ToyBonnieBlackoutTime = 0f;
+	    }
+	
+	    // Reduce movement timers for active animatronics
+	    if (ToyBonnieAI >= 1) ToyBonnieMovement -= Time.deltaTime;
+	    if (ToyChicaAI >= 1) ToyChicaMovement -= Time.deltaTime;
+	    if (ToyFreddyAI >= 1) ToyFreddyMovement -= Time.deltaTime;
+	    if (MangleAI >= 1) MangleMovement -= Time.deltaTime;
+	    if (PaperpalsAI >= 1) ToyFreddyMovement -= Time.deltaTime; // Fix: PaperpalsAI should not affect ToyFreddyMovement
+	    if (WitheredFreddyAI >= 1) WitheredFreddyMovement -= Time.deltaTime;
+	    if (WitheredBonnieAI >= 1) WitheredBonnieMovement -= Time.deltaTime;
+	    if (WitheredChicaAI >= 1) WitheredChicaMovement -= Time.deltaTime;
+	    if (WitheredFoxyAI >= 1) WitheredFoxyMovement -= Time.deltaTime;
+	    if (GoldenFreddyAI >= 1 && monitorManager.isMonitorActive) GoldenFreddyCameraTime -= Time.deltaTime;
+	    if (BalloonBoyAI >= 1) BBMovement -= Time.deltaTime;
 	}
 
 	IEnumerator ToyBonnieFunction(bool isMO)
