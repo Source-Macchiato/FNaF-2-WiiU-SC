@@ -220,15 +220,6 @@ public class NightPlayer : MonoBehaviour
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
 
-	private int[,] startingDifficulties = {
-    {0, 0, 0, 0}, // Night 1 - Freddy, Bonnie, Chica, Foxy
-    {0, 3, 1, 1}, // Night 2
-    {1, 0, 5, 2}, // Night 3
-    {1, 2, 4, 6}, // Night 4
-    {3, 5, 7, 5}, // Night 5
-    {4, 10, 12, 16} // Night 6
-};
-
     void Start()
 	{
         // Access the WiiU GamePad and Remote
@@ -904,17 +895,15 @@ public class NightPlayer : MonoBehaviour
         {
             if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
             {
-                //StartCoroutine(MonitorDownIE());
                 yield return new WaitForSeconds(0.183f);
                 JumpscareAnimator.Play(Animatronic);
-				Debug.Log("Animatronic played :"+Animatronic);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
             else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
             {
+
                 JumpscareAnimator.Play(Animatronic);
-				Debug.Log("Animatronic played :"+Animatronic);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
@@ -922,14 +911,12 @@ public class NightPlayer : MonoBehaviour
             {
 				Mask();
                 JumpscareAnimator.Play(Animatronic);
-				Debug.Log("Animatronic played :"+Animatronic);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
 			else
 			{
 				JumpscareAnimator.Play(Animatronic);
-				Debug.Log("Animatronic played :"+Animatronic);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
 				Debug.Log(state);

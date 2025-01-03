@@ -113,13 +113,13 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
---- !u!1102 &1102365777379445830
+--- !u!1102 &1102380797246926158
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: WhiteredFreddy
+  m_Name: WitheredFreddy
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -292,9 +292,6 @@ AnimatorStateMachine:
     m_State: {fileID: 1102827537802400280}
     m_Position: {x: 312, y: 192, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102365777379445830}
-    m_Position: {x: 340, y: 260, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 1102171432451403886}
     m_Position: {x: 375, y: 325, z: 0}
   - serializedVersion: 1
@@ -315,6 +312,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 1102904808423969384}
     m_Position: {x: 585, y: 715, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102380797246926158}
+    m_Position: {x: 348, y: 264, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
