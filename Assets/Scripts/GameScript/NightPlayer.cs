@@ -21,6 +21,7 @@ public class NightPlayer : MonoBehaviour
 	public AudioSource ErrorSound;
 	public AudioSource VentCrawl;
 	public AudioSource Mangle;
+	public AudioSource StareSound;
 
 	[Header("Info")]
 	public int[] NewandShinyAI;
@@ -846,19 +847,22 @@ public class NightPlayer : MonoBehaviour
 		            case "ToyFreddy":
 		                ToyFreddyOffice.SetActive(true);
 						BlackOutAnim.Play("BlackOut");
-
+						StareSound.Play();
 		                break;
 		            case "WitheredFreddy":
 		                WitheredFreddyOffice.SetActive(true);
 						BlackOutAnim.Play("BlackOut");
+						StareSound.Play();
 		                break;
 		            case "WitheredChica":
 		                WitheredChicaOffice.SetActive(true);
 						BlackOutAnim.Play("BlackOut");
+						StareSound.Play();
 		                break;
 		            case "WitheredBonnie":
 		                WitheredBonnieOffice.SetActive(true);
 						BlackOutAnim.Play("BlackOut");
+						StareSound.Play();
 		                break;
 		        }
 		    }
@@ -1750,6 +1754,9 @@ public class NightPlayer : MonoBehaviour
 				if (BlackoutActive)
 				{
 					ToyBonnieBlackout.gameObject.SetActive(true);
+					BlackOutAnim.Play("BlackOut");
+					StareSound.Play();
+					StartCoroutine(PlayStareSound());
 				}
 				// Target position in local space
        			Vector3 targetPosition = Vector3.zero;
@@ -1788,7 +1795,7 @@ public class NightPlayer : MonoBehaviour
         color.a = 1f;
         Blackout.color = color;
 		ToyBonnieBlackout.gameObject.SetActive(false);
-		ToyChicaBlackout.gameObject.SetActive(false);
+		//ToyChicaBlackout.gameObject.SetActive(false);
 		BlackoutActive = false;
 
         // Slowly fade out in 3 seconds
@@ -2222,4 +2229,13 @@ public class NightPlayer : MonoBehaviour
             BatteryImage.sprite = Battery4Bars;
         }
     }
+	private IEnumerator PlayStareSound()
+	{
+		StareSound.Play();
+        yield return new WaitForSeconds(6);
+        if (StareSound.isPlaying)
+        {
+            StareSound.Stop();
+        }
+	}
 }
