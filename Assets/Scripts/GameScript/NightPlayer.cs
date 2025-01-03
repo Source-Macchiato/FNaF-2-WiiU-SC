@@ -855,6 +855,7 @@ public class NightPlayer : MonoBehaviour
 		            case "ToyFreddy":
 		                ToyFreddyOffice.SetActive(true);
 						BlackOutAnim.Play("BlackOut");
+
 		                break;
 		            case "WitheredFreddy":
 		                WitheredFreddyOffice.SetActive(true);
@@ -906,12 +907,14 @@ public class NightPlayer : MonoBehaviour
                 //StartCoroutine(MonitorDownIE());
                 yield return new WaitForSeconds(0.183f);
                 JumpscareAnimator.Play(Animatronic);
+				Debug.Log("Animatronic played :"+Animatronic);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
             else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
             {
                 JumpscareAnimator.Play(Animatronic);
+				Debug.Log("Animatronic played :"+Animatronic);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
@@ -919,12 +922,14 @@ public class NightPlayer : MonoBehaviour
             {
 				Mask();
                 JumpscareAnimator.Play(Animatronic);
+				Debug.Log("Animatronic played :"+Animatronic);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
 			else
 			{
 				JumpscareAnimator.Play(Animatronic);
+				Debug.Log("Animatronic played :"+Animatronic);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
 				Debug.Log(state);
