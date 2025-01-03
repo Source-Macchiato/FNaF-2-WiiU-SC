@@ -22,6 +22,7 @@ public class NightPlayer : MonoBehaviour
 	public AudioSource VentCrawl;
 	public AudioSource Mangle;
 	public AudioSource StareSound;
+	public AudioSource With2;
 
 	[Header("Info")]
 	public int[] NewandShinyAI;
@@ -367,6 +368,11 @@ public class NightPlayer : MonoBehaviour
 		else {
 			Screen.Play("Background");
 		}
+		//with 2 stop
+		if (With2.isPlaying && ToyBonnieCamera != 2 && ToyBonnieCamera != 6 && ToyBonnieCamera != 13)
+		{
+		    With2.Stop();
+		}
     }
 
 	IEnumerator GoldenFreddyFunction()
@@ -431,6 +437,7 @@ public class NightPlayer : MonoBehaviour
 				break;
 				case 4:
 				ToyBonnieCamera = 2;
+				With2.Play();
 				StartCoroutine(DisruptCamera(4));
 				StartCoroutine(DisruptCamera(2));
 				break;
@@ -442,6 +449,7 @@ public class NightPlayer : MonoBehaviour
 				break;
 				case 6:
 				ToyBonnieCamera = 13;
+				VentCrawl.Play();
 				StartCoroutine(DisruptCamera(6));
 				break;
 				case 13:
