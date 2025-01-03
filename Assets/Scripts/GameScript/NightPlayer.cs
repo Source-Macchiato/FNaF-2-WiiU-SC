@@ -9,6 +9,7 @@ using TMPro;
 public class NightPlayer : MonoBehaviour
 {
 	public AIManager aiManager;
+	public StateManager stateManager;
 	[Header("Audio")]
 	public AudioSource Jumpscare;
 	public AudioSource phoneCall;
@@ -871,32 +872,32 @@ public class NightPlayer : MonoBehaviour
         float timeForMask = 0f;
         float timeElapsed = 0f;
 
-        while (!activeBlackout)
-        {
-            if (!monitorManager.isMonitorActive)
-            {
-                activeBlackout = true;
-                StartCoroutine(BlackoutCoroutine());
-                if (Animatronic == "ToyFreddy")
-				{
-					ToyFreddyOffice.SetActive(true);
-				}
-				else if (Animatronic == "WitheredFreddy")
-				{
-					WitheredFreddyOffice.SetActive(true);
-				}
-				else if (Animatronic == "WitheredChica")
-				{
-					WitheredChicaOffice.SetActive(true);
-				}
-				else if (Animatronic == "WitheredBonnie")
-				{
-					WitheredBonnieOffice.SetActive(true);
-				}
-            }
 
-            yield return null; // Wait for the next frame before checking again
-        }
+		while (!activeBlackout)
+		{
+		    if (stateManager.PlayerState == 2)
+		    {
+		        activeBlackout = true;
+		        StartCoroutine(BlackoutCoroutine());
+		        switch (Animatronic)
+		        {
+		            case "ToyFreddy":
+		                ToyFreddyOffice.SetActive(true);
+		                break;
+		            case "WitheredFreddy":
+		                WitheredFreddyOffice.SetActive(true);
+		                break;
+		            case "WitheredChica":
+		                WitheredChicaOffice.SetActive(true);
+		                break;
+		            case "WitheredBonnie":
+		                WitheredBonnieOffice.SetActive(true);
+		                break;
+		        }
+		    }
+		
+		    yield return null; // Wait for the next frame before checking again
+		}
 
         while (timeElapsed < 4f)
         {
