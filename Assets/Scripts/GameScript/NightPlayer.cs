@@ -436,6 +436,7 @@ public class NightPlayer : MonoBehaviour
 				break;
 				case 2:
 				ToyBonnieCamera = 6;
+				VentCrawl.Play();
 				StartCoroutine(DisruptCamera(2));
 				StartCoroutine(DisruptCamera(6));
 				break;
