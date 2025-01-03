@@ -883,19 +883,23 @@ public class NightPlayer : MonoBehaviour
 		        {
 		            case "ToyFreddy":
 		                ToyFreddyOffice.SetActive(true);
+						StartCoroutine(BlackoutCoroutine());
 		                break;
 		            case "WitheredFreddy":
 		                WitheredFreddyOffice.SetActive(true);
+						StartCoroutine(BlackoutCoroutine());
 		                break;
 		            case "WitheredChica":
 		                WitheredChicaOffice.SetActive(true);
+						StartCoroutine(BlackoutCoroutine());
 		                break;
 		            case "WitheredBonnie":
 		                WitheredBonnieOffice.SetActive(true);
+						StartCoroutine(BlackoutCoroutine());
 		                break;
 		        }
 		    }
-		
+
 		    yield return null; // Wait for the next frame before checking again
 		}
 

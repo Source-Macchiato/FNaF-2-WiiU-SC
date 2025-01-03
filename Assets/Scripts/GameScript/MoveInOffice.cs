@@ -17,6 +17,7 @@ public class MoveInOffice : MonoBehaviour
     public float leftEdge = 320f;
     public float rightEdge = -320f;
     private float stickDeadzone = 0.19f;
+    public bool AllowMouseMove = true;
 
     void Start()
 	{
@@ -143,11 +144,11 @@ public class MoveInOffice : MonoBehaviour
         // Keyboard
         if (Application.isEditor)
         {
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.mousePosition.x < 300f)
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.mousePosition.x < 300f && AllowMouseMove)
             {
                 MoveLeft();
             }
-            else if (Input.GetKey(KeyCode.RightArrow) || Input.mousePosition.x > WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV) - 300f)
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.mousePosition.x > WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV) - 300f && AllowMouseMove)
             {
                 MoveRight();
             }
