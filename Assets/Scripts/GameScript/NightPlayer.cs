@@ -280,7 +280,7 @@ public class NightPlayer : MonoBehaviour
 
 	private bool IsAIMatching(int[] challengeAI)
 	{
-    if (challengeAI.Length != currentAI.Length)
+    if (challengeAI.Length != currentAI.Length) 
     {
         return false;
     }
