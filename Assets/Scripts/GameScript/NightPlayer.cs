@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using WiiU = UnityEngine.WiiU;
 using TMPro;
 
+
 public class NightPlayer : MonoBehaviour
 {
 	public AIManager aiManager;
@@ -173,6 +174,7 @@ public class NightPlayer : MonoBehaviour
 	public GameObject WitheredChicaOffice;
 	public GameObject WitheredBonnieOffice;
 	public Image Blackout;
+	public Animator BlackOutAnim;
 	public Image ToyBonnieBlackout;
 	public Image ToyChicaBlackout;
 	public GameObject ToyFreddyOffice;
@@ -774,13 +776,13 @@ public class NightPlayer : MonoBehaviour
 	    {
 	        ToyBonnieBlackoutTime = 0f;
 	    }
-	
+
 	    // Reduce movement timers for active animatronics
 	    if (ToyBonnieAI >= 1) ToyBonnieMovement -= Time.deltaTime;
 	    if (ToyChicaAI >= 1) ToyChicaMovement -= Time.deltaTime;
 	    if (ToyFreddyAI >= 1) ToyFreddyMovement -= Time.deltaTime;
 	    if (MangleAI >= 1) MangleMovement -= Time.deltaTime;
-	    if (PaperpalsAI >= 1) ToyFreddyMovement -= Time.deltaTime; // Fix: PaperpalsAI should not affect ToyFreddyMovement
+	    if (PaperpalsAI >= 1) ToyFreddyMovement -= Time.deltaTime; // PaperpalsAI should not affect ToyFreddyMovement ?????? - shiro
 	    if (WitheredFreddyAI >= 1) WitheredFreddyMovement -= Time.deltaTime;
 	    if (WitheredBonnieAI >= 1) WitheredBonnieMovement -= Time.deltaTime;
 	    if (WitheredChicaAI >= 1) WitheredChicaMovement -= Time.deltaTime;
@@ -852,19 +854,19 @@ public class NightPlayer : MonoBehaviour
 		        {
 		            case "ToyFreddy":
 		                ToyFreddyOffice.SetActive(true);
-						StartCoroutine(BlackoutCoroutine());
+						BlackOutAnim.Play("BlackOut");
 		                break;
 		            case "WitheredFreddy":
 		                WitheredFreddyOffice.SetActive(true);
-						StartCoroutine(BlackoutCoroutine());
+						BlackOutAnim.Play("BlackOut");
 		                break;
 		            case "WitheredChica":
 		                WitheredChicaOffice.SetActive(true);
-						StartCoroutine(BlackoutCoroutine());
+						BlackOutAnim.Play("BlackOut");
 		                break;
 		            case "WitheredBonnie":
 		                WitheredBonnieOffice.SetActive(true);
-						StartCoroutine(BlackoutCoroutine());
+						BlackOutAnim.Play("BlackOut");
 		                break;
 		        }
 		    }
@@ -1698,6 +1700,7 @@ public class NightPlayer : MonoBehaviour
 
 	private IEnumerator BlackoutCoroutine()
     {
+		Debug.Log("BlackOutCoroutine 1 called");
 		BlackoutActive = true;
         float duration = 4f;
         float elapsed = 0f;
@@ -1735,6 +1738,7 @@ public class NightPlayer : MonoBehaviour
 
 	private IEnumerator BlackoutCoroutine(string Animatronic)
     {
+		Debug.Log("BlackOutCoroutine 2 called");
 		BlackoutActive = true;
 		currentBlackout = Animatronic;
         float duration = 4f;
