@@ -22,7 +22,7 @@ public class AIManager : MonoBehaviour {
         // Initialize AI levels
         aiLevels = new Dictionary<string, int>() {
             { "ToyFreddyAI", 0 },
-            { "ToyBonnieAI", 20 },
+            { "ToyBonnieAI", 0 },
             { "ToyChicaAI", 0 },
             { "WitheredFreddyAI", 0 },
             { "WitheredBonnieAI", 0 },
