@@ -1063,7 +1063,7 @@ public class NightPlayer : MonoBehaviour
 			{
 				//StartCoroutine(MonitorDownIE());
 				yield return new WaitForSeconds(0.183f);
-				JumpscareAnimator.Play("Puppet");
+				JumpscareAnimator.Play("Puppet"); 
 				Jumpscare.Play();
 			}
 			else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
