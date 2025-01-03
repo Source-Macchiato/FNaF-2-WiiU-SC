@@ -1924,12 +1924,14 @@ public class NightPlayer : MonoBehaviour
             else
             {
                 // This part was for remove the monitor if jumpscared, now useless
+
+				//dude just delete it if it's useless 😭
             }
         }
 	}
 	// ---
 
-    void FlashCam(int camNumber)
+    void FlashCam(int camNumber) //this code is terrible
 	{
 		if (ToyBonnieCamera == camNumber)
 		{
@@ -2229,7 +2231,7 @@ public class NightPlayer : MonoBehaviour
 		RWQCrashTimer = 4f;
 	}
 
-	void UpdateBatteryUI() // The UI doesn't works like that, to fix
+	void UpdateBatteryUI() // The UI doesn't works like that, to fix --	 so, alyx, does this has been fixed ? (shiro)
     {
         float threshold = lightsManager.flashlightDuration / 5;
         
