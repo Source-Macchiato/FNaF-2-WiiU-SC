@@ -61,7 +61,8 @@ public class MenuManager : MonoBehaviour
     [HideInInspector]
     public bool canNavigate = true;
 
-    private int currentMenuId = 0;
+    [HideInInspector]
+    public int currentMenuId = 0;
 
     // Instantiate selection cursor
     [HideInInspector]

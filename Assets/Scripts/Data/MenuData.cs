@@ -13,10 +13,12 @@ public class MenuData : MonoBehaviour
     public RTLTextMeshPro nightNumberText;
     public GameObject nightNumberContainer;
     public GameObject continueButtonGameObject;
+    public GameObject starsContainer;
 
     // Scripts
     SaveGameState saveGameState;
     SaveManager saveManager;
+    MenuManager menuManager;
 
     // Advertisement
     public GameObject advertisementImage;
@@ -30,6 +32,7 @@ public class MenuData : MonoBehaviour
         // Get scripts
         saveGameState = FindObjectOfType<SaveGameState>();
         saveManager = FindObjectOfType<SaveManager>();
+        menuManager = FindObjectOfType<MenuManager>();
 
         // Load
         nightNumber = SaveManager.LoadNightNumber();
@@ -67,6 +70,9 @@ public class MenuData : MonoBehaviour
 
         // Display night text only when continue button is selected
         nightNumberContainer.SetActive(EventSystem.current.currentSelectedGameObject == continueButtonGameObject);
+
+        // Display stars only if current menu is 0
+        starsContainer.SetActive(menuManager.currentMenuId == 0);
     }
 
     public void LoadAdvertisement()
