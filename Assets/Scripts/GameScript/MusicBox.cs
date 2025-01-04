@@ -115,8 +115,7 @@ public class MusicBox : MonoBehaviour
         musicBoxContainer.SetActive(nightPlayer.currentCam == 11 && monitorManager.isMonitorActive);
 
         // Functions
-        WindUpMusicBox();
-        UnwindMusicBox();
+        MusicBoxSystem();
         UpdateProgressFill();
         HandleMuteWithMonitor();
         HandleWindUpSound();
@@ -128,9 +127,9 @@ public class MusicBox : MonoBehaviour
         isWindUpEmpty = currentUnwindTime <= 0;
     }
 
-    private void WindUpMusicBox()
+    private void MusicBoxSystem()
     {
-        if (windUpMusicBox)
+        if (windUpMusicBox && nightPlayer.currentCam == 11 && monitorManager.isMonitorActive)
         {
             // Calculating the wind up speed based on the total duration of the music box
             float rechargeRate = unwindTime / windUpTime;
@@ -141,11 +140,7 @@ public class MusicBox : MonoBehaviour
             // Clamp to avoid exceeding the limits
             currentUnwindTime = Mathf.Clamp(currentUnwindTime, 0f, unwindTime);
         }
-    }
-
-    private void UnwindMusicBox()
-    {
-        if (!windUpMusicBox)
+        else
         {
             // At night 1 if the time is not 2am or more the music box will not unwind
             if (nightNumber != 0 && nightPlayer.currentTime < 2)
@@ -240,13 +235,13 @@ public class MusicBox : MonoBehaviour
     {
         isWindUpSoundPlaying = true;
 
-        // Jouer le son entièrement
+        // Play the sound in full
         windUpSound.Play();
 
-        // Attendre que le son soit terminé
+        // Wait for the sound to finish
         yield return new WaitForSeconds(windUpSound.clip.length);
 
-        // Ajouter un délai avant de permettre un nouveau déclenchement
+        // Add a delay before allowing a new trigger
         yield return new WaitForSeconds(0.15f);
 
         isWindUpSoundPlaying = false;
