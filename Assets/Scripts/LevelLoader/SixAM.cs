@@ -26,16 +26,13 @@ public class SixAM : MonoBehaviour
 		// Get current night number
 		nightNumber = SaveManager.LoadNightNumber();
 
-		// Increase night number value and save it
-		if (nightNumber >= 0 && nightNumber <= 3) // Between night 1 and night 4
-		{
-			nightNumber++;
+		// Increase night number and save it
+        nightNumber++;
 
-			saveManager.SaveNightNumber(nightNumber);
-			bool saveResult = saveGameState.DoSave();
-		}
+        saveManager.SaveNightNumber(nightNumber);
+        bool saveResult = saveGameState.DoSave();
 
-		StartCoroutine(LoadNextScene());
+        StartCoroutine(LoadNextScene());
 	}
 
 	private IEnumerator LoadNextScene()
