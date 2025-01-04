@@ -43,6 +43,8 @@ public class MenuManager : MonoBehaviour
     public bool wiimoteAndNunchuk;
 
     // Parent transform where menu buttons will be placed
+    public GameObject cursorContainer;
+    public GameObject popupContainer;
     public GameObject[] menus;
     public Button[] defaultButtons;
 
@@ -90,10 +92,7 @@ public class MenuManager : MonoBehaviour
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
 
-        // Generate cursor
-        GameObject canvaUI = GameObject.Find("CanvaUI");
-        GameObject cursorContainer = canvaUI.transform.Find("CursorContainer").gameObject;
-
+        // Generate cursors
         currentSelection = Instantiate(selectionPrefab, cursorContainer.transform);
         currentPopupSelection = Instantiate(selectionPopupPrefab, cursorContainer.transform);
 
@@ -1029,7 +1028,6 @@ public class MenuManager : MonoBehaviour
             currentPopup.popupObject.SetActive(true);
 
             // Set the position and parent
-            GameObject popupContainer = GameObject.Find("PopupContainer");
             currentPopup.popupObject.transform.SetParent(popupContainer.transform, false);
 
             if (currentPopup.actionType == 1)
