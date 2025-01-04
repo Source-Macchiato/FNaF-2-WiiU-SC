@@ -13,8 +13,9 @@ public class MusicBox : MonoBehaviour
 
     public bool isWindUpEmpty = false;
 
-	private float unwindTime;
-    private float currentUnwindTime;
+    private float windUpTime = 5.5f;
+	public float unwindTime;
+    public float currentUnwindTime;
     private bool windUpMusicBox = false;
     private bool isWindUpSoundPlaying = false;
 
@@ -131,8 +132,13 @@ public class MusicBox : MonoBehaviour
     {
         if (windUpMusicBox)
         {
-            // Increase timer value
-            currentUnwindTime += Time.deltaTime * 3f;
+            // Calculating the wind up speed based on the total duration of the music box
+            float rechargeRate = unwindTime / windUpTime;
+
+            // Increased remaining time with recharge rate
+            currentUnwindTime += Time.deltaTime * rechargeRate;
+
+            // Clamp to avoid exceeding the limits
             currentUnwindTime = Mathf.Clamp(currentUnwindTime, 0f, unwindTime);
         }
     }
