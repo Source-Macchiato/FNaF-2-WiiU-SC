@@ -2504,14 +2504,13 @@ GameObject:
   - component: {fileID: 306605196}
   - component: {fileID: 306605198}
   - component: {fileID: 306605197}
-  - component: {fileID: 306605199}
   m_Layer: 5
-  m_Name: TEMP black
+  m_Name: BlackBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &306605196
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2563,23 +2562,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 306605195}
---- !u!95 &306605199
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 306605195}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 26e1db77c5f09f245b2ec1db8e3e8593, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &315229753
 GameObject:
   m_ObjectHideFlags: 0
@@ -7192,7 +7174,7 @@ MonoBehaviour:
   rec: {fileID: 324372358}
   monitorContainer: {fileID: 980370711}
   roomName: {fileID: 1757716893}
-  TempBlack: {fileID: 306605195}
+  blackBackground: {fileID: 306605195}
   monitorAnimator: {fileID: 1193675043}
   monitorOnAudio: {fileID: 1467827104}
   monitorOffAudio: {fileID: 1723988793}

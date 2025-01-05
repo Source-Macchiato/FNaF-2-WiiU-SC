@@ -8,7 +8,7 @@ public class MonitorManager : MonoBehaviour
     public GameObject rec;
     public GameObject monitorContainer;
     public GameObject roomName;
-    public GameObject TempBlack;
+    public GameObject blackBackground;
 
     public Animator monitorAnimator;
 
@@ -17,6 +17,8 @@ public class MonitorManager : MonoBehaviour
 
     public bool isMonitorActive = false;
     public bool isToggling = false;
+
+    private int layoutId;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -38,11 +40,14 @@ public class MonitorManager : MonoBehaviour
         maskManager = FindObjectOfType<MaskManager>();
         moveInOffice = FindObjectOfType<MoveInOffice>();
 
+        layoutId = SaveManager.LoadLayoutId();
+
         // Elements to disable when the game starts
         minimap.SetActive(false);
         rec.SetActive(false);
         monitorContainer.SetActive(false);
         roomName.SetActive(false);
+        blackBackground.SetActive(false);
     }
 	
 	void Update()
@@ -101,7 +106,6 @@ public class MonitorManager : MonoBehaviour
         {
             if (isMonitorActive)
             {
-                TempBlack.SetActive(false);
                 StartCoroutine(DisableMonitor());
 
                 nightPlayer.ActionsMonitorOff();
@@ -110,7 +114,6 @@ public class MonitorManager : MonoBehaviour
             {
                 if (!maskManager.isMaskActive)
                 {
-                    TempBlack.SetActive(true);
                     StartCoroutine(EnableMonitor());
 
                     nightPlayer.ActionsMonitorOn();
@@ -137,6 +140,10 @@ public class MonitorManager : MonoBehaviour
         rec.SetActive(true);
         nightPlayer.JJ.SetActive(false);
         roomName.SetActive(true);
+        if (layoutId != 2)
+        {
+            blackBackground.SetActive(true);
+        }
 
         isToggling = false;
     }
@@ -151,6 +158,7 @@ public class MonitorManager : MonoBehaviour
         rec.SetActive(false);
         monitorContainer.SetActive(false);
         roomName.SetActive(false);
+        blackBackground.SetActive(false);
 
         monitorAnimator.Play("Off");
 

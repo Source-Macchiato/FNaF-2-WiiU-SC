@@ -387,14 +387,12 @@ public class NightPlayer : MonoBehaviour
 				//StartCoroutine(MonitorDownIE());
 				yield return new WaitForSeconds(0.183f);
 				JumpscareAnimator.Play("GoldenFreddy");
-				monitorManager.TempBlack.SetActive(false);
 				Jumpscare.Play();
 				StartCoroutine(JumpscareSequence());
 			}
 			else if (!monitorManager.isMonitorActive && !maskManager.isActiveAndEnabled || state == "OfficeBlackout")
 			{
 				JumpscareAnimator.Play("GoldenFreddy");
-				monitorManager.TempBlack.SetActive(false);
 				Jumpscare.Play();
 				StartCoroutine(JumpscareSequence());
 			}
@@ -809,7 +807,6 @@ public class NightPlayer : MonoBehaviour
 			{
 				yield return new WaitForSeconds(0.183f);
 				JumpscareAnimator.Play("ToyBonnie");
-				monitorManager.TempBlack.SetActive(false);
 				Jumpscare.Play();
 				StartCoroutine(JumpscareSequence());
 			}
@@ -831,7 +828,6 @@ public class NightPlayer : MonoBehaviour
 			{
 				yield return new WaitForSeconds(0.183f);
 				JumpscareAnimator.Play("ToyChica");
-				monitorManager.TempBlack.SetActive(false);
 				Jumpscare.Play();
 				StartCoroutine(JumpscareSequence());
 			}
@@ -918,7 +914,6 @@ public class NightPlayer : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.183f);
                 JumpscareAnimator.Play(Animatronic);
-				monitorManager.TempBlack.SetActive(false);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
@@ -926,7 +921,6 @@ public class NightPlayer : MonoBehaviour
             {
 
                 JumpscareAnimator.Play(Animatronic);
-				monitorManager.TempBlack.SetActive(false);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
@@ -934,14 +928,12 @@ public class NightPlayer : MonoBehaviour
             {
 				Mask();
                 JumpscareAnimator.Play(Animatronic);
-				monitorManager.TempBlack.SetActive(false);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
 			else
 			{
 				JumpscareAnimator.Play(Animatronic);
-				monitorManager.TempBlack.SetActive(false);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
 				Debug.Log(state);
@@ -1075,20 +1067,17 @@ public class NightPlayer : MonoBehaviour
 			{
 				//StartCoroutine(MonitorDownIE());
 				yield return new WaitForSeconds(0.183f);
-				JumpscareAnimator.Play("Puppet"); 
-				monitorManager.TempBlack.SetActive(false);
+				JumpscareAnimator.Play("Puppet");
 				Jumpscare.Play();
 			}
 			else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
 			{
 				JumpscareAnimator.Play("Puppet");
-				monitorManager.TempBlack.SetActive(false);
 				Jumpscare.Play();
 			}
 			else if (maskManager.isMaskActive)
 			{
 				JumpscareAnimator.Play("Puppet");
-				monitorManager.TempBlack.SetActive(false);
 				Jumpscare.Play();
 			}
 
@@ -1919,14 +1908,12 @@ public class NightPlayer : MonoBehaviour
             if (ToyBonniePrepared)
             {
                 JumpscareAnimator.Play("ToyBonnie");
-				monitorManager.TempBlack.SetActive(false);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
             else if (ToyChicaPrepared)
             {
                 JumpscareAnimator.Play("ToyChica");
-				monitorManager.TempBlack.SetActive(false);
                 Jumpscare.Play();
                 StartCoroutine(JumpscareSequence());
             }
@@ -2160,7 +2147,6 @@ public class NightPlayer : MonoBehaviour
 		if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
         {
             JumpscareAnimator.Play("Mangle");
-			monitorManager.TempBlack.SetActive(false);
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
 			MangleOffice.SetActive(false);
@@ -2168,7 +2154,6 @@ public class NightPlayer : MonoBehaviour
         else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
         {
             JumpscareAnimator.Play("Mangle");
-			monitorManager.TempBlack.SetActive(false);
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
         }
@@ -2176,7 +2161,6 @@ public class NightPlayer : MonoBehaviour
         {
 			Mask();
             JumpscareAnimator.Play("Mangle");
-			monitorManager.TempBlack.SetActive(false);
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
 			MangleOffice.SetActive(false);
@@ -2184,7 +2168,6 @@ public class NightPlayer : MonoBehaviour
 		else
 		{
 			JumpscareAnimator.Play("Mangle");
-			monitorManager.TempBlack.SetActive(false);
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
 			Debug.Log(state);
@@ -2197,14 +2180,12 @@ public class NightPlayer : MonoBehaviour
 		if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
         {
             JumpscareAnimator.Play("WitheredFoxy");
-			monitorManager.TempBlack.SetActive(false);
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
         }
         else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
         {
             JumpscareAnimator.Play("WitheredFoxy");
-			monitorManager.TempBlack.SetActive(false);
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
         }
@@ -2212,14 +2193,12 @@ public class NightPlayer : MonoBehaviour
         {
 			Mask();
             JumpscareAnimator.Play("WitheredFoxy");
-			monitorManager.TempBlack.SetActive(false);
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
         }
 		else
 		{
 			JumpscareAnimator.Play("WitheredFoxy");
-			monitorManager.TempBlack.SetActive(false);
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
 			Debug.Log(state);
