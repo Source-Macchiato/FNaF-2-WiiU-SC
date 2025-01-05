@@ -251,4 +251,15 @@ public class MusicBox : MonoBehaviour
     {
         musicBoxTheme.volume = volume;
     }
+
+    public void OnWindUpButtonPressed()
+    {
+        windUpMusicBox = true;
+    }
+
+    public void OnWindUpButtonReleased()
+    {
+        windUpMusicBox = false;
+    }
+
 }

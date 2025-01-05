@@ -53,21 +53,7 @@ public class GamepadClickAdapter : MonoBehaviour
                 PointerEventData mousePointerData = new PointerEventData(EventSystem.current);
                 mousePointerData.position = adaptedMousePos;
 
-                // Create a list for Raycast results
-                List<RaycastResult> mouseRaycastResults = new List<RaycastResult>();
-
-                // Create Raycast UI
-                EventSystem.current.RaycastAll(mousePointerData, mouseRaycastResults);
-
-                // If an element is detected
-                if (mouseRaycastResults.Count > 0)
-                {
-                    if (mouseRaycastResults[0].gameObject != EventSystem.current.currentSelectedGameObject)
-                    {
-                        // Simulate a click on the UI element
-                        ExecuteEvents.Execute(mouseRaycastResults[0].gameObject, mousePointerData, ExecuteEvents.pointerClickHandler);
-                    }
-                }
+                ClickSystem(mousePointerData);
             }
         }
         else
@@ -95,22 +81,30 @@ public class GamepadClickAdapter : MonoBehaviour
                 PointerEventData pointerData = new PointerEventData(EventSystem.current);
                 pointerData.position = adaptedTouchPos;
 
-                // Create a list for Raycast results
-                List<RaycastResult> raycastResults = new List<RaycastResult>();
+                ClickSystem(pointerData);
+            }
+        }
+    }
 
-                // Create Raycast UI
-                EventSystem.current.RaycastAll(pointerData, raycastResults);
+    void ClickSystem(PointerEventData pointerData)
+    {
+        // Create a list for Raycast results
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
 
-                // If an element is detected
-                if (raycastResults.Count > 0)
+        // Create Raycast UI
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+        // If an element is detected
+        if (raycastResults.Count > 0)
+        {
+            foreach (RaycastResult result in raycastResults)
+            {
+                Debug.Log("UI Element clicked: " + result.gameObject.name);
+
+                if (result.gameObject != EventSystem.current.currentSelectedGameObject)
                 {
-                    Debug.Log("UI Element clicked: " + raycastResults[0].gameObject.name);
-
-                    if (raycastResults[0].gameObject != EventSystem.current.currentSelectedGameObject)
-                    {
-                        // Simulate a click on the UI element
-                        ExecuteEvents.Execute(raycastResults[0].gameObject, pointerData, ExecuteEvents.pointerClickHandler);
-                    }  
+                    // Simulate a click on the UI element
+                    ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerClickHandler);
                 }
             }
         }
