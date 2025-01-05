@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 using WiiU = UnityEngine.WiiU;
 using TMPro;
 
-
 public class NightPlayer : MonoBehaviour
 {
 	public AIManager aiManager;
@@ -212,6 +211,7 @@ public class NightPlayer : MonoBehaviour
 	private MaskManager maskManager;
 	private LightsManager lightsManager;
 	private MonitorManager monitorManager;
+	private ControllersRumble controllersRumble;
 
 	public float AMTime = 0;
 	public int currentHour = 0;
@@ -233,6 +233,7 @@ public class NightPlayer : MonoBehaviour
 		maskManager = FindObjectOfType<MaskManager>();
 		lightsManager = FindObjectOfType<LightsManager>();
 		monitorManager = FindObjectOfType<MonitorManager>();
+		controllersRumble = FindObjectOfType<ControllersRumble>();
 
 		// Assign current night at start
         currentNight = SaveManager.LoadNightNumber();
@@ -330,6 +331,8 @@ public class NightPlayer : MonoBehaviour
 		Debug.Log("Death!! State: "+ state);
 
 		isJumpscared = true;
+
+		controllersRumble.TriggerRumble(0.45f);
 
 		yield return new WaitForSeconds(0.45f);
 

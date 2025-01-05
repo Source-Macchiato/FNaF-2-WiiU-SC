@@ -39,13 +39,14 @@ public class ControllersRumble : MonoBehaviour
         remote.PlayRumblePattern(pattern, pattern.Length * 8);
     }
 
-    public void TriggerRumble(string character)
+    public void TriggerRumble(float duration)
     {
         if (!rumbleTriggered)
-        {
-            Debug.Log(character);
+        {            
             rumbleTimer = 0.0f;
+
             Rumble();
+
             rumbleTriggered = true;
         }
     }
