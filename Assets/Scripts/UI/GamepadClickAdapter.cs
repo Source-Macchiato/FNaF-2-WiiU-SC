@@ -5,108 +5,110 @@ using WiiU = UnityEngine.WiiU;
 
 public class GamepadClickAdapter : MonoBehaviour
 {
-    // Canvas resolution
     public Vector2 canvasResolution = new Vector2(1280f, 720f);
-
-    // Gamepad resolution
     public Vector2 gamepadResolution = new Vector2(854f, 480f);
 
-    // References to WiiU controllers
-    WiiU.GamePad gamePad;
-    WiiU.Remote remote;
+    private WiiU.GamePad gamePad;
+
+    private bool isClicking = false; // Track if currently clicking
 
     void Start()
     {
-        // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
-        remote = WiiU.Remote.Access(0);
 
-        // Disable default system
+        // Disable the default input module
         EventSystem.current.GetComponent<StandaloneInputModule>().enabled = false;
     }
 
     void Update()
     {
-        // Get the current state of the GamePad and Remote
-        WiiU.GamePadState gamePadState = gamePad.state;
-        WiiU.RemoteState remoteState = remote.state;
-
         if (Application.isEditor)
         {
-            // Check if click on screen
-            if (Input.GetMouseButtonDown(0))
-            {
-                // Get mouse position
-                Vector2 mousePos = Input.mousePosition;
-
-                // Calculate ratio resolution
-                float mouseRatioX = canvasResolution.x / Screen.width;
-                float mouseRatioY = canvasResolution.y / Screen.height;
-
-                // Adapt mouse position for resolution
-                Vector2 adaptedMousePos = new Vector2(
-                    mousePos.x * mouseRatioX,
-                    mousePos.y * mouseRatioY
-                );
-
-                // Convert click coordinates to Raycast for UI interaction
-                PointerEventData mousePointerData = new PointerEventData(EventSystem.current);
-                mousePointerData.position = adaptedMousePos;
-
-                ClickSystem(mousePointerData);
-            }
+            HandleMouseInput();
         }
         else
         {
-            // Check if is touching screen
-            if (gamePadState.touch.touch == 1)
-            {
-                // Get touch position
-                Vector2 touchPos = new Vector2(gamePadState.touch.x, gamePadState.touch.y);
-
-                // Calculate ratio resolution
-                float ratioX = canvasResolution.x / gamepadResolution.x;
-                float ratioY = canvasResolution.y / gamepadResolution.y;
-
-                // Reverse Y axis
-                float adjustedY = gamepadResolution.y - touchPos.y;
-
-                // Adapt touch position for resolution
-                Vector2 adaptedTouchPos = new Vector2(
-                    touchPos.x * ratioX,
-                    adjustedY * ratioY
-                );
-
-                // Convert touch coordinates to Raycast for UI interaction
-                PointerEventData pointerData = new PointerEventData(EventSystem.current);
-                pointerData.position = adaptedTouchPos;
-
-                ClickSystem(pointerData);
-            }
+            HandleGamepadTouchInput();
         }
     }
 
-    void ClickSystem(PointerEventData pointerData)
+    private void HandleMouseInput()
     {
-        // Create a list for Raycast results
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 adaptedMousePos = AdaptScreenPosition(Input.mousePosition);
+            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedMousePos };
+            SimulatePointerDown(pointerData);
+            isClicking = true;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Vector2 adaptedMousePos = AdaptScreenPosition(Input.mousePosition);
+            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedMousePos };
+            SimulatePointerUpAndClick(pointerData);
+            isClicking = false;
+        }
+    }
 
-        // Create Raycast UI
+    private void HandleGamepadTouchInput()
+    {
+        var gamePadState = gamePad.state;
+
+        if (gamePadState.touch.touch == 1 && !isClicking)
+        {
+            Vector2 touchPos = new Vector2(gamePadState.touch.x, gamePadState.touch.y);
+            Vector2 adaptedTouchPos = AdaptGamepadPosition(touchPos);
+
+            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedTouchPos };
+            SimulatePointerDown(pointerData);
+            isClicking = true;
+        }
+        else if (gamePadState.touch.touch == 0 && isClicking)
+        {
+            Vector2 touchPos = new Vector2(gamePadState.touch.x, gamePadState.touch.y);
+            Vector2 adaptedTouchPos = AdaptGamepadPosition(touchPos);
+
+            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedTouchPos };
+            SimulatePointerUpAndClick(pointerData);
+            isClicking = false;
+        }
+    }
+
+    private Vector2 AdaptScreenPosition(Vector2 inputPosition)
+    {
+        float ratioX = canvasResolution.x / Screen.width;
+        float ratioY = canvasResolution.y / Screen.height;
+        return new Vector2(inputPosition.x * ratioX, inputPosition.y * ratioY);
+    }
+
+    private Vector2 AdaptGamepadPosition(Vector2 inputPosition)
+    {
+        float ratioX = canvasResolution.x / gamepadResolution.x;
+        float ratioY = canvasResolution.y / gamepadResolution.y;
+        float adjustedY = gamepadResolution.y - inputPosition.y; // Reverse Y-axis
+        return new Vector2(inputPosition.x * ratioX, adjustedY * ratioY);
+    }
+
+    private void SimulatePointerDown(PointerEventData pointerData)
+    {
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerData, raycastResults);
 
-        // If an element is detected
-        if (raycastResults.Count > 0)
+        foreach (RaycastResult result in raycastResults)
         {
-            foreach (RaycastResult result in raycastResults)
-            {
-                Debug.Log("UI Element clicked: " + result.gameObject.name);
+            ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerDownHandler);
+        }
+    }
 
-                if (result.gameObject != EventSystem.current.currentSelectedGameObject)
-                {
-                    // Simulate a click on the UI element
-                    ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerClickHandler);
-                }
-            }
+    private void SimulatePointerUpAndClick(PointerEventData pointerData)
+    {
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+        foreach (RaycastResult result in raycastResults)
+        {
+            ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerUpHandler);
+            ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerClickHandler);
         }
     }
 }
