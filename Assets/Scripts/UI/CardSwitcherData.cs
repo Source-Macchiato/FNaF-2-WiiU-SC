@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class CardSwitcherData : MonoBehaviour
@@ -8,11 +9,17 @@ public class CardSwitcherData : MonoBehaviour
 	public int maxValue = 20;
 
 	public TextMeshProUGUI valueText;
+    public GameObject cursorObject;
 
 	void Start()
 	{
         UpdateCardSwitcher();	
 	}
+
+    void Update()
+    {
+        cursorObject.SetActive(EventSystem.current.currentSelectedGameObject == gameObject);
+    }
 
     public void IncreaseDifficulty()
     {
