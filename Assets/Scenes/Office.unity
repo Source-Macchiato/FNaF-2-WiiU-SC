@@ -20320,6 +20320,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSelectedButton: {fileID: 885305936}
   minimapPanel: {fileID: 352760811}
+  buttonObjects:
+  - {fileID: 990215620}
+  - {fileID: 1015840269}
+  - {fileID: 1905004223}
+  - {fileID: 922846116}
+  - {fileID: 1378772683}
+  - {fileID: 1091457309}
+  - {fileID: 1880530374}
+  - {fileID: 750947348}
+  - {fileID: 885305934}
+  - {fileID: 1067729888}
+  - {fileID: 1860959153}
+  - {fileID: 919169437}
 --- !u!1 &1905004223
 GameObject:
   m_ObjectHideFlags: 0
