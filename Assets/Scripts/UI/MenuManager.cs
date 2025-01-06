@@ -225,16 +225,16 @@ public class MenuManager : MonoBehaviour
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.ZL))
                 {
-                    if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                    if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                     {
-                        EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().DecreaseDifficulty();
+                        EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().DecreaseDifficulty();
                     }
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.ZR))
                 {
-                    if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                    if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                     {
-                        EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().IncreaseDifficulty();
+                        EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().IncreaseDifficulty();
                     }
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.A))
@@ -405,16 +405,16 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.ZL))
                     {
-                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                         {
-                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().DecreaseDifficulty();
+                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().DecreaseDifficulty();
                         }
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.ZR))
                     {
-                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                         {
-                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().IncreaseDifficulty();
+                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().IncreaseDifficulty();
                         }
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.A))
@@ -582,16 +582,16 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.ZL) || remoteState.classic.IsTriggered(WiiU.ClassicButton.L))
                     {
-                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                         {
-                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().DecreaseDifficulty();
+                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().DecreaseDifficulty();
                         }
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.ZR) || remoteState.classic.IsTriggered(WiiU.ClassicButton.R))
                     {
-                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                         {
-                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().IncreaseDifficulty();
+                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().IncreaseDifficulty();
                         }
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.A))
@@ -758,16 +758,16 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.Minus) || remoteState.IsTriggered(WiiU.RemoteButton.NunchukZ))
                     {
-                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                         {
-                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().DecreaseDifficulty();
+                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().DecreaseDifficulty();
                         }
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.Plus) || remoteState.IsTriggered(WiiU.RemoteButton.NunchukC))
                     {
-                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                        if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                         {
-                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().IncreaseDifficulty();
+                            EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().IncreaseDifficulty();
                         }
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.A))
@@ -872,16 +872,16 @@ public class MenuManager : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                 {
-                    EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().DecreaseDifficulty();
+                    EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().DecreaseDifficulty();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() != null && canNavigate)
+                if (EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() != null && canNavigate)
                 {
-                    EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>().IncreaseDifficulty();
+                    EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>().IncreaseDifficulty();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Return))
@@ -948,7 +948,7 @@ public class MenuManager : MonoBehaviour
             if (currentScrollRect == null && currentPopup == null
                 && EventSystem.current.currentSelectedGameObject != null
                 && EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() == null
-                && EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcher>() == null
+                && EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() == null
                 && EventSystem.current.currentSelectedGameObject.GetComponent<CardData>() == null)
             {
                 if (!currentSelection.activeSelf)

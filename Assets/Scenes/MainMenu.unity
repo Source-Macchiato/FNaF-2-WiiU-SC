@@ -1795,6 +1795,7 @@ GameObject:
   - component: {fileID: 121165318}
   - component: {fileID: 121165320}
   - component: {fileID: 121165319}
+  - component: {fileID: 121165321}
   m_Layer: 5
   m_Name: Bonnie
   m_TagString: Untagged
@@ -1870,6 +1871,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121165317}
+--- !u!114 &121165321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121165317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 1501646169}
 --- !u!1 &146683768
 GameObject:
   m_ObjectHideFlags: 0
@@ -5949,6 +5965,7 @@ GameObject:
   - component: {fileID: 689544917}
   - component: {fileID: 689544919}
   - component: {fileID: 689544918}
+  - component: {fileID: 689544920}
   m_Layer: 5
   m_Name: BB
   m_TagString: Untagged
@@ -5989,11 +6006,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnDown: {fileID: 2072702705}
+    m_SelectOnLeft: {fileID: 1882613938}
+    m_SelectOnRight: {fileID: 1143005701}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6024,6 +6041,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 689544916}
+--- !u!114 &689544920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 689544916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 1964346222}
 --- !u!1 &694796063
 GameObject:
   m_ObjectHideFlags: 0
@@ -6895,6 +6927,7 @@ GameObject:
   - component: {fileID: 783465328}
   - component: {fileID: 783465330}
   - component: {fileID: 783465329}
+  - component: {fileID: 783465331}
   m_Layer: 5
   m_Name: ToyChica
   m_TagString: Untagged
@@ -6935,11 +6968,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 1170611563}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 2143748668}
+    m_SelectOnRight: {fileID: 1948132689}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6970,6 +7003,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 783465327}
+--- !u!114 &783465331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783465327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 981602162}
 --- !u!1 &796822663
 GameObject:
   m_ObjectHideFlags: 0
@@ -12716,6 +12764,7 @@ GameObject:
   - component: {fileID: 1143005700}
   - component: {fileID: 1143005702}
   - component: {fileID: 1143005701}
+  - component: {fileID: 1143005703}
   m_Layer: 5
   m_Name: Freddy
   m_TagString: Untagged
@@ -12791,6 +12840,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1143005699}
+--- !u!114 &1143005703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1143005699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 919523430}
 --- !u!1 &1168646131
 GameObject:
   m_ObjectHideFlags: 0
@@ -12939,6 +13003,7 @@ GameObject:
   - component: {fileID: 1170611562}
   - component: {fileID: 1170611564}
   - component: {fileID: 1170611563}
+  - component: {fileID: 1170611565}
   m_Layer: 5
   m_Name: Chica
   m_TagString: Untagged
@@ -13014,6 +13079,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1170611561}
+--- !u!114 &1170611565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1170611561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 1393015724}
 --- !u!1 &1178500168
 GameObject:
   m_ObjectHideFlags: 0
@@ -15131,6 +15211,7 @@ GameObject:
   - component: {fileID: 1305262824}
   - component: {fileID: 1305262826}
   - component: {fileID: 1305262825}
+  - component: {fileID: 1305262827}
   m_Layer: 5
   m_Name: ToyFreddy
   m_TagString: Untagged
@@ -15171,11 +15252,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 1143005701}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 2072702705}
+    m_SelectOnRight: {fileID: 2143748668}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -15206,6 +15287,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1305262823}
+--- !u!114 &1305262827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1305262823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 1132093746}
 --- !u!1 &1325556487
 GameObject:
   m_ObjectHideFlags: 0
@@ -20124,6 +20220,7 @@ GameObject:
   - component: {fileID: 1882613937}
   - component: {fileID: 1882613939}
   - component: {fileID: 1882613938}
+  - component: {fileID: 1882613940}
   m_Layer: 5
   m_Name: Foxy
   m_TagString: Untagged
@@ -20164,11 +20261,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnDown: {fileID: 1948132689}
+    m_SelectOnLeft: {fileID: 1170611563}
+    m_SelectOnRight: {fileID: 689544918}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -20199,6 +20296,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1882613936}
+--- !u!114 &1882613940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882613936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 922093455}
 --- !u!1 &1883508181
 GameObject:
   m_ObjectHideFlags: 0
@@ -21447,6 +21559,7 @@ GameObject:
   - component: {fileID: 1948132688}
   - component: {fileID: 1948132690}
   - component: {fileID: 1948132689}
+  - component: {fileID: 1948132691}
   m_Layer: 5
   m_Name: ToyFoxy
   m_TagString: Untagged
@@ -21487,11 +21600,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 1882613938}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 783465329}
+    m_SelectOnRight: {fileID: 2072702705}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -21522,6 +21635,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1948132687}
+--- !u!114 &1948132691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1948132687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 1023037100}
 --- !u!1 &1955401263
 GameObject:
   m_ObjectHideFlags: 0
@@ -22634,6 +22762,7 @@ GameObject:
   - component: {fileID: 2072702704}
   - component: {fileID: 2072702706}
   - component: {fileID: 2072702705}
+  - component: {fileID: 2072702707}
   m_Layer: 5
   m_Name: GoldenFreddy
   m_TagString: Untagged
@@ -22674,11 +22803,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 689544918}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1948132689}
+    m_SelectOnRight: {fileID: 1305262825}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -22709,6 +22838,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2072702703}
+--- !u!114 &2072702707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072702703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 869517986}
 --- !u!1 &2091838852
 GameObject:
   m_ObjectHideFlags: 0
@@ -23588,6 +23732,7 @@ GameObject:
   - component: {fileID: 2143748667}
   - component: {fileID: 2143748669}
   - component: {fileID: 2143748668}
+  - component: {fileID: 2143748670}
   m_Layer: 5
   m_Name: ToyBonnie
   m_TagString: Untagged
@@ -23628,11 +23773,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 121165319}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1305262825}
+    m_SelectOnRight: {fileID: 783465329}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -23663,6 +23808,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143748666}
+--- !u!114 &2143748670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143748666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyValue: 0
+  minValue: 0
+  maxValue: 20
+  valueText: {fileID: 313594552}
 --- !u!1 &2146136916
 GameObject:
   m_ObjectHideFlags: 0

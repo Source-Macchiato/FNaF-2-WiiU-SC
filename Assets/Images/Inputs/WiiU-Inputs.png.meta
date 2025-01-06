@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: 43e2a8e4dc0a83043ac6c61382041643
-timeCreated: 1736175235
+timeCreated: 1736178070
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: WiiU-Inputs_0
-    21300002: WiiU-Inputs_1
-    21300004: WiiU-Inputs_2
-    21300006: WiiU-Inputs_3
+    21300000: WiiU-A
+    21300002: WiiU-B
+    21300004: WiiU-ZL
+    21300006: WiiU-ZR
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -87,7 +87,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WiiU-Inputs_0
+      name: WiiU-A
       rect:
         serializedVersion: 2
         x: 0
@@ -95,13 +95,13 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WiiU-Inputs_1
+      name: WiiU-B
       rect:
         serializedVersion: 2
         x: 100
@@ -109,13 +109,13 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WiiU-Inputs_2
+      name: WiiU-ZL
       rect:
         serializedVersion: 2
         x: 0
@@ -123,13 +123,13 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WiiU-Inputs_3
+      name: WiiU-ZR
       rect:
         serializedVersion: 2
         x: 100
@@ -137,7 +137,7 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
