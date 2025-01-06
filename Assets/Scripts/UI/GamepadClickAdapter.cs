@@ -11,7 +11,8 @@ public class GamepadClickAdapter : MonoBehaviour
     private WiiU.GamePad gamePad;
 
     private bool isClicking = false; // Track if currently clicking
-    private Vector2 lastTouchPosition; // Store the last touch position
+    private GameObject pointerPress; // Track the object pressed
+    private PointerEventData pointerData; // Shared pointer data instance
 
     void Start()
     {
@@ -19,6 +20,9 @@ public class GamepadClickAdapter : MonoBehaviour
 
         // Disable the default input module
         EventSystem.current.GetComponent<StandaloneInputModule>().enabled = false;
+
+        // Initialize PointerEventData
+        pointerData = new PointerEventData(EventSystem.current);
     }
 
     void Update()
@@ -35,20 +39,15 @@ public class GamepadClickAdapter : MonoBehaviour
 
     private void HandleMouseInput()
     {
+        pointerData.position = AdaptScreenPosition(Input.mousePosition);
+
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 adaptedMousePos = AdaptScreenPosition(Input.mousePosition);
-            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedMousePos };
-            SimulatePointerDown(pointerData);
-            SimulatePointerClick(pointerData);
-            isClicking = true;
+            SimulatePointerDown();
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            Vector2 adaptedMousePos = AdaptScreenPosition(Input.mousePosition);
-            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedMousePos };
-            SimulatePointerUp(pointerData);
-            isClicking = false;
+            SimulatePointerUp();
         }
     }
 
@@ -56,25 +55,19 @@ public class GamepadClickAdapter : MonoBehaviour
     {
         var gamePadState = gamePad.state;
 
-        if (gamePadState.touch.touch == 1 && !isClicking)
+        if (gamePadState.touch.touch == 1)
         {
-            Vector2 touchPos = new Vector2(gamePadState.touch.x, gamePadState.touch.y);
-            Vector2 adaptedTouchPos = AdaptGamepadPosition(touchPos);
-            lastTouchPosition = adaptedTouchPos;
+            pointerData.position = AdaptGamepadPosition(new Vector2(gamePadState.touch.x, gamePadState.touch.y));
 
-            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedTouchPos };
-            SimulatePointerDown(pointerData);
-            SimulatePointerClick(pointerData);
-            isClicking = true;
+            if (!isClicking)
+            {
+                SimulatePointerDown();
+                isClicking = true;
+            }
         }
-        else if (gamePadState.touch.touch == 0 && isClicking)
+        else if (isClicking && gamePadState.touch.touch == 0)
         {
-            Vector2 touchPos = new Vector2(gamePadState.touch.x, gamePadState.touch.y);
-            Vector2 adaptedTouchPos = AdaptGamepadPosition(touchPos);
-            Debug.Log(adaptedTouchPos);
-
-            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = lastTouchPosition };
-            SimulatePointerUp(pointerData);
+            SimulatePointerUp();
             isClicking = false;
         }
     }
@@ -94,36 +87,40 @@ public class GamepadClickAdapter : MonoBehaviour
         return new Vector2(inputPosition.x * ratioX, adjustedY * ratioY);
     }
 
-    private void SimulatePointerDown(PointerEventData pointerData)
+    private void SimulatePointerDown()
     {
         List<RaycastResult> raycastResults = new List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerData, raycastResults);
 
-        foreach (RaycastResult result in raycastResults)
+        foreach (var result in raycastResults)
         {
-            ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerDownHandler);
+            GameObject currentOverGo = result.gameObject;
+
+            GameObject executedPress = ExecuteEvents.ExecuteHierarchy(currentOverGo, pointerData, ExecuteEvents.pointerDownHandler);
+            ExecuteEvents.Execute(pointerPress, pointerData, ExecuteEvents.pointerClickHandler);
+
+            if (executedPress != null)
+            {
+                if (pointerPress == null)
+                {
+                    pointerPress = executedPress;
+                    pointerData.pointerPress = pointerPress;
+                    pointerData.rawPointerPress = currentOverGo;
+                }
+            }
         }
     }
 
-    private void SimulatePointerUp(PointerEventData pointerData)
+    private void SimulatePointerUp()
     {
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerData, raycastResults);
-
-        foreach (RaycastResult result in raycastResults)
+        if (pointerPress != null)
         {
-            ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerUpHandler);
-        }
-    }
+            ExecuteEvents.Execute(pointerPress, pointerData, ExecuteEvents.pointerUpHandler);
 
-    private void SimulatePointerClick(PointerEventData pointerData)
-    {
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerData, raycastResults);
-
-        foreach (RaycastResult result in raycastResults)
-        {
-            ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerClickHandler);
+            // Réinitialise les données
+            pointerData.pointerPress = null;
+            pointerData.rawPointerPress = null;
+            pointerPress = null;
         }
     }
 }
