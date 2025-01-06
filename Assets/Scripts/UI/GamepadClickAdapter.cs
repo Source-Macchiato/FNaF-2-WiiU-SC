@@ -11,6 +11,7 @@ public class GamepadClickAdapter : MonoBehaviour
     private WiiU.GamePad gamePad;
 
     private bool isClicking = false; // Track if currently clicking
+    private Vector2 lastTouchPosition; // Store the last touch position
 
     void Start()
     {
@@ -39,13 +40,14 @@ public class GamepadClickAdapter : MonoBehaviour
             Vector2 adaptedMousePos = AdaptScreenPosition(Input.mousePosition);
             PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedMousePos };
             SimulatePointerDown(pointerData);
+            SimulatePointerClick(pointerData);
             isClicking = true;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             Vector2 adaptedMousePos = AdaptScreenPosition(Input.mousePosition);
             PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedMousePos };
-            SimulatePointerUpAndClick(pointerData);
+            SimulatePointerUp(pointerData);
             isClicking = false;
         }
     }
@@ -58,18 +60,21 @@ public class GamepadClickAdapter : MonoBehaviour
         {
             Vector2 touchPos = new Vector2(gamePadState.touch.x, gamePadState.touch.y);
             Vector2 adaptedTouchPos = AdaptGamepadPosition(touchPos);
+            lastTouchPosition = adaptedTouchPos;
 
             PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedTouchPos };
             SimulatePointerDown(pointerData);
+            SimulatePointerClick(pointerData);
             isClicking = true;
         }
         else if (gamePadState.touch.touch == 0 && isClicking)
         {
             Vector2 touchPos = new Vector2(gamePadState.touch.x, gamePadState.touch.y);
             Vector2 adaptedTouchPos = AdaptGamepadPosition(touchPos);
+            Debug.Log(adaptedTouchPos);
 
-            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = adaptedTouchPos };
-            SimulatePointerUpAndClick(pointerData);
+            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = lastTouchPosition };
+            SimulatePointerUp(pointerData);
             isClicking = false;
         }
     }
@@ -100,7 +105,7 @@ public class GamepadClickAdapter : MonoBehaviour
         }
     }
 
-    private void SimulatePointerUpAndClick(PointerEventData pointerData)
+    private void SimulatePointerUp(PointerEventData pointerData)
     {
         List<RaycastResult> raycastResults = new List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerData, raycastResults);
@@ -108,6 +113,16 @@ public class GamepadClickAdapter : MonoBehaviour
         foreach (RaycastResult result in raycastResults)
         {
             ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerUpHandler);
+        }
+    }
+
+    private void SimulatePointerClick(PointerEventData pointerData)
+    {
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+        foreach (RaycastResult result in raycastResults)
+        {
             ExecuteEvents.Execute(result.gameObject, pointerData, ExecuteEvents.pointerClickHandler);
         }
     }
