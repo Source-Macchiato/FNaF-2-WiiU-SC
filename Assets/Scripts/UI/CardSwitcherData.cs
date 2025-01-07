@@ -4,6 +4,7 @@ using TMPro;
 
 public class CardSwitcherData : MonoBehaviour
 {
+    public string id;
     public int difficultyValue = 0;
 	public int minValue = 0;
 	public int maxValue = 20;
