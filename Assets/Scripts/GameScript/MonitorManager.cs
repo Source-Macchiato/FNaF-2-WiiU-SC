@@ -94,7 +94,7 @@ public class MonitorManager : MonoBehaviour
             }
         }
 
-        if (nightPlayer.isJumpscared && isMonitorActive)
+        if (nightPlayer.isJumpscared && isMonitorActive || nightPlayer.BlackoutActive && isMonitorActive)
         {
             StartCoroutine(DisableMonitor());
         }
@@ -102,7 +102,7 @@ public class MonitorManager : MonoBehaviour
 
     private void ToggleMonitor()
     {
-        if (!nightPlayer.isJumpscared && !isToggling)
+        if (!nightPlayer.isJumpscared && !nightPlayer.BlackoutActive && !isToggling)
         {
             if (isMonitorActive)
             {
