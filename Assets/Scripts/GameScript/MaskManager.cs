@@ -8,6 +8,8 @@ public class MaskManager : MonoBehaviour
     public AudioSource putMaskOffAudio;
     public AudioSource deepBreathsAudio;
 
+    public bool maskPreviousState = false;
+
     public bool isMaskActive = false;
 
     // References to WiiU controllers
@@ -100,7 +102,7 @@ public class MaskManager : MonoBehaviour
     private void EnableMask()
     {
         isMaskActive = true;
-
+        maskPreviousState = false;
         maskAnimator.Play("On");
         putMaskOnAudio.Play();
 
@@ -120,7 +122,7 @@ public class MaskManager : MonoBehaviour
     private void DisableMask()
     {
         isMaskActive = false;
-
+        maskPreviousState = true;
         maskAnimator.Play("Off");
         putMaskOffAudio.Play();
 
