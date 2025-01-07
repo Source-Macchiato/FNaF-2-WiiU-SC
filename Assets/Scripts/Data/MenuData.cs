@@ -19,6 +19,7 @@ public class MenuData : MonoBehaviour
     SaveGameState saveGameState;
     SaveManager saveManager;
     MenuManager menuManager;
+    CardSwitcherData[] cardSwitchers;
 
     // Advertisement
     public GameObject advertisementImage;
@@ -33,6 +34,7 @@ public class MenuData : MonoBehaviour
         saveGameState = FindObjectOfType<SaveGameState>();
         saveManager = FindObjectOfType<SaveManager>();
         menuManager = FindObjectOfType<MenuManager>();
+        cardSwitchers = FindObjectsOfType<CardSwitcherData>();
 
         // Load
         nightNumber = SaveManager.LoadNightNumber();
@@ -189,5 +191,54 @@ public class MenuData : MonoBehaviour
         // Save layout id
         saveManager.SaveLayoutId(layoutId);
         bool saveResult = saveGameState.DoSave();
+    }
+
+    public void SaveDifficulties()
+    {
+        foreach (CardSwitcherData cardSwitcher in cardSwitchers)
+        {
+            if (cardSwitcher.id == "customnight.freddy")
+            {
+                PlayerPrefs.SetInt("FreddyAI", cardSwitcher.difficultyValue);
+            }
+            else if (cardSwitcher.id == "customnight.bonnie")
+            {
+                PlayerPrefs.SetInt("BonnieAI", cardSwitcher.difficultyValue);
+            }
+            else if (cardSwitcher.id == "customnight.chica")
+            {
+                PlayerPrefs.SetInt("ChicaAI", cardSwitcher.difficultyValue);
+            }
+            else if (cardSwitcher.id == "customnight.foxy")
+            {
+                PlayerPrefs.SetInt("FoxyAI", cardSwitcher.difficultyValue);
+            }
+            else if (cardSwitcher.id == "customnight.balloonboy")
+            {
+                PlayerPrefs.SetInt("BalloonBoyAI", cardSwitcher.difficultyValue);
+            }
+            else if (cardSwitcher.id == "customnight.toyfreddy")
+            {
+                PlayerPrefs.SetInt("ToyFreddyAI", cardSwitcher.difficultyValue);
+            }
+            else if (cardSwitcher.id == "customnight.toybonnie")
+            {
+                PlayerPrefs.SetInt("ToyBonnieAI", cardSwitcher.difficultyValue);
+            }
+            else if (cardSwitcher.id == "customnight.toychica")
+            {
+                PlayerPrefs.SetInt("ToyChicaAI", cardSwitcher.difficultyValue);
+            }
+            else if (cardSwitcher.id == "customnight.mangle")
+            {
+                PlayerPrefs.SetInt("MangleAI", cardSwitcher.difficultyValue);
+            }
+            else if (cardSwitcher.id == "customnight.goldenfreddy")
+            {
+                PlayerPrefs.SetInt("GoldenFreddyAI", cardSwitcher.difficultyValue);
+            }
+
+            PlayerPrefs.Save();
+        }
     }
 }

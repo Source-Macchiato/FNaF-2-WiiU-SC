@@ -240,18 +240,18 @@ public class NightPlayer : MonoBehaviour
 
         if (isNight7)
 		{
-			// Alyx modify this plz
-			// ok
-			GoldenFreddyAI = PlayerPrefs.GetInt("GoldenFreddyAI", 0);
-			MangleAI = PlayerPrefs.GetInt("MangleAI", 0);
+            // Alyx modify this plz
+            // ok
+            WitheredFreddyAI = PlayerPrefs.GetInt("FreddyAI", 0);
+            WitheredBonnieAI = PlayerPrefs.GetInt("BonnieAI", 0);
+            WitheredChicaAI = PlayerPrefs.GetInt("ChicaAI", 0);
+            WitheredFoxyAI = PlayerPrefs.GetInt("FoxyAI", 0);
             BalloonBoyAI = PlayerPrefs.GetInt("BalloonBoyAI", 0);
-			ToyBonnieAI = PlayerPrefs.GetInt("ToyBonnieAI", 0);
-			ToyChicaAI = PlayerPrefs.GetInt("ToyChicaAI", 0);
-			ToyFreddyAI = PlayerPrefs.GetInt("ToyFreddyAI", 0);
-			WitheredBonnieAI = PlayerPrefs.GetInt("WitheredBonnieAI", 0);
-			WitheredChicaAI = PlayerPrefs.GetInt("WitheredChicaAI", 0);
-			WitheredFreddyAI = PlayerPrefs.GetInt("WitheredFreddyAI", 0);
-			WitheredFoxyAI = PlayerPrefs.GetInt("WitheredFoxyAI", 0);
+            ToyFreddyAI = PlayerPrefs.GetInt("ToyFreddyAI", 0);
+            ToyBonnieAI = PlayerPrefs.GetInt("ToyBonnieAI", 0);
+            ToyChicaAI = PlayerPrefs.GetInt("ToyChicaAI", 0);
+            MangleAI = PlayerPrefs.GetInt("MangleAI", 0);
+            GoldenFreddyAI = PlayerPrefs.GetInt("GoldenFreddyAI", 0);
 		}
 		if (Random.value < 0.01) {PaperpalsAI = 1;}
 		PuppetAI = Mathf.Clamp(PuppetAI,0, 6);

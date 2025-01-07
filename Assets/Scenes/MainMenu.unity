@@ -6242,7 +6242,7 @@ GameObject:
   - component: {fileID: 689544918}
   - component: {fileID: 689544920}
   m_Layer: 5
-  m_Name: BB
+  m_Name: BalloonBoy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6328,7 +6328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f905c8d4684dd44da8c41759fac1b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: customnight.bb
+  id: customnight.balloonboy
   difficultyValue: 0
   minValue: 0
   maxValue: 20
@@ -11617,7 +11617,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 963343477}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 748433275}
+        m_MethodName: StartCustomNight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &963343477
@@ -18852,6 +18863,7 @@ GameObject:
   - component: {fileID: 1636317782}
   - component: {fileID: 1636317784}
   - component: {fileID: 1636317783}
+  - component: {fileID: 1636317785}
   m_Layer: 5
   m_Name: ReadyText
   m_TagString: Untagged
@@ -18930,7 +18942,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 60
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_textAlignment: 4098
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
@@ -19001,6 +19013,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1636317781}
+--- !u!114 &1636317785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1636317781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: customnight.ready
+  mainFont: {fileID: 11400000, guid: 352052185e1c5db41ab36a0e986e4ccb, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &1636371862
 GameObject:
   m_ObjectHideFlags: 0

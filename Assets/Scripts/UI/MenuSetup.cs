@@ -91,6 +91,18 @@ public class MenuSetup : MonoBehaviour
         menuData.DisplaySelectedLayoutButton();
     }
 
+    public void StartCustomNight()
+    {
+        menuData.SaveDifficulties();
+
+        menuManager.canNavigate = false;
+
+        menuData.nightNumber = 6;
+        menuData.SaveNightNumber();
+
+        SceneManager.LoadScene("NextNight");
+    }
+
     void Analytics()
     {
 
