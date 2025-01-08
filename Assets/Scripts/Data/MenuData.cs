@@ -295,61 +295,86 @@ public class MenuData : MonoBehaviour
                 cardSwitcher.difficultyValue = freddy;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, freddy);
             }
             else if (cardSwitcher.id == "customnight.bonnie")
             {
                 cardSwitcher.difficultyValue = bonnie;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, bonnie);
             }
             else if (cardSwitcher.id == "customnight.chica")
             {
                 cardSwitcher.difficultyValue = chica;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, chica);
             }
             else if (cardSwitcher.id == "customnight.foxy")
             {
                 cardSwitcher.difficultyValue = foxy;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, foxy);
             }
             else if (cardSwitcher.id == "customnight.balloonboy")
             {
                 cardSwitcher.difficultyValue = bb;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, bb);
             }
             else if (cardSwitcher.id == "customnight.toyfreddy")
             {
                 cardSwitcher.difficultyValue = toyFreddy;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, toyFreddy);
             }
             else if (cardSwitcher.id == "customnight.toybonnie")
             {
                 cardSwitcher.difficultyValue = toyBonnie;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, toyBonnie);
             }
             else if (cardSwitcher.id == "customnight.toychica")
             {
                 cardSwitcher.difficultyValue = toyChica;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, toyChica);
             }
             else if (cardSwitcher.id == "customnight.mangle")
             {
                 cardSwitcher.difficultyValue = mangle;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, mangle);
             }
             else if (cardSwitcher.id == "customnight.goldenfreddy")
             {
                 cardSwitcher.difficultyValue = goldenFreddy;
 
                 cardSwitcher.UpdateCardSwitcher();
+
+                ChangeCardOpacity(cardSwitcher, goldenFreddy);
             }
         }
+    }
+
+    private void ChangeCardOpacity(CardSwitcherData cardSwitcher, int difficulty)
+    {
+        cardSwitcher.ChangeCoverOpacity(difficulty > 0 ? 1f : 0.2f);
     }
 }

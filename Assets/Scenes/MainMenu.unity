@@ -2204,6 +2204,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 1501646169}
+  coverImage: {fileID: 876965512}
   cursorObject: {fileID: 1816840283}
 --- !u!1 &146683768
 GameObject:
@@ -6867,6 +6868,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 1964346222}
+  coverImage: {fileID: 493506148}
   cursorObject: {fileID: 927627965}
 --- !u!1 &694796063
 GameObject:
@@ -7837,6 +7839,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 981602162}
+  coverImage: {fileID: 1193505738}
   cursorObject: {fileID: 1932645804}
 --- !u!1 &796822663
 GameObject:
@@ -14369,6 +14372,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 919523430}
+  coverImage: {fileID: 1213655573}
   cursorObject: {fileID: 330021599}
 --- !u!1 &1168646131
 GameObject:
@@ -14611,6 +14615,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 1393015724}
+  coverImage: {fileID: 1264042422}
   cursorObject: {fileID: 93004117}
 --- !u!1 &1178500168
 GameObject:
@@ -17102,6 +17107,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 1132093746}
+  coverImage: {fileID: 2038470722}
   cursorObject: {fileID: 454068976}
 --- !u!1 &1319046521
 GameObject:
@@ -23073,6 +23079,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 922093455}
+  coverImage: {fileID: 544500865}
   cursorObject: {fileID: 1583925721}
 --- !u!1 &1883508181
 GameObject:
@@ -24411,6 +24418,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 1023037100}
+  coverImage: {fileID: 1548481754}
   cursorObject: {fileID: 645832013}
 --- !u!1 &1955401263
 GameObject:
@@ -25617,6 +25625,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 869517986}
+  coverImage: {fileID: 2136301984}
   cursorObject: {fileID: 1257078959}
 --- !u!1 &2084426559
 GameObject:
@@ -26764,6 +26773,7 @@ MonoBehaviour:
   minValue: 0
   maxValue: 20
   valueText: {fileID: 313594552}
+  coverImage: {fileID: 2126495944}
   cursorObject: {fileID: 1319046521}
 --- !u!1 &2146136916
 GameObject:
