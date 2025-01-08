@@ -23,6 +23,8 @@ public class NightPlayer : MonoBehaviour
 	public AudioSource StareSound;
 	public AudioSource With2;
 
+	public int With2Used = 0; // 1 = Tbonnie - 2 = TBonnie - 3 = TChica - 4 = WBonnie - 5 = WFreddy - 6 = WChica - 7 = Foxy
+
 	[Header("Info")]
 	public int[] NewandShinyAI;
 	public int[] DoubleTroubleAI;
@@ -371,10 +373,73 @@ public class NightPlayer : MonoBehaviour
 		else {
 			Screen.Play("Background");
 		}
-		//with 2 stop
-		if (With2.isPlaying && ToyBonnieCamera != 2 && ToyBonnieCamera != 6 && ToyBonnieCamera != 13)
+		
+
+		// Hallway sound manager
+
+		//Bonnie
+		if (ToyBonnieCamera == 1 && With2.isPlaying && With2Used == 1)
 		{
-		    With2.Stop();
+			With2.Stop();
+		}
+
+		if(ToyFreddyCamera == 14 && With2Used == 0)
+		{
+			With2Used = 2;
+			With2.Play();
+		}
+		else if(ToyFreddyCamera != 14 && With2.isPlaying && With2Used == 2)
+		{
+			With2Used = 0;
+			With2.Stop();
+		}
+
+		//Foxy
+		if(WitheredFoxyCamera == 14 && With2Used == 0)
+		{
+			With2Used = 7;
+			With2.Play();
+		}
+		else if(WitheredFoxyCamera != 14 && With2.isPlaying && With2Used == 7)
+		{
+			With2Used = 0;
+			With2.Stop();
+		}
+
+		//WBonnie
+		if(WitheredBonnieCamera == 14 && With2Used == 0)
+		{
+			With2Used = 4;
+			With2.Play();
+		}
+		else if(WitheredBonnieCamera != 14 && With2.isPlaying && With2Used == 4)
+		{
+			With2Used = 0;
+			With2.Stop();
+		}
+
+		//Freddy
+		if(WitheredFreddyCamera == 14 && With2Used == 0)
+		{
+			With2Used = 5;
+			With2.Play();
+		}
+		else if(WitheredFreddyCamera != 14 && With2.isPlaying && With2Used == 5)
+		{
+			With2Used = 0;
+			With2.Stop();
+		}
+
+		//Chica
+		if(WitheredChicaCamera == 14 && With2Used == 0)
+		{
+			With2Used = 6;
+			With2.Play();
+		}
+		else if(WitheredChicaCamera != 14 && With2.isPlaying && With2Used == 6)
+		{
+			With2Used = 0;
+			With2.Stop();
 		}
     }
 

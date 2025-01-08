@@ -154,7 +154,9 @@ MonoBehaviour:
   putMaskOnAudio: {fileID: 371900578}
   putMaskOffAudio: {fileID: 2145098003}
   deepBreathsAudio: {fileID: 1058841199}
+  maskPreviousState: 0
   isMaskActive: 0
+  LockMask: 0
 --- !u!1 &16994589
 GameObject:
   m_ObjectHideFlags: 0
@@ -11412,6 +11414,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1069253980}
+  - component: {fileID: 1069253982}
+  - component: {fileID: 1069253981}
   m_Layer: 5
   m_Name: Signal Disrputed
   m_TagString: Untagged
@@ -11432,11 +11436,50 @@ RectTransform:
   m_Father: {fileID: 980370712}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 32.4, y: 319}
+  m_SizeDelta: {x: -716.2, y: -687.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1069253981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069253979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 6a9eceb5649ec834887613941cd58f39, type: 3}
+    m_FontSize: 26
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Signal Disrputed
+--- !u!222 &1069253982
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069253979}
 --- !u!1 &1071536440
 GameObject:
   m_ObjectHideFlags: 0
@@ -12912,6 +12955,7 @@ MonoBehaviour:
   Mangle: {fileID: 555077695}
   StareSound: {fileID: 171124298}
   With2: {fileID: 814846272}
+  With2Used: 0
   NewandShinyAI: 
   DoubleTroubleAI: 
   NightofMisfitsAI: 
@@ -13036,7 +13080,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0514c65488d2cce47b02413c065e771a, type: 3}
   - {fileID: 21300000, guid: 0c63e89da30184c4aa1e21688ca8fab1, type: 3}
   - {fileID: 21300000, guid: 2f308b5f63c48c34f93e3c03d2b71496, type: 3}
-  - {fileID: 21300000, guid: c552173a335e68a4798f51de8fd8b297, type: 3}
+  - {fileID: 21300000, guid: 3838b6904ca1ef443b60e4e77de0ee52, type: 3}
   - {fileID: 21300000, guid: 322101e978be9a748b8a24ff6ad998e5, type: 3}
   - {fileID: 21300000, guid: a25cb196362de074789f35bb9a4667ac, type: 3}
   PuppetCameraSprites:
@@ -14966,7 +15010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1397059, g: 0.1397059, b: 0.1397059, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.822}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20333,6 +20377,7 @@ MonoBehaviour:
   - {fileID: 1067729888}
   - {fileID: 1860959153}
   - {fileID: 919169437}
+  lastSelectedObject: {fileID: 0}
 --- !u!1 &1905004223
 GameObject:
   m_ObjectHideFlags: 0
