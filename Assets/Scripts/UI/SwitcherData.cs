@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using TMPro;
+using RTLTMPro;
 
 public class SwitcherData : MonoBehaviour
 {
@@ -7,7 +7,7 @@ public class SwitcherData : MonoBehaviour
     public int currentOptionId;
     public string[] optionsName;
 
-    public TMP_Text text;
+    public RTLTextMeshPro text;
 
     void Update()
     {
