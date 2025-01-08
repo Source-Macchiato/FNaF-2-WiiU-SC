@@ -14,12 +14,13 @@ public class MenuData : MonoBehaviour
     public GameObject nightNumberContainer;
     public GameObject continueButtonGameObject;
     public GameObject starsContainer;
+    public SwitcherData difficultySwitcher;
+    public CardSwitcherData[] characterCardSwitchers;
 
     // Scripts
     SaveGameState saveGameState;
     SaveManager saveManager;
     MenuManager menuManager;
-    CardSwitcherData[] cardSwitchers;
 
     // Advertisement
     public GameObject advertisementImage;
@@ -34,7 +35,6 @@ public class MenuData : MonoBehaviour
         saveGameState = FindObjectOfType<SaveGameState>();
         saveManager = FindObjectOfType<SaveManager>();
         menuManager = FindObjectOfType<MenuManager>();
-        cardSwitchers = FindObjectsOfType<CardSwitcherData>();
 
         // Load
         nightNumber = SaveManager.LoadNightNumber();
@@ -195,7 +195,7 @@ public class MenuData : MonoBehaviour
 
     public void SaveDifficulties()
     {
-        foreach (CardSwitcherData cardSwitcher in cardSwitchers)
+        foreach (CardSwitcherData cardSwitcher in characterCardSwitchers)
         {
             if (cardSwitcher.id == "customnight.freddy")
             {
@@ -239,6 +239,117 @@ public class MenuData : MonoBehaviour
             }
 
             PlayerPrefs.Save();
+        }
+    }
+
+    public void DifficultyConfigs()
+    {
+        if (difficultySwitcher.currentOptionId == 0)
+        {
+            ChangeDifficulty(20, 20, 20, 20, 0, 0, 0, 0, 0, 0);
+        }
+        else if (difficultySwitcher.currentOptionId == 1)
+        {
+            ChangeDifficulty(0, 0, 0, 0, 10, 10, 10, 10, 10, 0);
+        }
+        else if (difficultySwitcher.currentOptionId == 2)
+        {
+            ChangeDifficulty(0, 20, 0, 5, 0, 0, 20, 0, 0, 0);
+        }
+        else if (difficultySwitcher.currentOptionId == 3)
+        {
+            ChangeDifficulty(0, 0, 0, 0, 20, 0, 0, 0, 20, 10);
+        }
+        else if (difficultySwitcher.currentOptionId == 4)
+        {
+            ChangeDifficulty(0, 0, 0, 20, 0, 0, 0, 0, 20, 0);
+        }
+        else if (difficultySwitcher.currentOptionId == 5)
+        {
+            ChangeDifficulty(0, 0, 20, 0, 0, 0, 0, 20, 20, 0);
+        }
+        else if (difficultySwitcher.currentOptionId == 6)
+        {
+            ChangeDifficulty(20, 0, 0, 10, 10, 20, 0, 0, 0, 10);
+        }
+        else if (difficultySwitcher.currentOptionId == 7)
+        {
+            ChangeDifficulty(5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
+        }
+        else if (difficultySwitcher.currentOptionId == 8)
+        {
+            ChangeDifficulty(10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        }
+        else if (difficultySwitcher.currentOptionId == 9)
+        {
+            ChangeDifficulty(20, 20, 20, 20, 20, 20, 20, 20, 20, 20);
+        }
+    }
+
+    private void ChangeDifficulty(int freddy, int bonnie, int chica, int foxy, int bb, int toyFreddy, int toyBonnie, int toyChica, int mangle, int goldenFreddy)
+    {
+        foreach (CardSwitcherData cardSwitcher in characterCardSwitchers)
+        {
+            if (cardSwitcher.id == "customnight.freddy")
+            {
+                cardSwitcher.difficultyValue = freddy;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
+            else if (cardSwitcher.id == "customnight.bonnie")
+            {
+                cardSwitcher.difficultyValue = bonnie;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
+            else if (cardSwitcher.id == "customnight.chica")
+            {
+                cardSwitcher.difficultyValue = chica;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
+            else if (cardSwitcher.id == "customnight.foxy")
+            {
+                cardSwitcher.difficultyValue = foxy;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
+            else if (cardSwitcher.id == "customnight.balloonboy")
+            {
+                cardSwitcher.difficultyValue = bb;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
+            else if (cardSwitcher.id == "customnight.toyfreddy")
+            {
+                cardSwitcher.difficultyValue = toyFreddy;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
+            else if (cardSwitcher.id == "customnight.toybonnie")
+            {
+                cardSwitcher.difficultyValue = toyBonnie;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
+            else if (cardSwitcher.id == "customnight.toychica")
+            {
+                cardSwitcher.difficultyValue = toyChica;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
+            else if (cardSwitcher.id == "customnight.mangle")
+            {
+                cardSwitcher.difficultyValue = mangle;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
+            else if (cardSwitcher.id == "customnight.goldenfreddy")
+            {
+                cardSwitcher.difficultyValue = goldenFreddy;
+
+                cardSwitcher.UpdateCardSwitcher();
+            }
         }
     }
 }

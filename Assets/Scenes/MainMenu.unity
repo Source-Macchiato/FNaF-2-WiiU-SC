@@ -701,6 +701,18 @@ MonoBehaviour:
   nightNumberContainer: {fileID: 865554649}
   continueButtonGameObject: {fileID: 240784068}
   starsContainer: {fileID: 2003815854}
+  difficultySwitcher: {fileID: 1377621139}
+  characterCardSwitchers:
+  - {fileID: 1143005703}
+  - {fileID: 121165321}
+  - {fileID: 1170611565}
+  - {fileID: 1882613940}
+  - {fileID: 689544920}
+  - {fileID: 1305262827}
+  - {fileID: 2143748670}
+  - {fileID: 783465331}
+  - {fileID: 1948132691}
+  - {fileID: 2072702707}
   advertisementImage: {fileID: 1856333725}
   AnimEnabled:
   - {fileID: 199440261}
@@ -10482,7 +10494,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -13343,7 +13355,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -17589,7 +17601,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -17926,7 +17938,7 @@ GameObject:
   - component: {fileID: 1377621140}
   - component: {fileID: 1377621139}
   m_Layer: 5
-  m_Name: GameModeSwitcher
+  m_Name: DifficultySwitcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17979,6 +17991,22 @@ MonoBehaviour:
   - customnight.goldenfreddy
   text: {fileID: 0}
   i18nTextTranslator: {fileID: 2084426563}
+  events:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 51236876}
+        m_MethodName: DifficultyConfigs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &1377621140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22651,6 +22679,11 @@ MonoBehaviour:
   - tr
   text: {fileID: 730060375}
   i18nTextTranslator: {fileID: 0}
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &1839757228
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using RTLTMPro;
 
 public class SwitcherData : MonoBehaviour
@@ -10,9 +11,13 @@ public class SwitcherData : MonoBehaviour
     public RTLTextMeshPro text;
     public I18nTextTranslator i18nTextTranslator;
 
+    public UnityEvent events;
+
     void Start()
     {
         UpdateText();
+
+        events.Invoke();
     }
 
     public void IncreaseOptions()
@@ -22,6 +27,8 @@ public class SwitcherData : MonoBehaviour
             currentOptionId++;
 
             UpdateText();
+
+            events.Invoke();
         }
     }
 
@@ -32,6 +39,8 @@ public class SwitcherData : MonoBehaviour
             currentOptionId--;
 
             UpdateText();
+
+            events.Invoke();
         }
     }
 
