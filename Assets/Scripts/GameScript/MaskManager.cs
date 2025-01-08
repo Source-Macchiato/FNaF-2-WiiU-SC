@@ -11,6 +11,7 @@ public class MaskManager : MonoBehaviour
     public bool maskPreviousState = false;
 
     public bool isMaskActive = false;
+    public bool LockMask = false;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -33,13 +34,20 @@ public class MaskManager : MonoBehaviour
 
     void Update()
 	{
+        //if the player is jumpscared and if the mask is active, the mask is locked
+        if(nightPlayer.BlackoutPrepared && isMaskActive)
+        {
+            LockMask = true;
+        }
+        else{LockMask = false;}
+
         // Get the current state of the GamePad and Remote
         WiiU.GamePadState gamePadState = gamePad.state;
         WiiU.RemoteState remoteState = remote.state;
 
         if (gamePadState.gamePadErr == WiiU.GamePadError.None)
         {
-            if (gamePadState.IsTriggered(WiiU.GamePadButton.R))
+            if (gamePadState.IsTriggered(WiiU.GamePadButton.R) && !LockMask)
             {
                 ToggleMask();
             }
@@ -48,19 +56,19 @@ public class MaskManager : MonoBehaviour
         switch (remoteState.devType)
         {
             case WiiU.RemoteDevType.ProController:
-                if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.R))
+                if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.R) && !LockMask)
                 {
                     ToggleMask();
                 }
                 break;
             case WiiU.RemoteDevType.Classic:
-                if (remoteState.classic.IsTriggered(WiiU.ClassicButton.R))
+                if (remoteState.classic.IsTriggered(WiiU.ClassicButton.R) && !LockMask)
                 {
                     ToggleMask();
                 }
                 break;
             default:
-                if (remoteState.IsTriggered(WiiU.RemoteButton.Two))
+                if (remoteState.IsTriggered(WiiU.RemoteButton.Two) && !LockMask)
                 {
                     ToggleMask();
                 }
@@ -69,7 +77,7 @@ public class MaskManager : MonoBehaviour
 
         if (Application.isEditor)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R) && !LockMask)
             {
                 ToggleMask();
             }
