@@ -10,23 +10,42 @@ public class SwitcherData : MonoBehaviour
     public RTLTextMeshPro text;
     public I18nTextTranslator i18nTextTranslator;
 
-    void Update()
+    void Start()
+    {
+        UpdateText();
+    }
+
+    public void IncreaseOptions()
+    {
+        if (currentOptionId >= 0 && currentOptionId < optionsName.Length - 1)
+        {
+            currentOptionId++;
+
+            UpdateText();
+        }
+    }
+
+    public void DecreaseOptions()
+    {
+        if (currentOptionId > 0 && currentOptionId <= optionsName.Length - 1)
+        {
+            currentOptionId--;
+
+            UpdateText();
+        }
+    }
+
+    void UpdateText()
     {
         if (text != null)
         {
-            if (text.text != optionsName[currentOptionId] || text.text == null)
-            {
-                text.text = optionsName[currentOptionId];
-            }
+            text.text = optionsName[currentOptionId];
         }
 
         if (i18nTextTranslator != null)
         {
-            if (i18nTextTranslator.textId != optionsName[currentOptionId])
-            {
-                i18nTextTranslator.textId = optionsName[currentOptionId];
-                i18nTextTranslator.UpdateText();
-            }
+            i18nTextTranslator.textId = optionsName[currentOptionId];
+            i18nTextTranslator.UpdateText();
         }
     }
 }

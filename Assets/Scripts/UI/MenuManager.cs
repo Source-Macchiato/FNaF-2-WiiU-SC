@@ -217,14 +217,14 @@ public class MenuManager : MonoBehaviour
                 {
                     if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                     {
-                        SwitcherNavigation(Vector2.left);
+                        EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().DecreaseOptions();
                     }
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.R))
                 {
                     if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                     {
-                        SwitcherNavigation(Vector2.right);
+                        EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().IncreaseOptions();
                     }
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.A))
@@ -387,14 +387,14 @@ public class MenuManager : MonoBehaviour
                     {
                         if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
-                            SwitcherNavigation(Vector2.left);
+                            EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().DecreaseOptions();
                         }
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.R))
                     {
                         if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
-                            SwitcherNavigation(Vector2.right);
+                            EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().IncreaseOptions();
                         }
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.A))
@@ -554,14 +554,14 @@ public class MenuManager : MonoBehaviour
                     {
                         if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
-                            SwitcherNavigation(Vector2.left);
+                            EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().DecreaseOptions();
                         }
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.R))
                     {
                         if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
-                            SwitcherNavigation(Vector2.right);
+                            EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().IncreaseOptions();
                         }
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.A))
@@ -710,7 +710,7 @@ public class MenuManager : MonoBehaviour
                         }
                         else if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
-                            SwitcherNavigation(Vector2.left);
+                            EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().DecreaseOptions();
                         }
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.Plus) || remoteState.IsTriggered(WiiU.RemoteButton.NunchukC))
@@ -721,7 +721,7 @@ public class MenuManager : MonoBehaviour
                         }
                         else if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                         {
-                            SwitcherNavigation(Vector2.right);
+                            EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().IncreaseOptions();
                         }
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.A))
@@ -824,7 +824,7 @@ public class MenuManager : MonoBehaviour
                 }
                 else if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                 {
-                    SwitcherNavigation(Vector2.left);
+                    EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().DecreaseOptions();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.E))
@@ -835,7 +835,7 @@ public class MenuManager : MonoBehaviour
                 }
                 else if (EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() != null && canNavigate)
                 {
-                    SwitcherNavigation(Vector2.right);
+                    EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>().IncreaseOptions();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Return))
@@ -1054,38 +1054,6 @@ public class MenuManager : MonoBehaviour
                     Vector2 newPosition = currentScrollRect.normalizedPosition + new Vector2(0f, scrollAmount);
                     newPosition.y = Mathf.Clamp01(newPosition.y);
                     currentScrollRect.normalizedPosition = newPosition;
-                }
-            }
-        }
-    }
-
-    public void SwitcherNavigation(Vector2 direction)
-    {
-        SwitcherData switcherData = EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>();
-
-        if (direction == Vector2.left)
-        {
-            if (switcherData.currentOptionId > 0)
-            {
-                switcherData.currentOptionId--;
-
-                // Play effect
-                if (buttonAudio != null)
-                {
-                    buttonAudio.Play();
-                }
-            }
-        }
-        else if (direction == Vector2.right)
-        {
-            if (switcherData.currentOptionId < (switcherData.optionsName.Length - 1))
-            {
-                switcherData.currentOptionId++;
-
-                // Play effect
-                if (buttonAudio != null)
-                {
-                    buttonAudio.Play();
                 }
             }
         }
