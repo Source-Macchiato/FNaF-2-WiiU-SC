@@ -31,7 +31,6 @@ public class CardSwitcherData : MonoBehaviour
             difficultyValue++;
 
             UpdateCardSwitcher();
-            ChangeCoverOpacity(1f);
         }
     }
 
@@ -42,16 +41,17 @@ public class CardSwitcherData : MonoBehaviour
             difficultyValue--;
 
             UpdateCardSwitcher();
-            ChangeCoverOpacity(1f);
         }
     }
 
     public void UpdateCardSwitcher()
     {
         valueText.text = difficultyValue.ToString();
+
+        ChangeCoverOpacity(difficultyValue > 0 ? 1f : 0.2f);
     }
 
-    public void ChangeCoverOpacity(float opacity)
+    private void ChangeCoverOpacity(float opacity)
     {
         Color color = coverImage.color;
         color.a = opacity;
