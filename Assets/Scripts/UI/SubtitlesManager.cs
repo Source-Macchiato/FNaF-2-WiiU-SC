@@ -6,6 +6,7 @@ using RTLTMPro;
 public class SubtitlesManager : MonoBehaviour
 {
     public RTLTextMeshPro subtitlesText;
+    public GameObject subtitlesContainer;
 
     private List<string> subtitleIdentifiers;
     private List<float> displayDurations;
@@ -61,8 +62,13 @@ public class SubtitlesManager : MonoBehaviour
                 else
                 {
                     subtitlesText.text = null;
+                    subtitlesContainer.SetActive(false);
                 }
             }
+        }
+        else
+        {
+            subtitlesContainer.SetActive(false);
         }
     }
 
@@ -107,6 +113,8 @@ public class SubtitlesManager : MonoBehaviour
     void DisplaySubtitle()
     {
         string translatedText = GetTranslatedText(subtitleIdentifiers[currentIndex]);
+
+        subtitlesContainer.SetActive(true);
 
         subtitlesText.text = translatedText;
 
