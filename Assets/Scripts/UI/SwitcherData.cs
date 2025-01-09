@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using RTLTMPro;
 
 public class SwitcherData : MonoBehaviour
@@ -10,6 +12,7 @@ public class SwitcherData : MonoBehaviour
 
     public RTLTextMeshPro text;
     public I18nTextTranslator i18nTextTranslator;
+    public Image[] inputIcons;
 
     public UnityEvent events;
 
@@ -18,6 +21,14 @@ public class SwitcherData : MonoBehaviour
         UpdateText();
 
         events.Invoke();
+    }
+
+    void Update()
+    {
+        foreach (Image inputIcon in inputIcons)
+        {
+            ChangeImageOpacity(inputIcon, EventSystem.current.currentSelectedGameObject == gameObject ? 1f : 0.5f);
+        }
     }
 
     public void IncreaseOptions()
@@ -56,5 +67,13 @@ public class SwitcherData : MonoBehaviour
             i18nTextTranslator.textId = optionsName[currentOptionId];
             i18nTextTranslator.UpdateText();
         }
+    }
+
+    private void ChangeImageOpacity(Image image, float opacity)
+    {
+        Color color = image.color;
+        color.a = opacity;
+
+        image.color = color;
     }
 }
