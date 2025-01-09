@@ -65,7 +65,6 @@ public class NightPlayer : MonoBehaviour
 	public int previousFullNessCircleIndex = -1; // Initialized to -1 to indicate no previous sprite
 	public bool canDeathSeqeuence = true;
 	public float puppetEndoChance;
-	public string PuppetWarningState;
 	public int MangleCamera = 12;
 	public int BBCamera = 10;
 	public int PaperpalsCamera = 4;
@@ -184,7 +183,6 @@ public class NightPlayer : MonoBehaviour
 	private float RWQCrashTimer;
 	private bool RWQActive;
 	public Animator JumpscareAnimator;
-	public Animator PuppetWarning;
 
 	[Header("Lights system")]
 	// Office image
@@ -1081,6 +1079,8 @@ public class NightPlayer : MonoBehaviour
 			}
 			else
 			{
+				musicBox.danger.GetComponent<Animator>().SetBool("CharacterMoved", true);
+
 				if (PuppetDeathTimer >= 0.01f)
 				{
 					PuppetDeathTimer -= Time.deltaTime;
@@ -1097,28 +1097,6 @@ public class NightPlayer : MonoBehaviour
 					PuppetDeathTimer = 15f;
 				}
 			}
-
-			// Work for Alyx on MusicBox script
-			PuppetTime = Mathf.Clamp(PuppetTime, 0f, 30f);
-
-			float percentage = (PuppetTime / 30f) * 100f;
-
-			if (percentage <= 100f && percentage >= 50f)
-			{
-				PuppetWarning.Play("WarningIdle");
-				PuppetWarningState = "WarningIdle";
-			}
-			if (percentage <= 50f && percentage >= 25f && PuppetWarningState != "WarningLight")
-			{
-				PuppetWarning.Play("WarningLight");
-				PuppetWarningState = "WarningLight";
-			}
-			if (percentage <= 25f && PuppetWarningState != "WarningHeavy")
-			{
-				PuppetWarning.Play("WarningHeavy");
-				PuppetWarningState = "WarningHeavy";
-			}
-			// ---
 		}
 	}
 

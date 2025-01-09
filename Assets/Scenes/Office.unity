@@ -13078,7 +13078,6 @@ MonoBehaviour:
   previousFullNessCircleIndex: -1
   canDeathSeqeuence: 1
   puppetEndoChance: 0
-  PuppetWarningState: 
   MangleCamera: 12
   BBCamera: 10
   PaperpalsCamera: 4
@@ -13544,7 +13543,6 @@ MonoBehaviour:
   ToyChicaBlackout: {fileID: 0}
   ToyFreddyOffice: {fileID: 1818328178}
   JumpscareAnimator: {fileID: 55881369}
-  PuppetWarning: {fileID: 584476043}
   officeImage: {fileID: 1243597345}
   defaultOffice: {fileID: 21300000, guid: 9e1b4b9414f367c478e47f0aa00c852c, type: 3}
   leftLightOffice: {fileID: 21300000, guid: 08b97a499eef3334380f95145270755b, type: 3}
@@ -14759,6 +14757,7 @@ MonoBehaviour:
   windUpSound: {fileID: 1242395680}
   musicBoxContainer: {fileID: 1472750459}
   windUpButtonAnimator: {fileID: 578657061}
+  danger: {fileID: 255066439}
   isWindUpEmpty: 0
   unwindTime: 0
   currentUnwindTime: 0

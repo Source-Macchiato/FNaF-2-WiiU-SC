@@ -10,6 +10,7 @@ public class MusicBox : MonoBehaviour
     public AudioSource windUpSound;
     public GameObject musicBoxContainer;
     public Animator windUpButtonAnimator;
+    public GameObject danger;
 
     public bool isWindUpEmpty = false;
 
@@ -125,6 +126,17 @@ public class MusicBox : MonoBehaviour
 
         // If the timer is empty set isWindUpEmpty on true, and set on false if not
         isWindUpEmpty = currentUnwindTime <= 0;
+
+        // Manage danger icon animation
+        if (currentUnwindTime <= unwindTime / 10 && currentUnwindTime > 0.01 && !danger.GetComponent<Animator>().GetBool("MusicBoxEmpty"))
+        {
+            danger.GetComponent<Animator>().Play("InDanger");
+        }
+
+        if (currentUnwindTime <= 0.01 && !danger.GetComponent<Animator>().GetBool("MusicBoxEmpty") && !danger.GetComponent<Animator>().GetBool("CharacterMoved"))
+        {
+            danger.GetComponent<Animator>().SetBool("MusicBoxEmpty", true);
+        }
     }
 
     private void MusicBoxSystem()
@@ -261,5 +273,4 @@ public class MusicBox : MonoBehaviour
     {
         windUpMusicBox = false;
     }
-
 }
