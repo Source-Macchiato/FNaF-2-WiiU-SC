@@ -1552,6 +1552,7 @@ RectTransform:
   - {fileID: 632556795}
   - {fileID: 1748820473}
   - {fileID: 1738672029}
+  - {fileID: 255066440}
   - {fileID: 1566906306}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2461,6 +2462,92 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &255066439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 255066440}
+  - component: {fileID: 255066442}
+  - component: {fileID: 255066441}
+  - component: {fileID: 255066443}
+  m_Layer: 5
+  m_Name: DangerMusicBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &255066440
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255066439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 164017757}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -40.600006, y: 77.2}
+  m_SizeDelta: {x: 63, y: 55}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &255066441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255066439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 58784941338e50940ad591e9b3de5257, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &255066442
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255066439}
+--- !u!95 &255066443
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255066439}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74fb5cb338d1c364498084c8e10292ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &272087066
 GameObject:
   m_ObjectHideFlags: 0
@@ -13047,17 +13134,17 @@ MonoBehaviour:
   RoomName: {fileID: 1776230291}
   RoomNames:
   - {fileID: 0}
-  - {fileID: 21300000, guid: 23d60b1a29c36f34ea62467600a8bdc3, type: 3}
-  - {fileID: 21300000, guid: a5b1be3cc866dd54485f4490b8ae6f9a, type: 3}
-  - {fileID: 21300000, guid: 8b4e9d94ec41f1748950994bd7a0548a, type: 3}
-  - {fileID: 21300000, guid: 8fb7a7f53ecc3f648afd2eb78dd734ae, type: 3}
-  - {fileID: 21300000, guid: 05b463e469ee8364a8fa15f6d9d08482, type: 3}
-  - {fileID: 21300000, guid: e8a10f94db8823f4d86e9f87d9c3338a, type: 3}
-  - {fileID: 21300000, guid: 4c9f4ce0469ddfd469375863d030dc31, type: 3}
-  - {fileID: 21300000, guid: 97af3348844f8a44c9b672504647e920, type: 3}
-  - {fileID: 21300000, guid: 31266fb42a8aae7489e1db2fc74aaf61, type: 3}
-  - {fileID: 21300000, guid: 7b7bb73e304d654418bf76d627c03de8, type: 3}
-  - {fileID: 21300000, guid: 170cbc9895702214b8888b87d6693788, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   FlashlightedCams:
   - {fileID: 21300000, guid: a4e212cd11a4ccf4fbe021a1b7012978, type: 3}
   - {fileID: 21300000, guid: 50e9dcaa0486ed049aff2449ad0a05b9, type: 3}
@@ -17047,7 +17134,7 @@ RectTransform:
   - {fileID: 1380516987}
   - {fileID: 1005048421}
   m_Father: {fileID: 164017757}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
