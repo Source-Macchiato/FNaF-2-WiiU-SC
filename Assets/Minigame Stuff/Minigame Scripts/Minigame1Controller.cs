@@ -75,7 +75,7 @@ public class Minigame1Controller : MonoBehaviour
         JumpscareAnimator.Play("Puppet");
 		Jumpscare.Play();
         yield return new WaitForSeconds(0.24f);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenuLoader");
     }
 
     // Coroutine to play audio sources in sequence
