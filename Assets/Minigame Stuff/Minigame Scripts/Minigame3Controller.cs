@@ -221,7 +221,7 @@ public class Minigame3Controller : MonoBehaviour
 			JumpscareAnimator.Play("WitheredFoxy");
 			Jumpscare.Play();
 			yield return new WaitForSeconds(0.24f);
-			SceneManager.LoadScene("MainMenuLoader");
+			SceneManager.LoadScene("MainMenu");
 		}
     }
 }
