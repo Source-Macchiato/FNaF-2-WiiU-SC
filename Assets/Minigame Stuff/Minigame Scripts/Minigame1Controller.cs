@@ -24,12 +24,6 @@ public class Minigame1Controller : MonoBehaviour
     // Bear's Animator
     public Animator BearAnimator;
 
-    // Movement bounds for the bear
-    public float MaxX = 10f;
-    public float MinX = -10f;
-    public float MaxY = 5f;
-    public float MinY = -5f;
-
     // Speed at which the bear moves
     public float BearSpeed = 5f;
 
@@ -47,13 +41,18 @@ public class Minigame1Controller : MonoBehaviour
 
     // Audio sources for the sequence S-A-V-E-H-I-M
     public AudioSource[] AudioSources;
-	public AudioSource Jumpscare;
+    public AudioSource Jumpscare;
 
     // Index to track the current audio source
     private int currentAudioIndex = 0;
 
     // Time between each audio source playback
     public float timeBetweenAudio = 1f;
+
+    // Wall GameObjects for boundaries
+    public GameObject[] Walls;
+
+    private Rigidbody2D bearRigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +63,9 @@ public class Minigame1Controller : MonoBehaviour
             Hunger[i] = MaxHunger;
         }
 
+        // Get the Rigidbody2D component for the bear
+        bearRigidbody = Bear.GetComponent<Rigidbody2D>();
+
         // Start the audio sequence
         StartCoroutine(PlayAudioSequence());
     }
@@ -73,7 +75,7 @@ public class Minigame1Controller : MonoBehaviour
         yield return new WaitForSeconds(27f);
         JumpscareAnimator.gameObject.SetActive(true);
         JumpscareAnimator.Play("Puppet");
-		Jumpscare.Play();
+        Jumpscare.Play();
         yield return new WaitForSeconds(0.24f);
         SceneManager.LoadScene("MainMenu");
     }
@@ -134,7 +136,7 @@ public class Minigame1Controller : MonoBehaviour
         HandleBearMovement();
     }
 
-    // Handles the bear's movement within the defined bounds
+    // Handles the bear's movement within the walls
     void HandleBearMovement()
     {
         Vector3 newPosition = Bear.transform.position;
@@ -164,16 +166,12 @@ public class Minigame1Controller : MonoBehaviour
             moved = true;
         }
 
-        // Clamp the bear's position to stay within the defined bounds
-        newPosition.x = Mathf.Clamp(newPosition.x, MinX, MaxX);
-        newPosition.y = Mathf.Clamp(newPosition.y, MinY, MaxY);
-
         // Update the bear's position
-        Bear.transform.position = newPosition;
-
-        // Play the appropriate animation based on the last horizontal movement direction
         if (moved)
         {
+            Bear.transform.position = newPosition;
+
+            // Play the appropriate animation based on the last horizontal movement direction
             if (movingRight)
             {
                 BearAnimator.Play("BearRight");
@@ -181,6 +179,19 @@ public class Minigame1Controller : MonoBehaviour
             else
             {
                 BearAnimator.Play("BearLeft");
+            }
+        }
+    }
+
+    // Prevent the bear from passing through walls
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        foreach (GameObject wall in Walls)
+        {
+            if (collision.gameObject == wall)
+            {
+                bearRigidbody.velocity = Vector2.zero;
+                break;
             }
         }
     }
