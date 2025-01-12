@@ -7,10 +7,7 @@ public class Minigame2Part2Controller : MonoBehaviour
 {
     public float BearSpeed = 5f;
     public GameObject Bear;
-    public float MinX = 0f;
-    public float MaxX = 400f;
-    public float MinY = 0f;
-    public float MaxY = 240f;
+    public GameObject[] Walls; // Array of wall GameObjects
     public GameObject[] Children;
     public GameObject[] Hats;
     public GameObject[] Gifts;
@@ -18,8 +15,8 @@ public class Minigame2Part2Controller : MonoBehaviour
     public Image StateImage;
     public Sprite GiveLife;
     public Text ScoreText;
-	public Animator JumpscareAnimator;
-	public AudioSource Jumpscare;
+    public Animator JumpscareAnimator;
+    public AudioSource Jumpscare;
 
     private int score = 0;
     private int childrenWithHats = 0;
@@ -38,29 +35,38 @@ public class Minigame2Part2Controller : MonoBehaviour
 
     void HandleBearMovement()
     {
-        Vector3 newPosition = Bear.transform.position;
+        Vector2 movement = Vector2.zero;
 
+        // Handle input for movement
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            newPosition.x += BearSpeed * Time.deltaTime;
+            movement.x += BearSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            newPosition.x -= BearSpeed * Time.deltaTime;
+            movement.x -= BearSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            newPosition.y += BearSpeed * Time.deltaTime;
+            movement.y += BearSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            newPosition.y -= BearSpeed * Time.deltaTime;
+            movement.y -= BearSpeed * Time.deltaTime;
         }
 
-        newPosition.x = Mathf.Clamp(newPosition.x, MinX, MaxX);
-        newPosition.y = Mathf.Clamp(newPosition.y, MinY, MaxY);
+        // Apply the movement
+        Bear.transform.Translate(movement);
 
-        Bear.transform.position = newPosition;
+        // Check for collisions with walls and reset position if needed
+        foreach (GameObject wall in Walls)
+        {
+            if (Bear.GetComponent<Collider2D>().IsTouching(wall.GetComponent<Collider2D>()))
+            {
+                Bear.transform.Translate(-movement); // Undo movement if colliding
+                break;
+            }
+        }
     }
 
     void CheckProximityToChildren()
@@ -118,7 +124,7 @@ public class Minigame2Part2Controller : MonoBehaviour
         }
 
         // Reset the childrenWithHats counter for the next phase
-		StateImage.sprite = GiveLife;
+        StateImage.sprite = GiveLife;
         childrenWithHats = 0;
     }
 
@@ -132,9 +138,8 @@ public class Minigame2Part2Controller : MonoBehaviour
     {
         Debug.Log("Game Over! Final score: " + score);
         Jumpscare.Play();
-		JumpscareAnimator.Play("GoldenFreddy");
-		yield return new WaitForSeconds(0.24f);
-		SceneManager.LoadScene("MainMenuLoader");
-        // For example, load a new scene or display a victory screen.
+        JumpscareAnimator.Play("GoldenFreddy");
+        yield return new WaitForSeconds(0.24f);
+        SceneManager.LoadScene("MainMenu");
     }
 }
