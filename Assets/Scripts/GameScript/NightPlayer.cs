@@ -24,6 +24,7 @@ public class NightPlayer : MonoBehaviour
 	public AudioSource With2;
 
 	public int With2Used = 0; // 1 = Tbonnie - 2 = TBonnie - 3 = TChica - 4 = WBonnie - 5 = WFreddy - 6 = WChica - 7 = Foxy
+	public int CamWatchAI = 0; // 1 = Tbonnie - 2 = TBonnie - 3 = TChica - 4 = WBonnie - 5 = WFreddy - 6 = WChica - 7 = Foxy
 
 	[Header("Info")]
 	public int[] NewandShinyAI;
@@ -466,7 +467,7 @@ public class NightPlayer : MonoBehaviour
 		}
 	}
 
-	void MovementOpportunityHandler()
+	void MovementOpportunityHandler() // 1234
 	{
 		if (GoldenFreddyCameraTime <= 0f)
 		{
@@ -487,7 +488,9 @@ public class NightPlayer : MonoBehaviour
 			int randNum = Random.Range(0, 20);
 			if (ToyBonnieAI >= randNum || ToyBonnieAI == randNum)
 			{
-				switch (ToyBonnieCamera)
+				if(CamWatchAI != 1)
+				{
+					switch (ToyBonnieCamera)
 				{
 				case 9:
 				ToyBonnieCamera = 3;
@@ -521,6 +524,7 @@ public class NightPlayer : MonoBehaviour
 				ToyBonniePrepared = true;
 				break;
 				}
+				}
 			}
 			else
 			{
@@ -536,6 +540,8 @@ public class NightPlayer : MonoBehaviour
 			int randNum = Random.Range(0, 20);
 			if (ToyChicaAI >= randNum || ToyChicaAI == randNum)
 			{
+				if(CamWatchAI != 3)
+				{
 				switch (ToyChicaCamera)
 				{
 				case 9:
@@ -569,6 +575,7 @@ public class NightPlayer : MonoBehaviour
 				ToyChicaPrepared = true;
 				break;
 				}
+				}
 			}
 			else
 			{
@@ -584,6 +591,8 @@ public class NightPlayer : MonoBehaviour
 			int randNum = Random.Range(0, 20);
 			if (ToyFreddyAI >= randNum || ToyFreddyAI == randNum)
 			{
+				if(CamWatchAI != 2)
+				{
 				switch (ToyFreddyCamera)
 				{
 				case 9:
@@ -603,6 +612,7 @@ public class NightPlayer : MonoBehaviour
 				StartCoroutine(PrepareBlackout("ToyFreddy"));
 				break;
 				}
+				}
 			}
 			ToyFreddyMovement = 5f;
 		}
@@ -611,7 +621,9 @@ public class NightPlayer : MonoBehaviour
 			int randNum = Random.Range(0, 20);
 			if (MangleAI >= randNum || MangleAI == randNum)
 			{
-				switch (MangleCamera)
+				if(CamWatchAI != 9)
+				{
+					switch (MangleCamera)
 				{
 					case 12:
 					MangleCamera = 11;
@@ -654,6 +666,7 @@ public class NightPlayer : MonoBehaviour
 					}
 					break;
 				}
+				}
 			}
 			MangleMovement = 5f;
 		}
@@ -662,6 +675,8 @@ public class NightPlayer : MonoBehaviour
 			int randNum = Random.Range(0, 20);
 			if (WitheredFreddyAI >= randNum || WitheredFreddyAI == randNum)
 			{
+				if(CamWatchAI != 5)
+				{
 				switch (WitheredFreddyCamera)
 				{
 				case 8:
@@ -683,6 +698,8 @@ public class NightPlayer : MonoBehaviour
 				WitheredFreddyCamera = 20;
 				break;
 				}
+				}
+				
 			}
 			WitheredFreddyMovement = 5f;
 		}
@@ -691,7 +708,9 @@ public class NightPlayer : MonoBehaviour
 			int randNum = Random.Range(0, 20);
 			if (WitheredBonnieAI >= randNum || WitheredBonnieAI == randNum)
 			{
-				switch (WitheredBonnieCamera)
+				if(CamWatchAI != 4)
+				{
+					switch (WitheredBonnieCamera)
 				{
 				case 8:
 				WitheredBonnieCamera = 7;
@@ -716,6 +735,7 @@ public class NightPlayer : MonoBehaviour
 				WitheredBonnieCamera = 20;
 				break;
 				}
+				}
 			}
 			WitheredBonnieMovement = 5f;
 		}
@@ -724,6 +744,8 @@ public class NightPlayer : MonoBehaviour
 			int randNum = Random.Range(0, 20);
 			if (WitheredChicaAI >= randNum || WitheredChicaAI == randNum)
 			{
+				if(CamWatchAI != 6)
+				{
 				switch (WitheredChicaCamera)
 				{
 				case 8:
@@ -747,6 +769,8 @@ public class NightPlayer : MonoBehaviour
 				StartCoroutine(DisruptCamera(6));
 				break;
 				}
+				}
+				
 			}
 			WitheredChicaMovement = 5f;
 		}
@@ -755,6 +779,8 @@ public class NightPlayer : MonoBehaviour
 			int randNum = Random.Range(0, 20);
 			if (WitheredFoxyAI >= randNum || WitheredFoxyAI == randNum)
 			{
+				if(CamWatchAI != 7)
+				{
 				switch (WitheredFoxyCamera)
 				{
 				case 8:
@@ -771,6 +797,7 @@ public class NightPlayer : MonoBehaviour
 				WitheredFoxyPrepared = true;
 				WitheredFoxyCamera = 20;
 				break;
+				}
 				}
 			}
 			WitheredFoxyMovement = 5f;
@@ -791,33 +818,36 @@ public class NightPlayer : MonoBehaviour
         			// Play the selected AudioSource
         			audioSources[randomIndex].Play();
     			}
-				switch (BBCamera)
+				if(CamWatchAI != 8)
 				{
-				case 10:
-				BBCamera = 18;
-				break;
-				case 18:
-				BBCamera = 19;
-				break;
-				case 19:
-				BBCamera = 5;
-				StartCoroutine(DisruptCamera(5));
-				VentCrawl.Play();
-				break;
-				case 5:
-				StartCoroutine(DisruptCamera(5));
-				BBCamera = 13;
-				break;
-				case 13:
-				if (!maskManager.isMaskActive)
-				{
-					BBCamera = 15;
-				}
-				else
-				{
-					BBCamera = 10;
-				}
-				break;
+					switch (BBCamera)
+					{
+					case 10:
+					BBCamera = 18;
+					break;
+					case 18:
+					BBCamera = 19;
+					break;
+					case 19:
+					BBCamera = 5;
+					StartCoroutine(DisruptCamera(5));
+					VentCrawl.Play();
+					break;
+					case 5:
+					StartCoroutine(DisruptCamera(5));
+					BBCamera = 13;
+					break;
+					case 13:
+					if (!maskManager.isMaskActive)
+					{
+						BBCamera = 15;
+					}
+					else
+					{
+						BBCamera = 10;
+					}
+					break;
+					}
 				}
 			}
 			BBMovement = 5f;
