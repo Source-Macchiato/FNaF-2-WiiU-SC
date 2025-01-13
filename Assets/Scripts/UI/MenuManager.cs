@@ -908,6 +908,10 @@ public class MenuManager : MonoBehaviour
             {
                 ShowNextPopup();
             }
+            else
+            {
+                defaultButtons[currentMenuId].Select();
+            }
         }
     }
 
