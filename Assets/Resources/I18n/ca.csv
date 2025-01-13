@@ -1,0 +1,168 @@
+mainmenu.newgame,Nova Partida
+mainmenu.continue,Continua
+mainmenu.customnight,Nit Personalitzada
+mainmenu.options,Opcions
+mainmenu.credits,Crèdits
+mainmenu.language,Idioma
+mainmenu.layout,Distribució
+mainmenu.online,En Línia
+mainmenu.analyticdata,Anàlisi de Dades
+mainmenu.audio,Àudio
+mainmenu.generalvolume,Volum general
+mainmenu.musicvolume,Volum de música
+mainmenu.voicevolume,Volum de veus
+mainmenu.sfxvolume,Volum d'efectes de so
+mainmenu.update,Una nova versió està disponible per descarregar al itch.io !
+mainmenu.sharedata,Accepta compartir informació estadística amb nosaltres ?
+mainmenu.night,Nit
+customnight.customizenight,Personalitza la Nit
+customnight.twenty,20/20/20/20
+customnight.newandshiny,Nous i Lluents
+customnight.doubletrouble,Problema Doble
+customnight.nightofmisfits,Nit dels Inadaptats
+customnight.foxyfoxy,Foxy Foxy
+customnight.ladiesnight,Nit de Noies
+customnight.freddyscircus,Circ de Freddy
+customnight.cupcakechallenge,Repte de la Magdalena
+customnight.fazbearfever,Febre de Fazbear
+customnight.goldenfreddy,Golden Freddy
+customnight.ready,Llestos
+difficulty.easy,Fàcil
+difficulty.medium,Mitjà
+difficulty.hard,Difícil
+difficulty.extreme,Extrem
+nextnight.firstnight,1a Nit
+nextnight.secondnight,2a Nit
+nextnight.thirdnight,3a Nit
+nextnight.fourthnight,4a Nit
+nextnight.fifthnight,5a Nit
+nextnight.sixthnight,6a Nit
+nextnight.seventhnight,7a Nit
+office.flashlight,llanterna
+office.useflashlight,"Manté premut <sprite name=""WiiU-A""> per usar la llanterna."
+camera.partyroomone,Sala de Festes 1
+camera.partyroomtwo,Sala de Festes 2
+camera.partyroomthree,Sala de Festes 3
+camera.partyroomfour,Sala de Festes 4
+camera.leftairvent,Ventilació Esquerra
+camera.rightairvent,Ventilació Dreta
+camera.mainhall,Passadís Principal
+camera.partsservice,Parts i Servei
+camera.showstage,Escenari
+camera.gamearea,Àrea de Jocs
+camera.prizecorner,Racó de Premis
+camera.kidscove,Cova dels Nens
+monitor.musicbox,Dona Corda a Caixa
+monitor.holdmusicbox,"manté premut <sprite name=""WiiU-B""> per donar corda"
+subtitle.phoneringtone,*To de Trucada del Teléfon*
+nightone.phoneguy.lineone,"Eh, hola? Hola, hola? Eh, hola i benvolgut al teu nou treball d'estiu al nou i millorat Freddy Fazbear's Pizza."
+nightone.phoneguy.linetwo,"Eh, estic aquí per explicar-te algunes de les coses que veuràs durant la teva primera setmana"
+nightone.phoneguy.linethree,i per ajudar-te a començar aquesta nova i apasionant trajectòria professional.
+nightone.phoneguy.linefour,"Eh, ara, vull que t'oblidis de tot el que puguis haver escoltat sobre l'antiga localització."
+nightone.phoneguy.linefive,"Eh, algunes persones encara tenen una impressió negativa de l'empresa."
+nightone.phoneguy.linesix,"Eh... van deixar el antic restaurant en ruïnes per ja fa un temps, però t'asseguro,"
+nightone.phoneguy.lineseven,"Fazbear Entertainment està compromès a la diversió familiar i sobretot, la seguretat."
+nightone.phoneguy.lineheight,"S'han gastat una petita fortuna en aquesta nova animació electrònica i, eh, el reconeixement facial,"
+nightone.phoneguy.linenine,"la mobilitat avançada, fins i tot els deixen moure's durant el dia. No és això genial? *es renta la gola* Pero el més important,"
+nightone.phoneguy.lineten,"estan tots connectats a una base de dades de criminals, així que poden detectar un depredador a una milla de distància."
+nightone.phoneguy.lineeleven,"Coi, hauriem de pagar-los per a què et vigilin a tu."
+nightone.phoneguy.linetwelve,"Eh, amb això dit, no hi ha sistemes nous sense... els seus problemes."
+nightone.phoneguy.linethirteen,Eh... ets tan sols el segon segurata que va treballar en aquella localització.
+nightone.phoneguy.linefourteen,"Eh, el primer noi va acabar la seva setmana, però es va queixar sobre... condicions."
+nightone.phoneguy.linefifteen,"Eh, el vam posar al torn de dia, així que ei, bé per tu, veritat?"
+nightone.phoneguy.linesixteen,"Eh, ell va queixar-se de què alguns personatges semblaven moure's per la nit,"
+nightone.phoneguy.lineseventeen,"i a més van intentar ficar-se a l'oficina. Ara, pel que sabem, això hauria de ser impossible."
+nightone.phoneguy.lineeighteen,"Eh, aquell restaurant hauria d'haver sigut el lloc més segur del món."
+nightone.phoneguy.linenineteen,"Així que mentre els enginyers no tinguin realment una explicació per a això, ells diuen que..."
+nightone.phoneguy.linetwenty,"els robots no van tenir mai un ""mode de nit"" ben fet. Així que quan tot es fa fosc, pensen que estan al lloc equivocat,"
+nightone.phoneguy.linetwentyone,"així doncs van i tracten de trobar on està la gent, i en aquest cas, és la teva oficina."
+nightone.phoneguy.linetwentytwo,La nostra solució temporal és aquesta: N'hi ha una caixa musical al Taulell de Premis
+nightone.phoneguy.linetwentythree,i està apanyada perquè es pugui donar corda remotament.
+nightone.phoneguy.linetwentyfour,"Així que, de tant en tant, canvia't a la transmissió del Taulell de Premis i dona-li corda per uns segons."
+nightone.phoneguy.linetwentyfive,"No sembla afectar a tots a l'animació electrònica, però afecta... a un d'ells *es renta la gola*"
+nightone.phoneguy.linetwentysix,"Eh, i pel que fa a la resta, tenim una solució fins i tot més senzilla."
+nightone.phoneguy.linetwentyseven,"Sigui, potser n'hi ha un petit error al sistema,"
+nightone.phoneguy.linetwentyheight,"alguna cosa sobre robots veient-te com a un exoesquelet sense vestit,"
+nightone.phoneguy.linetwentynine,"i volent ficar-te dins d'un, així que ei, t'hem donat un cap de Freddy Fazbear, problema solucionat!"
+nightone.phoneguy.linethirty,Pots posar-t'ho en qualsevol moment i deixar-t'ho posat tot el temps que vulguis.
+nightone.phoneguy.linethirtyone,"Eventualment, qualsevol cosa que entri, sortirà."
+nightone.phoneguy.linethirtytwo,"Eh, una cosa que és necessària mencionar és el diseny modern de l'edifici."
+nightone.phoneguy.linethirtythree,"Segurament hauràs notat que no hi ha portes a tancar, heh. Però ei, tens llum!"
+nightone.phoneguy.linethirtyfour,"I encara que la teva llanterna es pot quedar sense bateria, l'edifici no. Així que no t'angoixis sobre l'edifici quedant-se a les fosques."
+nightone.phoneguy.linethirtyfive,"Ara, crec que ja ho he dit tot. Eh, hauries d'estar bé. Ah, comprova les càmeres, posa't el cap de Freddy si ho necessites,"
+nightone.phoneguy.linethirtysix,"eh, manté la caixa amb corda, bufar i fer ampolles."
+nightone.phoneguy.linethirtyseven,"Tingues una bona nit, et parlo demà."
+nighttwo.phoneguy.lineone,"Ah... hola, hola! Eh, veus, ja et vaig dir que la primera nit no seria un problema. Ets un natural!"
+nighttwo.phoneguy.linetwo,"Eh,  estic segur que per ara has notat els antics models al traster."
+nighttwo.phoneguy.linethree,"Eh, són de l'antiga localització. Ara els usem per a les seves parts."
+nighttwo.phoneguy.linefour,"Al principi la idea era reparar-los... eh,"
+nighttwo.phoneguy.linefive,"fins i tot van començar a modernitzar-los amb una mica de la nova tecnologia,"
+nighttwo.phoneguy.linesix,"però simplement eren tan repel·lents, saps? I l'olora... buf,"
+nighttwo.phoneguy.lineseven,així que l'empresa va decidir anar amb una direcció completament diferent i fer-los superamigables.
+nighttwo.phoneguy.lineheight,"Eh, els antics no haurien de poder moure's,"
+nighttwo.phoneguy.linenine,"però si ho fan, el truc amb el cap de Freddy hauria de funcionar, també, així que tant és."
+nighttwo.phoneguy.lineten,Eh...heh...adoro aquests personatges antics. Mai has vist a Foxy el pirata?
+nighttwo.phoneguy.lineeleven,"Oh, espera, un segon...oh si, Foxy. Eh, escolta'm, ell sempre era una mica raret, ah..."
+nighttwo.phoneguy.linetwelve,"No estic segur que el truc amb el cap de Freddy funcioni amb Foxy, eh."
+nighttwo.phoneguy.linethirteen,"Si per alguna raó s'activa a la nit i el veus parat al fons del passadís,"
+nighttwo.phoneguy.linefourteen,Il·lumina'l amb la llanterna de tant en tant.
+nighttwo.phoneguy.linefifteen,Els models antics sempre es desorientaven amb les llums.
+nighttwo.phoneguy.linesixteen,"Podia provocar un reinici del sistema, o una cosa així."
+nighttwo.phoneguy.lineseventeen,"Eh, ara que ho penso, potser voldries intentar-ho en qualsevol habitació on alguna cosa indesitjable pugui estar."
+nighttwo.phoneguy.lineeighteen,Potser els manté al seu lloc per uns segons.
+nighttwo.phoneguy.linenineteen,(L'error?) potser està als models actuals també.
+nighttwo.phoneguy.linetwenty,Una cosa més - no oblidis la caixa musical.
+nighttwo.phoneguy.linetwentyone,"Serè honest, mai em va agradar aquella marioneta. Sempre estava..."
+nighttwo.phoneguy.linetwentytwo,"pensant, i pot anar on vulgui..."
+nighttwo.phoneguy.linetwentythree,"No crec que una màscara l'enganyarà, així que no t'oblidis de la caixa."
+nighttwo.phoneguy.linetwentyfour,"De totes maneres, això no serà un problema. Eh, tingues una bona nit, et parlaré demà."
+nightthree.phoneguy.lineone,"Hola, hola! Veus? Ja vaig dir que no tindries cap problema!"
+nightthree.phoneguy.linetwo,Va... eh... Va aparèixer Foxy al passadís? Segurament no. Tenia curiositat.
+nightthree.phoneguy.linethree,"Com vaig dir, ell sempre va estar el meu favorit. Van intentar refer-lo, saps?"
+nightthree.phoneguy.linefour,"Eh, tenien la sensació que feia massa por,"
+nightthree.phoneguy.linefive,així que el van redissenyar per ser més apte pels nens i el van posar a la Cova dels Nens.
+nightthree.phoneguy.linesix,"Ja saps, per mantenir als més petits entretinguts…"
+nightthree.phoneguy.lineseven,Però els nens avui dia no poden estar quiets.
+nightthree.phoneguy.lineheight,L'equip literalment ha de reformar a Foxy després de cada torn.
+nightthree.phoneguy.linenine,Així que eventualment van deixar d'intentar-ho i el van posar com
+nightthree.phoneguy.lineten,una mena d'atracció de «muntar i desmuntar».
+nightthree.phoneguy.lineeleven,Ara només és un munt de parts.
+nightthree.phoneguy.linetwelve,Crec que els empleats simplement li diuen «The Mangle». Eh...
+nightthree.phoneguy.linethirteen,"Oh, ei, abans que marxi, ah, volia calmar-vos sobre qualsevol rumor que hagis pogut escoltar."
+nightthree.phoneguy.linefourteen,"Eh, tu saps com aquestes històries locals van i venen i rarament diuen res."
+nightthree.phoneguy.linefifteen,"Personalment, puc assegurar-vos que, sigui el que estigui passant,"
+nightthree.phoneguy.linesixteen,"i quan tràgic pugui arribar a ser, no té res a veure amb el nostre establiment."
+nightthree.phoneguy.lineseventeen,Són tot rumors i especulacions... Gent intentant aprofitar-se. Ja saps...
+nightthree.phoneguy.lineeighteen,"Eh, la nostra guàrdia durant el dia no ha reportat res estrany. I ell està vigilant des de l'obertura fins al tancament."
+nightthree.phoneguy.linenineteen,"D'acord, doncs, queda't aquí i et parlo demà."
+nightfour.phoneguy.lineone,"Hola? Hola? Eh, bones, quarta nit! Ja et vaig dir que podies fer-ho!"
+nightfour.phoneguy.linetwo,"D'acord, així que, només per actualitzar-te, eh, n'hi ha una petita, eh, investigació succeint."
+nightfour.phoneguy.linethree,"Eh, potser acabem tancant per uns dies... no ho sé."
+nightfour.phoneguy.linefour,Vull emfatitzar que és només una precaució.
+nightfour.phoneguy.linefive,"Eh, Fazbear Entertainment nega qualsevol mala conducta."
+nightfour.phoneguy.linesix,Aquestes coses passen a vegades. Em... Tot se solucionarà en uns pocs dies.
+nightfour.phoneguy.lineseven,"Simplement vigila i et mantindré alerta. Eh, abans t'he de dir:"
+nightfour.phoneguy.lineheight,intenta evitar el contacte visual amb qualsevol de l'animació electrònica aquesta nit si t'és possible.
+nightfour.phoneguy.linenine,Algú podria haver manipulat els sistemes de reconeixement facial - no estem segurs.
+nightfour.phoneguy.lineten,"Però els personatges han estat actuant de forma molt inusual, quasi agressiva a l'equip."
+nightfour.phoneguy.lineeleven,"Interactuen correctament cap als nens, però quan troben un adult, simplement és...queden amb la mirada fixa."
+nightfour.phoneguy.linetwelve,"Eh... Tot i això, mantingues-te en el lloc. Tot se solucionarà. Bona nit!"
+nightfive.phoneguy.lineone,"Hola, hola? Ei, bona feina, cinquena nit! Em, ei, ah, dona una ullada aquesta nit, d'acord?"
+nightfive.phoneguy.linetwo,"Em, del que he entès, l'edifici està en confinament, eh"
+nightfive.phoneguy.linethree,"ningú pot entrar o sortir, ja saps, especialment parlant-ne de… anteriors treballadors."
+nightfive.phoneguy.linefour,"Em, quan ho tinguem tot més o menys solucionat, potser et canviem al torn diürn, ara tenim una posició... disponible."
+nightfive.phoneguy.linefive,"Ah, encara no tenim un reemplaçament pel teu torn, però estem en allò."
+nightfive.phoneguy.linesix,Intentarem contactar al propietari original del restaurant.
+nightfive.phoneguy.lineseven,"Eh, crec que el nom del lloc era ""Fredbear's Family Diner"" o alguna cosa semblant."
+nightfive.phoneguy.lineheight,"Ha estat tancat per anys, dubto que puguem trobar a ningú."
+nightfive.phoneguy.linenine,"Bé, tan sols has de passar per una nit més! Eh, queda't aquí! Bona nit!"
+nightsix.phoneguy.lineone,"Hola? Hola...eh...què dimonis fas aquí, eh no vas rebre el memoràndum,"
+nightsix.phoneguy.linetwo,"eh, el lloc està tancat, eh, almenys per una estona."
+nightsix.phoneguy.linethree,"Algú va fer servir un dels vestits. Teníem un de sobra al traster, un de groc,"
+nightsix.phoneguy.linefour,algú el va usar...i ara ni un actua correctament.
+nightsix.phoneguy.linefive,Escolta a-acaba el teu torn és millor que intentar sortir en mig de la nit.
+nightsix.phoneguy.linesix,"Eh, tenim un esdeveniment més per a demà, un aniversari."
+nightsix.phoneguy.lineseven,"Estaràs al torn de dia, vesteix el teu uniforme, manteniu-vos a prop de l'animació electrònica,"
+nightsix.phoneguy.lineheight,"assegura't que no facin mal a ningú d'acord, eh per ara simplement acaba la nit,"
+nightsix.phoneguy.linenine,eh quan el lloc eventualment torni a obrir-se segurament jo prendré el torn de nit.
+nightsix.phoneguy.lineten,"D'acord, bona nit i bona sort."
