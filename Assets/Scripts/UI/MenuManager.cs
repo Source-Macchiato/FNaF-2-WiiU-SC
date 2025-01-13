@@ -882,9 +882,14 @@ public class MenuManager : MonoBehaviour
             {
                 // Select button
                 GameObject optionsContainer = currentPopup.popupObject.transform.Find("Options").gameObject;
-                GameObject buttonGameObject = optionsContainer.transform.GetChild(0).gameObject;
-                Button selectButton = buttonGameObject.GetComponent<Button>();
-                selectButton.Select();
+                Button button = optionsContainer.transform.GetChild(0).GetComponent<Button>();
+                button.Select();
+            }
+            else if (currentPopup.actionType == 2)
+            {
+                GameObject inputFieldsContainer = currentPopup.popupObject.transform.Find("PopupInputFields").gameObject;
+                TMP_InputField inputField = inputFieldsContainer.transform.GetChild(0).GetComponent<TMP_InputField>();
+                inputField.Select();
             }
         }
     }
