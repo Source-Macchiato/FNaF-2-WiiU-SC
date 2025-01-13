@@ -9,6 +9,8 @@ public class ClosedBeta : MonoBehaviour
 	public string password;
 	private string projectToken = "9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b";
 
+	private MenuManager menuManager;
+
     [Serializable]
 	private class AuthResponse
 	{
@@ -23,7 +25,9 @@ public class ClosedBeta : MonoBehaviour
 
     void Start()
 	{
-		
+		menuManager = FindObjectOfType<MenuManager>();
+
+		menuManager.AddPopup(2);
 	}
 
 	void Update()
