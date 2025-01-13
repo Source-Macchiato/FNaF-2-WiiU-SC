@@ -100,6 +100,20 @@ MonoBehaviour:
     unicode: 0
     pivot: {x: -50, y: 50}
     sprite: {fileID: 21300000, guid: 43e2a8e4dc0a83043ac6c61382041643, type: 3}
+  - id: 6
+    x: 200
+    y: 100
+    width: 100
+    height: 100
+    xOffset: 0
+    yOffset: 70
+    xAdvance: 100
+    scale: 1.8
+    name: WiiU-Plus
+    hashCode: -1810064843
+    unicode: 0
+    pivot: {x: -50, y: 50}
+    sprite: {fileID: 21300000, guid: 43e2a8e4dc0a83043ac6c61382041643, type: 3}
   fallbackSpriteAssets:
   - {fileID: 0}
 --- !u!21 &21183617848763658
