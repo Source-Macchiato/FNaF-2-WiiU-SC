@@ -5,7 +5,7 @@ public class MoveInOffice : MonoBehaviour
 {
     public GameObject OfficeContainer;
     private RectTransform officeRect;
-    public GameObject pointerCursor;
+    public RectTransform pointerCursor;
 
     [HideInInspector]
     public bool camIsUp = false;
@@ -18,7 +18,7 @@ public class MoveInOffice : MonoBehaviour
     public float leftEdge = 320f;
     public float rightEdge = -320f;
     private float stickDeadzone = 0.19f;
-    public bool AllowMouseMove = true;
+    public bool allowMouseMove = true;
 
     void Start()
 	{
@@ -139,17 +139,22 @@ public class MoveInOffice : MonoBehaviour
                 {
                     MoveRight();
                 }
+
+                if (pointerCursor != null)
+                {
+                    pointerCursor.anchoredPosition = pointerPosition;
+                }
                 break;
         }
 
         // Keyboard
         if (Application.isEditor)
         {
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.mousePosition.x < 300f && AllowMouseMove)
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.mousePosition.x < 300f && allowMouseMove)
             {
                 MoveLeft();
             }
-            else if (Input.GetKey(KeyCode.RightArrow) || Input.mousePosition.x > WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV) - 300f && AllowMouseMove)
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.mousePosition.x > WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV) - 300f && allowMouseMove)
             {
                 MoveRight();
             }
