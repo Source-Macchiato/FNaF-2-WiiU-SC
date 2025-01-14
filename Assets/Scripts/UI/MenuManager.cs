@@ -938,7 +938,7 @@ public class MenuManager : MonoBehaviour
 
     private void MenuNavigation(Vector2 direction)
     {
-        if (currentScrollRect == null && keyboard == null && canNavigate)
+        if (currentScrollRect == null && !IsKeyboardActive() && canNavigate)
         {
             if (direction == Vector2.up)
             {
@@ -989,7 +989,7 @@ public class MenuManager : MonoBehaviour
 
     public void ScrollNavigation(Vector2 direction)
     {
-        if (currentScrollRect != null && currentPopup == null && keyboard == null && canNavigate)
+        if (currentScrollRect != null && currentPopup == null && !IsKeyboardActive() && canNavigate)
         {
             RectTransform content = currentScrollRect.content;
             RectTransform viewport = currentScrollRect.viewport;
@@ -1133,7 +1133,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoBack()
     {
-        if (currentPopup == null && keyboard == null && canNavigate)
+        if (currentPopup == null && !IsKeyboardActive() && canNavigate)
         {
             if (menuHistory.Count > 0)
             {
@@ -1162,5 +1162,24 @@ public class MenuManager : MonoBehaviour
             return menus[currentMenuId].gameObject;
         }
         return null;
+    }
+
+    private bool IsKeyboardActive()
+    {
+        if (keyboard == null)
+        {
+            return false;
+        }
+        else
+        {
+            if (keyboard.active)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
