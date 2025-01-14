@@ -938,7 +938,7 @@ public class MenuManager : MonoBehaviour
 
     private void MenuNavigation(Vector2 direction)
     {
-        if (currentScrollRect == null && !keyboard.active && canNavigate)
+        if (currentScrollRect == null && keyboard == null && canNavigate)
         {
             if (direction == Vector2.up)
             {
@@ -989,7 +989,7 @@ public class MenuManager : MonoBehaviour
 
     public void ScrollNavigation(Vector2 direction)
     {
-        if (currentScrollRect != null && currentPopup == null && !keyboard.active && canNavigate)
+        if (currentScrollRect != null && currentPopup == null && keyboard == null && canNavigate)
         {
             RectTransform content = currentScrollRect.content;
             RectTransform viewport = currentScrollRect.viewport;
@@ -1133,7 +1133,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoBack()
     {
-        if (currentPopup == null && !keyboard.active && canNavigate)
+        if (currentPopup == null && keyboard == null && canNavigate)
         {
             if (menuHistory.Count > 0)
             {

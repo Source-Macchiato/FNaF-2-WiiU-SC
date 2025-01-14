@@ -5,6 +5,7 @@ public class MoveInOffice : MonoBehaviour
 {
     public GameObject OfficeContainer;
     private RectTransform officeRect;
+    public GameObject pointerCursor;
 
     [HideInInspector]
     public bool camIsUp = false;
