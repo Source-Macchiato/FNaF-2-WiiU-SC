@@ -18,6 +18,7 @@ public class ClosedBeta : MonoBehaviour
     [Serializable]
 	private class AuthResponse
 	{
+		public string[] message;
         public AuthData data;
     }
 
@@ -102,18 +103,16 @@ public class ClosedBeta : MonoBehaviour
 		{
 			yield return www;
 
-			if (string.IsNullOrEmpty(www.error))
-			{
-				string jsonResponse = www.text;
-				AuthResponse response = JsonUtility.FromJson<AuthResponse>(jsonResponse);
+            string jsonResponse = www.text;
+            AuthResponse response = JsonUtility.FromJson<AuthResponse>(jsonResponse);
 
-				StartCoroutine(IsTester(response.data.token, projectToken));
-			}
-			else
+            Debug.Log(response.message[0]);
+
+            if (StatusCode(www) == 200)
 			{
-				Debug.Log("Login error: " + www.error);
-			}	
-		}
+                StartCoroutine(IsTester(response.data.token, projectToken));
+            }
+        }
 	}
 
 	IEnumerator IsTester(string userToken, string projectToken)
@@ -132,6 +131,10 @@ public class ClosedBeta : MonoBehaviour
 			if (StatusCode(www) == 200)
 			{
 				menuManager.CloseCurrentPopup();
+			}
+			else if (StatusCode(www) == 403)
+			{
+				Application.Quit();
 			}
         }
     }
