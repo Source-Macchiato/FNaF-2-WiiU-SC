@@ -236,10 +236,7 @@ public class MenuManager : MonoBehaviour
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.B))
                 {
-                    if (currentPopup == null && canNavigate)
-                    {
-                        GoBack();
-                    }
+                    GoBack();
                 }
 
                 // Is Pressed
@@ -387,10 +384,7 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.B))
                     {
-                        if (currentPopup == null && canNavigate)
-                        {
-                            GoBack();
-                        }
+                        GoBack();
                     }
 
                     // Is Pressed
@@ -535,10 +529,7 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.B))
                     {
-                        if (currentPopup == null && canNavigate)
-                        {
-                            GoBack();
-                        }
+                        GoBack();
                     }
 
                     // Is Pressed
@@ -676,10 +667,7 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.B))
                     {
-                        if (currentPopup == null && canNavigate)
-                        {
-                            GoBack();
-                        }
+                        GoBack();
                     }
 
                     // Is Pressed
@@ -778,10 +766,7 @@ public class MenuManager : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Backspace))
             {
-                if (currentPopup == null && canNavigate)
-                {
-                    GoBack();
-                }
+                GoBack();
             }
 
             // Key
@@ -1148,22 +1133,25 @@ public class MenuManager : MonoBehaviour
 
     public void GoBack()
     {
-        if (menuHistory.Count > 0)
+        if (currentPopup == null && !keyboard.active && canNavigate)
         {
-            // Set the navigation back flag to true
-            isNavigatingBack = true;
-
-            // Execute the callback for the current menu, if it exists
-            if (backCallbacks.ContainsKey(currentMenuId) && backCallbacks[currentMenuId] != null)
+            if (menuHistory.Count > 0)
             {
-                backCallbacks[currentMenuId].Invoke();
+                // Set the navigation back flag to true
+                isNavigatingBack = true;
+
+                // Execute the callback for the current menu, if it exists
+                if (backCallbacks.ContainsKey(currentMenuId) && backCallbacks[currentMenuId] != null)
+                {
+                    backCallbacks[currentMenuId].Invoke();
+                }
+
+                // Retrieve the previous menu ID from the history stack
+                int previousMenuId = menuHistory.Pop();
+
+                // Change to the previous menu
+                ChangeMenu(previousMenuId);
             }
-
-            // Retrieve the previous menu ID from the history stack
-            int previousMenuId = menuHistory.Pop();
-
-            // Change to the previous menu
-            ChangeMenu(previousMenuId);
         }
     }
 
