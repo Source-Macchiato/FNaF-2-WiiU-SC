@@ -55,7 +55,7 @@ camera.kidscove,Crique des enfants
 monitor.musicbox,Boîte à musique mécanique
 monitor.holdmusicbox,"Maintenir <sprite name=""WiiU-B"">"
 subtitle.phoneringtone,*Sonnerie de téléphone*
-nightone.phoneguy.lineone,"Euh, salut ? Salut ? Euh, bonjour et bienvenue pour votre nouveau job d'été dans la nouvelle pizzeria de Freddy Fazbear."
+nightone.phoneguy.lineone,"Euh, allo ? Allo ? Euh, bonjour et bienvenue pour votre nouveau job d'été dans la nouvelle pizzeria de Freddy Fazbear."
 nightone.phoneguy.linetwo,"Euh, je suis là pour te parler de choses que tu pourrais voir pendant cette premiere semaine ici"
 nightone.phoneguy.linethree,et pour t'aider à commencer cette nouvelle et pasionnante voie professionnelle.
 nightone.phoneguy.linefour,"Euh, maintenant, j'aimerais que tu oublies tout ce que tu as entendu à propos de cette endroit, d'accord ?"
@@ -92,77 +92,77 @@ nightone.phoneguy.linethirtyfour,"Et même si la batterie de ta lampe torche peu
 nightone.phoneguy.linethirtyfive,"ta nuit dans le noir. Bien, je penses que tu sais tout. Euh, utilises les lumières, met le masque de Freddy si besoin,"
 nightone.phoneguy.linethirtysix,"euh, garde la boîte à musique remontée, c'est du gâteau."
 nightone.phoneguy.linethirtyseven,"Passe une bonne nuit, et je te rappelle demain."
-nighttwo.phoneguy.lineone,"Ah...hello, hello! Uh, see, I told you your first night wouldn't be a problem. You're a natural!"
-nighttwo.phoneguy.linetwo,"Uh, by now I'm sure you've noticed the older models sitting in the back room."
-nighttwo.phoneguy.linethree,"Uh, those are from the previous location. We just use them for parts now."
-nighttwo.phoneguy.linefour,"The idea at first was to repair them... uh,"
-nighttwo.phoneguy.linefive,"they even started retrofitting them with some of the newer technology,"
-nighttwo.phoneguy.linesix,"but they were just so ugly, you know? The smell... uh,"
-nighttwo.phoneguy.lineseven,so the company decided to go in a whole new direction and make them super kid-friendly.
-nighttwo.phoneguy.lineheight,"Uh, those older ones shouldn't be able to walk around,"
-nighttwo.phoneguy.linenine," but if they do, the whole Freddy head trick shoud work on them too, so, whatever."
-nighttwo.phoneguy.lineten,Uh...heh...I love those old characters. Did you ever see Foxy the pirate?
-nighttwo.phoneguy.lineeleven,"Oh wait, hold on...oh yeah, Foxy. Uh, hey listen, that one was always a bit twitchy, uh..."
-nighttwo.phoneguy.linetwelve,"I'm not sure the Freddy head trick will work on Foxy, uh."
-nighttwo.phoneguy.linethirteen,"If for some reason he activates during the night and you see him standing at the far end of the hall,"
-nighttwo.phoneguy.linefourteen,just flash your light at him from time to time.
-nighttwo.phoneguy.linefifteen,Those older models would always get disoriented with bright lights.
-nighttwo.phoneguy.linesixteen,"It would cause a system restart, or something."
-nighttwo.phoneguy.lineseventeen,"Uh, come to think of it, you might want to try that on any room where something undesirable might be."
-nighttwo.phoneguy.lineeighteen,It might hold them in place for a few seconds.
-nighttwo.phoneguy.linenineteen,(That glitch?) might be in some of the newer models too.
-nighttwo.phoneguy.linetwenty,One more thing - don't forget the music box.
-nighttwo.phoneguy.linetwentyone,"I'll be honest, I never liked that puppet thing. It was always..."
-nighttwo.phoneguy.linetwentytwo,"thinking, and it can go anywhere..."
-nighttwo.phoneguy.linetwentythree,"I don't think a Freddy mask will fool it, so just don't forget the music box."
-nighttwo.phoneguy.linetwentyfour,"Anyway, I'm sure it won't be a problem. Uh, have a good night, and talk to you tomorrow."
-nightthree.phoneguy.lineone,Hello hello! See? I told you you wouldn't have any problems!
-nightthree.phoneguy.linetwo,Did...uh... Did Foxy ever appear in the hallway? Probably not. I was just curious.
-nightthree.phoneguy.linethree,"Like I said, he was always my favorite. They tried to remake Foxy, you know?"
-nightthree.phoneguy.linefour,"Uh, they thought the first one was too scary,"
-nightthree.phoneguy.linefive,so they redesigned him to be more kid-friendly and put him in Kid's Cove.
-nightthree.phoneguy.linesix,"To keep the toddlers entertained, you know..."
-nightthree.phoneguy.lineseven,But kids these days just can't keep their hands to themselves.
-nightthree.phoneguy.lineheight,The staff literally has to put Foxy back together after every shift.
-nightthree.phoneguy.linenine,So eventually they stopped trying and left him as some kind of
-nightthree.phoneguy.lineten,"""take apart and put back together"" attraction."
-nightthree.phoneguy.lineeleven,Now he's just a mess of parts.
-nightthree.phoneguy.linetwelve,"I think the employees refer to him as just ""The Mangle."" Uh..."
-nightthree.phoneguy.linethirteen,"Oh, hey, before I go, uh, I wanted to ease your mind about any rumors you might have heard lately."
-nightthree.phoneguy.linefourteen,"Uh, you know how these local stories come and go and seldom mean anything."
-nightthree.phoneguy.linefifteen,"I can personally assure you that, whatever is going on out there,"
-nightthree.phoneguy.linesixteen,"and however tragic it may be, has nothing to do with our establishment."
-nightthree.phoneguy.lineseventeen,It's just all rumor and speculation... People trying to make a buck. You know...
-nightthree.phoneguy.lineeighteen,"Uh, our guard during the day has reported nothing unusual. And he's on watch from opening till close."
-nightthree.phoneguy.linenineteen,"Okay, well anyway, hang in there and I'll talk to you tomorrow."
-nightfour.phoneguy.lineone,"Hello? Hello? Uh, hey there, night four! I told you you'd get the hang of it!"
-nightfour.phoneguy.linetwo,"Ok, so uh, just to update you, uh, there's been somewhat of an, uh, investigation going on."
-nightfour.phoneguy.linethree,"Uh, we may end up having to close for a few days... I don't know."
-nightfour.phoneguy.linefour,I want to emphasize though that it's really just a precaution.
-nightfour.phoneguy.linefive,"Uh, Fazbear Entertainment denies any wrongdoing."
-nightfour.phoneguy.linesix,These things happen sometimes. Um... It'll all get sorted out in a few days.
-nightfour.phoneguy.lineseven,"Just keep an eye on things and I'll keep you posted. Uh, just as a side note though,"
-nightfour.phoneguy.lineheight,try to avoid eye contact with any of the animatronics tonight if you can.
-nightfour.phoneguy.linenine,Someone may have tampered with their facial recognition systems - we're not sure.
-nightfour.phoneguy.lineten,"But the characters have been acting very unusual, almost aggressive towards the staff."
-nightfour.phoneguy.lineeleven,"They interact with the kids just fine, but when they encounter an adult, they just...stare."
-nightfour.phoneguy.linetwelve,"Uh... Anyways, hang tight. It'll all pass. Good night!"
-nightfive.phoneguy.lineone,"Hello, hello? Hey, good job, night 5! Um hey, um, keep a close eye on things tonight, ok?"
-nightfive.phoneguy.linetwo,"Um, from what I understand, the building is on lock down, uh"
-nightfive.phoneguy.linethree,"no one is allowed in or out, y'know, especially concerning any... previous employees."
-nightfive.phoneguy.linefour,"Um, when we get it all sorted out, we may move you to the day shift, a position just became... available."
-nightfive.phoneguy.linefive,"Uh, we don't have a replacement for your shift yet, but we're working on it."
-nightfive.phoneguy.linesix,We're going to try to contact the original restaurant owner.
-nightfive.phoneguy.lineseven,"Uh, I think the name of the place was ""Fredbear's Family Diner"" or something like that."
-nightfive.phoneguy.lineheight,"It's been closed for years though, I doubt we'll be able to track anybody down."
-nightfive.phoneguy.linenine,"Well, just get through one more night! Uh, hang in there! Goodnight!"
-nightsix.phoneguy.lineone,"Hello? Hello...uh...what on earth are you doing there, uh didn’t you get the memo,"
-nightsix.phoneguy.linetwo,"uh, the place is closed down, uh, at least for a while."
-nightsix.phoneguy.linethree,"Someone used one of the suits. We had a spare in the back, a yellow one,"
-nightsix.phoneguy.linefour,someone used it...now none of them are acting right.
-nightsix.phoneguy.linefive,Listen j-just finish your shift it’s safer than trying to leave in the middle of the night.
-nightsix.phoneguy.linesix,"Uh, we have one more event scheduled for tomorrow, a birthday."
-nightsix.phoneguy.lineseven,"You’ll be on day shift, wear your uniform, stay close to the animatronics,"
-nightsix.phoneguy.lineheight,"make sure they don’t hurt anyone okay, uh for now just make it through the night,"
-nightsix.phoneguy.linenine,uh when the place eventually opens again I’ll probably take the night shift myself.
-nightsix.phoneguy.lineten,"Okay, good night and good luck."
+nighttwo.phoneguy.lineone,"Ah... Salut, salut ! Euh, tu vois, je t'avais dit que ta première nuit ne poserait aucun problème. Tu es doué !"
+nighttwo.phoneguy.linetwo,"Euh, je suis sûr que tu as remarqué les anciens modèles assis dans l'arrière-salle."
+nighttwo.phoneguy.linethree,"Euh, ceux-là viennent de l'ancien emplacement. On les utilise juste pour pièces maintenant."
+nighttwo.phoneguy.linefour,"À l'origine l'idée était de les réparer... euh,"
+nighttwo.phoneguy.linefive,"ils ont même commencé à les équiper de certaines des nouvelles technologies,"
+nighttwo.phoneguy.linesix,"mais ils étaient vraiment moches, tu vois ? L'odeur... euh,"
+nighttwo.phoneguy.lineseven,l'entreprise a donc décidé de prendre une toute nouvelle direction et de les rendre adaptés aux enfants.
+nighttwo.phoneguy.lineheight,"Euh, ces anciens modèles ne devraient pas pouvoir se promener,"
+nighttwo.phoneguy.linenine,"mais si c'est le cas, la technique de la tête de Freddy devrait fonctionner, donc, peu importe."
+nighttwo.phoneguy.lineten,Euh... haha... J'adore ces vieux personnages. Tu as déjà vu Foxy le pirate ?
+nighttwo.phoneguy.lineeleven,"Oh oui, attends... ouais, Foxy. Euh, hé écoute, celui là a toujours été un peu délicat, euh..."
+nighttwo.phoneguy.linetwelve,"Je ne suis pas sûr que la technique de la tête de Freddy fonctionne sur Foxy, euh."
+nighttwo.phoneguy.linethirteen,"Si pour une raison inconnue il s'active pendant la nuit et que tu le vois au fond de la salle,"
+nighttwo.phoneguy.linefourteen,fais simplement clignoter ta lampe torche de temps en temps.
+nighttwo.phoneguy.linefifteen,Ces vieux modèles étaient toujours désorientés par les lumières vives.
+nighttwo.phoneguy.linesixteen,"Ça devrait redémarrer leur système, ou quelque-chose dans le genre."
+nighttwo.phoneguy.lineseventeen,"Euh, je viens d'y penser, tu devrais faire la même chose dans toutes les salles où quelque-chose d'étrange se passe."
+nighttwo.phoneguy.lineeighteen,Ça devrait les stopper quelques secondes.
+nighttwo.phoneguy.linenineteen,(ce problème technique ?) devrait aussi fonctionner sur certains des derniers modèles.
+nighttwo.phoneguy.linetwenty,Encore une chose - n'oublie surtout pas la boîte à musique.
+nighttwo.phoneguy.linetwentyone,"Je vais être honnête, je n'ai jamais aimé cette marionnette. Elle est toujours..."
+nighttwo.phoneguy.linetwentytwo,"en train de réfléchir, et elle peut se déplacer partout..."
+nighttwo.phoneguy.linetwentythree,"Je ne pense pas qu'un masque de Freddy la trompera, donc n'oublie surtout pas cette boîte à musique."
+nighttwo.phoneguy.linetwentyfour,"Quoi qu'il en soit, je suis sûr que ce ne sera pas un problème. Euh, passe une bonne nuit et à demain."
+nightthree.phoneguy.lineone,Salut salut ! Tu vois ? Je t'avais dit que tout se passerait bien !
+nightthree.phoneguy.linetwo,Est-ce que... euh... Foxy est déjà apparue dans le couloir ? Probablement pas. J'étais juste curieux.
+nightthree.phoneguy.linethree,"Comme je l'ai dit, il a toujours été mon préféré. Ils ont essayé de refaire Foxy, tu sais ?"
+nightthree.phoneguy.linefour,"Euh, ils pensaient que le premier était trop effrayant,"
+nightthree.phoneguy.linefive,ils l'ont donc redessiné pour qu'il soit plus adapté aux enfants et l'ont placé dans la crique.
+nightthree.phoneguy.linesix,"Pour divertir les tout-petits, tu sais..."
+nightthree.phoneguy.lineseven,Mais de nos jours les enfants ne peuvent pas garder leurs mains pour eux.
+nightthree.phoneguy.lineheight,Le personnel devait littéralement remettre Foxy sur pied après chaque roulement.
+nightthree.phoneguy.linenine,Finalement ils ont arrêté d'essayer et l'ont laissé comme une sorte
+nightthree.phoneguy.lineten,"d'attraction à ""démonter et remonter""."
+nightthree.phoneguy.lineeleven,Maintenant il n'est plus qu'un tas de pièces.
+nightthree.phoneguy.linetwelve,"Je crois que les employés l'appellent simplement ""Mangle"", le mutilé. Euh..."
+nightthree.phoneguy.linethirteen,"Oh, hé, avant de partir, euh, je voulais te rassurer sur les rumeurs que tu aurais pu entendre récemment."
+nightthree.phoneguy.linefourteen,"Euh, tu sais comment ces histoires locales vont et viennent et ne signifient rien."
+nightthree.phoneguy.linefifteen,"Je peux t'assurer que, quoi qu'il se passe là-bas,"
+nightthree.phoneguy.linesixteen,"et aussi tragique que cela puisse être, cela n’a rien à voir avec notre établissement."
+nightthree.phoneguy.lineseventeen,Ce ne sont que rumeurs et spéculations... Des gens qui essaient de se faire de l'argent dessus. Tu sais...
+nightthree.phoneguy.lineeighteen,"Euh, notre agent de jour n'a rien signalé d'inhabituel. Et il est de garde de l'ouverture à la fermeture."
+nightthree.phoneguy.linenineteen,"Bon, accroche-toi. Je te rappelle demain."
+nightfour.phoneguy.lineone,"Allo ? Allo ? Euh, quatrième nuit ! Je t'avais dit que tu y arriverais !"
+nightfour.phoneguy.linetwo,"Ok, donc euh, juste pour te mettre au courant, euh, il y a une sorte d'enquête en cours."
+nightfour.phoneguy.linethree,"Euh, on va peut-être devoir fermer pendant quelques jours..."
+nightfour.phoneguy.linefour,Je tiens cependant à souligner qu’il s’agit simplement d’une mesure de précaution.
+nightfour.phoneguy.linefive,"Euh, Fazbear Entertainment nie tout acte répréhensible."
+nightfour.phoneguy.linesix,Ces choses-là arrivent parfois. Euh... Tout s'arrangera dans quelques jours.
+nightfour.phoneguy.lineseven,"Garde un œil sur le restaurant et je te tiendrai au courant. Euh, juste une petite remarque cependant,"
+nightfour.phoneguy.lineheight,essaie d'éviter tout contact visuel avec les animatroniques ce soir si possible.
+nightfour.phoneguy.linenine,"Quelqu'un a peut-être trafiqué leur système de reconnaissance faciale, mais nous n'en sommes pas sûrs."
+nightfour.phoneguy.lineten,"Mais les personnages se comportent de manière très inhabituelle, presque agressive envers le personnel."
+nightfour.phoneguy.lineeleven,"Ils interagissent très bien avec les enfants, mais lorsqu'ils rencontrent un adulte, ils se contentent de... les fixer."
+nightfour.phoneguy.linetwelve,"Euh... Bref, accroche-toi. Tout va s'arranger. Bonne nuit !"
+nightfive.phoneguy.lineone,"Allo, allo ? Eh, bon travail, nuit 5 ! Euh, garde un œil sur le restaurant ce soir, ok ?"
+nightfive.phoneguy.linetwo,"Euh, d'après ce que j'ai compris, le bâtiment est confiné, euh"
+nightfive.phoneguy.linethree,"personne n'est autorisé à entrer ou à sortir, tu vois, surtout en ce qui concerne les... anciens employés."
+nightfive.phoneguy.linefour,"Euh, quand nous aurons tout réglé, nous te transférerons peut-être dans l'équipe de jour, un poste vient de se... libérer."
+nightfive.phoneguy.linefive,"Euh, nous n'avons pas encore de remplaçant pour ton poste, mais nous y travaillons."
+nightfive.phoneguy.linesix,Nous allons essayer de contacter le précédent propriétaire du restaurant.
+nightfive.phoneguy.lineseven,"Euh, je crois que le nom de l'endroit était ""Fredbear's Family Diner"" ou quelque chose comme ça."
+nightfive.phoneguy.lineheight,"Cependant il a été fermé pendant des années, je doute que nous puissions retrouver quelqu'un."
+nightfive.phoneguy.linenine,"Bon, tiens bon encore une nuit ! Euh, tout va bien se passer ! Bonne nuit !"
+nightsix.phoneguy.lineone,"Allo ? Salut... euh... qu'est-ce que tu fais là, euh tu n'as pas reçu le mémo,"
+nightsix.phoneguy.linetwo,"euh, l'endroit est fermé, euh, au moins pour un moment."
+nightsix.phoneguy.linethree,"Quelqu'un a utilisé l'un des costumes. Nous en avions un de rechange à l'arrière, un jaune,"
+nightsix.phoneguy.linefour,"Quelqu'un l'a utilisé... maintenant, aucun d'entre eux n'agit correctement."
+nightsix.phoneguy.linefive,"Écoute, t-termine juste ton service, c'est plus sûr que d'essayer de partir en pleine nuit."
+nightsix.phoneguy.linesix,"Euh, nous avons un dernier événement prévu pour demain, un anniversaire."
+nightsix.phoneguy.lineseven,"Tu seras de jour, porte ton uniforme, reste proche des animatronics,"
+nightsix.phoneguy.lineheight,"assure-toi qu'ils ne blessent personne d'accord ? Euh, pour l'instant, contente-toi de passer la nuit,"
+nightsix.phoneguy.linenine,"euh, quand l'endroit rouvrira enfin, je prendrai probablement moi-même le service de nuit."
+nightsix.phoneguy.lineten,"Ok, bonne nuit et bonne chance."
