@@ -74,6 +74,8 @@ public class MenuManager : MonoBehaviour
     public ScrollRect currentScrollRect;
     public PopupData currentPopup;
 
+    private TouchScreenKeyboard keyboard;
+
     // Stick navigation
     private float stickNavigationCooldown = 0.2f;
     private float lastNavigationTime;
@@ -229,6 +231,8 @@ public class MenuManager : MonoBehaviour
                             }
                         }
                     }
+
+                    DisplayKeyboard();
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.B))
                 {
@@ -378,6 +382,8 @@ public class MenuManager : MonoBehaviour
                                 }
                             }
                         }
+
+                        DisplayKeyboard();
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.B))
                     {
@@ -524,6 +530,8 @@ public class MenuManager : MonoBehaviour
                                 }
                             }
                         }
+
+                        DisplayKeyboard();
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.B))
                     {
@@ -663,6 +671,8 @@ public class MenuManager : MonoBehaviour
                                 }
                             }
                         }
+
+                        DisplayKeyboard();
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.B))
                     {
@@ -943,7 +953,7 @@ public class MenuManager : MonoBehaviour
 
     private void MenuNavigation(Vector2 direction)
     {
-        if (currentScrollRect == null && canNavigate)
+        if (currentScrollRect == null && !keyboard.active && canNavigate)
         {
             if (direction == Vector2.up)
             {
@@ -994,7 +1004,7 @@ public class MenuManager : MonoBehaviour
 
     public void ScrollNavigation(Vector2 direction)
     {
-        if (currentScrollRect != null && currentPopup == null && canNavigate)
+        if (currentScrollRect != null && currentPopup == null && !keyboard.active && canNavigate)
         {
             RectTransform content = currentScrollRect.content;
             RectTransform viewport = currentScrollRect.viewport;
@@ -1015,6 +1025,17 @@ public class MenuManager : MonoBehaviour
                     currentScrollRect.normalizedPosition = newPosition;
                 }
             }
+        }
+    }
+
+    private void DisplayKeyboard()
+    {
+        if (EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>() != null)
+        {
+            TMP_InputField inputField = EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>();
+
+            keyboard = TouchScreenKeyboard.Open(inputField.text, TouchScreenKeyboardType.Default, false, false, false, false, inputField.placeholder.GetComponent<TextMeshProUGUI>().text);
+            keyboard.targetDisplay = WiiU.DisplayIndex.GamePad;
         }
     }
 
