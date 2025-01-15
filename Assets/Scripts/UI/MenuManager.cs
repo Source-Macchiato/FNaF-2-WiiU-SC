@@ -74,8 +74,6 @@ public class MenuManager : MonoBehaviour
     public ScrollRect currentScrollRect;
     public PopupData currentPopup;
 
-    private TouchScreenKeyboard keyboard;
-
     // Stick navigation
     private float stickNavigationCooldown = 0.2f;
     private float lastNavigationTime;
@@ -942,7 +940,7 @@ public class MenuManager : MonoBehaviour
 
     private void MenuNavigation(Vector2 direction)
     {
-        if (currentScrollRect == null && !IsKeyboardActive() && canNavigate)
+        if (currentScrollRect == null && !TouchScreenKeyboard.visible && canNavigate)
         {
             if (direction == Vector2.up)
             {
@@ -993,7 +991,7 @@ public class MenuManager : MonoBehaviour
 
     public void ScrollNavigation(Vector2 direction)
     {
-        if (currentScrollRect != null && currentPopup == null && !IsKeyboardActive() && canNavigate)
+        if (currentScrollRect != null && currentPopup == null && !TouchScreenKeyboard.visible && canNavigate)
         {
             RectTransform content = currentScrollRect.content;
             RectTransform viewport = currentScrollRect.viewport;
@@ -1019,14 +1017,13 @@ public class MenuManager : MonoBehaviour
 
     private void DisplayKeyboard()
     {
-        if (!IsKeyboardActive())
+        if (!TouchScreenKeyboard.visible)
         {
             if (EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>() != null)
             {
                 TMP_InputField inputField = EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>();
 
-                keyboard = TouchScreenKeyboard.Open(inputField.text, TouchScreenKeyboardType.Default, false, false, inputField.contentType == TMP_InputField.ContentType.Password, false);
-                keyboard.targetDisplay = WiiU.DisplayIndex.GamePad;
+                inputField.Select();
             }
         }
     }
@@ -1140,7 +1137,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoBack()
     {
-        if (currentPopup == null && !IsKeyboardActive() && canNavigate)
+        if (currentPopup == null && !TouchScreenKeyboard.visible && canNavigate)
         {
             if (menuHistory.Count > 0)
             {
@@ -1169,18 +1166,6 @@ public class MenuManager : MonoBehaviour
             return menus[currentMenuId].gameObject;
         }
         return null;
-    }
-
-    private bool IsKeyboardActive()
-    {
-        if (keyboard == null)
-        {
-            return false;
-        }
-        else
-        {
-            return keyboard.active;
-        }
     }
 
     private void SetMenusInteractable(bool interactable)
