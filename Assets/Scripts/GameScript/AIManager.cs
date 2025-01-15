@@ -192,6 +192,7 @@ public class AIManager : MonoBehaviour {
         if (Application.isEditor)
         {
             Debug.Log("currentCam : " + nightPlayer.currentCam);
+            Debug.Log("camwatch : "+ nightPlayer.CamWatchAI);
             Debug.Log("TFreddyCamera : " + nightPlayer.ToyFreddyCamera);
         }
     }
