@@ -1021,7 +1021,7 @@ public class MenuManager : MonoBehaviour
             {
                 TMP_InputField inputField = EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>();
 
-                keyboard = TouchScreenKeyboard.Open(inputField.text, TouchScreenKeyboardType.Default, false, false, false, false);
+                keyboard = TouchScreenKeyboard.Open(inputField.text, TouchScreenKeyboardType.Default, false, false, inputField.contentType == TMP_InputField.ContentType.Password, false);
                 keyboard.targetDisplay = WiiU.DisplayIndex.GamePad;
             }
         }
