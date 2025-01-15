@@ -864,6 +864,9 @@ public class MenuManager : MonoBehaviour
     {
         if (popupQueue.Count > 0)
         {
+            // Desactivate interaction with buttons in background
+            SetMenusInteractable(false);
+
             // Get the next popup from the queue
             currentPopup = popupQueue.Dequeue();
 
@@ -905,6 +908,7 @@ public class MenuManager : MonoBehaviour
             }
             else
             {
+                SetMenusInteractable(true);
                 defaultButtons[currentMenuId].Select();
             }
         }
@@ -1176,6 +1180,17 @@ public class MenuManager : MonoBehaviour
         else
         {
             return keyboard.active;
+        }
+    }
+
+    private void SetMenusInteractable(bool interactable)
+    {
+        foreach (GameObject menu in menus)
+        {
+            foreach (Button button in menu.GetComponentsInChildren<Button>())
+            {
+                button.interactable = interactable;
+            }
         }
     }
 }
