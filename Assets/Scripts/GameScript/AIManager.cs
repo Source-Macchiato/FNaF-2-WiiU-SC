@@ -151,6 +151,7 @@ public class AIManager : MonoBehaviour {
         TimedEvents();
 
         //i'm very sorry for spagetthi code, we have to finish the game fast. Hello to the guy who will decompile this shitty ass source code -- shiro
+        // Good luck everyone -- Alyx
         if (nightPlayer.currentCam == nightPlayer.MangleCamera)
         {
             nightPlayer.CamWatchAI = 9;
@@ -188,8 +189,11 @@ public class AIManager : MonoBehaviour {
             nightPlayer.CamWatchAI = 7;
         }
 
-        Debug.Log("currentCam : " + nightPlayer.currentCam);
-        Debug.Log("TFreddyCamera : " + nightPlayer.ToyFreddyCamera);
+        if (Application.isEditor)
+        {
+            Debug.Log("currentCam : " + nightPlayer.currentCam);
+            Debug.Log("TFreddyCamera : " + nightPlayer.ToyFreddyCamera);
+        }
     }
 
     public void TimedEvents() {

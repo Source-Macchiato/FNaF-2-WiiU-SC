@@ -171,8 +171,5 @@ public class DebugMode : MonoBehaviour
         debugModeActive = condition;
 
         DebugObject.SetActive(debugModeActive);
-
-        Debug.Log(debugModeActive ? "Debug mode activated" : "Debug mode disabled");
     }
-    
 }
