@@ -1015,12 +1015,15 @@ public class MenuManager : MonoBehaviour
 
     private void DisplayKeyboard()
     {
-        if (EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>() != null)
+        if (!IsKeyboardActive())
         {
-            TMP_InputField inputField = EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>();
+            if (EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>() != null)
+            {
+                TMP_InputField inputField = EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>();
 
-            keyboard = TouchScreenKeyboard.Open(inputField.text, TouchScreenKeyboardType.Default, false, false, false, false, inputField.placeholder.GetComponent<TextMeshProUGUI>().text);
-            keyboard.targetDisplay = WiiU.DisplayIndex.GamePad;
+                keyboard = TouchScreenKeyboard.Open(inputField.text, TouchScreenKeyboardType.Default, false, false, false, false);
+                keyboard.targetDisplay = WiiU.DisplayIndex.GamePad;
+            }
         }
     }
 
@@ -1172,14 +1175,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            if (keyboard.active)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return keyboard.active;
         }
     }
 }
