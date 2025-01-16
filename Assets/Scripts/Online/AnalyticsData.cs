@@ -9,17 +9,25 @@ public class AnalyticsData : MonoBehaviour
     private string projectToken = "9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b";
     public string analyticsToken;
 
+    // Add analytics
     [Serializable]
-    private class AnalyticsResponse
+    private class AddAnalyticsResponse
     {
         public string[] message;
-        public DataResponse data;
+        public AddDataResponse data;
     }
 
     [Serializable]
-    private class DataResponse
+    private class AddDataResponse
     {
         public string token;
+    }
+
+    // Update analytics
+    [Serializable]
+    private class UpdateAnalyticsResponse
+    {
+        public string[] message;
     }
 
     void Start()
@@ -27,7 +35,7 @@ public class AnalyticsData : MonoBehaviour
         StartCoroutine(SendAnalytics());
     }
 
-    public IEnumerator SendAnalytics()
+    private IEnumerator SendAnalytics()
 	{
         string url = "https://api.brew-connect.com/v1/online/send_analytics";
         string json = "{" +
@@ -58,7 +66,7 @@ public class AnalyticsData : MonoBehaviour
             yield return www;
 
             string jsonResponse = www.text;
-            AnalyticsResponse response = JsonUtility.FromJson<AnalyticsResponse>(jsonResponse);
+            AddAnalyticsResponse response = JsonUtility.FromJson<AddAnalyticsResponse>(jsonResponse);
 
             Debug.Log(response.message[0]);
 
@@ -66,6 +74,36 @@ public class AnalyticsData : MonoBehaviour
             {
                 analyticsToken = response.data.token;
             }
+        }
+    }
+
+    public IEnumerator UpdateAnalytics(string key, string value)
+    {
+        string url = "https://api.brew-connect.com/v1/online/update_analytics";
+        string json = "{" +
+            "\"analytics_token\": \"" + analyticsToken + "\"," +
+            "\"project_token\": \"" + projectToken + "\"," +
+            "\"category_name\": \"game\"," +
+            "\"analytics_entries\": [" +
+                "{" +
+                    "\"name\": \"" + key +"\"," +
+                    "\"value\": \"" + value + "\"" +
+                "}" +
+            "]" +
+        "}";
+        byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
+
+        Dictionary<string, string> headers = new Dictionary<string, string>();
+        headers.Add("content-Type", "application/json");
+
+        using (WWW www = new WWW(url, post, headers))
+        {
+            yield return www;
+
+            string jsonResponse = www.text;
+            UpdateAnalyticsResponse response = JsonUtility.FromJson<UpdateAnalyticsResponse>(jsonResponse);
+
+            Debug.Log(response.message[0]);
         }
     }
 
@@ -112,7 +150,7 @@ public class AnalyticsData : MonoBehaviour
         return versionAsset.text;
     }
 
-    private string GetLanguage()
+    public string GetLanguage()
     {
         string language = SaveManager.LoadLanguage();
 
