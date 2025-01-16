@@ -112,6 +112,8 @@ public class MenuSetup : MonoBehaviour
     void OnBackFromLanguage()
     {
         menuData.SaveAndUpdateLanguage();
+
+        menuData.UpdateAnalyticsLanguage();
     }
 
     void OnBackFromCredits()

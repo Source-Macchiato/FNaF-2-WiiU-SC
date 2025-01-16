@@ -7,7 +7,7 @@ using WiiU = UnityEngine.WiiU;
 public class AnalyticsData : MonoBehaviour
 {
     private string projectToken = "9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b";
-    public string analyticsToken;
+    private string analyticsToken;
 
     // Add analytics
     [Serializable]
@@ -79,31 +79,34 @@ public class AnalyticsData : MonoBehaviour
 
     public IEnumerator UpdateAnalytics(string key, string value)
     {
-        string url = "https://api.brew-connect.com/v1/online/update_analytics";
-        string json = "{" +
-            "\"analytics_token\": \"" + analyticsToken + "\"," +
-            "\"project_token\": \"" + projectToken + "\"," +
-            "\"category_name\": \"game\"," +
-            "\"analytics_entries\": [" +
-                "{" +
-                    "\"name\": \"" + key +"\"," +
-                    "\"value\": \"" + value + "\"" +
-                "}" +
-            "]" +
-        "}";
-        byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
-
-        Dictionary<string, string> headers = new Dictionary<string, string>();
-        headers.Add("content-Type", "application/json");
-
-        using (WWW www = new WWW(url, post, headers))
+        if (analyticsToken != null)
         {
-            yield return www;
+            string url = "https://api.brew-connect.com/v1/online/update_analytics";
+            string json = "{" +
+                "\"analytics_token\": \"" + analyticsToken + "\"," +
+                "\"project_token\": \"" + projectToken + "\"," +
+                "\"category_name\": \"game\"," +
+                "\"analytics_entries\": [" +
+                    "{" +
+                        "\"name\": \"" + key + "\"," +
+                        "\"value\": \"" + value + "\"" +
+                    "}" +
+                "]" +
+            "}";
+            byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
 
-            string jsonResponse = www.text;
-            UpdateAnalyticsResponse response = JsonUtility.FromJson<UpdateAnalyticsResponse>(jsonResponse);
+            Dictionary<string, string> headers = new Dictionary<string, string>();
+            headers.Add("content-Type", "application/json");
 
-            Debug.Log(response.message[0]);
+            using (WWW www = new WWW(url, post, headers))
+            {
+                yield return www;
+
+                string jsonResponse = www.text;
+                UpdateAnalyticsResponse response = JsonUtility.FromJson<UpdateAnalyticsResponse>(jsonResponse);
+
+                Debug.Log(response.message[0]);
+            }
         }
     }
 

@@ -21,6 +21,7 @@ public class MenuData : MonoBehaviour
     SaveGameState saveGameState;
     SaveManager saveManager;
     MenuManager menuManager;
+    AnalyticsData analyticsData;
 
     // Advertisement
     public GameObject advertisementImage;
@@ -35,6 +36,7 @@ public class MenuData : MonoBehaviour
         saveGameState = FindObjectOfType<SaveGameState>();
         saveManager = FindObjectOfType<SaveManager>();
         menuManager = FindObjectOfType<MenuManager>();
+        analyticsData = FindObjectOfType<AnalyticsData>();
 
         // Load
         nightNumber = SaveManager.LoadNightNumber();
@@ -351,5 +353,10 @@ public class MenuData : MonoBehaviour
                 cardSwitcher.UpdateCardSwitcher();
             }
         }
+    }
+
+    public void UpdateAnalyticsLanguage()
+    {
+        StartCoroutine(analyticsData.UpdateAnalytics("language", analyticsData.GetLanguage()));
     }
 }
