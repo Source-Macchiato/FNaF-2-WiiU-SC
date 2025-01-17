@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PopupOptions : MonoBehaviour
 {
+	public GameObject[] buttons;
+	public GameObject[] cursors;
+
 	AnalyticsData analyticsData;
 
 	void Start()
@@ -11,7 +15,10 @@ public class PopupOptions : MonoBehaviour
 	
 	void Update()
 	{
-		
+		for (int i = 0; i < buttons.Length; i++)
+		{
+			cursors[i].SetActive(EventSystem.current.currentSelectedGameObject == buttons[i]);
+        }
 	}
 
 	public void ShareAnalytics(bool share)
