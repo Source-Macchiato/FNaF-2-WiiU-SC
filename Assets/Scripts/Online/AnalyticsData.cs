@@ -71,6 +71,10 @@ public class AnalyticsData : MonoBehaviour
                 "{" +
                     "\"name\": \"language\"," +
                     "\"value\": \"" + GetLanguage() + "\"" +
+                "}," +
+                "{" +
+                    "\"name\": \"current_night\"," +
+                    "\"value\": \"" + GetCurrentNight() + "\"" +
                 "}" +
             "]" +
         "}";
@@ -181,6 +185,11 @@ public class AnalyticsData : MonoBehaviour
         }
 
         return language.ToUpper();
+    }
+
+    public int GetCurrentNight()
+    {
+        return SaveManager.LoadNightNumber() + 1;
     }
 
     public void ShareAnalytics(bool share)
