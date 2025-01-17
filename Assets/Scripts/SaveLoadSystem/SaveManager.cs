@@ -15,9 +15,9 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void SaveShareAnalytics(float shareAnalytics)
+    public void SaveShareAnalytics(int shareAnalytics)
     {
-        PlayerPrefs.SetFloat("ShareAnalytics", shareAnalytics);
+        PlayerPrefs.SetInt("ShareAnalytics", shareAnalytics);
         PlayerPrefs.Save();
     }
 
