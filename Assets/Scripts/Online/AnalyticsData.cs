@@ -8,8 +8,11 @@ public class AnalyticsData : MonoBehaviour
 {
     private string projectToken = "9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b";
     private string analyticsToken;
+    private int canShareAnalytics;
 
     MenuManager menuManager;
+    SaveManager saveManager;
+    SaveGameState saveGameState;
 
     // Add analytics
     [Serializable]
@@ -35,10 +38,19 @@ public class AnalyticsData : MonoBehaviour
     void Start()
     {
         menuManager = FindObjectOfType<MenuManager>();
+        saveManager = FindObjectOfType<SaveManager>();
+        saveGameState = FindObjectOfType<SaveGameState>();
 
-        menuManager.AddPopup(1);
+        canShareAnalytics = SaveManager.LoadShareAnalytics();
 
-        //StartCoroutine(SendAnalytics());
+        if (canShareAnalytics == -1)
+        {
+            menuManager.AddPopup(1);
+        }
+        else if (canShareAnalytics == 1)
+        {
+            StartCoroutine(SendAnalytics());
+        }
     }
 
     private IEnumerator SendAnalytics()
@@ -169,5 +181,18 @@ public class AnalyticsData : MonoBehaviour
         }
 
         return language.ToUpper();
+    }
+
+    public void ShareAnalytics(bool share)
+    {
+        menuManager.CloseCurrentPopup();
+
+        saveManager.SaveShareAnalytics(share ? 1 : 0);
+        bool saveResult = saveGameState.DoSave();
+
+        if (share)
+        {
+            StartCoroutine(SendAnalytics());
+        }
     }
 }

@@ -12,11 +12,10 @@ public class PopupData
     public string popupId;
     public int optionId;
 
-    public PopupData(GameObject popupObject, int actionType, int optionId)
+    public PopupData(GameObject popupObject, int actionType)
     {
         this.popupObject = popupObject;
         this.actionType = actionType;
-        this.optionId = optionId;
     }
 }
 
@@ -206,22 +205,7 @@ public class MenuManager : MonoBehaviour
                         }
                         else if (currentPopup.actionType == 1)
                         {
-                            GameObject optionsContainer = currentPopup.popupObject.transform.Find("Options").gameObject;
-
-                            int index = 0;
-
-                            foreach (Transform child in optionsContainer.transform)
-                            {
-                                Button button = child.GetComponent<Button>();
-
-                                if (button == EventSystem.current.currentSelectedGameObject.GetComponent<Button>())
-                                {
-                                    currentPopup.optionId = index; // Should never be -1
-                                    break;
-                                }
-
-                                index++;
-                            }
+                            ClickSelectedButton();
                         }
                     }
 
@@ -354,22 +338,7 @@ public class MenuManager : MonoBehaviour
                             }
                             else if (currentPopup.actionType == 1)
                             {
-                                GameObject optionsContainer = currentPopup.popupObject.transform.Find("Options").gameObject;
-
-                                int index = 0;
-
-                                foreach (Transform child in optionsContainer.transform)
-                                {
-                                    Button button = child.GetComponent<Button>();
-
-                                    if (button == EventSystem.current.currentSelectedGameObject.GetComponent<Button>())
-                                    {
-                                        currentPopup.optionId = index; // Should never be -1
-                                        break;
-                                    }
-
-                                    index++;
-                                }
+                                ClickSelectedButton();
                             }
                         }
 
@@ -499,22 +468,7 @@ public class MenuManager : MonoBehaviour
                             }
                             else if (currentPopup.actionType == 1)
                             {
-                                GameObject optionsContainer = currentPopup.popupObject.transform.Find("Options").gameObject;
-
-                                int index = 0;
-
-                                foreach (Transform child in optionsContainer.transform)
-                                {
-                                    Button button = child.GetComponent<Button>();
-
-                                    if (button == EventSystem.current.currentSelectedGameObject.GetComponent<Button>())
-                                    {
-                                        currentPopup.optionId = index; // Should never be -1
-                                        break;
-                                    }
-
-                                    index++;
-                                }
+                                ClickSelectedButton();
                             }
                         }
 
@@ -637,22 +591,7 @@ public class MenuManager : MonoBehaviour
                             }
                             else if (currentPopup.actionType == 1)
                             {
-                                GameObject optionsContainer = currentPopup.popupObject.transform.Find("Options").gameObject;
-
-                                int index = 0;
-
-                                foreach (Transform child in optionsContainer.transform)
-                                {
-                                    Button button = child.GetComponent<Button>();
-
-                                    if (button == EventSystem.current.currentSelectedGameObject.GetComponent<Button>())
-                                    {
-                                        currentPopup.optionId = index; // Should never be -1
-                                        break;
-                                    }
-
-                                    index++;
-                                }
+                                ClickSelectedButton();
                             }
                         }
 
@@ -738,22 +677,7 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (currentPopup.actionType == 1)
                     {
-                        GameObject optionsContainer = currentPopup.popupObject.transform.Find("Options").gameObject;
-
-                        int index = 0;
-
-                        foreach (Transform child in optionsContainer.transform)
-                        {
-                            Button button = child.GetComponent<Button>();
-
-                            if (button == EventSystem.current.currentSelectedGameObject.GetComponent<Button>())
-                            {
-                                currentPopup.optionId = index; // Should never be -1
-                                break;
-                            }
-
-                            index++;
-                        }
+                        ClickSelectedButton();
                     }
                 }
             }
@@ -814,7 +738,7 @@ public class MenuManager : MonoBehaviour
         GameObject newPopup = Instantiate(popupPrefab[actionType]);
 
         // Add the popup to the queue
-        PopupData popupData = new PopupData(newPopup, actionType, -1);
+        PopupData popupData = new PopupData(newPopup, actionType);
         popupQueue.Enqueue(popupData);
 
         // Check if no popup is currently shown
