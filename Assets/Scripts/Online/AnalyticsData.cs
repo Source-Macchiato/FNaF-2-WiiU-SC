@@ -9,6 +9,8 @@ public class AnalyticsData : MonoBehaviour
     private string projectToken = "9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b";
     private string analyticsToken;
 
+    MenuManager menuManager;
+
     // Add analytics
     [Serializable]
     private class AddAnalyticsResponse
@@ -32,7 +34,11 @@ public class AnalyticsData : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SendAnalytics());
+        menuManager = FindObjectOfType<MenuManager>();
+
+        menuManager.AddPopup(1);
+
+        //StartCoroutine(SendAnalytics());
     }
 
     private IEnumerator SendAnalytics()

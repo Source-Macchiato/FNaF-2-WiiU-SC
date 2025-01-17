@@ -49,7 +49,7 @@ public class VersionChecker : MonoBehaviour
                 }
                 else
                 {
-                    menuManager.AddPopup(0, "mainmenu.update", null);
+                    menuManager.AddPopup(0);
 
                     Debug.Log("Different version number");
                 }

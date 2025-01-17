@@ -12,11 +12,10 @@ public class PopupData
     public string popupId;
     public int optionId;
 
-    public PopupData(GameObject popupObject, int actionType, string popupId, int optionId)
+    public PopupData(GameObject popupObject, int actionType, int optionId)
     {
         this.popupObject = popupObject;
         this.actionType = actionType;
-        this.popupId = popupId;
         this.optionId = optionId;
     }
 }
@@ -27,7 +26,6 @@ public class MenuManager : MonoBehaviour
     [Header("Prefabs")]
     public GameObject[] popupPrefab;
     public GameObject selectionPrefab;
-    public GameObject selectionPopupPrefab;
 
     // Audio
     [Header("Audio")]
@@ -66,8 +64,6 @@ public class MenuManager : MonoBehaviour
     // Instantiate selection cursor
     [HideInInspector]
     public GameObject currentSelection;
-    [HideInInspector]
-    public GameObject currentPopupSelection;
 
     // Elements to keep in memory
     [HideInInspector]
@@ -91,7 +87,6 @@ public class MenuManager : MonoBehaviour
 
         // Generate cursors
         currentSelection = Instantiate(selectionPrefab, cursorContainer.transform);
-        currentPopupSelection = Instantiate(selectionPopupPrefab, cursorContainer.transform);
 
         ChangeMenu(0);
     }
@@ -809,45 +804,17 @@ public class MenuManager : MonoBehaviour
             }
         }
 
-        if (currentPopupSelection != null)
-        {
-            if (currentPopup != null && currentPopup.actionType == 1)
-            {
-                if (!currentPopupSelection.activeSelf)
-                {
-                    currentSelection.SetActive(true);
-                }
-
-                UpdateSelectionPosition(EventSystem.current.currentSelectedGameObject);
-            }
-            else
-            {
-                if (currentPopupSelection.activeSelf)
-                {
-                    currentPopupSelection.SetActive(false);
-                }
-            }
-        }
-
         // Calculate stick last navigation time
         lastNavigationTime += Time.deltaTime;
     }
 
-    public void AddPopup(int actionType, string translationId = null, string popupId = null) // Action type : 0 = Press input to continue, 1 = Options
+    public void AddPopup(int actionType) // Action type : 0 = Press input to continue, 1 = Options
     {
         // Instantiate the popup prefab
         GameObject newPopup = Instantiate(popupPrefab[actionType]);
 
-        // Set the translation for the popup's "PopupText" child
-        if (translationId != null)
-        {
-            GameObject popupTextComponent = newPopup.transform.Find("PopupText").gameObject;
-            I18nTextTranslator translator = popupTextComponent.GetComponent<I18nTextTranslator>();
-            translator.textId = translationId;
-        }
-
         // Add the popup to the queue
-        PopupData popupData = new PopupData(newPopup, actionType, popupId, -1);
+        PopupData popupData = new PopupData(newPopup, actionType, -1);
         popupQueue.Enqueue(popupData);
 
         // Check if no popup is currently shown
@@ -1039,55 +1006,27 @@ public class MenuManager : MonoBehaviour
 
     private void UpdateSelectionPosition(GameObject selectedButton)
     {
-        if (currentPopup == null)
+        if (currentSelection != null)
         {
-            if (currentSelection != null)
-            {
-                // Move the selectionPrefab to the left of the selected button
-                RectTransform buttonRect = selectedButton.GetComponent<RectTransform>();
-                RectTransform selectionRect = currentSelection.GetComponent<RectTransform>();
+            // Move the selectionPrefab to the left of the selected button
+            RectTransform buttonRect = selectedButton.GetComponent<RectTransform>();
+            RectTransform selectionRect = currentSelection.GetComponent<RectTransform>();
 
-                // Get the world corners of the button (bottom-left, top-left, top-right, bottom-right)
-                Vector3[] buttonCorners = new Vector3[4];
-                buttonRect.GetWorldCorners(buttonCorners);
+            // Get the world corners of the button (bottom-left, top-left, top-right, bottom-right)
+            Vector3[] buttonCorners = new Vector3[4];
+            buttonRect.GetWorldCorners(buttonCorners);
 
-                // Calculate the new position based on the left edge of the button (buttonCorners[0] is the bottom-left corner in world space)
-                Vector3 leftEdgePosition = buttonCorners[0]; // Bottom-left corner of the button
+            // Calculate the new position based on the left edge of the button (buttonCorners[0] is the bottom-left corner in world space)
+            Vector3 leftEdgePosition = buttonCorners[0]; // Bottom-left corner of the button
 
-                // Convert world position of the button's left edge to local position relative to the canvas
-                Vector3 newLocalPos = currentSelection.transform.parent.InverseTransformPoint(leftEdgePosition);
+            // Convert world position of the button's left edge to local position relative to the canvas
+            Vector3 newLocalPos = currentSelection.transform.parent.InverseTransformPoint(leftEdgePosition);
 
-                // Adjust the cursor position slightly to the left (optional, if you want to add padding)
-                newLocalPos.x -= selectionRect.rect.width;
+            // Adjust the cursor position slightly to the left (optional, if you want to add padding)
+            newLocalPos.x -= selectionRect.rect.width;
 
-                // Set the new position
-                selectionRect.localPosition = newLocalPos;
-            }
-        }
-        else
-        {
-            if (currentPopupSelection != null)
-            {
-                // Move the selectionPopupPreafab to the left of the selected button
-                RectTransform buttonRect = selectedButton.GetComponent<RectTransform>();
-                RectTransform selectionRect = currentPopupSelection.GetComponent<RectTransform>();
-
-                // Get the world corners of the button (bottom-left, top-left, top-right, bottom-right)
-                Vector3[] buttonCorners = new Vector3[4];
-                buttonRect.GetWorldCorners(buttonCorners);
-
-                // Calculate the new position based on the left edge of the button (buttonCorners[0] is the bottom-left corner in world space)
-                Vector3 leftEdgePosition = buttonCorners[0]; // Bottom-left corner of the button
-
-                // Convert world position of the button's left edge to local position relative to the canvas
-                Vector3 newLocalPos = currentPopupSelection.transform.parent.InverseTransformPoint(leftEdgePosition);
-
-                // Adjust the cursor position slightly to the left (optional, if you want to add padding)
-                newLocalPos.x -= selectionRect.rect.width;
-
-                // Set the new position
-                selectionRect.localPosition = newLocalPos;
-            }
+            // Set the new position
+            selectionRect.localPosition = newLocalPos;
         }
     }
 
@@ -1112,7 +1051,7 @@ public class MenuManager : MonoBehaviour
         {
             if (i == menuId)
             {
-                if (defaultButtons[i] != null)
+                if (defaultButtons[i] != null && currentPopup == null)
                 {
                     defaultButtons[i].Select();
                     buttonAudio.Play();
