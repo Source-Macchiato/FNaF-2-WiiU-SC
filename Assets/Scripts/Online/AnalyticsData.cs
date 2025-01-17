@@ -55,53 +55,56 @@ public class AnalyticsData : MonoBehaviour
 
     private IEnumerator SendAnalytics()
 	{
-        string url = "https://api.brew-connect.com/v1/online/send_analytics";
-        string json = "{" +
-            "\"project_token\": \"" + projectToken + "\"," +
-            "\"category_name\": \"game\"," +
-            "\"analytics_entries\": [" +
-                "{" +
-                    "\"name\": \"username\"," +
-                    "\"value\": \"" + GetAccountName() + "\"" +
-                "}," +
-                "{" +
-                    "\"name\": \"version\"," +
-                    "\"value\": \"" + GetVersion() + "\"" +
-                "}," +
-                "{" +
-                    "\"name\": \"language\"," +
-                    "\"value\": \"" + GetLanguage() + "\"" +
-                "}," +
-                "{" +
-                    "\"name\": \"current_night\"," +
-                    "\"value\": \"" + GetCurrentNight() + "\"" +
-                "}" +
-            "]" +
-        "}";
-        byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
-
-        Dictionary<string, string> headers = new Dictionary<string, string>();
-        headers.Add("content-Type", "application/json");
-
-        using (WWW www = new WWW(url, post, headers))
+        if (!Application.isEditor)
         {
-            yield return www;
+            string url = "https://api.brew-connect.com/v1/online/send_analytics";
+            string json = "{" +
+                "\"project_token\": \"" + projectToken + "\"," +
+                "\"category_name\": \"game\"," +
+                "\"analytics_entries\": [" +
+                    "{" +
+                        "\"name\": \"username\"," +
+                        "\"value\": \"" + GetAccountName() + "\"" +
+                    "}," +
+                    "{" +
+                        "\"name\": \"version\"," +
+                        "\"value\": \"" + GetVersion() + "\"" +
+                    "}," +
+                    "{" +
+                        "\"name\": \"language\"," +
+                        "\"value\": \"" + GetLanguage() + "\"" +
+                    "}," +
+                    "{" +
+                        "\"name\": \"current_night\"," +
+                        "\"value\": \"" + GetCurrentNight() + "\"" +
+                    "}" +
+                "]" +
+            "}";
+            byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
 
-            string jsonResponse = www.text;
-            AddAnalyticsResponse response = JsonUtility.FromJson<AddAnalyticsResponse>(jsonResponse);
+            Dictionary<string, string> headers = new Dictionary<string, string>();
+            headers.Add("content-Type", "application/json");
 
-            Debug.Log(response.message[0]);
-
-            if (StatusCode(www) == 201)
+            using (WWW www = new WWW(url, post, headers))
             {
-                analyticsToken = response.data.token;
+                yield return www;
+
+                string jsonResponse = www.text;
+                AddAnalyticsResponse response = JsonUtility.FromJson<AddAnalyticsResponse>(jsonResponse);
+
+                Debug.Log(response.message[0]);
+
+                if (StatusCode(www) == 201)
+                {
+                    analyticsToken = response.data.token;
+                }
             }
         }
     }
 
     public IEnumerator UpdateAnalytics(string key, object value)
     {
-        if (analyticsToken != null && SaveManager.LoadShareAnalytics() == 1)
+        if (analyticsToken != null && SaveManager.LoadShareAnalytics() == 1 && !Application.isEditor)
         {
             string url = "https://api.brew-connect.com/v1/online/update_analytics";
             string json = "{" +
