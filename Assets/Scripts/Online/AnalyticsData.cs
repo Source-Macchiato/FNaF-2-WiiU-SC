@@ -99,7 +99,7 @@ public class AnalyticsData : MonoBehaviour
         }
     }
 
-    public IEnumerator UpdateAnalytics(string key, string value)
+    public IEnumerator UpdateAnalytics(string key, object value)
     {
         if (analyticsToken != null && SaveManager.LoadShareAnalytics() == 1)
         {

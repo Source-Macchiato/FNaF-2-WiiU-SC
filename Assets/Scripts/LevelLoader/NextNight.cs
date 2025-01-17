@@ -7,11 +7,13 @@ public class NextNight : MonoBehaviour
 
     public GameObject[] nightDisplayers;
 
+    AnalyticsData analyticsData;
     LevelLoader levelLoader;
 
     void Start()
     {
-        // Get LevelLoader script
+        // Get scripts
+        analyticsData = FindObjectOfType<AnalyticsData>();
         levelLoader = FindObjectOfType<LevelLoader>();
 
         // Disable loading screen when the level starts
@@ -26,7 +28,8 @@ public class NextNight : MonoBehaviour
             nightDisplayers[i].SetActive(i == nightNumber);
         }
 
-        // The timer before load the next scene
+        // Analytics and the timer before load the next scene
+        StartCoroutine(analyticsData.UpdateAnalytics("current_night", analyticsData.GetCurrentNight()));
         StartCoroutine(LoadOffice());
     }
 
