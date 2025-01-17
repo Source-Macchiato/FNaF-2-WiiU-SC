@@ -97,7 +97,7 @@ public class AnalyticsData : MonoBehaviour
 
     public IEnumerator UpdateAnalytics(string key, string value)
     {
-        if (analyticsToken != null)
+        if (analyticsToken != null && SaveManager.LoadShareAnalytics() == 1)
         {
             string url = "https://api.brew-connect.com/v1/online/update_analytics";
             string json = "{" +
