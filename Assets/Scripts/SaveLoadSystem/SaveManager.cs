@@ -45,6 +45,12 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SaveUserToken(string token)
+    {
+        PlayerPrefs.SetString("UserToken", token);
+        PlayerPrefs.Save();
+    }
+
     // Load
     public static string LoadLanguage()
 	{
@@ -129,6 +135,18 @@ public class SaveManager : MonoBehaviour
         else
         {
             return 1;
+        }
+    }
+
+    public static string LoadUserToken()
+    {
+        if (PlayerPrefs.HasKey("UserToken"))
+        {
+            return PlayerPrefs.GetString("UserToken");
+        }
+        else
+        {
+            return null;
         }
     }
 }

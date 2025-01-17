@@ -8,8 +8,11 @@ using WiiU = UnityEngine.WiiU;
 public class ClosedBeta : MonoBehaviour
 {
 	private string projectToken = "9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b";
+	private string userToken;
 
-	private MenuManager menuManager;
+	MenuManager menuManager;
+	SaveManager saveManager;
+	SaveGameState saveGameState;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -35,8 +38,19 @@ public class ClosedBeta : MonoBehaviour
         remote = WiiU.Remote.Access(0);
 
         menuManager = FindObjectOfType<MenuManager>();
+		saveManager = FindObjectOfType<SaveManager>();
+		saveGameState = FindObjectOfType<SaveGameState>();
 
-		menuManager.AddPopup(2);
+		userToken = SaveManager.LoadUserToken();
+
+		if (userToken == null)
+		{
+            menuManager.AddPopup(2);
+        }
+		else
+		{
+			StartCoroutine(LogInToken(userToken));
+		}
 	}
 
 	void Update()
@@ -110,12 +124,44 @@ public class ClosedBeta : MonoBehaviour
 
             if (StatusCode(www) == 200)
 			{
+				saveManager.SaveUserToken(response.data.token);
+				bool saveResult = saveGameState.DoSave();
+
                 StartCoroutine(IsTester(response.data.token, projectToken));
             }
         }
 	}
 
-	IEnumerator IsTester(string userToken, string projectToken)
+    IEnumerator LogInToken(string token)
+    {
+        string url = "https://api.brew-connect.com/v1/account/login";
+        string json = "{\"token\":\"" + token + "\"}";
+        byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
+
+        Dictionary<string, string> headers = new Dictionary<string, string>();
+        headers.Add("Content-Type", "application/json");
+
+        using (WWW www = new WWW(url, post, headers))
+        {
+            yield return www;
+
+            string jsonResponse = www.text;
+            AuthResponse response = JsonUtility.FromJson<AuthResponse>(jsonResponse);
+
+            Debug.Log(response.message[0]);
+
+            if (StatusCode(www) == 200)
+            {
+                StartCoroutine(IsTester(response.data.token, projectToken));
+            }
+			else
+			{
+				menuManager.AddPopup(2);
+			}
+        }
+    }
+
+    IEnumerator IsTester(string userToken, string projectToken)
 	{
 		string url = "https://api.brew-connect.com/v1/online/is_tester";
 		string json = "{\"user_token\":\"" + userToken + "\",\"project_token\":\"" + projectToken + "\"}";
