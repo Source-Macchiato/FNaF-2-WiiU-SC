@@ -364,6 +364,64 @@ public class NightPlayer : MonoBehaviour
 		MovementOpportunityHandler();
 		StartCoroutine(GoldenFreddyFunction());
 
+		if (currentCam == MangleCamera)
+        {
+            CamWatchAI = 9;
+        }
+        else if (currentCam == BBCamera)
+        {
+            CamWatchAI = 8;
+        }
+        
+        else if (currentCam == ToyBonnieCamera)
+        {
+            CamWatchAI = 1;
+        }
+        
+        else if (currentCam == ToyChicaCamera)
+        {
+            CamWatchAI = 3;
+        }
+        
+        else if (currentCam == ToyFreddyCamera)
+        {
+            CamWatchAI = 2;
+        }
+        
+        else if (currentCam == WitheredBonnieCamera)
+        {
+            CamWatchAI = 4;
+        }
+        
+        else if (currentCam == WitheredChicaCamera)
+        {
+            CamWatchAI = 6;
+        }
+        
+        else if (currentCam == WitheredFreddyCamera)
+        {
+            CamWatchAI = 5;
+        }
+        
+        else if (currentCam == WitheredFoxyCamera)
+        {
+            CamWatchAI = 7;
+        }
+		else
+		{
+			CamWatchAI = 0;
+		}
+        
+
+
+		if(Application.isEditor)
+		{
+			Debug.Log("CamWatchAI NightPlayer! : " + CamWatchAI);
+					Debug.Log("current cam "+ currentCam);
+				Debug.Log("freddy : " + ToyFreddyCamera);
+		}
+		
+
 		//if player is on cam 1,2, 3, 4, 5, or 6, play Idle
 		if(new int[] { 1, 2, 3, 4, 5, 6 }.Contains(currentCam))
 		{

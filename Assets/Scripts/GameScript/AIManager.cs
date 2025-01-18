@@ -149,52 +149,6 @@ public class AIManager : MonoBehaviour {
         currentTime = nightPlayer.currentTime;
         currentNight = nightPlayer.currentNight;
         TimedEvents();
-
-        //i'm very sorry for spagetthi code, we have to finish the game fast. Hello to the guy who will decompile this shitty ass source code -- shiro
-        // Good luck everyone -- Alyx
-        if (nightPlayer.currentCam == nightPlayer.MangleCamera)
-        {
-            nightPlayer.CamWatchAI = 9;
-        }
-        if (nightPlayer.currentCam == nightPlayer.BBCamera)
-        {
-            nightPlayer.CamWatchAI = 8;
-        }
-        if (nightPlayer.currentCam == nightPlayer.ToyBonnieCamera)
-        {
-            nightPlayer.CamWatchAI = 1;
-        }
-        if (nightPlayer.currentCam == nightPlayer.ToyChicaCamera)
-        {
-            nightPlayer.CamWatchAI = 3;
-        }
-        if (nightPlayer.currentCam == nightPlayer.ToyFreddyCamera)
-        {
-            nightPlayer.CamWatchAI = 2;
-        }
-        if (nightPlayer.currentCam == nightPlayer.WitheredBonnieCamera)
-        {
-            nightPlayer.CamWatchAI = 4;
-        }
-        if (nightPlayer.currentCam == nightPlayer.WitheredChicaCamera)
-        {
-            nightPlayer.CamWatchAI = 6;
-        }
-        if (nightPlayer.currentCam == nightPlayer.WitheredFreddyCamera)
-        {
-            nightPlayer.CamWatchAI = 5;
-        }
-        if (nightPlayer.currentCam == nightPlayer.WitheredFoxyCamera)
-        {
-            nightPlayer.CamWatchAI = 7;
-        }
-
-        if (Application.isEditor)
-        {
-            Debug.Log("currentCam : " + nightPlayer.currentCam);
-            Debug.Log("camwatch : "+ nightPlayer.CamWatchAI);
-            Debug.Log("TFreddyCamera : " + nightPlayer.ToyFreddyCamera);
-        }
     }
 
     public void TimedEvents() {
