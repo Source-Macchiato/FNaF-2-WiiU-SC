@@ -2640,7 +2640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &306605196
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10474,7 +10474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &980370712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13044,6 +13044,7 @@ MonoBehaviour:
   StareSound: {fileID: 171124298}
   With2: {fileID: 814846272}
   With2Used: 0
+  CamWatchAI: 0
   NewandShinyAI: 
   DoubleTroubleAI: 
   NightofMisfitsAI: 
@@ -13154,7 +13155,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f90ef44f92219694fb1c3a8cb9824883, type: 3}
   - {fileID: 21300000, guid: ae2bf632e9d0c6143bcbdc66ab5bf29e, type: 3}
   - {fileID: 21300000, guid: 644faf170aa691a469e2865852cab846, type: 3}
-  - {fileID: 21300000, guid: 5010b80d52132f04dba934c02cea40b6, type: 3}
+  - {fileID: 21300000, guid: c46f132a2a477b14aa8c15eee5b6f80e, type: 3}
   - {fileID: 21300000, guid: 3a8b77ff357af314bb80ffbb26b5cf21, type: 3}
   - {fileID: 21300000, guid: 89c936f8415d37b429b880d0a4afe6e0, type: 3}
   DefaultCams:
@@ -13530,7 +13531,7 @@ MonoBehaviour:
   Ribbons: {fileID: 772355754}
   JJ: {fileID: 563762420}
   RWQOffice: {fileID: 980332980}
-  BaloonBoy: {fileID: 16994589}
+  BaloonBoy: {fileID: 1977956728}
   GoldenFreddyOffice: {fileID: 22397520}
   PaperpalsOffice: {fileID: 1926072381}
   MangleOffice: {fileID: 1518028210}
@@ -14291,12 +14292,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OfficeContainer: {fileID: 2101765862}
+  pointerCursor: {fileID: 0}
   camIsUp: 0
   canMove: 1
   speed: 8
   leftEdge: 263
   rightEdge: -263
-  AllowMouseMove: 0
+  allowMouseMove: 1
 --- !u!1 &1273523304
 GameObject:
   m_ObjectHideFlags: 0
@@ -21429,6 +21431,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1974669988}
+--- !u!1 &1977956728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1977956729}
+  - component: {fileID: 1977956731}
+  - component: {fileID: 1977956730}
+  m_Layer: 5
+  m_Name: BaloonBoy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1977956729
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1977956728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2101765863}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -334, y: -86}
+  m_SizeDelta: {x: 371.9, y: 421}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1977956730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1977956728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: 5c495293a01cafd4880292b36352b0f5, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1977956731
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1977956728}
 --- !u!1 &2009842155
 GameObject:
   m_ObjectHideFlags: 0
@@ -22351,6 +22420,7 @@ RectTransform:
   - {fileID: 136335136}
   - {fileID: 563762421}
   - {fileID: 1518028211}
+  - {fileID: 1977956729}
   m_Father: {fileID: 1138089516}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
