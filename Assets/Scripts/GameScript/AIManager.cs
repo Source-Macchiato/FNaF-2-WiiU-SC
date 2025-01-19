@@ -21,7 +21,7 @@ public class AIManager : MonoBehaviour {
     private void Start() {
         // Initialize AI levels
         aiLevels = new Dictionary<string, int>() {
-            { "ToyFreddyAI", 0 },
+            { "ToyFreddyAI", 20 },
             { "ToyBonnieAI", 0 },
             { "ToyChicaAI", 0 },
             { "WitheredFreddyAI", 0 },

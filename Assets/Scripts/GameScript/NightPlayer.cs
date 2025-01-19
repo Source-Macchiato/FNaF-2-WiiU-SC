@@ -655,7 +655,10 @@ public class NightPlayer : MonoBehaviour
 				{
 				case 9:
 				ToyFreddyCamera = 10;
-				StartCoroutine(DisruptCamera(Random.Range(9, 11)));
+				while (ToyBonnieCamera == 9 && ToyChicaCamera == 9)
+				{
+					StartCoroutine(DisruptCamera(Random.Range(9, 11)));
+				}
 				StartCoroutine(DisruptCamera(Random.Range(9, 11)));
 				break;
 				case 10:
