@@ -604,29 +604,29 @@ public class NightPlayer : MonoBehaviour
 				{
 				case 9:
 				ToyChicaCamera = 7;
-				StartCoroutine(DisruptCamera(9));
-				StartCoroutine(DisruptCamera(7));
+				StartCoroutine(DisruptCamera(Random.Range(7, 10)));
+				StartCoroutine(DisruptCamera(Random.Range(7, 10)));
 				break;
 				case 7:
 				ToyChicaCamera = 4;
-				StartCoroutine(DisruptCamera(7));
+				StartCoroutine(DisruptCamera(Random.Range(4, 7)));
 				break;
 				case 4:
 				ToyChicaCamera = 14;
-				StartCoroutine(DisruptCamera(4));
+				StartCoroutine(DisruptCamera(Random.Range(4, 7)));
 				break;
 				case 14:
 				ToyChicaCamera = 1;
-				StartCoroutine(DisruptCamera(1));
+				StartCoroutine(DisruptCamera(Random.Range(1, 4)));
 				break;
 				case 1:
 				ToyChicaCamera = 5;
-				StartCoroutine(DisruptCamera(1));
-				StartCoroutine(DisruptCamera(5));
+				StartCoroutine(DisruptCamera(Random.Range(1, 4)));
+				StartCoroutine(DisruptCamera(Random.Range(5, 7)));
 				break;
 				case 5:
 				ToyChicaCamera = 13;
-				StartCoroutine(DisruptCamera(5));
+				StartCoroutine(DisruptCamera(Random.Range(5, 7)));
 				break;
 				case 13:
 				StartCoroutine(ToyChicaFunction(true));
@@ -655,12 +655,12 @@ public class NightPlayer : MonoBehaviour
 				{
 				case 9:
 				ToyFreddyCamera = 10;
-				StartCoroutine(DisruptCamera(9));
-				StartCoroutine(DisruptCamera(10));
+				StartCoroutine(DisruptCamera(Random.Range(9, 11)));
+				StartCoroutine(DisruptCamera(Random.Range(9, 11)));
 				break;
 				case 10:
 				ToyFreddyCamera = 14;
-				StartCoroutine(DisruptCamera(10));
+				StartCoroutine(DisruptCamera(Random.Range(10, 13)));
 				break;
 				case 14:
 				ToyFreddyCamera = 15;
@@ -685,32 +685,32 @@ public class NightPlayer : MonoBehaviour
 				{
 					case 12:
 					MangleCamera = 11;
-					StartCoroutine(DisruptCamera(12));
-					StartCoroutine(DisruptCamera(11));
+					StartCoroutine(DisruptCamera(Random.Range(11, 13)));
+					StartCoroutine(DisruptCamera(Random.Range(11, 13)));
 					break;
 					case 11:
 					MangleCamera = 10;
-					StartCoroutine(DisruptCamera(10));
-					StartCoroutine(DisruptCamera(11));
+					StartCoroutine(DisruptCamera(Random.Range(10, 12)));
+					StartCoroutine(DisruptCamera(Random.Range(10, 12)));
 					break;
 					case 10:
 					MangleCamera = 7;
-					StartCoroutine(DisruptCamera(10));
-					StartCoroutine(DisruptCamera(7));
+					StartCoroutine(DisruptCamera(Random.Range(7, 10)));
+					StartCoroutine(DisruptCamera(Random.Range(7, 10)));
 					break;
 					case 7:
 					MangleCamera = 1;
-					StartCoroutine(DisruptCamera(1));
-					StartCoroutine(DisruptCamera(7));
+					StartCoroutine(DisruptCamera(Random.Range(1, 4)));
+					StartCoroutine(DisruptCamera(Random.Range(1, 7)));
 					break;
 					case 1:
 					MangleCamera = 6;
-					StartCoroutine(DisruptCamera(6));
-					StartCoroutine(DisruptCamera(1));
+					StartCoroutine(DisruptCamera(Random.Range(1, 4)));
+					StartCoroutine(DisruptCamera(Random.Range(1, 4)));
 					break;
 					case 6:
 					MangleCamera = 13;
-					StartCoroutine(DisruptCamera(6));
+					StartCoroutine(DisruptCamera(Random.Range(6, 8)));
 					break;
 					case 13:
 					if (!maskManager.isMaskActive)
@@ -739,17 +739,17 @@ public class NightPlayer : MonoBehaviour
 				{
 				case 8:
 				WitheredFreddyCamera = 7;
-				StartCoroutine(DisruptCamera(8));
-				StartCoroutine(DisruptCamera(7));
+				StartCoroutine(DisruptCamera(Random.Range(7, 10)));
+				StartCoroutine(DisruptCamera(Random.Range(7, 10)));
 				break;
 				case 7:
 				WitheredFreddyCamera = 3;
-				StartCoroutine(DisruptCamera(3));
-				StartCoroutine(DisruptCamera(7));
+				StartCoroutine(DisruptCamera(Random.Range(3, 7)));
+				StartCoroutine(DisruptCamera(Random.Range(3, 7)));
 				break;
 				case 3:
 				WitheredFreddyCamera = 14;
-				StartCoroutine(DisruptCamera(3));
+				StartCoroutine(DisruptCamera(Random.Range(3, 7)));
 				break;
 				case 14:
 				StartCoroutine(PrepareBlackout("WitheredFreddy"));
@@ -772,21 +772,21 @@ public class NightPlayer : MonoBehaviour
 				{
 				case 8:
 				WitheredBonnieCamera = 7;
-				StartCoroutine(DisruptCamera(8));
-				StartCoroutine(DisruptCamera(7));
+				StartCoroutine(DisruptCamera(Random.Range(7, 10)));
+				StartCoroutine(DisruptCamera(Random.Range(7, 10)));
 				break;
 				case 7:
 				WitheredBonnieCamera = 14;
-				StartCoroutine(DisruptCamera(7));
+				StartCoroutine(DisruptCamera(Random.Range(7, 10)));
 				break;
 				case 14:
 				WitheredBonnieCamera = 1;
-				StartCoroutine(DisruptCamera(1));
+				StartCoroutine(DisruptCamera(Random.Range(1, 4)));
 				break;
 				case 1:
 				WitheredBonnieCamera = 5;
-				StartCoroutine(DisruptCamera(1));
-				StartCoroutine(DisruptCamera(5));
+				StartCoroutine(DisruptCamera(Random.Range(1, 4)));
+				StartCoroutine(DisruptCamera(Random.Range(5, 7)));
 				break;
 				case 5:
 				StartCoroutine(PrepareBlackout("WitheredBonnie"));
@@ -808,23 +808,23 @@ public class NightPlayer : MonoBehaviour
 				{
 				case 8:
 				WitheredChicaCamera = 4;
-				StartCoroutine(DisruptCamera(8));
-				StartCoroutine(DisruptCamera(4));
+				StartCoroutine(DisruptCamera(Random.Range(4, 7)));
+				StartCoroutine(DisruptCamera(Random.Range(4, 7)));
 				break;
 				case 4:
 				WitheredChicaCamera = 2;
-				StartCoroutine(DisruptCamera(2));
-				StartCoroutine(DisruptCamera(4));
+				StartCoroutine(DisruptCamera(Random.Range(4, 7)));
+				StartCoroutine(DisruptCamera(Random.Range(2, 4)));
 				break;
 				case 2:
 				WitheredChicaCamera = 6;
-				StartCoroutine(DisruptCamera(2));
-				StartCoroutine(DisruptCamera(6));
+				StartCoroutine(DisruptCamera(Random.Range(2, 4)));
+				StartCoroutine(DisruptCamera(Random.Range(2, 4)));
 				break;
 				case 6:
 				StartCoroutine(PrepareBlackout("WitheredChica"));
 				WitheredChicaCamera = 20;
-				StartCoroutine(DisruptCamera(6));
+				StartCoroutine(DisruptCamera(Random.Range(6, 8)));
 				break;
 				}
 				}
@@ -843,7 +843,7 @@ public class NightPlayer : MonoBehaviour
 				{
 				case 8:
 				WitheredFoxyCamera = 18;
-				StartCoroutine(DisruptCamera(8));
+				StartCoroutine(DisruptCamera(Random.Range(18, 20)));
 				break;
 				case 18:
 				WitheredFoxyCamera = 19;
@@ -888,11 +888,11 @@ public class NightPlayer : MonoBehaviour
 					break;
 					case 19:
 					BBCamera = 5;
-					StartCoroutine(DisruptCamera(5));
+					StartCoroutine(DisruptCamera(Random.Range(5, 7)));
 					VentCrawl.Play();
 					break;
 					case 5:
-					StartCoroutine(DisruptCamera(5));
+					StartCoroutine(DisruptCamera(Random.Range(5, 7)));
 					BBCamera = 13;
 					break;
 					case 13:
