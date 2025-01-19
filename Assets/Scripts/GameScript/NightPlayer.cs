@@ -1,3 +1,7 @@
+/*
+If u decompiled this game, you're either MysticTortoise or a random guy. Take a look at this chaotic code lmao
+*/
+
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -363,6 +367,29 @@ public class NightPlayer : MonoBehaviour
 		MovementOpportunityMain();
 		MovementOpportunityHandler();
 		StartCoroutine(GoldenFreddyFunction());
+
+		/*if(WitheredFreddyCamera == 14)
+		{
+			if (maskManager.isMaskActive)
+			{
+				Debug.Log("withered freddy mask active");
+			    // Toujours échouer si le masque est actif
+			    WitheredFreddyMovement = 5f;
+			    // Une chance sur 5 de revenir à la caméra 7
+				int RandomChance = Random.Range(0, 5);
+				RollChance -= Time.deltaTime;
+				Debug.Log("RollChance : " + RollChance);
+				if(RollChance <= 0f)
+				{
+					RollChance = 7f;
+					if (RandomChance == 0)
+			    	{
+			    	    WitheredFreddyCamera = 7;
+
+			    	}
+				}
+			}
+		} */
 
 		if (currentCam == MangleCamera)
         {
@@ -733,36 +760,41 @@ public class NightPlayer : MonoBehaviour
 		}
 		if (WitheredFreddyMovement <= 0f)
 		{
-			int randNum = Random.Range(0, 20);
-			if (WitheredFreddyAI >= randNum || WitheredFreddyAI == randNum)
-			{
-				if(CamWatchAI != 5)
-				{
-				switch (WitheredFreddyCamera)
-				{
-				case 8:
-				WitheredFreddyCamera = 7;
-				StartCoroutine(DisruptCamera(Random.Range(7, 10)));
-				StartCoroutine(DisruptCamera(Random.Range(7, 10)));
-				break;
-				case 7:
-				WitheredFreddyCamera = 3;
-				StartCoroutine(DisruptCamera(Random.Range(3, 7)));
-				StartCoroutine(DisruptCamera(Random.Range(3, 7)));
-				break;
-				case 3:
-				WitheredFreddyCamera = 14;
-				StartCoroutine(DisruptCamera(Random.Range(3, 7)));
-				break;
-				case 14:
-				StartCoroutine(PrepareBlackout("WitheredFreddy"));
-				WitheredFreddyCamera = 20;
-				break;
-				}
-				}
-				
-			}
-			WitheredFreddyMovement = 5f;
+		    int randNum = Random.Range(0, 20);
+
+		    if (WitheredFreddyAI >= randNum || WitheredFreddyAI == randNum)
+		    {
+		        if (CamWatchAI != 5)
+		        {
+		            switch (WitheredFreddyCamera)
+		            {
+		                case 8:
+		                    WitheredFreddyCamera = 7;
+		                    StartCoroutine(DisruptCamera(Random.Range(7, 10)));
+		                    StartCoroutine(DisruptCamera(Random.Range(7, 10)));
+		                    break;
+
+		                case 7:
+		                    WitheredFreddyCamera = 3;
+		                    StartCoroutine(DisruptCamera(Random.Range(3, 7)));
+		                    StartCoroutine(DisruptCamera(Random.Range(3, 7)));
+		                    break;
+
+		                case 3:
+		                    WitheredFreddyCamera = 14;
+		                    StartCoroutine(DisruptCamera(Random.Range(3, 7)));
+		                    break;
+
+		                case 14:
+
+		                    StartCoroutine(PrepareBlackout("WitheredFreddy"));
+		                    WitheredFreddyCamera = 20;
+
+		                    break;
+		            }
+		        }
+		    }
+		    WitheredFreddyMovement = 5f;
 		}
 		if (WitheredBonnieMovement <= 0f)
 		{

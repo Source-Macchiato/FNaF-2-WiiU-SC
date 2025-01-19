@@ -24,7 +24,7 @@ public class AIManager : MonoBehaviour {
             { "ToyFreddyAI", 0 },
             { "ToyBonnieAI", 0 },
             { "ToyChicaAI", 0 },
-            { "WitheredFreddyAI", 0 },
+            { "WitheredFreddyAI", 20 },
             { "WitheredBonnieAI", 0 },
             { "WitheredChicaAI", 0 },
             { "WitheredFoxyAI", 0 },
