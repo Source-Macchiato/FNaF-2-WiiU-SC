@@ -8,7 +8,6 @@ public class AnalyticsData : MonoBehaviour
 {
     private string projectToken = "9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b";
     private string analyticsToken;
-    private int canShareAnalytics;
 
     MenuManager menuManager;
     SaveManager saveManager;
@@ -201,7 +200,7 @@ public class AnalyticsData : MonoBehaviour
 
     public void CanShareAnalytics()
     {
-        canShareAnalytics = SaveManager.LoadShareAnalytics();
+        int canShareAnalytics = SaveManager.LoadShareAnalytics();
 
         if (canShareAnalytics == -1)
         {
