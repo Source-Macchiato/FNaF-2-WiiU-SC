@@ -189,6 +189,7 @@ public class MenuData : MonoBehaviour
                 if (languageIndex >= 0 && languageIndex < switcher.optionsName.Length)
                 {
                     switcher.currentOptionId = languageIndex;
+                    switcher.UpdateText();
                 }
             }
         }
@@ -199,19 +200,19 @@ public class MenuData : MonoBehaviour
         // Get SwitcherData scripts
         SwitcherData[] switchers = FindObjectsOfType<SwitcherData>();
 
-        // Get 
-        int shareAnalytics = SaveManager.LoadShareAnalytics() == 1 ? 0 : 1;
+        // Get share analytics
+        int shareAnalytics = SaveManager.LoadShareAnalytics();
 
         foreach (SwitcherData switcher in switchers)
         {
             if (switcher.switcherId == "switcher.analytics")
             {
-                // Find language index
-                int analyticsIndex = System.Array.IndexOf(switcher.optionsName, shareAnalytics);
+                int analyticsIndex = shareAnalytics == 1 ? 0 : 1;
 
                 if (analyticsIndex >= 0 && analyticsIndex < switcher.optionsName.Length)
                 {
                     switcher.currentOptionId = analyticsIndex;
+                    switcher.UpdateText();
                 }
             }
         }

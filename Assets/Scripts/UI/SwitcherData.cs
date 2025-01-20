@@ -55,7 +55,7 @@ public class SwitcherData : MonoBehaviour
         }
     }
 
-    void UpdateText()
+    public void UpdateText()
     {
         if (text != null)
         {
