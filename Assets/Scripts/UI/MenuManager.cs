@@ -208,8 +208,6 @@ public class MenuManager : MonoBehaviour
                             ClickSelectedButton();
                         }
                     }
-
-                    DisplayKeyboard();
                 }
                 else if (gamePadState.IsTriggered(WiiU.GamePadButton.B))
                 {
@@ -341,8 +339,6 @@ public class MenuManager : MonoBehaviour
                                 ClickSelectedButton();
                             }
                         }
-
-                        DisplayKeyboard();
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.B))
                     {
@@ -471,8 +467,6 @@ public class MenuManager : MonoBehaviour
                                 ClickSelectedButton();
                             }
                         }
-
-                        DisplayKeyboard();
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.B))
                     {
@@ -594,8 +588,6 @@ public class MenuManager : MonoBehaviour
                                 ClickSelectedButton();
                             }
                         }
-
-                        DisplayKeyboard();
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.B))
                     {
@@ -831,7 +823,7 @@ public class MenuManager : MonoBehaviour
 
     private void MenuNavigation(Vector2 direction)
     {
-        if (currentScrollRect == null && !TouchScreenKeyboard.visible && canNavigate)
+        if (currentScrollRect == null && canNavigate)
         {
             if (direction == Vector2.up)
             {
@@ -882,7 +874,7 @@ public class MenuManager : MonoBehaviour
 
     public void ScrollNavigation(Vector2 direction)
     {
-        if (currentScrollRect != null && currentPopup == null && !TouchScreenKeyboard.visible && canNavigate)
+        if (currentScrollRect != null && currentPopup == null && canNavigate)
         {
             RectTransform content = currentScrollRect.content;
             RectTransform viewport = currentScrollRect.viewport;
@@ -902,19 +894,6 @@ public class MenuManager : MonoBehaviour
                     newPosition.y = Mathf.Clamp01(newPosition.y);
                     currentScrollRect.normalizedPosition = newPosition;
                 }
-            }
-        }
-    }
-
-    private void DisplayKeyboard()
-    {
-        if (!TouchScreenKeyboard.visible)
-        {
-            if (EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>() != null)
-            {
-                TMP_InputField inputField = EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>();
-
-                inputField.Select();
             }
         }
     }
@@ -1000,7 +979,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoBack()
     {
-        if (currentPopup == null && !TouchScreenKeyboard.visible && canNavigate)
+        if (currentPopup == null && canNavigate)
         {
             if (menuHistory.Count > 0)
             {
