@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 222267412494250320}
   - component: {fileID: 114629149961951710}
   m_Layer: 5
-  m_Name: SrcMacchiatoLogo
+  m_Name: TheLatteMacchiatoLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,7 +322,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e45d5618541e6a64aad62c5ca4059a1f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8a5cb3d383fd8e4582a91f9955c64bf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
