@@ -10,11 +10,10 @@ public class MenuSetup : MonoBehaviour
 
     void Start()
     {
-        //menuManager.AddButton("Analytic Data", Analytics, 5, "mainmenu.analyticdata");
-
         // Set back callbacks for specific menus
         menuManager.SetBackCallback(2, OnBackFromCredits);
         menuManager.SetBackCallback(3, OnBackFromLanguage);
+        menuManager.SetBackCallback(6, OnBackFromAnalytics);
     }
 
     // Buttons functions
