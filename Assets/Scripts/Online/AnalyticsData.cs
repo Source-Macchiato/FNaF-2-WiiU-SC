@@ -46,7 +46,7 @@ public class AnalyticsData : MonoBehaviour
 
     private IEnumerator SendAnalytics()
 	{
-        if (analyticsToken != null && SaveManager.LoadShareAnalytics() == 1 && !Application.isEditor)
+        if (analyticsToken == null && SaveManager.LoadShareAnalytics() == 1 && !Application.isEditor)
         {
             string url = "https://api.brew-connect.com/v1/online/send_analytics";
             string json = "{" +
