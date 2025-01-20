@@ -134,6 +134,23 @@ public class MenuData : MonoBehaviour
         }
     }
 
+    public void SaveAndUpdateShareAnalytics()
+    {
+        // Get SwitcherData scripts
+        SwitcherData[] switchers = FindObjectsOfType<SwitcherData>();
+
+        foreach (SwitcherData switcher in switchers)
+        {
+            if (switcher.switcherId == "switcher.analytics")
+            {
+                saveManager.SaveShareAnalytics(switcher.currentOptionId == 1 ? 0 : 1);
+                bool saveResult = saveGameState.DoSave();
+            }
+        }
+
+        analyticsData.CanShareAnalytics();
+    }
+
     public void SaveNightNumber()
     {
         saveManager.SaveNightNumber(nightNumber);
@@ -172,6 +189,29 @@ public class MenuData : MonoBehaviour
                 if (languageIndex >= 0 && languageIndex < switcher.optionsName.Length)
                 {
                     switcher.currentOptionId = languageIndex;
+                }
+            }
+        }
+    }
+
+    public void LoadShareAnalyticsAndUpdateSwitcher()
+    {
+        // Get SwitcherData scripts
+        SwitcherData[] switchers = FindObjectsOfType<SwitcherData>();
+
+        // Get 
+        int shareAnalytics = SaveManager.LoadShareAnalytics() == 1 ? 0 : 1;
+
+        foreach (SwitcherData switcher in switchers)
+        {
+            if (switcher.switcherId == "switcher.analytics")
+            {
+                // Find language index
+                int analyticsIndex = System.Array.IndexOf(switcher.optionsName, shareAnalytics);
+
+                if (analyticsIndex >= 0 && analyticsIndex < switcher.optionsName.Length)
+                {
+                    switcher.currentOptionId = analyticsIndex;
                 }
             }
         }

@@ -41,21 +41,12 @@ public class AnalyticsData : MonoBehaviour
         saveManager = FindObjectOfType<SaveManager>();
         saveGameState = FindObjectOfType<SaveGameState>();
 
-        canShareAnalytics = SaveManager.LoadShareAnalytics();
-
-        if (canShareAnalytics == -1)
-        {
-            menuManager.AddPopup(1);
-        }
-        else if (canShareAnalytics == 1)
-        {
-            StartCoroutine(SendAnalytics());
-        }
+        CanShareAnalytics();
     }
 
     private IEnumerator SendAnalytics()
 	{
-        if (!Application.isEditor)
+        if (analyticsToken != null && SaveManager.LoadShareAnalytics() == 1 && !Application.isEditor)
         {
             string url = "https://api.brew-connect.com/v1/online/send_analytics";
             string json = "{" +
@@ -203,6 +194,20 @@ public class AnalyticsData : MonoBehaviour
         bool saveResult = saveGameState.DoSave();
 
         if (share)
+        {
+            StartCoroutine(SendAnalytics());
+        }
+    }
+
+    public void CanShareAnalytics()
+    {
+        canShareAnalytics = SaveManager.LoadShareAnalytics();
+
+        if (canShareAnalytics == -1)
+        {
+            menuManager.AddPopup(1);
+        }
+        else if (canShareAnalytics == 1)
         {
             StartCoroutine(SendAnalytics());
         }

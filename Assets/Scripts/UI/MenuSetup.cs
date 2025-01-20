@@ -103,9 +103,11 @@ public class MenuSetup : MonoBehaviour
         SceneManager.LoadScene("NextNight");
     }
 
-    void Analytics()
+    public void Analytics()
     {
+        menuManager.ChangeMenu(6);
 
+        menuData.LoadShareAnalyticsAndUpdateSwitcher();
     }
 
     // Callback functions
@@ -120,5 +122,10 @@ public class MenuSetup : MonoBehaviour
     {
         menuManager.currentScrollRect = null;
         menuData.ToggleGameTitle(true);
+    }
+
+    void OnBackFromAnalytics()
+    {
+        menuData.SaveAndUpdateShareAnalytics();
     }
 }
