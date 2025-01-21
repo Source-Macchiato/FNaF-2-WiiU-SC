@@ -243,29 +243,9 @@ public class NightPlayer : MonoBehaviour
 		// Assign current night at start
         currentNight = SaveManager.LoadNightNumber();
 
-        if (isNight7)
-		{
-            // Alyx modify this plz
-            // ok
-            WitheredFreddyAI = PlayerPrefs.GetInt("FreddyAI", 0);
-            WitheredBonnieAI = PlayerPrefs.GetInt("BonnieAI", 0);
-            WitheredChicaAI = PlayerPrefs.GetInt("ChicaAI", 0);
-            WitheredFoxyAI = PlayerPrefs.GetInt("FoxyAI", 0);
-            BalloonBoyAI = PlayerPrefs.GetInt("BalloonBoyAI", 0);
-            ToyFreddyAI = PlayerPrefs.GetInt("ToyFreddyAI", 0);
-            ToyBonnieAI = PlayerPrefs.GetInt("ToyBonnieAI", 0);
-            ToyChicaAI = PlayerPrefs.GetInt("ToyChicaAI", 0);
-            MangleAI = PlayerPrefs.GetInt("MangleAI", 0);
-            GoldenFreddyAI = PlayerPrefs.GetInt("GoldenFreddyAI", 0);
-		}
 		if (Random.value < 0.01) {PaperpalsAI = 1;}
 		PuppetAI = Mathf.Clamp(PuppetAI,0, 6);
 		WitheredFoxyAI = Mathf.Clamp(WitheredFoxyAI,0, 17);
-
-		if (isNight7)
-		{
-			SetCurrentAI();
-		}
     }
 
 	public void SetCurrentAI()

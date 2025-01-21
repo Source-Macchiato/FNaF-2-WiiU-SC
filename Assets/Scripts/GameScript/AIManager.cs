@@ -141,6 +141,20 @@ public class AIManager : MonoBehaviour {
                     { "WitheredChicaAI", 10 },
                     { "WitheredFoxyAI", 15 }
                 }}
+            }},
+            // Night 7
+            { 7, new Dictionary<int, Dictionary<string, int>>() {
+                { 12, new Dictionary<string, int>() {
+                    { "MangleAI", PlayerPrefs.GetInt("MangleAI", 0) },//3
+                    { "BalloonBoyAI", PlayerPrefs.GetInt("BalloonBoyAI", 0) },
+                    { "WitheredFreddyAI", PlayerPrefs.GetInt("FreddyAI", 0) },
+                    { "WitheredBonnieAI", PlayerPrefs.GetInt("BonnieAI", 0) },
+                    { "WitheredChicaAI", PlayerPrefs.GetInt("ChicaAI", 0) },
+                    { "WitheredFoxyAI", PlayerPrefs.GetInt("FoxyAI", 0) },
+                    {"toyFreddyAI", PlayerPrefs.GetInt("ToyFreddyAI", 0)},
+                    {"toyBonnieAI", PlayerPrefs.GetInt("ToyBonnieAI", 0)},
+                    {"toyChicaAI", PlayerPrefs.GetInt("ToyChicaAI", 0)}
+                }}
             }}
         };
     }
