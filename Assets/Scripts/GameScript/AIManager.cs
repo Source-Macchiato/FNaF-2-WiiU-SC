@@ -4,12 +4,21 @@ using System.Collections.Generic;
 
 public class AIManager : MonoBehaviour {
     public NightPlayer nightPlayer;
+    public MaskManager maskManager;
     public int currentTime;
     public int currentNight;
 
     public float TimeMultiplier;
     public bool isNight7;
     public int PuppetAI;
+
+    public float RollChanceFreddy = 7f;
+    public float RollChanceBonnie = 7f;
+    public float RollChanceChica = 7f;
+    public float RollChanceMangle = 7f;
+    public float RollChanceToyFreddy = 7f;
+    public float RollChanceToyChica = 7f;
+
 
     // AI Dictionary for storing AI levels dynamically
     private Dictionary<string, int> aiLevels;
@@ -183,6 +192,128 @@ public class AIManager : MonoBehaviour {
         currentTime = nightPlayer.currentTime;
         currentNight = nightPlayer.currentNight;
         TimedEvents();
+
+        if(nightPlayer.WitheredFreddyCamera == 14)
+		{
+			if (maskManager.isMaskActive)
+			{
+				Debug.Log("withered freddy mask active");
+			    // Toujours échouer si le masque est actif
+			    nightPlayer.WitheredFreddyMovement = 5f;
+			    // Une chance sur 5 de revenir à la caméra 7
+				int RandomChance = Random.Range(0, 5);
+				RollChanceFreddy -= Time.deltaTime;
+
+				if(RollChanceFreddy <= 0f)
+				{
+					RollChanceFreddy = 7f;
+					if (RandomChance == 0)
+			    	{
+			    	    nightPlayer.WitheredFreddyCamera = 7;
+
+			    	}
+				}
+			}
+		}
+    if(nightPlayer.WitheredBonnieCamera == 14)
+    {
+        if (maskManager.isMaskActive)
+        {
+        Debug.Log("withered bonnie mask active");
+        nightPlayer.WitheredBonnieMovement = 5f;
+        int RandomChance = Random.Range(0, 5);
+        RollChanceBonnie -= Time.deltaTime;
+
+        if(RollChanceBonnie <= 0f)
+        {
+            RollChanceBonnie = 7f;
+            if (RandomChance == 0)
+            {
+            nightPlayer.WitheredBonnieCamera = 7;
+            }
+        }
+        }
+    }
+
+    if(nightPlayer.WitheredChicaCamera == 14)
+    {
+        if (maskManager.isMaskActive)
+        {
+        Debug.Log("withered chica mask active");
+        nightPlayer.WitheredChicaMovement = 5f;
+        int RandomChance = Random.Range(0, 5);
+        RollChanceChica -= Time.deltaTime;
+
+        if(RollChanceChica <= 0f)
+        {
+            RollChanceChica = 7f;
+            if (RandomChance == 0)
+            {
+            nightPlayer.WitheredChicaCamera = 7;
+            }
+        }
+        }
+    }
+
+    if(nightPlayer.MangleCamera == 14)
+    {
+        if (maskManager.isMaskActive)
+        {
+        Debug.Log("mangle mask active");
+        nightPlayer.MangleMovement = 5f;
+        int RandomChance = Random.Range(0, 5);
+        RollChanceMangle -= Time.deltaTime;
+
+        if(RollChanceMangle <= 0f)
+        {
+            RollChanceMangle = 7f;
+            if (RandomChance == 0)
+            {
+            nightPlayer.MangleCamera = 7;
+            }
+        }
+        }
+    }
+
+    if(nightPlayer.ToyChicaCamera == 14)
+    {
+        if (maskManager.isMaskActive)
+        {
+        Debug.Log("toy chica mask active");
+        nightPlayer.ToyChicaMovement = 5f;
+        int RandomChance = Random.Range(0, 5);
+        RollChanceToyChica -= Time.deltaTime;
+
+        if(RollChanceToyChica <= 0f)
+        {
+            RollChanceToyChica = 7f;
+            if (RandomChance == 0)
+            {
+            nightPlayer.ToyChicaCamera = 7;
+            }
+        }
+        }
+    }
+
+    if(nightPlayer.ToyFreddyCamera == 14)
+    {
+        if (maskManager.isMaskActive)
+        {
+        Debug.Log("toy freddy mask active");
+        nightPlayer.ToyFreddyMovement = 5f;
+        int RandomChance = Random.Range(0, 5);
+        RollChanceToyFreddy -= Time.deltaTime;
+
+        if(RollChanceToyFreddy <= 0f)
+        {
+            RollChanceToyFreddy = 7f;
+            if (RandomChance == 0)
+            {
+            nightPlayer.ToyFreddyCamera = 7;
+            }
+        }
+        }
+    }
     }
 
     public void TimedEvents() {
@@ -217,4 +348,6 @@ public class AIManager : MonoBehaviour {
         }
         return -1;
     }
+
+
 }

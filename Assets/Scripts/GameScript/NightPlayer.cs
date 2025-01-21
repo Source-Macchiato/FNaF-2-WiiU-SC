@@ -12,6 +12,8 @@ using TMPro;
 
 public class NightPlayer : MonoBehaviour
 {
+
+
 	public AIManager aiManager;
 	public StateManager stateManager;
 	[Header("Audio")]
@@ -347,29 +349,6 @@ public class NightPlayer : MonoBehaviour
 		MovementOpportunityMain();
 		MovementOpportunityHandler();
 		StartCoroutine(GoldenFreddyFunction());
-
-		/*if(WitheredFreddyCamera == 14)
-		{
-			if (maskManager.isMaskActive)
-			{
-				Debug.Log("withered freddy mask active");
-			    // Toujours échouer si le masque est actif
-			    WitheredFreddyMovement = 5f;
-			    // Une chance sur 5 de revenir à la caméra 7
-				int RandomChance = Random.Range(0, 5);
-				RollChance -= Time.deltaTime;
-				Debug.Log("RollChance : " + RollChance);
-				if(RollChance <= 0f)
-				{
-					RollChance = 7f;
-					if (RandomChance == 0)
-			    	{
-			    	    WitheredFreddyCamera = 7;
-
-			    	}
-				}
-			}
-		} */
 
 		if (currentCam == MangleCamera)
         {
