@@ -128,6 +128,11 @@ public class MusicBox : MonoBehaviour
         isWindUpEmpty = currentUnwindTime <= 0;
 
         // Manage danger icon animation
+        if (currentUnwindTime > unwindTime / 10 && !danger.GetComponent<Animator>().GetBool("MusicBoxEmpty"))
+        {
+            danger.GetComponent<Animator>().Play("Inactive");
+        }
+
         if (currentUnwindTime <= unwindTime / 10 && currentUnwindTime > 0.01 && !danger.GetComponent<Animator>().GetBool("MusicBoxEmpty"))
         {
             danger.GetComponent<Animator>().Play("InDanger");

@@ -441,11 +441,11 @@ public class NightPlayer : MonoBehaviour
         
 
 
-		if(Application.isEditor)
+		if (Application.isEditor)
 		{
 			Debug.Log("CamWatchAI NightPlayer! : " + CamWatchAI);
-					Debug.Log("current cam "+ currentCam);
-				Debug.Log("freddy : " + ToyFreddyCamera);
+			Debug.Log("current cam "+ currentCam);
+			Debug.Log("freddy : " + ToyFreddyCamera);
 		}
 		
 
