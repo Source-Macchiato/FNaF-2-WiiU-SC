@@ -20,7 +20,10 @@ public class AIManager : MonoBehaviour {
 
     private void Start() {
         // Initialize AI levels
-        aiLevels = new Dictionary<string, int>() {
+
+        if(Application.isEditor)
+        {
+            aiLevels = new Dictionary<string, int>() {
             { "ToyFreddyAI", 0 },
             { "ToyBonnieAI", 0 },
             { "ToyChicaAI", 0 },
@@ -32,7 +35,24 @@ public class AIManager : MonoBehaviour {
             { "MangleAI", 0 },
             { "BalloonBoyAI", 0 },
             { "PaperpalsAI", 0 }
-        };
+            };
+        }
+        else
+        {
+            aiLevels = new Dictionary<string, int>() {
+                { "ToyFreddyAI", 0 },
+                { "ToyBonnieAI", 0 },
+                { "ToyChicaAI", 0 },
+                { "WitheredFreddyAI", 0 },
+                { "WitheredBonnieAI", 0 },
+                { "WitheredChicaAI", 0 },
+                { "WitheredFoxyAI", 0 },
+                { "GoldenFreddyAI", 0 },
+                { "MangleAI", 0 },
+                { "BalloonBoyAI", 0 },
+                { "PaperpalsAI", 0 }
+            };
+        }
 
         // Configure AI settings for each night and time
         nightConfigurations = new Dictionary<int, Dictionary<int, Dictionary<string, int>>>() {

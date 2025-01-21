@@ -328,7 +328,6 @@ public class NightPlayer : MonoBehaviour
     
     void Update()
 	{
-		UpdateTime();
 		ToyFreddyAI = aiManager.GetAILevel("ToyFreddyAI");
 		ToyBonnieAI = aiManager.GetAILevel("ToyBonnieAI");
 		ToyChicaAI = aiManager.GetAILevel("ToyChicaAI");
@@ -340,6 +339,7 @@ public class NightPlayer : MonoBehaviour
 		MangleAI = aiManager.GetAILevel("MangleAI");
 		BalloonBoyAI = aiManager.GetAILevel("BalloonBoyAI");
 		PaperpalsAI = aiManager.GetAILevel("PaperpalsAI");
+		UpdateTime();
 		InputFunction();
 		StateChecks();
 		UpdateBatteryUI();
