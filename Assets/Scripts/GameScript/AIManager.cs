@@ -30,13 +30,13 @@ public class AIManager : MonoBehaviour {
     private void Start() {
         // Initialize AI levels
 
-        if(Application.isEditor)
+        if(Application.isEditor && !isNight7)
         {
             aiLevels = new Dictionary<string, int>() {
             { "ToyFreddyAI", 0 },
             { "ToyBonnieAI", 0 },
             { "ToyChicaAI", 0 },
-            { "WitheredFreddyAI", 20 },
+            { "WitheredFreddyAI", 0 },
             { "WitheredBonnieAI", 0 },
             { "WitheredChicaAI", 0 },
             { "WitheredFoxyAI", 0 },
@@ -90,7 +90,7 @@ public class AIManager : MonoBehaviour {
             }},
             // Night 3
             { 2, new Dictionary<int, Dictionary<string, int>>() {
-                { 12, new Dictionary<string, int>() {
+                { 0, new Dictionary<string, int>() {
                     { "BalloonBoyAI", 1 },
                     { "WitheredBonnieAI", 1 },
                     { "WitheredChicaAI", 1 },
@@ -108,7 +108,7 @@ public class AIManager : MonoBehaviour {
             }},
             // Night 4
             { 3, new Dictionary<int, Dictionary<string, int>>() {
-                { 12, new Dictionary<string, int>() {
+                { 0, new Dictionary<string, int>() {
                     { "MangleAI", 5 }, //5
                     { "BalloonBoyAI", 3 },
                     { "WitheredBonnieAI", 1 },
@@ -126,7 +126,7 @@ public class AIManager : MonoBehaviour {
             }},
             // Night 5
             { 4, new Dictionary<int, Dictionary<string, int>>() {
-                { 12, new Dictionary<string, int>() {
+                { 0, new Dictionary<string, int>() {
                     { "ToyFreddyAI", 5 },
                     { "ToyBonnieAI", 2 },
                     { "ToyChicaAI", 2 },
@@ -151,7 +151,7 @@ public class AIManager : MonoBehaviour {
             }},
             // Night 6
             { 5, new Dictionary<int, Dictionary<string, int>>() {
-                { 12, new Dictionary<string, int>() {
+                { 0, new Dictionary<string, int>() {
                     { "MangleAI", 0 },//3
                     { "BalloonBoyAI", 5 },
                     { "WitheredFreddyAI", 5 },
@@ -172,8 +172,8 @@ public class AIManager : MonoBehaviour {
                 }}
             }},
             // Night 7
-            { 7, new Dictionary<int, Dictionary<string, int>>() {
-                { 12, new Dictionary<string, int>() {
+            { 6, new Dictionary<int, Dictionary<string, int>>() {
+                { 0, new Dictionary<string, int>() {
                     { "MangleAI", PlayerPrefs.GetInt("MangleAI", 0) },//3
                     { "BalloonBoyAI", PlayerPrefs.GetInt("BalloonBoyAI", 0) },
                     { "WitheredFreddyAI", PlayerPrefs.GetInt("FreddyAI", 0) },
