@@ -34,8 +34,6 @@ public class MaskManager : MonoBehaviour
 
     void Update()
 	{
-        isMaskLocked = nightPlayer.BlackoutPrepared && isMaskActive;
-
         // Get the current state of the GamePad and Remote
         WiiU.GamePadState gamePadState = gamePad.state;
         WiiU.RemoteState remoteState = remote.state;
@@ -82,6 +80,8 @@ public class MaskManager : MonoBehaviour
         {
             DisableMask();
         }
+
+        isMaskLocked = nightPlayer.BlackoutPrepared && isMaskActive;
     }
 
     private void ToggleMask()
