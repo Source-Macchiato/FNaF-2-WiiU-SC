@@ -39,9 +39,6 @@ public class Minigame3Controller : MonoBehaviour
     // Array of sprites for different states
     public Sprite[] StateSprites;
 
-    // Variable to track the last horizontal movement direction
-    private bool movingRight = true;
-
     // Initial positions for reset
     private Vector3 initialBearPosition;
     private Vector3 initialMoveableObjectPosition;
@@ -54,9 +51,14 @@ public class Minigame3Controller : MonoBehaviour
 
     private int resetCount;
 
-    // Start is called before the first frame update
+    // Scripts
+    BearMovement bearMovement;
+
     void Start()
     {
+        // Get scripts
+        bearMovement = FindObjectOfType<BearMovement>();
+
         // Store initial positions for reset
         initialBearPosition = Bear.transform.localPosition; // Use localPosition because Bear is a child of MoveableObject
         initialMoveableObjectPosition = MoveableObject.transform.position;
@@ -117,44 +119,36 @@ public class Minigame3Controller : MonoBehaviour
     // Handles the bear's movement
     void HandleBearMovement()
     {
-        Vector3 newPosition = Bear.transform.position;
-        bool moved = false;
-
-        // Check for arrow key inputs and move the bear accordingly
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            newPosition.x += BearSpeed * Time.deltaTime;
-            movingRight = true;
-            moved = true;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            newPosition.x -= BearSpeed * Time.deltaTime;
-            movingRight = false;
-            moved = true;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            newPosition.y += BearSpeed * Time.deltaTime;
-            moved = true;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            newPosition.y -= BearSpeed * Time.deltaTime;
-            moved = true;
-        }
-
-        // Check for collisions with collidable objects within a 50-pixel range
-        if (!IsCollidingWithObjects(newPosition))
-        {
-            // Update the bear's position if no collision detected
-            Bear.transform.position = newPosition;
-        }
-
         // Play the appropriate animation based on the last horizontal movement direction
-        if (moved)
+        if (bearMovement.isMoving)
         {
-            if (movingRight)
+            Vector3 newPosition = Bear.transform.position;
+
+            if (bearMovement.playerDirection == Vector2.up)
+            {
+                newPosition.y += BearSpeed * Time.deltaTime;
+            }
+            else if (bearMovement.playerDirection == Vector2.left)
+            {
+                newPosition.x -= BearSpeed * Time.deltaTime;
+            }
+            else if (bearMovement.playerDirection == Vector2.down)
+            {
+                newPosition.y -= BearSpeed * Time.deltaTime;
+            }
+            else if (bearMovement.playerDirection == Vector2.right)
+            {
+                newPosition.x += BearSpeed * Time.deltaTime;
+            }
+
+            // Check for collisions with collidable objects within a 50-pixel range
+            if (!IsCollidingWithObjects(newPosition))
+            {
+                // Update the bear's position if no collision detected
+                Bear.transform.position = newPosition;
+            }
+
+            if (bearMovement.playerDirection == Vector2.right)
             {
                 BearAnimator.Play("BearRight");
             }
