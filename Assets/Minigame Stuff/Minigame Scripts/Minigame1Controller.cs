@@ -26,9 +26,6 @@ public class Minigame1Controller : MonoBehaviour
     // Speed at which the bear moves
     public float BearSpeed = 5f;
 
-    // Variable to track the last horizontal movement direction
-    private bool movingRight = true;
-
     // Distance within which the bear maximizes the kids' hunger
     public float BearProximityThreshold = 2f;
 
@@ -53,9 +50,15 @@ public class Minigame1Controller : MonoBehaviour
 
     private Rigidbody2D bearRigidbody;
 
+    // Scripts
+    BearMovement bearMovement;
+
     // Start is called before the first frame update
     void Start()
     {
+        // Get scripts
+        bearMovement = FindObjectOfType<BearMovement>();
+
         // Initialize hunger values for each kid
         for (int i = 0; i < Hunger.Length; i++)
         {
@@ -138,40 +141,33 @@ public class Minigame1Controller : MonoBehaviour
     // Handles the bear's movement within the walls
     void HandleBearMovement()
     {
-        Vector3 newPosition = Bear.transform.position;
-        bool moved = false;
-
-        // Check for arrow key inputs and move the bear accordingly
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            newPosition.x += BearSpeed * Time.deltaTime;
-            movingRight = true;
-            moved = true;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            newPosition.x -= BearSpeed * Time.deltaTime;
-            movingRight = false;
-            moved = true;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            newPosition.y += BearSpeed * Time.deltaTime;
-            moved = true;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            newPosition.y -= BearSpeed * Time.deltaTime;
-            moved = true;
-        }
-
         // Update the bear's position
-        if (moved)
+        if (bearMovement.isMoving)
         {
+            Vector3 newPosition = Bear.transform.position;
+
+            // Check direction
+            if (bearMovement.playerDirection == Vector2.up)
+            {
+                newPosition.y += BearSpeed * Time.deltaTime;
+            }
+            else if (bearMovement.playerDirection == Vector2.left)
+            {
+                newPosition.x -= BearSpeed * Time.deltaTime;
+            }
+            else if (bearMovement.playerDirection == Vector2.down)
+            {
+                newPosition.y -= BearSpeed * Time.deltaTime;
+            }
+            else if (bearMovement.playerDirection == Vector2.right)
+            {
+                newPosition.x += BearSpeed * Time.deltaTime;
+            }
+
             Bear.transform.position = newPosition;
 
             // Play the appropriate animation based on the last horizontal movement direction
-            if (movingRight)
+            if (bearMovement.playerDirection == Vector2.right)
             {
                 BearAnimator.Play("BearRight");
             }
