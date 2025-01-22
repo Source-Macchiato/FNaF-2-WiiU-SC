@@ -22,9 +22,6 @@ public class Minigame2Controller : MonoBehaviour
     // Array to define the sequence of directions for room transitions
     public string[] DirectionSequence;
 
-    // Variable to track the last movement direction
-    private string lastDirection = "Right";
-
     // Index to track the current direction in the sequence
     private int currentDirectionIndex = 0;
 
@@ -46,9 +43,14 @@ public class Minigame2Controller : MonoBehaviour
     // Target player position (assuming it's the Bear)
     private Transform playerTransform;
 
-    // Start is called before the first frame update
+    // Scripts
+    BearMovement bearMovement;
+
     void Start()
     {
+        // Get scripts
+        bearMovement = FindObjectOfType<BearMovement>();
+
         // Initialize playerTransform to the Bear's transform
         playerTransform = Bear.transform;
 
@@ -71,66 +73,43 @@ public class Minigame2Controller : MonoBehaviour
     // Handles the bear's movement
     void HandleBearMovement()
     {
-        Vector3 newPosition = Bear.transform.position;
-        bool moved = false;
-
-        // Check for arrow key inputs and move the bear accordingly
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            newPosition.x += BearSpeed * Time.deltaTime;
-            lastDirection = "Right";
-            moved = true;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            newPosition.x -= BearSpeed * Time.deltaTime;
-            lastDirection = "Left";
-            moved = true;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            newPosition.y += BearSpeed * Time.deltaTime;
-            lastDirection = "Up";
-            moved = true;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            newPosition.y -= BearSpeed * Time.deltaTime;
-            lastDirection = "Down";
-            moved = true;
-        }
-
-        // Check for collisions with children of the collidable parent object
-        if (!IsCollidingWithChildren(newPosition))
-        {
-            // Update the bear's position if no collision detected
-            Bear.transform.position = newPosition;
-        }
-
         // Play the appropriate animation based on the last movement direction
-        if (moved)
+        if (bearMovement.isMoving)
         {
-            PlayBearAnimation();
-        }
-    }
+            Vector3 newPosition = Bear.transform.position;
 
-    // Plays the appropriate animation based on the last movement direction
-    void PlayBearAnimation()
-    {
-        switch (lastDirection)
-        {
-            case "Right":
-                BearAnimator.Play("BearRight");
-                break;
-            case "Left":
-                BearAnimator.Play("BearLeft");
-                break;
-            case "Up":
+            // Check for arrow key inputs and move the bear accordingly
+            if (bearMovement.playerDirection == Vector2.up)
+            {
+                newPosition.y += BearSpeed * Time.deltaTime;
+
                 BearAnimator.Play("BearUp");
-                break;
-            case "Down":
+            }
+            else if (bearMovement.playerDirection == Vector2.left)
+            {
+                newPosition.x -= BearSpeed * Time.deltaTime;
+
+                BearAnimator.Play("BearLeft");
+            }
+            else if (bearMovement.playerDirection == Vector2.down)
+            {
+                newPosition.y -= BearSpeed * Time.deltaTime;
+
                 BearAnimator.Play("BearDown");
-                break;
+            }
+            else if (bearMovement.playerDirection == Vector2.right)
+            {
+                newPosition.x += BearSpeed * Time.deltaTime;
+
+                BearAnimator.Play("BearRight");
+            }
+
+            // Check for collisions with children of the collidable parent object
+            if (!IsCollidingWithChildren(newPosition))
+            {
+                // Update the bear's position if no collision detected
+                Bear.transform.position = newPosition;
+            }
         }
     }
 
@@ -164,27 +143,27 @@ public class Minigame2Controller : MonoBehaviour
         {
             string direction = DirectionSequence[currentDirectionIndex];
 
-            if (direction == "Left" && lastDirection == "Left" && Bear.transform.position.x <= 0f)
-            {
-                MoveableObject.transform.position += new Vector3(400f, 0f, 0f);
-                currentDirectionIndex++;
-                TransitionEvent();
-            }
-            else if (direction == "Right" && lastDirection == "Right" && Bear.transform.position.x >= 400f)
-            {
-                MoveableObject.transform.position -= new Vector3(400f, 0f, 0f);
-                currentDirectionIndex++;
-                TransitionEvent();
-            }
-            else if (direction == "Up" && lastDirection == "Up" && Bear.transform.position.y >= 240f)
+            if (direction == "Up" && bearMovement.playerDirection == Vector2.up && Bear.transform.position.y >= 240f)
             {
                 MoveableObject.transform.position -= new Vector3(0f, 240f, 0f);
                 currentDirectionIndex++;
                 TransitionEvent();
             }
-            else if (direction == "Down" && lastDirection == "Down" && Bear.transform.position.y <= 0f)
+            else if (direction == "Left" && bearMovement.playerDirection == Vector2.left && Bear.transform.position.x <= 0f)
+            {
+                MoveableObject.transform.position += new Vector3(400f, 0f, 0f);
+                currentDirectionIndex++;
+                TransitionEvent();
+            }
+            else if (direction == "Down" && bearMovement.playerDirection == Vector2.down && Bear.transform.position.y <= 0f)
             {
                 MoveableObject.transform.position += new Vector3(0f, 240f, 0f);
+                currentDirectionIndex++;
+                TransitionEvent();
+            }
+            else if (direction == "Right" && bearMovement.playerDirection == Vector2.right && Bear.transform.position.x >= 400f)
+            {
+                MoveableObject.transform.position -= new Vector3(400f, 0f, 0f);
                 currentDirectionIndex++;
                 TransitionEvent();
             }
