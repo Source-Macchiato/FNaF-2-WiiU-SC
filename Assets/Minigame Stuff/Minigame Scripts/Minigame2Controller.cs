@@ -73,12 +73,11 @@ public class Minigame2Controller : MonoBehaviour
     // Handles the bear's movement
     void HandleBearMovement()
     {
-        // Play the appropriate animation based on the last movement direction
         if (bearMovement.isMoving)
         {
             Vector3 newPosition = Bear.transform.position;
 
-            // Check for arrow key inputs and move the bear accordingly
+            // Check if player is moving
             if (bearMovement.playerDirection == Vector2.up)
             {
                 newPosition.y += BearSpeed * Time.deltaTime;

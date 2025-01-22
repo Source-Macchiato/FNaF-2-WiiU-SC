@@ -22,8 +22,14 @@ public class Minigame2Part2Controller : MonoBehaviour
     private int childrenWithHats = 0;
     private bool givingHats = false;
 
+    // Scripts
+    BearMovement bearMovement;
+
     void Start()
     {
+        // Get scripts
+        bearMovement = FindObjectOfType<BearMovement>();
+
         UpdateScoreText();
     }
 
@@ -35,37 +41,40 @@ public class Minigame2Part2Controller : MonoBehaviour
 
     void HandleBearMovement()
     {
-        Vector2 movement = Vector2.zero;
+        if (bearMovement.isMoving)
+        {
+            Vector3 newPosition = Bear.transform.position;
 
-        // Handle input for movement
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            movement.x += BearSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            movement.x -= BearSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            movement.y += BearSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            movement.y -= BearSpeed * Time.deltaTime;
-        }
-
-        // Apply the movement
-        Bear.transform.Translate(movement);
-
-        // Check for collisions with walls and reset position if needed
-        foreach (GameObject wall in Walls)
-        {
-            if (Bear.GetComponent<Collider2D>().IsTouching(wall.GetComponent<Collider2D>()))
+            if (bearMovement.playerDirection == Vector2.up)
             {
-                Bear.transform.Translate(-movement); // Undo movement if colliding
-                break;
+                newPosition.y += BearSpeed * Time.deltaTime;
             }
+            else if (bearMovement.playerDirection == Vector2.left)
+            {
+                newPosition.x -= BearSpeed * Time.deltaTime;
+            }
+            else if (bearMovement.playerDirection == Vector2.down)
+            {
+                newPosition.y -= BearSpeed * Time.deltaTime;
+            }
+            else if (bearMovement.playerDirection == Vector2.right)
+            {
+                newPosition.x += BearSpeed * Time.deltaTime;
+            }
+
+            // Apply the movement
+            Bear.transform.position = newPosition;
+
+            // have to make a IsCollidingWithObjects like other scripts
+            // Check for collisions with walls and reset position if needed
+            /*foreach (GameObject wall in Walls)
+            {
+                if (Bear.GetComponent<Collider2D>().IsTouching(wall.GetComponent<Collider2D>()))
+                {
+                    Bear.transform.Translate(-movement); // Undo movement if colliding
+                    break;
+                }
+            }*/
         }
     }
 
