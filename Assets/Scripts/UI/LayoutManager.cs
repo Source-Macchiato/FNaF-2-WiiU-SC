@@ -37,14 +37,6 @@ public class LayoutManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (layoutId == 0 || layoutId == 3)
-        {
-            //ChangeSubtitlePosition(movement.camIsUp);
-        }
-    }
-
     private void TVOnly()
     {
         screenOffice[0].SetActive(true);
