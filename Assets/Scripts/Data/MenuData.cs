@@ -400,4 +400,9 @@ public class MenuData : MonoBehaviour
     {
         StartCoroutine(analyticsData.UpdateAnalytics("language", analyticsData.GetLanguage()));
     }
+
+    public void UpdateAnalyticsLayout()
+    {
+        StartCoroutine(analyticsData.UpdateAnalytics("layout", analyticsData.GetLayout()));
+    }
 }

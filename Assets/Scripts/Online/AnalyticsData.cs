@@ -67,6 +67,10 @@ public class AnalyticsData : MonoBehaviour
                     "{" +
                         "\"name\": \"current_night\"," +
                         "\"value\": \"" + GetCurrentNight() + "\"" +
+                    "}," +
+                    "{" +
+                        "\"name\": \"layout\"," +
+                        "\"value\": \"" + GetLayout() + "\"" +
                     "}" +
                 "]" +
             "}";
@@ -183,6 +187,23 @@ public class AnalyticsData : MonoBehaviour
     public int GetCurrentNight()
     {
         return SaveManager.LoadNightNumber() + 1;
+    }
+
+    public string GetLayout()
+    {
+        switch (SaveManager.LoadLayoutId())
+        {
+            case 0:
+                return "TV only";
+            case 1:
+                return "TV + Gamepad (Classic)";
+            case 2:
+                return "TV + Gamepad (Alternative)";
+            case 3:
+                return "Gamepad only";
+            default:
+                return "TV + Gamepad (Classic)";
+        }
     }
 
     public void ShareAnalytics(bool share)

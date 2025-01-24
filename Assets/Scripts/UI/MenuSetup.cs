@@ -13,6 +13,7 @@ public class MenuSetup : MonoBehaviour
         // Set back callbacks for specific menus
         menuManager.SetBackCallback(2, OnBackFromCredits);
         menuManager.SetBackCallback(3, OnBackFromLanguage);
+        menuManager.SetBackCallback(4, OnBackFromLayout);
         menuManager.SetBackCallback(6, OnBackFromAnalytics);
     }
 
@@ -121,6 +122,11 @@ public class MenuSetup : MonoBehaviour
     {
         menuManager.currentScrollRect = null;
         menuData.ToggleGameTitle(true);
+    }
+
+    void OnBackFromLayout()
+    {
+        menuData.UpdateAnalyticsLayout();
     }
 
     void OnBackFromAnalytics()
