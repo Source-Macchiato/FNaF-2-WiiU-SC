@@ -20501,7 +20501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimap: {fileID: 352760811}
   roomName: {fileID: 1757716893}
-  subtitles: {fileID: 0}
+  musicBox: {fileID: 1472750459}
   screenOffice:
   - {fileID: 1605859670}
   - {fileID: 1926805587}

@@ -6,7 +6,7 @@ public class LayoutManager : MonoBehaviour
 
     public GameObject minimap;
     public GameObject roomName;
-    public GameObject subtitles;
+    public GameObject musicBox;
 
     [Header("Screens")]
     public GameObject[] screenOffice;
@@ -62,6 +62,9 @@ public class LayoutManager : MonoBehaviour
         roomName.GetComponent<RectTransform>().pivot = new Vector2(0f, 0.5f);
         roomName.transform.localScale = new Vector3(1f, 1f, 1f);
         roomName.transform.localPosition = new Vector3(38.64502f, 61.5f, 0f);
+
+        // Music box position
+        musicBox.transform.localPosition = new Vector3(-102.3f, -213.7f, 0);
     }
 
     private void TVGamepadClassic()
@@ -89,6 +92,9 @@ public class LayoutManager : MonoBehaviour
         roomName.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
         roomName.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
         roomName.transform.localPosition = new Vector3(0f, 248f, 0f);
+
+        // Music box position
+        musicBox.transform.localPosition = new Vector3(350f, -200f, 0);
     }
 
     private void TVGamepadAlternative()
@@ -116,6 +122,9 @@ public class LayoutManager : MonoBehaviour
         roomName.GetComponent<RectTransform>().pivot = new Vector2(0f, 0.5f);
         roomName.transform.localScale = new Vector3(1f, 1f, 1f);
         roomName.transform.localPosition = new Vector3(38.64502f, 61.5f, 0f);
+
+        // Music box position
+        musicBox.transform.localPosition = new Vector3(-102.3f, -213.7f, 0);
     }
 
     private void GamepadOnly()
@@ -142,5 +151,8 @@ public class LayoutManager : MonoBehaviour
         // Room name position
         roomName.transform.localScale = new Vector3(1f, 1f, 1f);
         roomName.transform.localPosition = new Vector3(38.64502f, 61.5f, 0f);
+
+        // Music box position
+        musicBox.transform.localPosition = new Vector3(-102.3f, -213.7f, 0);
     }
 }
