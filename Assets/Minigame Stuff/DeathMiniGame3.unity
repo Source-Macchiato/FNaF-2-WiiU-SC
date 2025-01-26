@@ -1104,7 +1104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000047683716, y: -144.75}
+  m_AnchoredPosition: {x: -0.000030518, y: -258}
   m_SizeDelta: {x: 241.9, y: 46.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715805608
@@ -1172,8 +1172,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.25, y: -0.0021820003}
-  m_SizeDelta: {x: 799.5, y: 449.64}
+  m_AnchoredPosition: {x: -0.000038147, y: 0.000015259}
+  m_SizeDelta: {x: 960, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724516050
 MonoBehaviour:
@@ -2707,7 +2707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146f52ab8238b1243b24e471bf611498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BearSpeed: 55
+  BearSpeed: 2
   Bear: {fileID: 1896091432}
   BearAnimator: {fileID: 1896091436}
   Children:
