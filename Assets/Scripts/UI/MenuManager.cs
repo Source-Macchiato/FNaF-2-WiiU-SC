@@ -695,31 +695,6 @@ public class MenuManager : MonoBehaviour
             }
         }
 
-        // Toggle visibility for cursors
-        if (currentSelection != null)
-        {
-            if (currentScrollRect == null && currentPopup == null
-                && EventSystem.current.currentSelectedGameObject != null
-                && EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() == null
-                && EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() == null
-                && EventSystem.current.currentSelectedGameObject.GetComponent<CardData>() == null)
-            {
-                if (!currentSelection.activeSelf)
-                {
-                    currentSelection.SetActive(true);
-                }
-
-                UpdateSelectionPosition(EventSystem.current.currentSelectedGameObject);
-            }
-            else
-            {
-                if (currentSelection.activeSelf)
-                {
-                    currentSelection.SetActive(false);
-                }
-            }
-        }
-
         // Calculate stick last navigation time
         lastNavigationTime += Time.deltaTime;
     }
@@ -870,6 +845,8 @@ public class MenuManager : MonoBehaviour
                 }
             }
         }
+
+        ToggleCursorVisibility();
     }
 
     public void ScrollNavigation(Vector2 direction)
@@ -905,6 +882,8 @@ public class MenuManager : MonoBehaviour
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
+
+        ToggleCursorVisibility();
     }
 
     private void UpdateSelectionPosition(GameObject selectedButton)
@@ -930,6 +909,33 @@ public class MenuManager : MonoBehaviour
 
             // Set the new position
             selectionRect.localPosition = newLocalPos;
+        }
+    }
+
+    void ToggleCursorVisibility()
+    {
+        if (currentSelection != null)
+        {
+            if (currentScrollRect == null && currentPopup == null
+                && EventSystem.current.currentSelectedGameObject != null
+                && EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() == null
+                && EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() == null
+                && EventSystem.current.currentSelectedGameObject.GetComponent<CardData>() == null)
+            {
+                if (!currentSelection.activeSelf)
+                {
+                    currentSelection.SetActive(true);
+                }
+
+                UpdateSelectionPosition(EventSystem.current.currentSelectedGameObject);
+            }
+            else
+            {
+                if (currentSelection.activeSelf)
+                {
+                    currentSelection.SetActive(false);
+                }
+            }
         }
     }
 
@@ -961,6 +967,8 @@ public class MenuManager : MonoBehaviour
                 }
             }
         }
+
+        ToggleCursorVisibility();
 
         isNavigatingBack = false;
     }
