@@ -186,7 +186,7 @@ public class AnalyticsData : MonoBehaviour
 
     public int GetCurrentNight()
     {
-        return SaveManager.LoadNightNumber() + 1;
+        return Mathf.Clamp(SaveManager.LoadNightNumber() + 1, 1, 7);
     }
 
     public string GetLayout()
