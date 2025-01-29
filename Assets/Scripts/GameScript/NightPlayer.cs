@@ -1836,10 +1836,6 @@ public class NightPlayer : MonoBehaviour
 			SignalDisrupted.SetActive(false);
 			DisruputedSound.Stop();
 		}
-		else
-		{
-			DisruputedSound.Stop();
-		}
 	}
 
 	private IEnumerator BlackoutCoroutine()
