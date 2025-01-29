@@ -36,7 +36,6 @@ public class MenuManager : MonoBehaviour
     public bool wiimoteAndNunchuk;
 
     // Parent transform where menu buttons will be placed
-    public GameObject cursorContainer;
     public GameObject cursor;
     public GameObject popupContainer;
     public GameObject[] menus;
