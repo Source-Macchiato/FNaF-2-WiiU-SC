@@ -9,6 +9,7 @@ public class MonitorManager : MonoBehaviour
     public GameObject monitorContainer;
     public GameObject roomName;
     public GameObject blackBackground;
+    public GameObject dangerMusicBox;
 
     public Animator monitorAnimator;
 
@@ -140,6 +141,10 @@ public class MonitorManager : MonoBehaviour
         rec.SetActive(true);
         nightPlayer.JJ.SetActive(false);
         roomName.SetActive(true);
+
+        dangerMusicBox.transform.localScale = new Vector3(0.6f, 0.6f, 1f);
+        dangerMusicBox.transform.localPosition = new Vector3(381.38f, -91.4f, 0f);
+
         if (layoutId != 2)
         {
             blackBackground.SetActive(true);
@@ -159,6 +164,9 @@ public class MonitorManager : MonoBehaviour
         monitorContainer.SetActive(false);
         roomName.SetActive(false);
         blackBackground.SetActive(false);
+
+        dangerMusicBox.transform.localScale = new Vector3(1f, 1f, 1f);
+        dangerMusicBox.transform.localPosition = new Vector3(439.4f, -282.8f, 0f);
 
         monitorAnimator.Play("Off");
 

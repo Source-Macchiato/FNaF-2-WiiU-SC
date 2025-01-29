@@ -1552,7 +1552,6 @@ RectTransform:
   - {fileID: 632556795}
   - {fileID: 1748820473}
   - {fileID: 1738672029}
-  - {fileID: 255066440}
   - {fileID: 1566906306}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2556,16 +2555,16 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 255066439}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 164017757}
-  m_RootOrder: 8
+  m_Father: {fileID: 597483557}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -40.600006, y: 77.2}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 439.4, y: -282.8}
   m_SizeDelta: {x: 63, y: 55}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &255066441
@@ -6415,6 +6414,7 @@ RectTransform:
   - {fileID: 1472750460}
   - {fileID: 1757716894}
   - {fileID: 352760812}
+  - {fileID: 255066440}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7376,6 +7376,7 @@ MonoBehaviour:
   monitorContainer: {fileID: 980370711}
   roomName: {fileID: 1757716893}
   blackBackground: {fileID: 306605195}
+  dangerMusicBox: {fileID: 255066439}
   monitorAnimator: {fileID: 1193675043}
   monitorOnAudio: {fileID: 1467827104}
   monitorOffAudio: {fileID: 1723988793}
@@ -17280,7 +17281,7 @@ RectTransform:
   - {fileID: 1380516987}
   - {fileID: 1005048421}
   m_Father: {fileID: 164017757}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
