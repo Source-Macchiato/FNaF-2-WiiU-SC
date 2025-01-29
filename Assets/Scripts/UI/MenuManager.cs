@@ -24,7 +24,6 @@ public class MenuManager : MonoBehaviour
     // Prefab for creating buttons dynamically
     [Header("Prefabs")]
     public GameObject[] popupPrefab;
-    public GameObject selectionPrefab;
 
     // Audio
     [Header("Audio")]
@@ -38,6 +37,7 @@ public class MenuManager : MonoBehaviour
 
     // Parent transform where menu buttons will be placed
     public GameObject cursorContainer;
+    public GameObject cursor;
     public GameObject popupContainer;
     public GameObject[] menus;
     public Button[] defaultButtons;
@@ -60,10 +60,6 @@ public class MenuManager : MonoBehaviour
     [HideInInspector]
     public int currentMenuId = 0;
 
-    // Instantiate selection cursor
-    [HideInInspector]
-    public GameObject currentSelection;
-
     // Elements to keep in memory
     [HideInInspector]
     public ScrollRect currentScrollRect;
@@ -83,9 +79,6 @@ public class MenuManager : MonoBehaviour
         // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
-
-        // Generate cursors
-        currentSelection = Instantiate(selectionPrefab, cursorContainer.transform);
 
         ChangeMenu(0);
     }
@@ -888,33 +881,27 @@ public class MenuManager : MonoBehaviour
 
     private void UpdateSelectionPosition(GameObject selectedButton)
     {
-        if (currentSelection != null)
+        if (cursor != null)
         {
-            // Move the selectionPrefab to the left of the selected button
             RectTransform buttonRect = selectedButton.GetComponent<RectTransform>();
-            RectTransform selectionRect = currentSelection.GetComponent<RectTransform>();
+            RectTransform selectionRect = cursor.GetComponent<RectTransform>();
 
-            // Get the world corners of the button (bottom-left, top-left, top-right, bottom-right)
             Vector3[] buttonCorners = new Vector3[4];
             buttonRect.GetWorldCorners(buttonCorners);
 
-            // Calculate the new position based on the left edge of the button (buttonCorners[0] is the bottom-left corner in world space)
-            Vector3 leftEdgePosition = buttonCorners[0]; // Bottom-left corner of the button
+            Vector3 buttonCenter = (buttonCorners[0] + buttonCorners[1]) * 0.5f;
 
-            // Convert world position of the button's left edge to local position relative to the canvas
-            Vector3 newLocalPos = currentSelection.transform.parent.InverseTransformPoint(leftEdgePosition);
+            Vector3 newLocalPos = cursor.transform.parent.InverseTransformPoint(buttonCenter);
 
-            // Adjust the cursor position slightly to the left (optional, if you want to add padding)
-            newLocalPos.x -= selectionRect.rect.width;
+            newLocalPos.x -= selectionRect.rect.width * (1 - selectionRect.pivot.x);
 
-            // Set the new position
             selectionRect.localPosition = newLocalPos;
         }
     }
 
     void ToggleCursorVisibility()
     {
-        if (currentSelection != null)
+        if (cursor != null)
         {
             if (currentScrollRect == null && currentPopup == null
                 && EventSystem.current.currentSelectedGameObject != null
@@ -922,18 +909,18 @@ public class MenuManager : MonoBehaviour
                 && EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() == null
                 && EventSystem.current.currentSelectedGameObject.GetComponent<CardData>() == null)
             {
-                if (!currentSelection.activeSelf)
+                if (!cursor.activeSelf)
                 {
-                    currentSelection.SetActive(true);
+                    cursor.SetActive(true);
                 }
 
                 UpdateSelectionPosition(EventSystem.current.currentSelectedGameObject);
             }
             else
             {
-                if (currentSelection.activeSelf)
+                if (cursor.activeSelf)
                 {
-                    currentSelection.SetActive(false);
+                    cursor.SetActive(false);
                 }
             }
         }
