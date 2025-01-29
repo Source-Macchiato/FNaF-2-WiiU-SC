@@ -1663,7 +1663,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -12100,7 +12100,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -13102,6 +13102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a734b9dd5f5044d8d3a7fb40edd39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DisruputedSound: {fileID: 171124298}
+  disturbLoop: 0
   aiManager: {fileID: 1886414155}
   stateManager: {fileID: 727620019}
   Jumpscare: {fileID: 891353585}
@@ -14629,7 +14631,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

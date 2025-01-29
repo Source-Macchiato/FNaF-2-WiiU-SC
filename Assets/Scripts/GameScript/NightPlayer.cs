@@ -12,7 +12,7 @@ using TMPro;
 
 public class NightPlayer : MonoBehaviour
 {
-	public audioSource DisruputedSound;
+	public AudioSource DisruputedSound;
 	public bool disturbLoop;
 	public AIManager aiManager;
 	public StateManager stateManager;
@@ -1834,6 +1834,10 @@ public class NightPlayer : MonoBehaviour
 			yield return new WaitForSeconds(3f);
 			MainCameraBG.gameObject.SetActive(true);
 			SignalDisrupted.SetActive(false);
+			DisruputedSound.Stop();
+		}
+		else
+		{
 			DisruputedSound.Stop();
 		}
 	}

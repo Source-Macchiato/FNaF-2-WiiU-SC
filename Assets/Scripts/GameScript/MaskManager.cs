@@ -81,7 +81,7 @@ public class MaskManager : MonoBehaviour
             DisableMask();
         }
 
-        isMaskLocked = nightPlayer.BlackoutPrepared && isMaskActive;
+        isMaskLocked = nightPlayer.BlackoutActive && isMaskActive;
     }
 
     private void ToggleMask()
