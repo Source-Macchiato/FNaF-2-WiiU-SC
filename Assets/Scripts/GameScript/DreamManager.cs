@@ -43,6 +43,8 @@ public class DreamManager : MonoBehaviour
         nightNumber = SaveManager.LoadNightNumber();
         introDreamPlayed = SaveManager.LoadIntroDreamPlayed();
 
+        Debug.Log(nightNumber);
+
         // Assign last office horizontal position
         lastOfficePositionX = officeRect.anchoredPosition.x;
 
@@ -129,7 +131,14 @@ public class DreamManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        SceneManager.LoadScene("MainMenu");
+        if (nightNumber >= 1 && nightNumber <= 3)
+        {
+            SceneManager.LoadScene("NextNight");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
 	private void NoiseWhenMoving()
