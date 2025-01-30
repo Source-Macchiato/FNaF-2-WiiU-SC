@@ -1939,11 +1939,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OfficeContainer: {fileID: 2043728955}
+  pointerCursor: {fileID: 0}
   camIsUp: 0
   canMove: 1
   speed: 5
   leftEdge: 500
   rightEdge: -500
+  allowMouseMove: 1
 --- !u!1 &1697933684
 GameObject:
   m_ObjectHideFlags: 0

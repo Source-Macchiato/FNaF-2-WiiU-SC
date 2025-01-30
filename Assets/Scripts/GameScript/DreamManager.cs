@@ -176,7 +176,7 @@ public class DreamManager : MonoBehaviour
 
             statusText.text = "err";
         }
-        if (nightNumber == 1) // If night 2
+        if (nightNumber == 2) // If night 2
         {
             chicaImage.sprite = chicaSprites[1];
             bonnieImage.sprite = bonnieSprites[1];
@@ -185,19 +185,19 @@ public class DreamManager : MonoBehaviour
 
             statusText.text = "it's me";
         }
-        else if (nightNumber == 2) // If night 3
+        else if (nightNumber == 3) // If night 3
         {
             chicaImage.sprite = chicaSprites[2];
-            bonnieImage.sprite = bonnieSprites[3];
+            bonnieImage.sprite = bonnieSprites[2];
             goldenFreddyImage.enabled = true;
             puppetImage.enabled = false;
 
             statusText.text = "it's me";
         }
-        else if (nightNumber == 3) // If night 4
+        else if (nightNumber == 4) // If night 4
         {
-            chicaImage.sprite = chicaSprites[3];
-            bonnieImage.sprite = bonnieSprites[3];
+            chicaImage.sprite = chicaSprites[0];
+            bonnieImage.sprite = bonnieSprites[0];
             goldenFreddyImage.enabled = false;
             puppetImage.enabled = true;
 

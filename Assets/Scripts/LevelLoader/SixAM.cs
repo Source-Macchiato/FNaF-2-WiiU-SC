@@ -50,7 +50,7 @@ public class SixAM : MonoBehaviour
 		// Enable loading screen
 		levelLoader.loadingScreen.SetActive(true);
 
-		if (nightNumber == 1) // If it's the first night (but 6AM scene is never called for the first night, it's just in case)
+		if (nightNumber == 1) // If it's the first night
 		{
 			levelLoader.LoadLevel("NextNight");
 		}
