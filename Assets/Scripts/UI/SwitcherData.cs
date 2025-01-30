@@ -18,9 +18,9 @@ public class SwitcherData : MonoBehaviour
 
     void Start()
     {
-        UpdateText();
-
         events.Invoke();
+
+        UpdateText();
     }
 
     void Update()
@@ -37,9 +37,9 @@ public class SwitcherData : MonoBehaviour
         {
             currentOptionId++;
 
-            UpdateText();
-
             events.Invoke();
+
+            UpdateText();
         }
     }
 
@@ -49,9 +49,9 @@ public class SwitcherData : MonoBehaviour
         {
             currentOptionId--;
 
-            UpdateText();
-
             events.Invoke();
+
+            UpdateText();
         }
     }
 
