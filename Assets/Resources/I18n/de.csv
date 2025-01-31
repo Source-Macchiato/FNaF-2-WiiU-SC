@@ -5,6 +5,7 @@ mainmenu.options,Optionen
 mainmenu.credits,Credits
 mainmenu.language,Sprache
 mainmenu.layout,Layout
+mainmenu.controls,Steuerungen
 mainmenu.online,Online
 mainmenu.analyticdata,Analytische Daten
 mainmenu.audio,Audio
@@ -14,6 +15,8 @@ mainmenu.voicevolume,Stimmenlautstärke
 mainmenu.sfxvolume,Lautstärke der Soundeffekte
 mainmenu.update,Eine neue Version ist verfügbar! Lade sie auf itch.io herunter!
 mainmenu.sharedata,Akzeptierst du die Weitergabe statistischer Information an uns?
+mainmenu.shareanalyticsdescription,Teilt analytische Daten
+mainmenu.motioncontrolsdescription,Bewegungssteuerung der Wii-Fernbedienung
 mainmenu.night,Nacht
 customnight.customizenight,Nacht personalisieren
 customnight.twenty,20/20/20/20

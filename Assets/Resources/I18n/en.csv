@@ -5,6 +5,7 @@ mainmenu.options,Options
 mainmenu.credits,Credits
 mainmenu.language,Language
 mainmenu.layout,Layout
+mainmenu.controls,Controls
 mainmenu.online,Online
 mainmenu.analyticdata,Analytic Data
 mainmenu.audio,Audio
@@ -14,6 +15,8 @@ mainmenu.voicevolume,Voice volume
 mainmenu.sfxvolume,Sound effects volume
 mainmenu.update,"A new version is available, go download it on itch.io !"
 mainmenu.sharedata,Do you accept the sharing of statistical information with us ?
+mainmenu.shareanalyticsdescription,Share analytics data
+mainmenu.motioncontrolsdescription,Wii remote motion controls
 mainmenu.night,Night
 customnight.customizenight,Customize Night
 customnight.twenty,20/20/20/20
@@ -87,7 +90,7 @@ nightone.phoneguy.linetwentynine,"and wanting to stuff you in a suit, so hey, we
 nightone.phoneguy.linethirty,"You can put it on anytime, and leave it on for as long as you want."
 nightone.phoneguy.linethirtyone,"Eventually anything that wandered in, will wander back out."
 nightone.phoneguy.linethirtytwo,"Uh, something else worth mentioning is kind of the modern design of the building."
-nightone.phoneguy.linethirtythree," You may have noticed there are no doors for you to close, heh. But hey, you have a light!"
+nightone.phoneguy.linethirtythree,"You may have noticed there are no doors for you to close, heh. But hey, you have a light!"
 nightone.phoneguy.linethirtyfour,"And even though your flashlight can run out of power, the building cannot. So, don't worry about the place going dark."
 nightone.phoneguy.linethirtyfive,"Well, I think that's it. Uh, you should be golden. Uh, check the lights, put on the Freddy head if you need to,"
 nightone.phoneguy.linethirtysix,"uh, keep the music box wound up, piece of cake."
@@ -100,7 +103,7 @@ nighttwo.phoneguy.linefive,"they even started retrofitting them with some of the
 nighttwo.phoneguy.linesix,"but they were just so ugly, you know? The smell... uh,"
 nighttwo.phoneguy.lineseven,so the company decided to go in a whole new direction and make them super kid-friendly.
 nighttwo.phoneguy.lineheight,"Uh, those older ones shouldn't be able to walk around,"
-nighttwo.phoneguy.linenine," but if they do, the whole Freddy head trick shoud work on them too, so, whatever."
+nighttwo.phoneguy.linenine,"but if they do, the whole Freddy head trick shoud work on them too, so, whatever."
 nighttwo.phoneguy.lineten,Uh...heh...I love those old characters. Did you ever see Foxy the pirate?
 nighttwo.phoneguy.lineeleven,"Oh wait, hold on...oh yeah, Foxy. Uh, hey listen, that one was always a bit twitchy, uh..."
 nighttwo.phoneguy.linetwelve,"I'm not sure the Freddy head trick will work on Foxy, uh."

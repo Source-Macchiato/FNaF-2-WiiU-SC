@@ -5,6 +5,7 @@ mainmenu.options,Opciones
 mainmenu.credits,Creditos
 mainmenu.language,Idioma
 mainmenu.layout,Disposicion
+mainmenu.controls,Controles
 mainmenu.online,Online
 mainmenu.analyticdata,Datos de Estadisticas
 mainmenu.audio,Audio
@@ -14,6 +15,8 @@ mainmenu.voicevolume,Volumen de Voces
 mainmenu.sfxvolume,Volumen de Efectos de Sonido
 mainmenu.update,"Una nueva version esta disponible, ve y descargalo en itch.io"
 mainmenu.sharedata,Aceptas compartir informacion de estadisticas con nosotros?
+mainmenu.shareanalyticsdescription,Compartir datos de estadísticas
+mainmenu.motioncontrolsdescription,Wii remote controles de movimiento
 mainmenu.night,Noche
 customnight.customizenight,Personalizar Noche
 customnight.twenty,20/20/20/20
