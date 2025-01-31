@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using WiiU = UnityEngine.WiiU;
 using RTLTMPro;
 
 public class SubtitlesManager : MonoBehaviour
@@ -19,8 +20,14 @@ public class SubtitlesManager : MonoBehaviour
 
     private int nightNumber;
 
+    WiiU.GamePad gamePad;
+    WiiU.Remote remote;
+
     void Start()
     {
+        gamePad = WiiU.GamePad.access;
+        remote = WiiU.Remote.Access(0);
+
         subtitleIdentifiers = new List<string>();
         displayDurations = new List<float>();
 
@@ -50,6 +57,47 @@ public class SubtitlesManager : MonoBehaviour
 
             if (currentIndex < subtitleIdentifiers.Count)
             {
+                WiiU.GamePadState gamePadState = gamePad.state;
+                WiiU.RemoteState remoteState = remote.state;
+
+                if (gamePadState.gamePadErr == WiiU.GamePadError.None)
+                {
+                    if (gamePadState.IsTriggered(WiiU.GamePadButton.Down))
+                    {
+                        MuteCall();
+
+                        return;
+                    }
+                }
+
+                switch (remoteState.devType)
+                {
+                    case WiiU.RemoteDevType.ProController:
+                        if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.Down))
+                        {
+                            MuteCall();
+
+                            return;
+                        }
+                        break;
+                    case WiiU.RemoteDevType.Classic:
+                        if (remoteState.classic.IsTriggered(WiiU.ClassicButton.Down))
+                        {
+                            MuteCall();
+
+                            return;
+                        }
+                        break;
+                    default:
+                        if (remoteState.IsTriggered(WiiU.RemoteButton.Down))
+                        {
+                            MuteCall();
+
+                            return;
+                        }
+                        break;
+                }
+
                 if (Application.isEditor)
                 {
                     if (Input.GetKeyDown(KeyCode.DownArrow))
