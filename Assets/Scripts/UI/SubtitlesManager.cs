@@ -8,6 +8,7 @@ public class SubtitlesManager : MonoBehaviour
     public RTLTextMeshPro subtitlesText;
     public GameObject subtitlesContainer;
     public GameObject muteCall;
+    public AudioSource phoneCall;
 
     private List<string> subtitleIdentifiers;
     private List<float> displayDurations;
@@ -47,10 +48,24 @@ public class SubtitlesManager : MonoBehaviour
                 return;
             }
 
+            if (currentIndex < subtitleIdentifiers.Count)
+            {
+                if (Application.isEditor)
+                {
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        MuteCall();
+
+                        return;
+                    }
+                }
+            }
+
             if (currentIndex >= subtitleIdentifiers.Count)
             {
                 return;
             }
+            
 
             if (Time.timeSinceLevelLoad >= displayStartTime + displayDurations[currentIndex])
             {
@@ -135,5 +150,14 @@ public class SubtitlesManager : MonoBehaviour
         {
             return identifier;
         }
+    }
+
+    public void MuteCall()
+    {
+        currentIndex = subtitleIdentifiers.Count;
+        subtitlesText.text = null;
+        subtitlesContainer.SetActive(false);
+        phoneCall.Stop();
+        muteCall.SetActive(false);
     }
 }
