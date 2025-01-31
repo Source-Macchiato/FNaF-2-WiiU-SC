@@ -17,6 +17,10 @@ public class MenuData : MonoBehaviour
     public SwitcherData difficultySwitcher;
     public CardSwitcherData[] characterCardSwitchers;
 
+    [Header("Switchers")]
+    public SwitcherData languageSwitcher;
+    public SwitcherData analyticsSwitcher;
+
     // Scripts
     SaveGameState saveGameState;
     SaveManager saveManager;
@@ -118,35 +122,18 @@ public class MenuData : MonoBehaviour
 
     public void SaveAndUpdateLanguage()
     {
-        // Get SwitcherData scripts
-        SwitcherData[] switchers = FindObjectsOfType<SwitcherData>();
+        saveManager.SaveLanguage(languageSwitcher.optionsName[languageSwitcher.currentOptionId]);
+        bool saveResult = saveGameState.DoSave();
 
-        foreach (SwitcherData switcher in switchers)
-        {
-            if (switcher.switcherId == "switcher.translation")
-            {
-                saveManager.SaveLanguage(switcher.optionsName[switcher.currentOptionId]);
-                bool saveResult = saveGameState.DoSave();
-
-                // Reload the language
-                I18n.LoadLanguage();
-            }
-        }
+        // Reload the language
+        I18n.LoadLanguage();
     }
 
     public void SaveAndUpdateShareAnalytics()
     {
         // Get SwitcherData scripts
-        SwitcherData[] switchers = FindObjectsOfType<SwitcherData>();
-
-        foreach (SwitcherData switcher in switchers)
-        {
-            if (switcher.switcherId == "switcher.analytics")
-            {
-                saveManager.SaveShareAnalytics(switcher.currentOptionId == 1 ? 0 : 1);
-                bool saveResult = saveGameState.DoSave();
-            }
-        }
+        saveManager.SaveShareAnalytics(analyticsSwitcher.currentOptionId == 1 ? 0 : 1);
+        bool saveResult = saveGameState.DoSave();
 
         analyticsData.CanShareAnalytics();
     }
@@ -173,48 +160,30 @@ public class MenuData : MonoBehaviour
 
     public void LoadLanguageAndUpdateSwitcher()
     {
-        // Get SwitcherData scripts
-        SwitcherData[] switchers = FindObjectsOfType<SwitcherData>();
-
         // Get language
         string language = I18n.GetLanguage();
 
-        foreach (SwitcherData switcher in switchers)
-        {
-            if (switcher.switcherId == "switcher.translation")
-            {
-                // Find language index
-                int languageIndex = System.Array.IndexOf(switcher.optionsName, language);
+        // Find language index
+        int languageIndex = System.Array.IndexOf(languageSwitcher.optionsName, language);
 
-                if (languageIndex >= 0 && languageIndex < switcher.optionsName.Length)
-                {
-                    switcher.currentOptionId = languageIndex;
-                    switcher.UpdateText();
-                }
-            }
+        if (languageIndex >= 0 && languageIndex < languageSwitcher.optionsName.Length)
+        {
+            languageSwitcher.currentOptionId = languageIndex;
+            languageSwitcher.UpdateText();
         }
     }
 
     public void LoadShareAnalyticsAndUpdateSwitcher()
     {
-        // Get SwitcherData scripts
-        SwitcherData[] switchers = FindObjectsOfType<SwitcherData>();
-
         // Get share analytics
         int shareAnalytics = SaveManager.LoadShareAnalytics();
 
-        foreach (SwitcherData switcher in switchers)
-        {
-            if (switcher.switcherId == "switcher.analytics")
-            {
-                int analyticsIndex = shareAnalytics == 1 ? 0 : 1;
+        int analyticsIndex = shareAnalytics == 1 ? 0 : 1;
 
-                if (analyticsIndex >= 0 && analyticsIndex < switcher.optionsName.Length)
-                {
-                    switcher.currentOptionId = analyticsIndex;
-                    switcher.UpdateText();
-                }
-            }
+        if (analyticsIndex >= 0 && analyticsIndex < analyticsSwitcher.optionsName.Length)
+        {
+            analyticsSwitcher.currentOptionId = analyticsIndex;
+            analyticsSwitcher.UpdateText();
         }
     }
 
