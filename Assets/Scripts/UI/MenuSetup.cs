@@ -15,6 +15,7 @@ public class MenuSetup : MonoBehaviour
         menuManager.SetBackCallback(3, OnBackFromLanguage);
         menuManager.SetBackCallback(4, OnBackFromLayout);
         menuManager.SetBackCallback(6, OnBackFromAnalytics);
+        menuManager.SetBackCallback(7, OnBackFromControls);
     }
 
     // Buttons functions
@@ -110,6 +111,13 @@ public class MenuSetup : MonoBehaviour
         menuData.LoadShareAnalyticsAndUpdateSwitcher();
     }
 
+    public void Controls()
+    {
+        menuManager.ChangeMenu(7);
+
+        menuData.LoadMotionControls();
+    }
+
     // Callback functions
     void OnBackFromLanguage()
     {
@@ -132,5 +140,10 @@ public class MenuSetup : MonoBehaviour
     void OnBackFromAnalytics()
     {
         menuData.SaveAndUpdateShareAnalytics();
+    }
+
+    void OnBackFromControls()
+    {
+        menuData.SaveMotionControls();
     }
 }

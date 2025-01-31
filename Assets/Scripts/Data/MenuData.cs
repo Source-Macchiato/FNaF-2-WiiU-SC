@@ -17,22 +17,23 @@ public class MenuData : MonoBehaviour
     public SwitcherData difficultySwitcher;
     public CardSwitcherData[] characterCardSwitchers;
 
-    [Header("Switchers")]
-    public SwitcherData languageSwitcher;
-    public SwitcherData analyticsSwitcher;
-
-    // Scripts
-    SaveGameState saveGameState;
-    SaveManager saveManager;
-    MenuManager menuManager;
-    AnalyticsData analyticsData;
-
     // Advertisement
     public GameObject advertisementImage;
     public GameObject[] AnimEnabled;
     private bool advertisementIsActive;
     private float startTime;
     private float waitTime = 10f;
+
+    [Header("Switchers")]
+    public SwitcherData languageSwitcher;
+    public SwitcherData analyticsSwitcher;
+    public SwitcherData motionSwitcher;
+
+    // Scripts
+    SaveGameState saveGameState;
+    SaveManager saveManager;
+    MenuManager menuManager;
+    AnalyticsData analyticsData;
 
     void Start()
     {
@@ -138,6 +139,12 @@ public class MenuData : MonoBehaviour
         analyticsData.CanShareAnalytics();
     }
 
+    public void SaveMotionControls()
+    {
+        saveManager.SaveMotionControls(motionSwitcher.currentOptionId == 1);
+        bool saveResult = saveGameState.DoSave();
+    }
+
     public void SaveNightNumber()
     {
         saveManager.SaveNightNumber(nightNumber);
@@ -178,12 +185,26 @@ public class MenuData : MonoBehaviour
         // Get share analytics
         int shareAnalytics = SaveManager.LoadShareAnalytics();
 
-        int analyticsIndex = shareAnalytics == 1 ? 0 : 1;
+        int switcherIndex = shareAnalytics == 1 ? 0 : 1;
 
-        if (analyticsIndex >= 0 && analyticsIndex < analyticsSwitcher.optionsName.Length)
+        if (switcherIndex >= 0 && switcherIndex < analyticsSwitcher.optionsName.Length)
         {
-            analyticsSwitcher.currentOptionId = analyticsIndex;
+            analyticsSwitcher.currentOptionId = switcherIndex;
             analyticsSwitcher.UpdateText();
+        }
+    }
+
+    public void LoadMotionControls()
+    {
+        // Get motion controls status
+        bool motionControls = SaveManager.LoadMotionControls();
+
+        int switcherIndex = motionControls ? 0 : 1;
+
+        if (switcherIndex >= 0 && switcherIndex < motionSwitcher.optionsName.Length)
+        {
+            motionSwitcher.currentOptionId = switcherIndex;
+            motionSwitcher.UpdateText();
         }
     }
 
