@@ -16,6 +16,7 @@ public class MenuData : MonoBehaviour
     public GameObject starsContainer;
     public SwitcherData difficultySwitcher;
     public CardSwitcherData[] characterCardSwitchers;
+    public GameObject[] customNightStars;
 
     // Advertisement
     public GameObject advertisementImage;
@@ -317,6 +318,8 @@ public class MenuData : MonoBehaviour
         {
             ChangeDifficulty(20, 20, 20, 20, 20, 20, 20, 20, 20, 20);
         }
+
+        DisplayCustomNightStars(difficultySwitcher.currentOptionId);
     }
 
     private void ChangeDifficulty(int freddy, int bonnie, int chica, int foxy, int bb, int toyFreddy, int toyBonnie, int toyChica, int mangle, int goldenFreddy)
@@ -383,6 +386,14 @@ public class MenuData : MonoBehaviour
 
                 cardSwitcher.UpdateCardSwitcher();
             }
+        }
+    }
+
+    private void DisplayCustomNightStars(int modeId)
+    {
+        foreach (GameObject star in customNightStars)
+        {
+            star.SetActive(SaveManager.LoadDoneMode(modeId));
         }
     }
 
