@@ -57,6 +57,12 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SaveDoneMode(int modeId, bool isDone)
+    {
+        PlayerPrefs.SetInt("DoneMode_" + modeId, isDone ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
     // Load
     public static string LoadLanguage()
 	{
@@ -165,6 +171,18 @@ public class SaveManager : MonoBehaviour
         else
         {
             return true;
+        }
+    }
+
+    public static bool LoadDoneMode(int modeId)
+    {
+        if (PlayerPrefs.HasKey("DoneMode_" + modeId))
+        {
+            return PlayerPrefs.GetInt("DoneMode_" + modeId) == 1;
+        }
+        else
+        {
+            return false;
         }
     }
 }
