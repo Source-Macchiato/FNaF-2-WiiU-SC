@@ -12,6 +12,8 @@ using TMPro;
 
 public class NightPlayer : MonoBehaviour
 {
+	public GameObject[] customNightRewards;
+
 	public AudioSource DisruputedSound;
 	public bool disturbLoop;
 	public AIManager aiManager;
@@ -248,24 +250,16 @@ public class NightPlayer : MonoBehaviour
 		if (Random.value < 0.01) {PaperpalsAI = 1;}
 		PuppetAI = Mathf.Clamp(PuppetAI,0, 6);
 		WitheredFoxyAI = Mathf.Clamp(WitheredFoxyAI,0, 17);
-    }
 
-	public void SetCurrentAI()
-	{
-		currentAI = new int[]
+		// Display rewards on office desk
+		for (int i = 0; i < customNightRewards.Length; i++)
 		{
-			GoldenFreddyAI,
-			MangleAI,
-            BalloonBoyAI,
-			ToyBonnieAI,
-			ToyChicaAI,
-			ToyFreddyAI,
-			WitheredBonnieAI,
-			WitheredChicaAI,
-			WitheredFreddyAI,
-			WitheredFoxyAI
-		};
-	}
+			if (customNightRewards[i] != null)
+			{
+                customNightRewards[i].SetActive(SaveManager.LoadDoneMode(i));
+            }
+		}
+    }
 
 	private bool IsAIMatching(int[] challengeAI)
 	{

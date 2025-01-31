@@ -142,7 +142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -211.7, y: -30.995}
+  m_AnchoredPosition: {x: -211.7, y: -30.995003}
   m_SizeDelta: {x: 103.1, y: 136.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4474834
@@ -4875,7 +4875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90.3, y: -30.995}
+  m_AnchoredPosition: {x: 90.3, y: -30.995003}
   m_SizeDelta: {x: 100.67, y: 147.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &444375821
@@ -13459,6 +13459,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a734b9dd5f5044d8d3a7fb40edd39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customNightRewards:
+  - {fileID: 0}
+  - {fileID: 444375819}
+  - {fileID: 2136983499}
+  - {fileID: 1257088937}
+  - {fileID: 1834259112}
+  - {fileID: 1487463320}
+  - {fileID: 4474832}
+  - {fileID: 388255151}
+  - {fileID: 1282897169}
+  - {fileID: 1994708147}
   DisruputedSound: {fileID: 171124298}
   disturbLoop: 0
   aiManager: {fileID: 1886414155}
@@ -14992,7 +15003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.84, y: -116.7}
+  m_AnchoredPosition: {x: 7.84, y: -116.700005}
   m_SizeDelta: {x: 166.08, y: 60.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1282897171
@@ -23581,7 +23592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -125.9, y: -15.9}
+  m_AnchoredPosition: {x: -125.90001, y: -15.9}
   m_SizeDelta: {x: 101.4, y: 151.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136983501
