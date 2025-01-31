@@ -4,7 +4,6 @@ using WiiU = UnityEngine.WiiU;
 public class MoveInOffice : MonoBehaviour
 {
     public GameObject OfficeContainer;
-    private RectTransform officeRect;
     public RectTransform pointerCursor;
 
     [HideInInspector]
@@ -19,14 +18,14 @@ public class MoveInOffice : MonoBehaviour
     public float rightEdge = -320f;
     private float stickDeadzone = 0.19f;
     public bool allowMouseMove = true;
+    private bool canUseMotionControls = true;
 
     void Start()
 	{
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
 
-        officeRect = OfficeContainer.GetComponent<RectTransform>();
-        // officeRect.anchoredPosition = new Vector2(GameScript.officePositionX, officeRect.anchoredPosition.y); To modify with the new system
+        canUseMotionControls = SaveManager.LoadMotionControls();
     }
 	
 	void Update()
@@ -128,21 +127,36 @@ public class MoveInOffice : MonoBehaviour
                 }
 
                 // Pointer
-                Vector2 pointerPosition = remoteState.pos;
-                pointerPosition.x = ((pointerPosition.x + 1.0f) / 2.0f) * WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV);
+                if (canUseMotionControls)
+                {
+                    Vector2 pointerPosition = remoteState.pos;
+                    pointerPosition.x = ((pointerPosition.x + 1.0f) / 2.0f) * WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV);
 
-                if (remoteState.IsPressed(WiiU.RemoteButton.Left) || pointerPosition.x < 300f)
-                {
-                    MoveLeft();
-                }
-                else if (remoteState.IsPressed(WiiU.RemoteButton.Right) || pointerPosition.x > WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV) - 300f)
-                {
-                    MoveRight();
-                }
+                    if (pointerPosition.x < 300f)
+                    {
+                        MoveLeft();
+                    }
 
-                if (pointerCursor != null)
+                    if (pointerPosition.x > WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV) - 300f)
+                    {
+                        MoveRight();
+                    }
+
+                    if (pointerCursor != null)
+                    {
+                        pointerCursor.anchoredPosition = pointerPosition;
+                    }
+                }
+                else
                 {
-                    pointerCursor.anchoredPosition = pointerPosition;
+                    if (remoteState.IsPressed(WiiU.RemoteButton.Left))
+                    {
+                        MoveLeft();
+                    }
+                    else if (remoteState.IsPressed(WiiU.RemoteButton.Right))
+                    {
+                        MoveRight();
+                    }
                 }
                 break;
         }
