@@ -7,6 +7,7 @@ public class SubtitlesManager : MonoBehaviour
 {
     public RTLTextMeshPro subtitlesText;
     public GameObject subtitlesContainer;
+    public GameObject muteCall;
 
     private List<string> subtitleIdentifiers;
     private List<float> displayDurations;
@@ -63,12 +64,14 @@ public class SubtitlesManager : MonoBehaviour
                 {
                     subtitlesText.text = null;
                     subtitlesContainer.SetActive(false);
+                    muteCall.SetActive(false);
                 }
             }
         }
         else
         {
             subtitlesContainer.SetActive(false);
+            muteCall.SetActive(false);
         }
     }
 
@@ -115,6 +118,7 @@ public class SubtitlesManager : MonoBehaviour
         string translatedText = GetTranslatedText(subtitleIdentifiers[currentIndex]);
 
         subtitlesContainer.SetActive(true);
+        muteCall.SetActive(true);
 
         subtitlesText.text = translatedText;
 
