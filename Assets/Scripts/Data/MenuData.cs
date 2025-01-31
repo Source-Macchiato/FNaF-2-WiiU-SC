@@ -142,7 +142,7 @@ public class MenuData : MonoBehaviour
 
     public void SaveMotionControls()
     {
-        saveManager.SaveMotionControls(motionSwitcher.currentOptionId == 1);
+        saveManager.SaveMotionControls(motionSwitcher.currentOptionId == 0);
         bool saveResult = saveGameState.DoSave();
     }
 
