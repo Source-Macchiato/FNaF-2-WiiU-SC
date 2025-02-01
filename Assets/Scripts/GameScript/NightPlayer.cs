@@ -335,6 +335,7 @@ public class NightPlayer : MonoBehaviour
 		MangleAI = aiManager.GetAILevel("MangleAI");
 		BalloonBoyAI = aiManager.GetAILevel("BalloonBoyAI");
 		PaperpalsAI = aiManager.GetAILevel("PaperpalsAI");
+		PuppetAI = aiManager.GetAILevel("PuppetAI");
 		UpdateTime();
 		InputFunction();
 		StateChecks();
@@ -1141,7 +1142,7 @@ public class NightPlayer : MonoBehaviour
 	{
 		if (PuppetAI != 0)
 		{
-			if (PuppetTime != 0f)
+			if (PuppetTime >= 0f)
 			{
 				if (!musicBox.isWindUpEmpty)
     			{

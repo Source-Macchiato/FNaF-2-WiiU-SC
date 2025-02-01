@@ -43,7 +43,8 @@ public class AIManager : MonoBehaviour {
             { "GoldenFreddyAI", 0 },
             { "MangleAI", 0 },
             { "BalloonBoyAI", 0 },
-            { "PaperpalsAI", 0 }
+            { "PaperpalsAI", 0 },
+            { "PuppetAI", 15 }
             };
         }
         else
@@ -59,7 +60,8 @@ public class AIManager : MonoBehaviour {
                 { "GoldenFreddyAI", 0 },
                 { "MangleAI", 0 },
                 { "BalloonBoyAI", 0 },
-                { "PaperpalsAI", 0 }
+                { "PaperpalsAI", 0 },
+                { "PuppetAI", 15 }
             };
         }
 
