@@ -1840,7 +1840,7 @@ GameObject:
   - component: {fileID: 175769397}
   - component: {fileID: 175769399}
   m_Layer: 5
-  m_Name: Dpad-Down
+  m_Name: WiiU-Minus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1883,7 +1883,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300028, guid: 43e2a8e4dc0a83043ac6c61382041643, type: 3}
+  m_Sprite: {fileID: 21300022, guid: 43e2a8e4dc0a83043ac6c61382041643, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

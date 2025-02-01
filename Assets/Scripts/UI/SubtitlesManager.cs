@@ -62,7 +62,7 @@ public class SubtitlesManager : MonoBehaviour
 
                 if (gamePadState.gamePadErr == WiiU.GamePadError.None)
                 {
-                    if (gamePadState.IsTriggered(WiiU.GamePadButton.Down))
+                    if (gamePadState.IsTriggered(WiiU.GamePadButton.Minus))
                     {
                         MuteCall();
 
@@ -73,7 +73,7 @@ public class SubtitlesManager : MonoBehaviour
                 switch (remoteState.devType)
                 {
                     case WiiU.RemoteDevType.ProController:
-                        if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.Down))
+                        if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.Minus))
                         {
                             MuteCall();
 
@@ -81,7 +81,7 @@ public class SubtitlesManager : MonoBehaviour
                         }
                         break;
                     case WiiU.RemoteDevType.Classic:
-                        if (remoteState.classic.IsTriggered(WiiU.ClassicButton.Down))
+                        if (remoteState.classic.IsTriggered(WiiU.ClassicButton.Minus))
                         {
                             MuteCall();
 
@@ -89,7 +89,7 @@ public class SubtitlesManager : MonoBehaviour
                         }
                         break;
                     default:
-                        if (remoteState.IsTriggered(WiiU.RemoteButton.Down))
+                        if (remoteState.IsTriggered(WiiU.RemoteButton.Minus))
                         {
                             MuteCall();
 
@@ -100,7 +100,7 @@ public class SubtitlesManager : MonoBehaviour
 
                 if (Application.isEditor)
                 {
-                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    if (Input.GetKeyDown(KeyCode.Minus))
                     {
                         MuteCall();
 
