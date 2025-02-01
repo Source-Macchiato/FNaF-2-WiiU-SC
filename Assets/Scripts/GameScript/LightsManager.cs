@@ -9,6 +9,7 @@ public class LightsManager : MonoBehaviour
 
     public GameObject pressAndHold;
 
+    public bool CanFlashLight = true;
     public bool isLightActive = false;
     public bool leftLightEnabled = false;
     public bool centerLightEnabled = false;
@@ -19,6 +20,8 @@ public class LightsManager : MonoBehaviour
     
     private bool activateLight = false;
     private int nightNumber = 0;
+
+    public AudioSource ErrorSound;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -53,11 +56,19 @@ public class LightsManager : MonoBehaviour
         WiiU.GamePadState gamePadState = gamePad.state;
         WiiU.RemoteState remoteState = remote.state;
 
+
         if (gamePadState.gamePadErr == WiiU.GamePadError.None)
         {
             if (gamePadState.IsTriggered(WiiU.GamePadButton.A))
             {
-                activateLight = true;
+                if(CanFlashLight)
+                {
+                    activateLight = true;
+                }
+                else
+                {
+                    ErrorSound.Play();
+                }
             }
             else if (gamePadState.IsReleased(WiiU.GamePadButton.A))
             {
@@ -70,7 +81,14 @@ public class LightsManager : MonoBehaviour
             case WiiU.RemoteDevType.ProController:
                 if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.A))
                 {
-                    activateLight = true;
+                    if(CanFlashLight)
+                    {
+                        activateLight = true;
+                    }
+                    else
+                    {
+                        ErrorSound.Play();
+                    }
                 }
                 else if (remoteState.pro.IsReleased(WiiU.ProControllerButton.A))
                 {
@@ -80,7 +98,14 @@ public class LightsManager : MonoBehaviour
             case WiiU.RemoteDevType.Classic:
                 if (remoteState.classic.IsTriggered(WiiU.ClassicButton.A))
                 {
-                    activateLight = true;
+                    if(CanFlashLight)
+                    {
+                        activateLight = true;
+                    }
+                    else
+                    {
+                        ErrorSound.Play();
+                    }
                 }
                 else if (remoteState.classic.IsReleased(WiiU.ClassicButton.A))
                 {
@@ -90,7 +115,14 @@ public class LightsManager : MonoBehaviour
             default:
                 if (remoteState.IsTriggered(WiiU.RemoteButton.A))
                 {
-                    activateLight = true;
+                    if(CanFlashLight)
+                    {
+                        activateLight = true;
+                    }
+                    else
+                    {
+                        ErrorSound.Play();
+                    }
                 }
                 else if (remoteState.IsReleased(WiiU.RemoteButton.A))
                 {
@@ -103,7 +135,14 @@ public class LightsManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                activateLight = true;
+                if(CanFlashLight)
+                {
+                    activateLight = true;
+                }
+                else
+                {
+                    ErrorSound.Play();
+                }
             }
             else if (Input.GetKeyUp(KeyCode.A))
             {

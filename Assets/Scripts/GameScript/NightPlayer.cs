@@ -1122,6 +1122,8 @@ public class NightPlayer : MonoBehaviour
 		float interval = 1.8f;
 		float elapsedTime = 0f;
 
+		lightsManager.CanFlashLight = false;
+
 		while (elapsedTime < duration && BaloonBoy.activeSelf)
 		{
 			// Play the sound
@@ -1983,7 +1985,7 @@ public class NightPlayer : MonoBehaviour
 	{
         if (BBCamera == 16)
 		{
-            ErrorSound.Play();
+            //ErrorSound.Play();
         }
 		else
 		{
@@ -2236,6 +2238,7 @@ public class NightPlayer : MonoBehaviour
         }
         if (BBCamera != 16)
         {
+			lightsManager.CanFlashLight = true;
 			BaloonBoy.SetActive(false);
         }
         if (WitheredFoxyPrepared)

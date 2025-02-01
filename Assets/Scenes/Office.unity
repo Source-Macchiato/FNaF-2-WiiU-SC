@@ -3991,6 +3991,7 @@ MonoBehaviour:
   buzzLightAudio: {fileID: 416454946}
   officeRect: {fileID: 2101765863}
   pressAndHold: {fileID: 1738672028}
+  CanFlashLight: 1
   isLightActive: 0
   leftLightEnabled: 0
   centerLightEnabled: 0
@@ -3998,6 +3999,7 @@ MonoBehaviour:
   cameraLightEnabled: 0
   flashlightDuration: 115
   currentFlashlightDuration: 0
+  ErrorSound: {fileID: 1287131473}
 --- !u!1 &388255151
 GameObject:
   m_ObjectHideFlags: 0
