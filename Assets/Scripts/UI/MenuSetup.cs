@@ -34,11 +34,7 @@ public class MenuSetup : MonoBehaviour
     {
         menuManager.canNavigate = false;
 
-        if (menuData.nightNumber == 0) // Night is 1
-        {
-            menuData.LoadAdvertisement();
-        }
-        else if (menuData.nightNumber >= 1 && menuData.nightNumber <= 4) // Night is between 2 and 5
+        if (menuData.nightNumber >= 0 && menuData.nightNumber <= 4) // Night is between 1 and 5
         {
             SceneManager.LoadScene("NextNight");
         }
