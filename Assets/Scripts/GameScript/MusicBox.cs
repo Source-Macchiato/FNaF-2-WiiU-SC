@@ -160,7 +160,7 @@ public class MusicBox : MonoBehaviour
         else
         {
             // At night 1 if the time is not 2am or more the music box will not unwind
-            if (nightNumber != 0 && nightPlayer.currentTime < 2)
+            if (!(nightNumber == 0 && nightPlayer.currentTime < 2))
             {
                 currentUnwindTime -= Time.deltaTime;
                 currentUnwindTime = Mathf.Clamp(currentUnwindTime, 0f, unwindTime);
