@@ -25,9 +25,17 @@ public class SwitcherData : MonoBehaviour
 
     void Update()
     {
-        foreach (Image inputIcon in inputIcons)
+        if (EventSystem.current.currentSelectedGameObject == gameObject)
         {
-            ChangeImageOpacity(inputIcon, EventSystem.current.currentSelectedGameObject == gameObject ? 1f : 0.5f);
+            ChangeImageOpacity(inputIcons[0], currentOptionId > 0 ? 1f : 0.5f);
+            ChangeImageOpacity(inputIcons[1], currentOptionId < optionsName.Length - 1 ? 1f : 0.5f);
+        }
+        else
+        {
+            foreach (Image inputIcon in inputIcons)
+            {
+                ChangeImageOpacity(inputIcon, 0.5f);
+            }
         }
     }
 
