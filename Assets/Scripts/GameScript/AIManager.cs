@@ -182,9 +182,9 @@ public class AIManager : MonoBehaviour {
                     { "WitheredBonnieAI", PlayerPrefs.GetInt("BonnieAI", 0) },
                     { "WitheredChicaAI", PlayerPrefs.GetInt("ChicaAI", 0) },
                     { "WitheredFoxyAI", PlayerPrefs.GetInt("FoxyAI", 0) },
-                    {"toyFreddyAI", PlayerPrefs.GetInt("ToyFreddyAI", 0)},
-                    {"toyBonnieAI", PlayerPrefs.GetInt("ToyBonnieAI", 0)},
-                    {"toyChicaAI", PlayerPrefs.GetInt("ToyChicaAI", 0)}
+                    { "ToyFreddyAI", PlayerPrefs.GetInt("ToyFreddyAI", 0) },
+                    { "ToyBonnieAI", PlayerPrefs.GetInt("ToyBonnieAI", 0) },
+                    { "ToyChicaAI", PlayerPrefs.GetInt("ToyChicaAI", 0) }
                 }}
             }}
         };
