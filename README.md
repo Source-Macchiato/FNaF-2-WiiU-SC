@@ -1,13 +1,15 @@
-# FNaF 2 Wii U Edition
+# FNaF 2: Wii U Edition
 
 **A homebrew recreation of Five Nights at Freddy's 2 for the Wii U.** <br>
 ## About
-FNaF 2 Wii U Edition is a fan-made homebrew port of *Five Nights at Freddy's 2*, developed from scratch for the Wii U. This project aims to faithfully recreate the experience of the original game while optimizing it for Nintendo's console.
+FNaF 2: Wii U Edition is a fan-made homebrew port of *Five Nights at Freddy's 2*, developed from scratch for the Wii U. This project aims to faithfully recreate the experience of the original game while optimizing it for Nintendo's console.
 
 ## Features
 - Fully playable nights with AI behavior
 - Custom Night
 - Layout system
+- Translations
+
 ### Controllers supported :
 - GamePad
 - Pro
