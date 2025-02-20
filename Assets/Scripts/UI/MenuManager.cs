@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -60,10 +61,10 @@ public class MenuManager : MonoBehaviour
     public int currentMenuId = 0;
 
     // Elements to keep in memory
-    [HideInInspector]
-    public ScrollRect currentScrollRect;
+    private ScrollRect currentScrollRect;
     public PopupData currentPopup;
     private Selectable lastSelected;
+    private Coroutine autoScrollCoroutine;
 
     // Stick navigation
     private float stickNavigationCooldown = 0.2f;
@@ -320,19 +321,22 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.pro.IsTriggered(WiiU.ProControllerButton.A))
                     {
-                        if (currentScrollRect == null && currentPopup == null && canNavigate)
+                        if (canNavigate)
                         {
-                            ClickSelectedButton();
-                        }
-                        else if (currentPopup != null && canNavigate)
-                        {
-                            if (currentPopup.actionType == 0)
-                            {
-                                CloseCurrentPopup();
-                            }
-                            else if (currentPopup.actionType == 1)
+                            if (currentPopup == null)
                             {
                                 ClickSelectedButton();
+                            }
+                            else
+                            {
+                                if (currentPopup.actionType == 0)
+                                {
+                                    CloseCurrentPopup();
+                                }
+                                else if (currentPopup.actionType == 1)
+                                {
+                                    ClickSelectedButton();
+                                }
                             }
                         }
                     }
@@ -448,19 +452,22 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.classic.IsTriggered(WiiU.ClassicButton.A))
                     {
-                        if (currentScrollRect == null && currentPopup == null && canNavigate)
+                        if (canNavigate)
                         {
-                            ClickSelectedButton();
-                        }
-                        else if (currentPopup != null && canNavigate)
-                        {
-                            if (currentPopup.actionType == 0)
-                            {
-                                CloseCurrentPopup();
-                            }
-                            else if (currentPopup.actionType == 1)
+                            if (currentPopup == null)
                             {
                                 ClickSelectedButton();
+                            }
+                            else
+                            {
+                                if (currentPopup.actionType == 0)
+                                {
+                                    CloseCurrentPopup();
+                                }
+                                else if (currentPopup.actionType == 1)
+                                {
+                                    ClickSelectedButton();
+                                }
                             }
                         }
                     }
@@ -569,19 +576,22 @@ public class MenuManager : MonoBehaviour
                     }
                     else if (remoteState.IsTriggered(WiiU.RemoteButton.A))
                     {
-                        if (currentScrollRect == null && currentPopup == null && canNavigate)
+                        if (canNavigate)
                         {
-                            ClickSelectedButton();
-                        }
-                        else if (currentPopup != null && canNavigate)
-                        {
-                            if (currentPopup.actionType == 0)
-                            {
-                                CloseCurrentPopup();
-                            }
-                            else if (currentPopup.actionType == 1)
+                            if (currentPopup == null)
                             {
                                 ClickSelectedButton();
+                            }
+                            else
+                            {
+                                if (currentPopup.actionType == 0)
+                                {
+                                    CloseCurrentPopup();
+                                }
+                                else if (currentPopup.actionType == 1)
+                                {
+                                    ClickSelectedButton();
+                                }
                             }
                         }
                     }
@@ -653,19 +663,22 @@ public class MenuManager : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Return))
             {
-                if (currentScrollRect == null && currentPopup == null && canNavigate)
+                if (canNavigate)
                 {
-                    ClickSelectedButton();
-                }
-                else if (currentPopup != null && canNavigate)
-                {
-                    if (currentPopup.actionType == 0)
-                    {
-                        CloseCurrentPopup();
-                    }
-                    else if (currentPopup.actionType == 1)
+                    if (currentPopup == null)
                     {
                         ClickSelectedButton();
+                    }
+                    else
+                    {
+                        if (currentPopup.actionType == 0)
+                        {
+                            CloseCurrentPopup();
+                        }
+                        else if (currentPopup.actionType == 1)
+                        {
+                            ClickSelectedButton();
+                        }
                     }
                 }
             }
@@ -693,8 +706,6 @@ public class MenuManager : MonoBehaviour
 
         // Calculate stick last navigation time
         lastNavigationTime += Time.deltaTime;
-
-        AutoScroll();
     }
 
     public void AddPopup(int actionType) // Action type : 0 = Press input to continue, 1 = Options
@@ -856,6 +867,7 @@ public class MenuManager : MonoBehaviour
             }
 
             ToggleCursorVisibility();
+            AutoScroll();
         }
     }
 
@@ -888,7 +900,7 @@ public class MenuManager : MonoBehaviour
     // Clicks the currently selected button
     private void ClickSelectedButton()
     {
-        if (EventSystem.current.currentSelectedGameObject.GetComponent<Button>() != null)
+        if (EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.GetComponent<Button>() != null)
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
@@ -977,6 +989,9 @@ public class MenuManager : MonoBehaviour
 
         currentMenuId = menuId;
 
+        // Set scroll rect if component exists
+        currentScrollRect = GetCurrentMenu().transform.GetChild(0).GetComponent<ScrollRect>();
+
         ToggleCursorVisibility();
 
         isNavigatingBack = false;
@@ -1040,24 +1055,53 @@ public class MenuManager : MonoBehaviour
 
     private void AutoScroll()
     {
-        if (currentScrollRect != null && EventSystem.current.currentSelectedGameObject != null)
+        if (currentScrollRect != null && EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.GetComponent<Button>() != null)
         {
             int index = 0;
-            float verticalPosition;
+            float targetPosition;
 
-            foreach (Button button in GetCurrentMenu().GetComponentsInChildren<Button>())
+            Button[] buttons = GetCurrentMenu().GetComponentsInChildren<Button>();
+
+            foreach (Button button in buttons)
             {
                 if (button == EventSystem.current.currentSelectedGameObject.GetComponent<Button>())
                 {
                     break;
                 }
-
                 index++;
             }
 
-            verticalPosition = 1f - ((float)index / (GetCurrentMenu().GetComponentsInChildren<Button>().Length - 1));
+            targetPosition = 1f - ((float)index / (buttons.Length - 1));
 
-            currentScrollRect.verticalNormalizedPosition = Mathf.Lerp(currentScrollRect.verticalNormalizedPosition, verticalPosition, Time.deltaTime / 0.1f);
+            // Stop any running coroutine to avoid conflicts
+            if (autoScrollCoroutine != null)
+            {
+                StopCoroutine(autoScrollCoroutine);
+            }
+
+            // Start a new coroutine
+            autoScrollCoroutine = StartCoroutine(ScrollCoroutine(targetPosition));
         }
+    }
+
+    private IEnumerator ScrollCoroutine(float targetPosition)
+    {
+        float duration = 0.1f;
+        float elapsedTime = 0f;
+        float startPosition = currentScrollRect.verticalNormalizedPosition;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            currentScrollRect.verticalNormalizedPosition = Mathf.Lerp(startPosition, targetPosition, elapsedTime / duration);
+
+            // Call UpdateSelectionPosition() while the animation is running
+            UpdateSelectionPosition(EventSystem.current.currentSelectedGameObject);
+
+            yield return null; // Wait for next frame
+        }
+
+        // Ensure that the final position is reached
+        currentScrollRect.verticalNormalizedPosition = targetPosition;
     }
 }

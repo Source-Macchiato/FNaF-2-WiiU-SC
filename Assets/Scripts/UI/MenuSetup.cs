@@ -73,12 +73,6 @@ public class MenuSetup : MonoBehaviour
     public void Credits()
     {
         menuManager.ChangeMenu(2);
-
-        if (menuManager.GetCurrentMenu() != null)
-        {
-            Transform creditsChild = menuManager.GetCurrentMenu().transform.GetChild(0);
-            menuManager.currentScrollRect = creditsChild.GetComponent<ScrollRect>();
-        }
     }
     
     public void Layout()
@@ -124,7 +118,6 @@ public class MenuSetup : MonoBehaviour
 
     void OnBackFromCredits()
     {
-        menuManager.currentScrollRect = null;
         menuData.ToggleGameTitle(true);
     }
 
