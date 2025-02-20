@@ -16,6 +16,7 @@ public class MenuSetup : MonoBehaviour
         menuManager.SetBackCallback(4, OnBackFromLayout);
         menuManager.SetBackCallback(6, OnBackFromAnalytics);
         menuManager.SetBackCallback(7, OnBackFromControls);
+        menuManager.SetBackCallback(9, OnBackFromVolume);
     }
 
     // Buttons functions
@@ -108,6 +109,13 @@ public class MenuSetup : MonoBehaviour
         menuData.LoadMotionControls();
     }
 
+    public void Volume()
+    {
+        menuManager.ChangeMenu(9);
+
+        menuData.UpdateVolumeSwitchers();
+    }
+
     // Callback functions
     void OnBackFromLanguage()
     {
@@ -134,5 +142,10 @@ public class MenuSetup : MonoBehaviour
     void OnBackFromControls()
     {
         menuData.SaveMotionControls();
+    }
+
+    void OnBackFromVolume()
+    {
+        menuData.SaveAndUpdateVolume();
     }
 }

@@ -63,6 +63,30 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SaveGeneralVolume(int volume)
+    {
+        PlayerPrefs.SetInt("GeneralVolume", volume);
+        PlayerPrefs.Save();
+    }
+
+    public void SaveMusicVolume(int volume)
+    {
+        PlayerPrefs.SetInt("MusicVolume", volume);
+        PlayerPrefs.Save();
+    }
+
+    public void SaveVoiceVolume(int volume)
+    {
+        PlayerPrefs.SetInt("VoiceVolume", volume);
+        PlayerPrefs.Save();
+    }
+
+    public void SaveSFXVolume(int volume)
+    {
+        PlayerPrefs.SetInt("SFXVolume", volume);
+        PlayerPrefs.Save();
+    }
+
     // Load
     public static string LoadLanguage()
 	{
@@ -183,6 +207,54 @@ public class SaveManager : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    public static int LoadGeneralVolume()
+    {
+        if (PlayerPrefs.HasKey("GeneralVolume"))
+        {
+            return PlayerPrefs.GetInt("GeneralVolume");
+        }
+        else
+        {
+            return 10;
+        }
+    }
+
+    public static int LoadMusicVolume()
+    {
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            return PlayerPrefs.GetInt("MusicVolume");
+        }
+        else
+        {
+            return 10;
+        }
+    }
+
+    public static int LoadVoiceVolume()
+    {
+        if (PlayerPrefs.HasKey("VoiceVolume"))
+        {
+            return PlayerPrefs.GetInt("VoiceVolume");
+        }
+        else
+        {
+            return 10;
+        }
+    }
+
+    public static int LoadSFXVolume()
+    {
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            return PlayerPrefs.GetInt("SFXVolume");
+        }
+        else
+        {
+            return 10;
         }
     }
 }

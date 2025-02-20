@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using RTLTMPro;
 
 public class MenuData : MonoBehaviour
@@ -29,6 +30,12 @@ public class MenuData : MonoBehaviour
     public SwitcherData languageSwitcher;
     public SwitcherData analyticsSwitcher;
     public SwitcherData motionSwitcher;
+    public SwitcherData generalVolumeSwitcher;
+    public SwitcherData musicVolumeSwitcher;
+    public SwitcherData voiceVolumeSwitcher;
+    public SwitcherData sfxVolumeSwitcher;
+
+    public AudioMixer audioMixer;
 
     // Scripts
     SaveGameState saveGameState;
@@ -47,6 +54,7 @@ public class MenuData : MonoBehaviour
         // Load
         nightNumber = SaveManager.LoadNightNumber();
         layoutId = SaveManager.LoadLayoutId();
+        LoadVolume();
 
         // Disable advertisement by default
         advertisementIsActive = false;
@@ -405,5 +413,49 @@ public class MenuData : MonoBehaviour
     public void UpdateAnalyticsLayout()
     {
         StartCoroutine(analyticsData.UpdateAnalytics("layout", analyticsData.GetLayout()));
+    }
+
+    private void LoadVolume()
+    {
+        audioMixer.SetFloat("Master", ConvertToDecibel(SaveManager.LoadGeneralVolume()));
+        audioMixer.SetFloat("Music", ConvertToDecibel(SaveManager.LoadMusicVolume()));
+        audioMixer.SetFloat("Voice", ConvertToDecibel(SaveManager.LoadVoiceVolume()));
+        audioMixer.SetFloat("SFX", ConvertToDecibel(SaveManager.LoadSFXVolume()));
+
+    }
+
+    public void UpdateVolumeSwitchers()
+    {
+        generalVolumeSwitcher.currentOptionId = SaveManager.LoadGeneralVolume();
+        musicVolumeSwitcher.currentOptionId = SaveManager.LoadMusicVolume();
+        voiceVolumeSwitcher.currentOptionId = SaveManager.LoadVoiceVolume();
+        sfxVolumeSwitcher.currentOptionId = SaveManager.LoadSFXVolume();
+    }
+
+    public void SaveAndUpdateVolume()
+    {
+        // Save and apply general volume
+        saveManager.SaveGeneralVolume(generalVolumeSwitcher.currentOptionId);
+        audioMixer.SetFloat("Master", ConvertToDecibel(generalVolumeSwitcher.currentOptionId));
+
+        // Save and apply music volume
+        saveManager.SaveMusicVolume(musicVolumeSwitcher.currentOptionId);
+        audioMixer.SetFloat("Music", ConvertToDecibel(musicVolumeSwitcher.currentOptionId));
+
+        // Save and apply voice volume
+        saveManager.SaveVoiceVolume(voiceVolumeSwitcher.currentOptionId);
+        audioMixer.SetFloat("Voice", ConvertToDecibel(voiceVolumeSwitcher.currentOptionId));
+
+        // Save and apply SFX volume
+        saveManager.SaveSFXVolume(sfxVolumeSwitcher.currentOptionId);
+        audioMixer.SetFloat("SFX", ConvertToDecibel(sfxVolumeSwitcher.currentOptionId));
+
+        bool saveResult = saveGameState.DoSave();
+    }
+
+    private float ConvertToDecibel(int volume)
+    {
+        // Convert volume (0-10) to decibels (-80dB to 0dB)
+        return Mathf.Log10(Mathf.Max(volume / 10f, 0.0001f)) * 20f;
     }
 }
