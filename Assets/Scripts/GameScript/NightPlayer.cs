@@ -345,6 +345,8 @@ public class NightPlayer : MonoBehaviour
 		MovementOpportunityHandler();
 		StartCoroutine(GoldenFreddyFunction());
 
+
+
 		if (currentCam == MangleCamera)
         {
             CamWatchAI = 9;
@@ -1856,6 +1858,7 @@ public class NightPlayer : MonoBehaviour
         // Fully turn black
         color.a = 1f;
         Blackout.color = color;
+		BlackoutActive = false;
 
         // Slowly fade out in 3 seconds
         duration = 3f;
