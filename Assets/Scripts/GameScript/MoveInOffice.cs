@@ -12,6 +12,8 @@ public class MoveInOffice : MonoBehaviour
 
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
+    WiiU.GamePadState gamePadState;
+    WiiU.RemoteState remoteState;
 
     public float speed = 8f;
     public float leftEdge = 320f;
@@ -19,19 +21,29 @@ public class MoveInOffice : MonoBehaviour
     private float stickDeadzone = 0.19f;
     public bool allowMouseMove = true;
     private bool canUseMotionControls = true;
+    private bool isPointerDisplayed = true;
+    private Vector3 lastMousePosition;
+    private Vector2 lastPointerPosition;
 
     void Start()
 	{
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
 
+        gamePadState = gamePad.state;
+        remoteState = remote.state;
+
         canUseMotionControls = SaveManager.LoadMotionControls();
+        isPointerDisplayed = SaveManager.LoadPointerVisibility();
+
+        lastMousePosition = Input.mousePosition;
+        lastPointerPosition = remoteState.pos;
     }
 	
 	void Update()
 	{
-        WiiU.GamePadState gamePadState = gamePad.state;
-        WiiU.RemoteState remoteState = remote.state;
+        gamePadState = gamePad.state;
+        remoteState = remote.state;
 
         // Gamepad
         if (gamePadState.gamePadErr == WiiU.GamePadError.None)
@@ -57,6 +69,11 @@ public class MoveInOffice : MonoBehaviour
             else if (gamePadState.IsPressed(WiiU.GamePadButton.Right))
             {
                 MoveRight();
+            }
+
+            if (Input.anyKeyDown)
+            {
+                pointerCursor.gameObject.SetActive(false);
             }
         }
 
@@ -86,6 +103,11 @@ public class MoveInOffice : MonoBehaviour
                 {
                     MoveRight();
                 }
+
+                if (Input.anyKeyDown)
+                {
+                    pointerCursor.gameObject.SetActive(false);
+                }
                 break;
             case WiiU.RemoteDevType.Classic:
                 Vector2 leftStickClassicController = remoteState.classic.leftStick;
@@ -109,6 +131,11 @@ public class MoveInOffice : MonoBehaviour
                 else if (remoteState.classic.IsPressed(WiiU.ClassicButton.Right))
                 {
                     MoveRight();
+                }
+
+                if (Input.anyKeyDown)
+                {
+                    pointerCursor.gameObject.SetActive(false);
                 }
                 break;
             default:
@@ -142,9 +169,23 @@ public class MoveInOffice : MonoBehaviour
                         MoveRight();
                     }
 
-                    if (pointerCursor != null)
+                    if (isPointerDisplayed)
                     {
-                        pointerCursor.anchoredPosition = pointerPosition;
+                        if (Input.anyKeyDown || remoteState.pos != lastPointerPosition)
+                        {
+                            pointerCursor.gameObject.SetActive(true);
+
+                            lastPointerPosition = remoteState.pos;
+                        }
+
+                        if (pointerCursor != null && pointerCursor.gameObject.activeSelf)
+                        {
+                            pointerCursor.anchoredPosition = pointerPosition;
+                        }
+                    }
+                    else
+                    {
+                        pointerCursor.gameObject.SetActive(false);
                     }
                 }
                 else
@@ -171,6 +212,13 @@ public class MoveInOffice : MonoBehaviour
             else if (Input.GetKey(KeyCode.RightArrow) || Input.mousePosition.x > WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV) - 300f && allowMouseMove)
             {
                 MoveRight();
+            }
+
+            if (Input.anyKeyDown || Input.mousePosition != lastMousePosition)
+            {
+                pointerCursor.gameObject.SetActive(false);
+
+                lastMousePosition = Input.mousePosition;
             }
         }
     }
