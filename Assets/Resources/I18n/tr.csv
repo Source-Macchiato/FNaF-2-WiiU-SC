@@ -9,6 +9,7 @@ mainmenu.controls,Kontroller
 mainmenu.online,Çevrimiçi
 mainmenu.analyticdata,Analitik veriler
 mainmenu.audio,Ses
+mainmenu.volume,Ses seviyesi
 mainmenu.generalvolume,Ana ses
 mainmenu.musicvolume,Müzik sesi
 mainmenu.voicevolume,Diyalog ses seviyesi
@@ -17,6 +18,7 @@ mainmenu.update,"Yeni bir sürüm mevcut, hemen itch.io üzerinden indir!"
 mainmenu.sharedata,Bize istatistiksel bilgi paylaşımını kabul ediyor musunuz?
 mainmenu.shareanalyticsdescription,Analitik verileri paylaş
 mainmenu.motioncontrolsdescription,Wii kumandası hareket kontrolleri
+mainmenu.displaypointerdescription,Wii kumandası işaretini göster 
 mainmenu.night,Gece
 customnight.customizenight,Geceyi özelleştir
 customnight.twenty,20/20/20/20

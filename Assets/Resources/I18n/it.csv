@@ -9,6 +9,7 @@ mainmenu.controls,Controlli
 mainmenu.online,Online
 mainmenu.analyticdata,Analisi dei dati
 mainmenu.audio,Audio
+mainmenu.volume,Volume
 mainmenu.generalvolume,Volume generale
 mainmenu.musicvolume,Volume musica
 mainmenu.voicevolume,Volume voci
@@ -17,6 +18,7 @@ mainmenu.update,"È disponibile una nuova versione, scaricala su itch.io !"
 mainmenu.sharedata,Accetti alla condivisione di statistiche con Source Macchiato e The Latte Team
 mainmenu.shareanalyticsdescription,Condivisione dell'analisi dei dati
 mainmenu.motioncontrolsdescription,Motion controls del Wiimote
+mainmenu.displaypointerdescription,Mostra il puntatore Wii
 mainmenu.night,Notte 
 customnight.customizenight,Personalizza la Notte
 customnight.twenty,20/20/20/20

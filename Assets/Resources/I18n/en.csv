@@ -18,6 +18,7 @@ mainmenu.update,"A new version is available, go download it on itch.io !"
 mainmenu.sharedata,Do you accept the sharing of statistical information with us ?
 mainmenu.shareanalyticsdescription,Share analytics data
 mainmenu.motioncontrolsdescription,Wii remote motion controls
+mainmenu.displaypointerdescription,Display Wii remote pointer
 mainmenu.night,Night
 customnight.customizenight,Customize Night
 customnight.twenty,20/20/20/20

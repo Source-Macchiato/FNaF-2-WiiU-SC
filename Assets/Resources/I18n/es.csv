@@ -9,6 +9,7 @@ mainmenu.controls,Controles
 mainmenu.online,Online
 mainmenu.analyticdata,Datos de Estadisticas
 mainmenu.audio,Audio
+mainmenu.volume,Volumen
 mainmenu.generalvolume,Volumen General
 mainmenu.musicvolume,Volumen de Musica
 mainmenu.voicevolume,Volumen de Voces
@@ -17,6 +18,7 @@ mainmenu.update,"Una nueva version esta disponible, ve y descargalo en itch.io"
 mainmenu.sharedata,Aceptas compartir informacion de estadisticas con nosotros?
 mainmenu.shareanalyticsdescription,Compartir datos de estadísticas
 mainmenu.motioncontrolsdescription,Wii remote controles de movimiento
+mainmenu.displaypointerdescription,Mostrar puntero del Wii remote
 mainmenu.night,Noche
 customnight.customizenight,Personalizar Noche
 customnight.twenty,20/20/20/20

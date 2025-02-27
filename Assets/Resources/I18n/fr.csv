@@ -9,6 +9,7 @@ mainmenu.controls,Contrôles
 mainmenu.online,En Ligne
 mainmenu.analyticdata,Données Analytiques
 mainmenu.audio,Audio
+mainmenu.volume,Volume
 mainmenu.generalvolume,Volume général
 mainmenu.musicvolume,Volume des musiques
 mainmenu.voicevolume,Volume des voix
@@ -17,6 +18,7 @@ mainmenu.update,"Une nouvelle version est disponible, allez la télécharger sur
 mainmenu.sharedata,Acceptez-vous le partage d'informations de statistique avec nous ?
 mainmenu.shareanalyticsdescription,Partage d'informations de statistique
 mainmenu.motioncontrolsdescription,Activer la détection de mouvement de la télécommande Wii
+mainmenu.displaypointerdescription,Afficher le pointeur de la télécommande Wii
 mainmenu.night,Nuit
 customnight.customizenight,Nuit Personnalisée
 customnight.twenty,20/20/20/20
