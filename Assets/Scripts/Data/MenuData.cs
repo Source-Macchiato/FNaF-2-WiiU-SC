@@ -30,6 +30,7 @@ public class MenuData : MonoBehaviour
     public SwitcherData languageSwitcher;
     public SwitcherData analyticsSwitcher;
     public SwitcherData motionSwitcher;
+    public SwitcherData pointerSwitcher;
     public SwitcherData generalVolumeSwitcher;
     public SwitcherData musicVolumeSwitcher;
     public SwitcherData voiceVolumeSwitcher;
@@ -154,6 +155,12 @@ public class MenuData : MonoBehaviour
         bool saveResult = saveGameState.DoSave();
     }
 
+    public void SavePointerVisibility()
+    {
+        saveManager.SavePointerVisibility(pointerSwitcher.currentOptionId == 0);
+        bool saveResult = saveGameState.DoSave();
+    }
+
     public void SaveNightNumber()
     {
         saveManager.SaveNightNumber(nightNumber);
@@ -214,6 +221,19 @@ public class MenuData : MonoBehaviour
         {
             motionSwitcher.currentOptionId = switcherIndex;
             motionSwitcher.UpdateText();
+        }
+    }
+
+    public void LoadPointerVisibility()
+    {
+        bool pointerVisibility = SaveManager.LoadPointerVisibility();
+
+        int switcherIndex = pointerVisibility ? 0 : 1;
+
+        if (switcherIndex >= 0 && switcherIndex < pointerSwitcher.optionsName.Length)
+        {
+            pointerSwitcher.currentOptionId = switcherIndex;
+            pointerSwitcher.UpdateText();
         }
     }
 

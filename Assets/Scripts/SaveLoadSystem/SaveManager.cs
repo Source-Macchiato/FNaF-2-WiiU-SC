@@ -57,6 +57,12 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SavePointerVisibility(bool visibility)
+    {
+        PlayerPrefs.SetInt("PointerVisibility", visibility ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
     public void SaveDoneMode(int modeId, bool isDone)
     {
         PlayerPrefs.SetInt("DoneMode_" + modeId, isDone ? 1 : 0);
@@ -191,6 +197,18 @@ public class SaveManager : MonoBehaviour
         if (PlayerPrefs.HasKey("MotionControls"))
         {
             return PlayerPrefs.GetInt("MotionControls") == 1;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public static bool LoadPointerVisibility()
+    {
+        if (PlayerPrefs.HasKey("PointerVisibility"))
+        {
+            return PlayerPrefs.GetInt("PointerVisibility") == 1;
         }
         else
         {
