@@ -9,6 +9,7 @@ mainmenu.controls,Controls
 mainmenu.online,Online
 mainmenu.analyticdata,Analytic Data
 mainmenu.audio,Audio
+mainmenu.volume,Volume
 mainmenu.generalvolume,General volume
 mainmenu.musicvolume,Music volume
 mainmenu.voicevolume,Voice volume
