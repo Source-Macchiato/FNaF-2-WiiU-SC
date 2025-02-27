@@ -948,7 +948,8 @@ public class MenuManager : MonoBehaviour
                 && EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() == null
                 && EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() == null
                 && EventSystem.current.currentSelectedGameObject.GetComponent<CardData>() == null
-                && EventSystem.current.currentSelectedGameObject.GetComponent<ButtonSelectionHandler>() == null)
+                && EventSystem.current.currentSelectedGameObject.GetComponent<ButtonSelectionHandler>() == null
+                && currentPopup == null)
             {
                 if (!cursor.activeSelf)
                 {
