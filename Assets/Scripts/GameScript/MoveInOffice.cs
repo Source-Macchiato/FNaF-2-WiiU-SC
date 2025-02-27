@@ -12,8 +12,6 @@ public class MoveInOffice : MonoBehaviour
 
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
-    WiiU.GamePadState gamePadState;
-    WiiU.RemoteState remoteState;
 
     public float speed = 8f;
     public float leftEdge = 320f;
@@ -23,27 +21,22 @@ public class MoveInOffice : MonoBehaviour
     private bool canUseMotionControls = true;
     private bool isPointerDisplayed = true;
     private Vector3 lastMousePosition;
-    private Vector2 lastPointerPosition;
 
     void Start()
 	{
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
 
-        gamePadState = gamePad.state;
-        remoteState = remote.state;
-
         canUseMotionControls = SaveManager.LoadMotionControls();
         isPointerDisplayed = SaveManager.LoadPointerVisibility();
 
         lastMousePosition = Input.mousePosition;
-        lastPointerPosition = remoteState.pos;
     }
 	
 	void Update()
 	{
-        gamePadState = gamePad.state;
-        remoteState = remote.state;
+        WiiU.GamePadState gamePadState = gamePad.state;
+        WiiU.RemoteState remoteState = remote.state;
 
         // Gamepad
         if (gamePadState.gamePadErr == WiiU.GamePadError.None)
@@ -158,24 +151,23 @@ public class MoveInOffice : MonoBehaviour
                 {
                     Vector2 pointerPosition = remoteState.pos;
                     pointerPosition.x = ((pointerPosition.x + 1.0f) / 2.0f) * WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV);
+                    pointerPosition.y = WiiU.Core.GetScreenHeight(WiiU.DisplayIndex.TV) - ((pointerPosition.y + 1.0f) / 2.0f) * WiiU.Core.GetScreenHeight(WiiU.DisplayIndex.TV);
 
-                    if (pointerPosition.x < 300f)
+                    if (pointerPosition.x < 250f)
                     {
                         MoveLeft();
                     }
 
-                    if (pointerPosition.x > WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV) - 300f)
+                    if (pointerPosition.x > WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV) - 250f)
                     {
                         MoveRight();
                     }
 
                     if (isPointerDisplayed)
                     {
-                        if (Input.anyKeyDown || remoteState.pos != lastPointerPosition)
+                        if (Input.anyKeyDown || remoteState.pos.sqrMagnitude > 0.1f)
                         {
                             pointerCursor.gameObject.SetActive(true);
-
-                            lastPointerPosition = remoteState.pos;
                         }
 
                         if (pointerCursor != null && pointerCursor.gameObject.activeSelf)
