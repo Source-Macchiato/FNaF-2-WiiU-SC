@@ -785,7 +785,8 @@ public class MenuManager : MonoBehaviour
             else
             {
                 SetMenusInteractable(true);
-                defaultButtons[currentMenuId].Select();
+                Select(defaultButtons[currentMenuId]);
+                ToggleCursorVisibility();
             }
         }
     }
