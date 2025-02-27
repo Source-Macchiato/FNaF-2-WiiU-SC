@@ -29,6 +29,7 @@ public class MonitorManager : MonoBehaviour
     NightPlayer nightPlayer;
     MaskManager maskManager;
     MoveInOffice moveInOffice;
+    LayoutManager layoutManager;
 
     void Start()
 	{
@@ -40,6 +41,7 @@ public class MonitorManager : MonoBehaviour
         nightPlayer = FindObjectOfType<NightPlayer>();
         maskManager = FindObjectOfType<MaskManager>();
         moveInOffice = FindObjectOfType<MoveInOffice>();
+        layoutManager = FindObjectOfType<LayoutManager>();
 
         layoutId = SaveManager.LoadLayoutId();
 
@@ -150,6 +152,12 @@ public class MonitorManager : MonoBehaviour
             blackBackground.SetActive(true);
         }
 
+        if (layoutId == 1 || layoutId == 2)
+        {
+            layoutManager.screenPointer[0].SetActive(false);
+            layoutManager.screenPointer[1].SetActive(true);
+        }
+
         isToggling = false;
     }
 
@@ -164,6 +172,12 @@ public class MonitorManager : MonoBehaviour
         monitorContainer.SetActive(false);
         roomName.SetActive(false);
         blackBackground.SetActive(false);
+
+        if (layoutId == 1 || layoutId == 2)
+        {
+            layoutManager.screenPointer[0].SetActive(true);
+            layoutManager.screenPointer[1].SetActive(false);
+        }
 
         dangerMusicBox.transform.localScale = new Vector3(1f, 1f, 1f);
         dangerMusicBox.transform.localPosition = new Vector3(439.4f, -282.8f, 0f);

@@ -14,6 +14,7 @@ public class LayoutManager : MonoBehaviour
     public GameObject[] screenUI;
     public GameObject[] screenMinimap;
     public GameObject[] screenSubtitles;
+    public GameObject[] screenPointer;
 
     void Start()
     {
@@ -54,6 +55,9 @@ public class LayoutManager : MonoBehaviour
         screenSubtitles[0].SetActive(true);
         screenSubtitles[1].SetActive(false);
 
+        screenPointer[0].SetActive(true);
+        screenPointer[1].SetActive(false);
+
         // Minimap position
         minimap.transform.localScale = new Vector3(1f, 1f, 1f);
         minimap.transform.localPosition = new Vector3(223.93f, -112.1f, 0f);
@@ -83,6 +87,9 @@ public class LayoutManager : MonoBehaviour
 
         screenSubtitles[0].SetActive(false);
         screenSubtitles[1].SetActive(true);
+
+        screenPointer[0].SetActive(true);
+        screenPointer[1].SetActive(false);
 
         // Minimap position
         minimap.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
@@ -114,6 +121,9 @@ public class LayoutManager : MonoBehaviour
         screenSubtitles[0].SetActive(true);
         screenSubtitles[1].SetActive(false);
 
+        screenPointer[0].SetActive(true);
+        screenPointer[1].SetActive(false);
+
         // Minimap position
         minimap.transform.localScale = new Vector3(1f, 1f, 1f);
         minimap.transform.localPosition = new Vector3(223.93f, -112.1f, 0f);
@@ -143,6 +153,9 @@ public class LayoutManager : MonoBehaviour
 
         screenSubtitles[0].SetActive(false);
         screenSubtitles[1].SetActive(true);
+
+        screenPointer[0].SetActive(false);
+        screenPointer[1].SetActive(true);
 
         // Minimap position
         minimap.transform.localScale = new Vector3(1f, 1f, 1f);
