@@ -18,7 +18,7 @@ public class PopupOptions : MonoBehaviour
 	{
 		for (int i = 0; i < buttons.Length; i++)
 		{
-			cursors[i].SetActive(EventSystem.current.currentSelectedGameObject == buttons[i]);
+			cursors[i].SetActive(EventSystem.current.currentSelectedGameObject == buttons[i].gameObject);
         }
 	}
 
