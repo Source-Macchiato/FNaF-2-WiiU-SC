@@ -756,9 +756,8 @@ public class MenuManager : MonoBehaviour
             if (currentPopup.actionType == 1)
             {
                 // Select button
-                GameObject optionsContainer = currentPopup.popupObject.transform.Find("Options").gameObject;
-                Button button = optionsContainer.transform.GetChild(0).GetComponent<Button>();
-                button.Select();
+                PopupOptions popupOptions = currentPopup.popupObject.GetComponent<PopupOptions>();
+                Select(popupOptions.buttons[0]);
             }
             else if (currentPopup.actionType == 2)
             {
@@ -981,14 +980,17 @@ public class MenuManager : MonoBehaviour
         {
             if (i == menuId)
             {
-                if (defaultButtons[i] != null && currentPopup == null)
+                if (currentPopup == null)
                 {
-                    Select(defaultButtons[i]);
-                }
-                else
-                {
-                    EventSystem.current.SetSelectedGameObject(null);
-                    lastSelected = null;
+                    if (defaultButtons[i] != null)
+                    {
+                        Select(defaultButtons[i]);
+                    }
+                    else
+                    {
+                        EventSystem.current.SetSelectedGameObject(null);
+                        lastSelected = null;
+                    }
                 }
             }
         }

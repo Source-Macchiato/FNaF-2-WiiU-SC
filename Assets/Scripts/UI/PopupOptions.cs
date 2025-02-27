@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class PopupOptions : MonoBehaviour
 {
-	public GameObject[] buttons;
+	public Button[] buttons;
 	public GameObject[] cursors;
 
 	AnalyticsData analyticsData;
