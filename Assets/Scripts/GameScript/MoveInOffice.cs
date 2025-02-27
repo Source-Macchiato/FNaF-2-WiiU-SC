@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using WiiU = UnityEngine.WiiU;
 
 public class MoveInOffice : MonoBehaviour
@@ -64,7 +65,7 @@ public class MoveInOffice : MonoBehaviour
                 MoveRight();
             }
 
-            if (Input.anyKeyDown)
+            if (IsGamepadInputTriggered(gamePadState))
             {
                 pointerCursor.gameObject.SetActive(false);
             }
@@ -97,7 +98,7 @@ public class MoveInOffice : MonoBehaviour
                     MoveRight();
                 }
 
-                if (Input.anyKeyDown)
+                if (IsProInputTriggered(remoteState))
                 {
                     pointerCursor.gameObject.SetActive(false);
                 }
@@ -126,7 +127,7 @@ public class MoveInOffice : MonoBehaviour
                     MoveRight();
                 }
 
-                if (Input.anyKeyDown)
+                if (IsClassicInputTriggered(remoteState))
                 {
                     pointerCursor.gameObject.SetActive(false);
                 }
@@ -165,7 +166,7 @@ public class MoveInOffice : MonoBehaviour
 
                     if (isPointerDisplayed)
                     {
-                        if (Input.anyKeyDown || remoteState.pos.sqrMagnitude > 0.1f)
+                        if (IsRemoteInputTriggered(remoteState))
                         {
                             pointerCursor.gameObject.SetActive(true);
                         }
@@ -235,5 +236,54 @@ public class MoveInOffice : MonoBehaviour
                 OfficeContainer.transform.Translate(Vector3.left * speed * Time.deltaTime);
             }
         }
+    }
+
+    // Functions for check if any input is triggered
+    private bool IsGamepadInputTriggered(WiiU.GamePadState gamePadState)
+    {
+        foreach (WiiU.GamePadButton button in Enum.GetValues(typeof(WiiU.GamePadButton)))
+        {
+            if (gamePadState.IsTriggered(button))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool IsProInputTriggered(WiiU.RemoteState remoteState)
+    {
+        foreach (WiiU.ProControllerButton button in Enum.GetValues(typeof(WiiU.ProControllerButton)))
+        {
+            if (remoteState.pro.IsTriggered(button))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool IsClassicInputTriggered(WiiU.RemoteState remoteState)
+    {
+        foreach (WiiU.ClassicButton button in Enum.GetValues(typeof(WiiU.ClassicButton)))
+        {
+            if (remoteState.classic.IsTriggered(button))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool IsRemoteInputTriggered(WiiU.RemoteState remoteState)
+    {
+        foreach (WiiU.RemoteButton button in Enum.GetValues(typeof(WiiU.RemoteButton)))
+        {
+            if (remoteState.IsTriggered(button))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
