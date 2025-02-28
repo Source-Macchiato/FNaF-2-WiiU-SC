@@ -32,6 +32,8 @@ public class MoveInOffice : MonoBehaviour
         isPointerDisplayed = SaveManager.LoadPointerVisibility();
 
         lastMousePosition = Input.mousePosition;
+
+        pointerCursor.gameObject.SetActive(false);
     }
 	
 	void Update()
