@@ -78,7 +78,7 @@ public class Minigame1Controller : MonoBehaviour
         JumpscareAnimator.gameObject.SetActive(true);
         JumpscareAnimator.Play("Puppet");
         Jumpscare.Play();
-        yield return new WaitForSeconds(0.24f);
+        yield return new WaitForSeconds(0.25f);
         SceneManager.LoadScene("MainMenu");
     }
 
