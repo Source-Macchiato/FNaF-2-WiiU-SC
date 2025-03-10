@@ -25,9 +25,9 @@ FNaF 2: Wii U Edition is a fan-made homebrew port of *Five Nights at Freddy's 2*
 
 ### Steps
 1. Download the latest release from the [itch.io official page](https://the-latte-macchiato.itch.io/fnaf2-wiiu-edition).
-2. put the unzipped folder in the "install" folder of your SD card
-3.  start the installation with WUP Installer GX2 or NUSspli (don't forget to put the Sigpatches module in SD:/wiiu/environments/your-environment/modules/setup).
-4. Go back to the WiiU menu, the game should appear. if you have any issue [join our discord server](https://discord.com/invite/Swybxyc3kU)
+2. Put the unzipped folder in the "install" folder of your SD card
+3. Start the installation with WUP Installer GX2 or NUSspli (don't forget to put the [Sigpatches module](https://github.com/marco-calautti/SigpatchesModuleWiiU) in SD:/wiiu/environments/your-environment/modules/setup).
+4. Go back to the Wii U menu, the game should appear. if you have any issue [join our discord server](https://discord.com/invite/Swybxyc3kU)
 
 ## Controls
 | Action                  | Controls                          |
