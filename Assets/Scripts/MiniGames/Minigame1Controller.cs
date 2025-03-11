@@ -24,7 +24,7 @@ public class Minigame1Controller : MonoBehaviour
     public Animator BearAnimator;
 
     // Speed at which the bear moves
-    public float BearSpeed = 5f;
+    public float BearSpeed = 1f;
 
     // Distance within which the bear maximizes the kids' hunger
     public float BearProximityThreshold = 2f;
@@ -74,11 +74,11 @@ public class Minigame1Controller : MonoBehaviour
 
     IEnumerator Main()
     {
-        yield return new WaitForSeconds(27f);
+        yield return new WaitForSeconds(50f);
         JumpscareAnimator.gameObject.SetActive(true);
         JumpscareAnimator.Play("Puppet");
         Jumpscare.Play();
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -167,13 +167,16 @@ public class Minigame1Controller : MonoBehaviour
             Bear.transform.position = newPosition;
 
             // Play the appropriate animation based on the last horizontal movement direction
-            if (bearMovement.playerDirection == Vector2.right)
+            if (BearSpeed > 0f)
             {
-                BearAnimator.Play("BearRight");
-            }
-            else
-            {
-                BearAnimator.Play("BearLeft");
+                if (bearMovement.playerDirection == Vector2.right)
+                {
+                    BearAnimator.Play("BearRight");
+                }
+                else
+                {
+                    BearAnimator.Play("BearLeft");
+                }
             }
         }
     }
@@ -194,15 +197,10 @@ public class Minigame1Controller : MonoBehaviour
     // Updates the bear's speed over time
     void UpdateBearSpeed()
     {
-        if (elapsedTime >= 14f && elapsedTime < 17f)
+        if (elapsedTime >= 20f)
         {
-            // Gradually reduce the bear's speed from 14 seconds to 17 seconds
-            BearSpeed = Mathf.Lerp(5f, 0f, (elapsedTime - 14f) / 3f);
-        }
-        else if (elapsedTime >= 17f)
-        {
-            // Set the bear's speed to 0 at 17 seconds
-            BearSpeed = 0f;
+            float t = (elapsedTime - 20f) / (50f - 20f);
+            BearSpeed = Mathf.Lerp(1f, 0f, t);
         }
     }
 }
