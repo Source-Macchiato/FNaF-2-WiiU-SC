@@ -218,7 +218,7 @@ AnimationClip:
       value: {fileID: 21300000, guid: eb8575b147833ed40bb26bc8d69d6c76, type: 3}
     - time: 42
       value: {fileID: 21300000, guid: 98e8fda12a2660c42862e7874af90551, type: 3}
-    - time: 44.833332
+    - time: 45
       value: {fileID: 21300000, guid: 34d676204d709b841ab96d003ced7d0d, type: 3}
     attribute: m_Sprite
     path: Kid

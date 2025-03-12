@@ -199,7 +199,7 @@ public class Minigame1Controller : MonoBehaviour
     {
         if (elapsedTime >= 20f)
         {
-            float t = (elapsedTime - 20f) / (50f - 20f);
+            float t = (elapsedTime - 20f) / (45f - 20f);
             BearSpeed = Mathf.Lerp(1f, 0f, t);
         }
     }
