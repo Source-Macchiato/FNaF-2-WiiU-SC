@@ -333,8 +333,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.1999836, y: -154.3}
-  m_SizeDelta: {x: 633.9, y: 29.9}
+  m_AnchoredPosition: {x: 3.1999836, y: -149.08}
+  m_SizeDelta: {x: 633.9, y: 17.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &43730802
 MonoBehaviour:
@@ -355,7 +355,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1bf37576c1a8e604fbaefa414608be0d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -381,7 +381,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5892334, y: -0.062229156}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -392,7 +392,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 579.2013, y: 20.292137}
+  m_Size: {x: 633.9, y: 17.16}
   m_EdgeRadius: 0
 --- !u!1 &73637166
 GameObject:
@@ -427,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 308, y: 39.6}
-  m_SizeDelta: {x: 24.2, y: 400.1}
+  m_AnchoredPosition: {x: 306.51, y: 39.89499}
+  m_SizeDelta: {x: 26.99, y: 395.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &73637168
 MonoBehaviour:
@@ -449,7 +449,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d08b3fd5a5ff25444b913cf3d48243fc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -475,7 +475,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.20596218, y: -3.2718124}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -486,7 +486,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 21.613077, y: 282.78888}
+  m_Size: {x: 26.99, y: 395.11}
   m_EdgeRadius: 0
 --- !u!1 &121020440
 GameObject:
@@ -865,15 +865,15 @@ RectTransform:
   m_GameObject: {fileID: 385309142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.11744502, y: 0.09595263, z: 0.079084665}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -131.9, y: 224.5}
-  m_SizeDelta: {x: 615, y: 130.3}
+  m_AnchoredPosition: {x: -132, y: 222.56996}
+  m_SizeDelta: {x: 72.43, y: 21.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &385309144
 MonoBehaviour:
@@ -887,14 +887,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3882353, g: 0.3882353, b: 0.67058825, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 73e1ba0c76723a24c8eaf71afec28dc7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -920,7 +920,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.41062927, y: -0.14411163}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -931,7 +931,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 562.9635, y: 88.97786}
+  m_Size: {x: 72.43, y: 21.11}
   m_EdgeRadius: 0
 --- !u!1 &389878951
 GameObject:
@@ -959,15 +959,15 @@ RectTransform:
   m_GameObject: {fileID: 389878951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6476077, y: 1.2132946, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 112.130005, y: 222.8}
-  m_SizeDelta: {x: 642.26, y: 29.3}
+  m_AnchoredPosition: {x: 112.11, y: 222.8}
+  m_SizeDelta: {x: 415.78, y: 29.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &389878953
 MonoBehaviour:
@@ -988,7 +988,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1bf37576c1a8e604fbaefa414608be0d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1014,7 +1014,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 16.653336, y: -0.030931473}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1025,7 +1025,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 585.20386, y: 19.43679}
+  m_Size: {x: 415.78, y: 29.3}
   m_EdgeRadius: 0
 --- !u!1 &444267114
 GameObject:
@@ -1132,15 +1132,15 @@ RectTransform:
   m_GameObject: {fileID: 556036851}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.22221363, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -241.03, y: 224.5}
-  m_SizeDelta: {x: 654.91, y: 26.2}
+  m_AnchoredPosition: {x: -240.98, y: 222.8}
+  m_SizeDelta: {x: 145.55, y: 29.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &556036853
 MonoBehaviour:
@@ -1161,7 +1161,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1bf37576c1a8e604fbaefa414608be0d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1187,7 +1187,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -47.041153, y: 0.029922485}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1198,7 +1198,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 598.14636, y: 17.692734}
+  m_Size: {x: 145.55, y: 29.3}
   m_EdgeRadius: 0
 --- !u!1 &558957420
 GameObject:
@@ -2386,8 +2386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -301.89996, y: 38.5}
-  m_SizeDelta: {x: 23.8, y: 397.9}
+  m_AnchoredPosition: {x: -298.718, y: 39.89498}
+  m_SizeDelta: {x: 30.07, y: 395.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1251779429
 MonoBehaviour:
@@ -2408,7 +2408,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d08b3fd5a5ff25444b913cf3d48243fc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2434,7 +2434,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030939102, y: -3.2550125}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2445,7 +2445,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 21.057316, y: 282.81506}
+  m_Size: {x: 30.074, y: 395.11}
   m_EdgeRadius: 0
 --- !u!1 &1332247567
 GameObject:
