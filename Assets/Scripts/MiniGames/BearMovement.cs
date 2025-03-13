@@ -23,31 +23,41 @@ public class BearMovement : MonoBehaviour
         WiiU.GamePadState gamePadState = gamePad.state;
         WiiU.RemoteState remoteState = remote.state;
 
+        playerDirection = Vector2.zero;
         isMoving = false;
 
         if (gamePadState.gamePadErr == WiiU.GamePadError.None)
         {
+            Vector2 leftStickGamepad = gamePadState.lStick;
+
+            if (leftStickGamepad.magnitude > 0.1f)
+            {
+                playerDirection = leftStickGamepad;
+
+                isMoving = true;
+            }
+
             if (gamePadState.IsPressed(WiiU.GamePadButton.Up))
             {
-                playerDirection = Vector2.up;
+                playerDirection.y += 1;
 
                 isMoving = true;
             }
-            else if (gamePadState.IsPressed(WiiU.GamePadButton.Left))
+            if (gamePadState.IsPressed(WiiU.GamePadButton.Left))
             {
-                playerDirection = Vector2.left;
+                playerDirection.x -= 1;
 
                 isMoving = true;
             }
-            else if (gamePadState.IsPressed(WiiU.GamePadButton.Down))
+            if (gamePadState.IsPressed(WiiU.GamePadButton.Down))
             {
-                playerDirection = Vector2.down;
+                playerDirection.y -= 1;
 
                 isMoving = true;
             }
-            else if (gamePadState.IsPressed(WiiU.GamePadButton.Right))
+            if (gamePadState.IsPressed(WiiU.GamePadButton.Right))
             {
-                playerDirection = Vector2.right;
+                playerDirection.x += 1;
 
                 isMoving = true;
             }
@@ -56,79 +66,106 @@ public class BearMovement : MonoBehaviour
         switch (remoteState.devType)
         {
             case WiiU.RemoteDevType.ProController:
+                Vector2 leftStickProController = remoteState.pro.leftStick;
+
+                if (leftStickProController.magnitude > 0.1f)
+                {
+                    playerDirection = leftStickProController;
+
+                    isMoving = true;
+                }
+
                 if (remoteState.pro.IsPressed(WiiU.ProControllerButton.Up))
                 {
-                    playerDirection = Vector2.up;
+                    playerDirection.y += 1;
 
                     isMoving = true;
                 }
-                else if (remoteState.pro.IsPressed(WiiU.ProControllerButton.Left))
+                if (remoteState.pro.IsPressed(WiiU.ProControllerButton.Left))
                 {
-                    playerDirection = Vector2.left;
+                    playerDirection.x -= 1;
 
                     isMoving = true;
                 }
-                else if (remoteState.pro.IsPressed(WiiU.ProControllerButton.Down))
+                if (remoteState.pro.IsPressed(WiiU.ProControllerButton.Down))
                 {
-                    playerDirection = Vector2.down;
+                    playerDirection.y -= 1;
 
                     isMoving = true;
                 }
-                else if (remoteState.pro.IsPressed(WiiU.ProControllerButton.Right))
+                if (remoteState.pro.IsPressed(WiiU.ProControllerButton.Right))
                 {
-                    playerDirection = Vector2.right;
+                    playerDirection.x += 1;
 
                     isMoving = true;
                 }
                 break;
             case WiiU.RemoteDevType.Classic:
+                Vector2 leftStickClassicController = remoteState.classic.leftStick;
+
+                if (leftStickClassicController.magnitude > 0.1f)
+                {
+                    playerDirection = leftStickClassicController;
+
+                    isMoving = true;
+                }
+
                 if (remoteState.classic.IsPressed(WiiU.ClassicButton.Up))
                 {
-                    playerDirection = Vector2.up;
+                    playerDirection.y += 1;
 
                     isMoving = true;
                 }
-                else if (remoteState.classic.IsPressed(WiiU.ClassicButton.Left))
+                if (remoteState.classic.IsPressed(WiiU.ClassicButton.Left))
                 {
-                    playerDirection = Vector2.left;
+                    playerDirection.x -= 1;
 
                     isMoving = true;
                 }
-                else if (remoteState.classic.IsPressed(WiiU.ClassicButton.Down))
+                if (remoteState.classic.IsPressed(WiiU.ClassicButton.Down))
                 {
-                    playerDirection = Vector2.down;
+                    playerDirection.y -= 1;
 
                     isMoving = true;
                 }
-                else if (remoteState.classic.IsPressed(WiiU.ClassicButton.Right))
+                if (remoteState.classic.IsPressed(WiiU.ClassicButton.Right))
                 {
-                    playerDirection = Vector2.right;
+                    playerDirection.x += 1;
 
                     isMoving = true;
                 }
                 break;
             default:
+                Vector2 stickNunchuk = remoteState.nunchuk.stick;
+
+                if (stickNunchuk.magnitude > 0.1f)
+                {
+                    playerDirection = stickNunchuk;
+
+                    isMoving = true;
+                }
+
                 if (remoteState.IsPressed(WiiU.RemoteButton.Up))
                 {
-                    playerDirection = Vector2.up;
+                    playerDirection.y += 1;
 
                     isMoving = true;
                 }
-                else if (remoteState.IsPressed(WiiU.RemoteButton.Left))
+                if (remoteState.IsPressed(WiiU.RemoteButton.Left))
                 {
-                    playerDirection = Vector2.left;
+                    playerDirection.x -= 1;
 
                     isMoving = true;
                 }
-                else if (remoteState.IsPressed(WiiU.RemoteButton.Down))
+                if (remoteState.IsPressed(WiiU.RemoteButton.Down))
                 {
-                    playerDirection = Vector2.down;
+                    playerDirection.y -= 1;
 
                     isMoving = true;
                 }
-                else if (remoteState.IsPressed(WiiU.RemoteButton.Right))
+                if (remoteState.IsPressed(WiiU.RemoteButton.Right))
                 {
-                    playerDirection = Vector2.right;
+                    playerDirection.x += 1;
 
                     isMoving = true;
                 }
@@ -139,25 +176,25 @@ public class BearMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                playerDirection = Vector2.up;
+                playerDirection.y += 1;
 
                 isMoving = true;
             }
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
-                playerDirection = Vector2.left;
+                playerDirection.x -= 1;
 
                 isMoving = true;
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow))
             {
-                playerDirection = Vector2.down;
+                playerDirection.y -= 1;
 
                 isMoving = true;
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow))
             {
-                playerDirection = Vector2.right;
+                playerDirection.x += 1;
 
                 isMoving = true;
             }

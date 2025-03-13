@@ -146,23 +146,10 @@ public class Minigame1Controller : MonoBehaviour
         {
             Vector3 newPosition = Bear.transform.position;
 
-            // Check direction
-            if (bearMovement.playerDirection == Vector2.up)
-            {
-                newPosition.y += BearSpeed * Time.deltaTime;
-            }
-            else if (bearMovement.playerDirection == Vector2.left)
-            {
-                newPosition.x -= BearSpeed * Time.deltaTime;
-            }
-            else if (bearMovement.playerDirection == Vector2.down)
-            {
-                newPosition.y -= BearSpeed * Time.deltaTime;
-            }
-            else if (bearMovement.playerDirection == Vector2.right)
-            {
-                newPosition.x += BearSpeed * Time.deltaTime;
-            }
+            // Normalize direction to prevent faster diagonal movement
+            Vector2 direction = bearMovement.playerDirection.normalized;
+            newPosition.x += direction.x * BearSpeed * Time.deltaTime;
+            newPosition.y += direction.y * BearSpeed * Time.deltaTime;
 
             Bear.transform.position = newPosition;
 
