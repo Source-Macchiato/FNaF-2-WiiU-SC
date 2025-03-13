@@ -12,6 +12,7 @@ public class Minigame1Controller : MonoBehaviour
 
     // Reference to the bear GameObject
     public GameObject Bear;
+    public GameObject gameContainer;
 
     // Bear's Animator
     public Animator BearAnimator;
@@ -66,17 +67,26 @@ public class Minigame1Controller : MonoBehaviour
     IEnumerator Main()
     {
         yield return new WaitForSeconds(50f);
+
         JumpscareAnimator.gameObject.SetActive(true);
         JumpscareAnimator.Play("Puppet");
         Jumpscare.Play();
-        yield return new WaitForSeconds(3f);
+
+        yield return new WaitForSeconds(0.6f);
+
+        gameContainer.SetActive(false);
+        JumpscareAnimator.gameObject.SetActive(false);
+        Jumpscare.Stop();
+
+        yield return new WaitForSeconds(2f);
+
         SceneManager.LoadScene("MainMenu");
     }
 
     // Coroutine to play audio sources in sequence
     IEnumerator PlayAudioSequence()
     {
-        while (true)
+        while (elapsedTime < 50f)
         {
             // Play the current audio source
             AudioSources[currentAudioIndex].Play();
