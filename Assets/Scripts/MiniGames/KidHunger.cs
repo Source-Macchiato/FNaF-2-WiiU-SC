@@ -16,6 +16,7 @@ public class KidHunger : MonoBehaviour
         if (isTriggered && takeCakeController.Hunger[kidIndex] < 10f)
         {
             takeCakeController.Hunger[kidIndex] = 20f;
+            takeCakeController.cakeAudio.Play();
         }
     }
 

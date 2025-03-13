@@ -28,12 +28,13 @@ public class Minigame1Controller : MonoBehaviour
     // Audio sources for the sequence S-A-V-E-H-I-M
     public AudioSource[] AudioSources;
     public AudioSource Jumpscare;
+    public AudioSource cakeAudio;
 
     // Index to track the current audio source
     private int currentAudioIndex = 0;
 
     // Time between each audio source playback
-    public float timeBetweenAudio = 1f;
+    private float timeBetweenAudio = 2.3f;
 
     // Wall GameObjects for boundaries
     public GameObject[] Walls;
