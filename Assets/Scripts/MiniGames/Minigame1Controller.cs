@@ -10,13 +10,6 @@ public class Minigame1Controller : MonoBehaviour
     // Hunger array to store the hunger level of each kid
     public float[] Hunger;
 
-    // Min and Max values for hunger
-    public float MinimumHunger = 0f;
-    public float MaxHunger = 100f;
-
-    // Rate at which hunger decreases per second
-    public float HungerRegressionRate = 1f;
-
     // Reference to the bear GameObject
     public GameObject Bear;
 
@@ -24,10 +17,7 @@ public class Minigame1Controller : MonoBehaviour
     public Animator BearAnimator;
 
     // Speed at which the bear moves
-    public float BearSpeed = 1f;
-
-    // Distance within which the bear maximizes the kids' hunger
-    public float BearProximityThreshold = 2f;
+    private float BearSpeed = 1f;
 
     // Time elapsed since the start of the game
     private float elapsedTime = 0f;
@@ -62,7 +52,7 @@ public class Minigame1Controller : MonoBehaviour
         // Initialize hunger values for each kid
         for (int i = 0; i < Hunger.Length; i++)
         {
-            Hunger[i] = MaxHunger;
+            Hunger[i] = Random.Range(10, 20);
         }
 
         // Get the Rigidbody2D component for the bear
@@ -111,20 +101,14 @@ public class Minigame1Controller : MonoBehaviour
         for (int i = 0; i < Kids.Length; i++)
         {
             // Regress hunger over time
-            Hunger[i] = Mathf.Max(MinimumHunger, Hunger[i] - HungerRegressionRate * Time.deltaTime);
-
-            // Check if the bear is close to this kid
-            if (Vector3.Distance(Bear.transform.position, Kids[i].transform.position) <= BearProximityThreshold)
-            {
-                Hunger[i] = MaxHunger; // Maximize hunger if the bear is close
-            }
+            Hunger[i] = Mathf.Max(0, Hunger[i] - Time.deltaTime);
 
             // Determine animation based on hunger level
-            if (Hunger[i] > 75f)
+            if (Hunger[i] > 10f)
             {
                 Kids[i].Play("KidHappy");
             }
-            else if (Hunger[i] > 25f)
+            else if (Hunger[i] > 0.1f)
             {
                 Kids[i].Play("KidMedium");
             }
