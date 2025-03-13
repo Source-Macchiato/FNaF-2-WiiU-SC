@@ -156,11 +156,11 @@ public class Minigame1Controller : MonoBehaviour
             // Play the appropriate animation based on the last horizontal movement direction
             if (BearSpeed > 0f)
             {
-                if (bearMovement.playerDirection == Vector2.left)
+                if (direction.x < -0.1f)
                 {
                     BearAnimator.Play("BearLeft");
                 }
-                else if (bearMovement.playerDirection == Vector2.right)
+                else if (direction.x > 0.1f)
                 {
                     BearAnimator.Play("BearRight");
                 }

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/DeathMiniGame1.unity
+    guid: 871045bba41c0fa47bde4fa7ea97418a
+  - enabled: 1
     path: Assets/Scenes/Introduction.unity
     guid: e13096cceb6f1ee4d8b8b43639863aaf
   - enabled: 1
