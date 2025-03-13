@@ -21,31 +21,25 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 635
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 20
-        value: 635
+        value: 687.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
         time: 30
-        value: -32.3
-        inSlope: 0
-        outSlope: 0
+        value: -17.8
+        inSlope: -1.2888906
+        outSlope: -1.2888906
         tangentMode: 136
       - serializedVersion: 2
         time: 45
         value: -32.3
-        inSlope: 0
-        outSlope: 0
+        inSlope: -2.8999999
+        outSlope: -2.8999999
         tangentMode: 136
       - serializedVersion: 2
         time: 50
-        value: -615
+        value: -673.9
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -77,11 +71,17 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
+      - serializedVersion: 2
+        time: 50
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Car/Purple Guy
+    path: Purple Guy
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
@@ -239,7 +239,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1673317652
+      path: 1646618926
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -346,31 +346,25 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 635
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 20
-        value: 635
+        value: 687.1
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
         time: 30
-        value: -32.3
-        inSlope: 0
-        outSlope: 0
+        value: -17.8
+        inSlope: -1.2888906
+        outSlope: -1.2888906
         tangentMode: 136
       - serializedVersion: 2
         time: 45
         value: -32.3
-        inSlope: 0
-        outSlope: 0
+        inSlope: -2.8999999
+        outSlope: -2.8999999
         tangentMode: 136
       - serializedVersion: 2
         time: 50
-        value: -615
+        value: -673.9
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -402,11 +396,17 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
+      - serializedVersion: 2
+        time: 50
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Car/Purple Guy
+    path: Purple Guy
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []
