@@ -44,13 +44,13 @@ public class TakeCakeController : MonoBehaviour
     private Rigidbody2D bearRigidbody;
 
     // Scripts
-    BearMovement bearMovement;
+    PlayerMovement bearMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         // Get scripts
-        bearMovement = FindObjectOfType<BearMovement>();
+        bearMovement = FindObjectOfType<PlayerMovement>();
 
         // Initialize hunger values for each kid
         for (int i = 0; i < Hunger.Length; i++)

@@ -44,12 +44,12 @@ public class Minigame2Controller : MonoBehaviour
     private Transform playerTransform;
 
     // Scripts
-    BearMovement bearMovement;
+    PlayerMovement bearMovement;
 
     void Start()
     {
         // Get scripts
-        bearMovement = FindObjectOfType<BearMovement>();
+        bearMovement = FindObjectOfType<PlayerMovement>();
 
         // Initialize playerTransform to the Bear's transform
         playerTransform = Bear.transform;

@@ -2,8 +2,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
-public class Minigame2Part2Controller : MonoBehaviour
+public class GiveGiftsController : MonoBehaviour
 {
     public float BearSpeed = 5f;
     public GameObject Bear;
@@ -14,7 +15,7 @@ public class Minigame2Part2Controller : MonoBehaviour
     public float Proximity = 50f;
     public Image StateImage;
     public Sprite GiveLife;
-    public Text ScoreText;
+    public TextMeshProUGUI ScoreText;
     public Animator JumpscareAnimator;
     public AudioSource Jumpscare;
 
@@ -23,12 +24,12 @@ public class Minigame2Part2Controller : MonoBehaviour
     private bool givingHats = false;
 
     // Scripts
-    BearMovement bearMovement;
+    PlayerMovement bearMovement;
 
     void Start()
     {
         // Get scripts
-        bearMovement = FindObjectOfType<BearMovement>();
+        bearMovement = FindObjectOfType<PlayerMovement>();
 
         UpdateScoreText();
     }

@@ -52,12 +52,12 @@ public class Minigame3Controller : MonoBehaviour
     private int resetCount;
 
     // Scripts
-    BearMovement bearMovement;
+    PlayerMovement bearMovement;
 
     void Start()
     {
         // Get scripts
-        bearMovement = FindObjectOfType<BearMovement>();
+        bearMovement = FindObjectOfType<PlayerMovement>();
 
         // Store initial positions for reset
         initialBearPosition = Bear.transform.localPosition; // Use localPosition because Bear is a child of MoveableObject

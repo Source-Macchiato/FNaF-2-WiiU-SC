@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using WiiU = UnityEngine.WiiU;
 
-public class BearMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public Vector2 playerDirection;
     public bool isMoving;

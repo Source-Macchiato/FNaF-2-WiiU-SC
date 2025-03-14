@@ -1185,6 +1185,7 @@ MonoBehaviour:
   Bear: {fileID: 2025778271}
   gameContainer: {fileID: 344096721}
   BearAnimator: {fileID: 2025778278}
+  elapsedTime: 0
   JumpscareAnimator: {fileID: 330089193}
   linesAnimator: {fileID: 1707156965}
   AudioSources:
@@ -4102,7 +4103,7 @@ GameObject:
   - component: {fileID: 2025778274}
   - component: {fileID: 2025778278}
   m_Layer: 5
-  m_Name: Bear
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
