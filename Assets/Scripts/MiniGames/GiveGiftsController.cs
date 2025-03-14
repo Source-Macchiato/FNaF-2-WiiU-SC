@@ -7,13 +7,14 @@ using TMPro;
 public class GiveGiftsController : MonoBehaviour
 {
     public float BearSpeed = 5f;
-    public GameObject Bear;
+    public GameObject player;
     public GameObject[] Walls; // Array of wall GameObjects
     public GameObject[] Children;
     public GameObject[] Hats;
     public GameObject[] Gifts;
     public float Proximity = 50f;
     public Image StateImage;
+    public Sprite[] puppetSprites;
     public Sprite GiveLife;
     public TextMeshProUGUI ScoreText;
     public Animator JumpscareAnimator;
@@ -50,38 +51,27 @@ public class GiveGiftsController : MonoBehaviour
     {
         if (bearMovement.isMoving)
         {
-            Vector3 newPosition = Bear.transform.position;
+            Vector3 newPosition = player.transform.position;
 
-            if (bearMovement.playerDirection == Vector2.up)
-            {
-                newPosition.y += BearSpeed * Time.deltaTime;
-            }
-            else if (bearMovement.playerDirection == Vector2.left)
-            {
-                newPosition.x -= BearSpeed * Time.deltaTime;
-            }
-            else if (bearMovement.playerDirection == Vector2.down)
-            {
-                newPosition.y -= BearSpeed * Time.deltaTime;
-            }
-            else if (bearMovement.playerDirection == Vector2.right)
-            {
-                newPosition.x += BearSpeed * Time.deltaTime;
-            }
+            // Normalize direction to prevent faster diagonal movement
+            Vector2 direction = bearMovement.playerDirection.normalized;
+            newPosition.x += direction.x * BearSpeed * Time.deltaTime;
+            newPosition.y += direction.y * BearSpeed * Time.deltaTime;
 
-            // Apply the movement
-            Bear.transform.position = newPosition;
+            player.transform.position = newPosition;
 
-            // have to make a IsCollidingWithObjects like other scripts
-            // Check for collisions with walls and reset position if needed
-            /*foreach (GameObject wall in Walls)
+            // Use right sprite based on the last horizontal movement direction
+            if (BearSpeed > 0f)
             {
-                if (Bear.GetComponent<Collider2D>().IsTouching(wall.GetComponent<Collider2D>()))
+                if (direction.x < -0.1f)
                 {
-                    Bear.transform.Translate(-movement); // Undo movement if colliding
-                    break;
+                    player.GetComponent<Image>().sprite = puppetSprites[1];
                 }
-            }*/
+                else if (direction.x > 0.1f)
+                {
+                    player.GetComponent<Image>().sprite = puppetSprites[0];
+                }
+            }
         }
     }
 
@@ -89,7 +79,7 @@ public class GiveGiftsController : MonoBehaviour
     {
         for (int i = 0; i < Children.Length; i++)
         {
-            if (Children[i] != null && Vector3.Distance(Bear.transform.position, Children[i].transform.position) <= Proximity)
+            if (Children[i] != null && Vector3.Distance(player.transform.position, Children[i].transform.position) <= Proximity)
             {
                 if (!givingHats && !Gifts[i].activeSelf) // Gift the child if not already given
                 {

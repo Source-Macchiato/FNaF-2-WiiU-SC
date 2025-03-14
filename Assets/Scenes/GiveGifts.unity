@@ -2923,7 +2923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BearSpeed: 1
-  Bear: {fileID: 2025778271}
+  player: {fileID: 2025778271}
   Walls: []
   Children:
   - {fileID: 323078424}
@@ -2942,6 +2942,9 @@ MonoBehaviour:
   - {fileID: 316772878}
   Proximity: 1
   StateImage: {fileID: 0}
+  puppetSprites:
+  - {fileID: 21300000, guid: 3a165aca7457b744b8c86448f175b6ba, type: 3}
+  - {fileID: 21300000, guid: 28a83c41c6a716c46b4e622cb8d9c8de, type: 3}
   GiveLife: {fileID: 21300000, guid: 9feacdd47bad7c145a9934c26592a829, type: 3}
   ScoreText: {fileID: 675260307}
   JumpscareAnimator: {fileID: 1716264772}
