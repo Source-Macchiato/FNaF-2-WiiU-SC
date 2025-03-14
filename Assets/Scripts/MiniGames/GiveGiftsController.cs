@@ -32,6 +32,12 @@ public class GiveGiftsController : MonoBehaviour
         bearMovement = FindObjectOfType<PlayerMovement>();
 
         UpdateScoreText();
+
+        // Disable all gifts when game starts
+        foreach (GameObject gift in Gifts)
+        {
+            gift.SetActive(false);
+        }
     }
 
     void Update()
