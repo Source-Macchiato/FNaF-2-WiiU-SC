@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Minigame1Controller : MonoBehaviour
+public class TakeCakeController : MonoBehaviour
 {
     // Animator array to control each kid's animations
     public Animator[] Kids;
@@ -21,7 +21,7 @@ public class Minigame1Controller : MonoBehaviour
     private float BearSpeed = 1f;
 
     // Time elapsed since the start of the game
-    private float elapsedTime = 0f;
+    public float elapsedTime = 0f;
 
     // Jumpscare animator
     public Animator JumpscareAnimator;

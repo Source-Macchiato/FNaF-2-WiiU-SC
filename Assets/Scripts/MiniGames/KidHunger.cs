@@ -3,17 +3,17 @@
 public class KidHunger : MonoBehaviour
 {
 	public int kidIndex;
-	private Minigame1Controller takeCakeController;
+	private TakeCakeController takeCakeController;
     private bool isTriggered = false;
 
 	void Start()
 	{
-		takeCakeController = FindObjectOfType<Minigame1Controller>();
+		takeCakeController = FindObjectOfType<TakeCakeController>();
 	}
 
     void Update()
     {
-        if (isTriggered && takeCakeController.Hunger[kidIndex] < 10f)
+        if (isTriggered && takeCakeController.Hunger[kidIndex] < 10f && takeCakeController.elapsedTime <= 30f)
         {
             takeCakeController.Hunger[kidIndex] = 20f;
             takeCakeController.cakeAudio.Play();

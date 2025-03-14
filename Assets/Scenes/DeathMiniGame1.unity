@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 444267115}
   - component: {fileID: 444267116}
   m_Layer: 0
-  m_Name: Minigame1Controller
+  m_Name: TakeCakeController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
