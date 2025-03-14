@@ -25,6 +25,7 @@ public class Minigame1Controller : MonoBehaviour
 
     // Jumpscare animator
     public Animator JumpscareAnimator;
+    public Animator linesAnimator;
 
     // Audio sources for the sequence S-A-V-E-H-I-M
     public AudioSource[] AudioSources;
@@ -77,10 +78,11 @@ public class Minigame1Controller : MonoBehaviour
         gameContainer.SetActive(false);
         JumpscareAnimator.gameObject.SetActive(false);
         Jumpscare.Stop();
+        linesAnimator.Play("Red");
 
         yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
     // Coroutine to play audio sources in sequence
