@@ -91,7 +91,10 @@ public class GiveGiftsController : MonoBehaviour
             {
                 yield break;
             }
+        }
 
+        foreach (KidGift kidGift in kidGifts)
+        {
             kidGift.gift.SetActive(false);
             kidGift.secondPhase = true;
         }
