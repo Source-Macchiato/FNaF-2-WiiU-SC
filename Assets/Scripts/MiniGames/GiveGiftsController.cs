@@ -24,12 +24,14 @@ public class GiveGiftsController : MonoBehaviour
     public AudioSource staticAudio;
     public AudioSource cakeAudio;
     public AudioSource effectAudio;
+    public AudioSource[] saveThemAudios;
     
     public KidGift[] kidGifts;
     
     private bool secondPhaseStarted = false;
 
     public int score = 0;
+    private int currentSaveThemAudioIndex = 0;
 
     // Scripts
     PlayerMovement playerMovement;
@@ -43,6 +45,8 @@ public class GiveGiftsController : MonoBehaviour
         staticAudio.volume = 0.4f;
 
         UpdateScoreText();
+
+        StartCoroutine(SaveThemAudioSequence());
     }
 
     void Update()
@@ -86,6 +90,21 @@ public class GiveGiftsController : MonoBehaviour
     public void PlayEndSequence()
     {
         StartCoroutine(EndSequence());
+    }
+
+    private IEnumerator SaveThemAudioSequence()
+    {
+        while (score < 800)
+        {
+            // Wait for the specified time before playing audio
+            yield return new WaitForSeconds(1.6f);
+
+            // Play the current audio source
+            saveThemAudios[currentSaveThemAudioIndex].Play();
+
+            // Move to the next audio source
+            currentSaveThemAudioIndex = (currentSaveThemAudioIndex + 1) % saveThemAudios.Length;
+        }
     }
 
     public IEnumerator SecondPhase()
