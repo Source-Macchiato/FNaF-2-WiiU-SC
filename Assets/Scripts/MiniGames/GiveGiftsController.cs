@@ -120,9 +120,13 @@ public class GiveGiftsController : MonoBehaviour
     {
         kidFive.SetActive(true);
 
-        yield return new WaitForSeconds(1f / 30);
+        yield return new WaitForSeconds(1f / 20);
 
         kidFive.SetActive(false);
+
+        score = Random.Range(0, 9999);
+        UpdateScoreText();
+
         Jumpscare.Play();
         JumpscareAnimator.Play("GoldenFreddy");
 
