@@ -94,6 +94,12 @@ public class TakeCakeController : MonoBehaviour
             // Wait for the specified time before playing audio
             yield return new WaitForSeconds(1.6f);
 
+            // Just in case the elapsed time has been reached after the delay
+            if (elapsedTime >= 50f)
+            {
+                yield break;
+            }
+
             // Play the current audio source
             AudioSources[currentAudioIndex].Play();
 

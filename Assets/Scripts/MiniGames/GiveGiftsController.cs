@@ -99,6 +99,12 @@ public class GiveGiftsController : MonoBehaviour
             // Wait for the specified time before playing audio
             yield return new WaitForSeconds(1.6f);
 
+            // Just in case the score changed after the delay
+            if (score >= 800)
+            {
+                yield break;
+            }
+
             // Play the current audio source
             saveThemAudios[currentSaveThemAudioIndex].Play();
 
