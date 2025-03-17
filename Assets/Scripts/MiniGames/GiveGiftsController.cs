@@ -21,6 +21,7 @@ public class GiveGiftsController : MonoBehaviour
     public Animator linesAnimator;
 
     public AudioSource Jumpscare;
+    public AudioSource staticAudio;
     
     public KidGift[] kidGifts;
     
@@ -37,6 +38,7 @@ public class GiveGiftsController : MonoBehaviour
         playerMovement = FindObjectOfType<PlayerMovement>();
 
         kidFive.SetActive(false);
+        staticAudio.volume = 0.4f;
 
         UpdateScoreText();
     }
@@ -128,6 +130,7 @@ public class GiveGiftsController : MonoBehaviour
         Jumpscare.Stop();
         JumpscareAnimator.gameObject.SetActive(false);
         linesAnimator.Play("Red");
+        staticAudio.volume = 1f;
 
         yield return new WaitForSeconds(2f);
 

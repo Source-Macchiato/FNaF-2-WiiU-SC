@@ -1198,6 +1198,7 @@ MonoBehaviour:
   - {fileID: 23402149}
   Jumpscare: {fileID: 1036727373}
   cakeAudio: {fileID: 992738584}
+  staticAudio: {fileID: 724564334}
   Walls:
   - {fileID: 43730800}
   - {fileID: 556036851}
@@ -1549,7 +1550,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2159ac3ae0e00ec42b4b4afb8aae37cf, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
