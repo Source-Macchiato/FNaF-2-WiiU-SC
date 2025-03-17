@@ -139,7 +139,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -233,7 +233,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -326,7 +326,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -550,7 +550,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -601,8 +601,9 @@ GameObject:
   - component: {fileID: 323078427}
   - component: {fileID: 323078426}
   - component: {fileID: 323078428}
+  - component: {fileID: 323078429}
   m_Layer: 5
-  m_Name: Child1
+  m_Name: Kid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -620,7 +621,7 @@ RectTransform:
   m_Children:
   - {fileID: 765175298}
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -685,6 +686,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 110, y: 110}
   m_EdgeRadius: 0
+--- !u!114 &323078429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 323078424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad6cb2ae3cc82748a123d5bc7faf9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gift: {fileID: 101412379}
+  mask: {fileID: 765175297}
 --- !u!1 &365267798
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +727,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -782,7 +796,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1248,8 +1262,9 @@ GameObject:
   - component: {fileID: 713023297}
   - component: {fileID: 713023296}
   - component: {fileID: 713023298}
+  - component: {fileID: 713023299}
   m_Layer: 5
-  m_Name: Child2
+  m_Name: Kid2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1267,7 +1282,7 @@ RectTransform:
   m_Children:
   - {fileID: 1756188858}
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1332,6 +1347,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 110, y: 110}
   m_EdgeRadius: 0
+--- !u!114 &713023299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 713023294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad6cb2ae3cc82748a123d5bc7faf9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gift: {fileID: 365267798}
+  mask: {fileID: 1756188857}
 --- !u!1 &724516048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,7 +1548,7 @@ GameObject:
   - component: {fileID: 726204267}
   - component: {fileID: 726204266}
   m_Layer: 5
-  m_Name: Hat
+  m_Name: Mask3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1616,7 @@ GameObject:
   - component: {fileID: 727290384}
   - component: {fileID: 727290383}
   m_Layer: 5
-  m_Name: Hat
+  m_Name: Mask4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1656,8 +1684,9 @@ GameObject:
   - component: {fileID: 729252942}
   - component: {fileID: 729252941}
   - component: {fileID: 729252943}
+  - component: {fileID: 729252944}
   m_Layer: 5
-  m_Name: Child3
+  m_Name: Kid3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1675,7 +1704,7 @@ RectTransform:
   m_Children:
   - {fileID: 726204265}
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1740,6 +1769,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 110, y: 110}
   m_EdgeRadius: 0
+--- !u!114 &729252944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 729252939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad6cb2ae3cc82748a123d5bc7faf9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gift: {fileID: 1476906529}
+  mask: {fileID: 726204264}
 --- !u!1 &765175297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,7 +1793,7 @@ GameObject:
   - component: {fileID: 765175300}
   - component: {fileID: 765175299}
   m_Layer: 5
-  m_Name: Hat
+  m_Name: Mask1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2008,7 +2050,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2182,7 +2224,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2436,8 +2478,9 @@ GameObject:
   - component: {fileID: 1630990835}
   - component: {fileID: 1630990834}
   - component: {fileID: 1630990836}
+  - component: {fileID: 1630990837}
   m_Layer: 5
-  m_Name: Child4
+  m_Name: Kid4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2455,7 +2498,7 @@ RectTransform:
   m_Children:
   - {fileID: 727290382}
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2520,6 +2563,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 110, y: 110}
   m_EdgeRadius: 0
+--- !u!114 &1630990837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1630990832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad6cb2ae3cc82748a123d5bc7faf9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gift: {fileID: 316772878}
+  mask: {fileID: 727290381}
 --- !u!1 &1671780848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,7 +2770,7 @@ GameObject:
   - component: {fileID: 1756188860}
   - component: {fileID: 1756188859}
   m_Layer: 5
-  m_Name: Hat
+  m_Name: Mask2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2857,7 +2913,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 577296003}
-  - {fileID: 2025778272}
   - {fileID: 43730801}
   - {fileID: 389878952}
   - {fileID: 1251779428}
@@ -2870,6 +2925,7 @@ RectTransform:
   - {fileID: 1476906530}
   - {fileID: 1630990833}
   - {fileID: 316772879}
+  - {fileID: 2025778272}
   - {fileID: 675260305}
   - {fileID: 1615293574}
   - {fileID: 724516049}
@@ -2994,7 +3050,7 @@ GameObject:
   - component: {fileID: 2025778273}
   m_Layer: 5
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3010,7 +3066,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 1
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
