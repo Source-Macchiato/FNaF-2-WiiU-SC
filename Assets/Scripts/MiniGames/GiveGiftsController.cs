@@ -10,6 +10,7 @@ public class GiveGiftsController : MonoBehaviour
     
     public GameObject player;
     public GameObject gameContainer;
+    public GameObject kidFive;
     
     public Sprite[] puppetSprites;
     
@@ -34,6 +35,8 @@ public class GiveGiftsController : MonoBehaviour
     {
         // Get scripts
         playerMovement = FindObjectOfType<PlayerMovement>();
+
+        kidFive.SetActive(false);
 
         UpdateScoreText();
     }
@@ -111,6 +114,11 @@ public class GiveGiftsController : MonoBehaviour
 
     IEnumerator EndSequence()
     {
+        kidFive.SetActive(true);
+
+        yield return new WaitForSeconds(1f / 60);
+
+        kidFive.SetActive(false);
         Jumpscare.Play();
         JumpscareAnimator.Play("GoldenFreddy");
 
