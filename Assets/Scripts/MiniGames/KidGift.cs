@@ -48,6 +48,8 @@ public class KidGift : MonoBehaviour
                     giveGiftsController.score += 100;
                     giveGiftsController.UpdateScoreText();
 
+                    giveGiftsController.playerSpeed = giveGiftsController.playerSpeed / 1.2f;
+
                     if (giveGiftsController.score == 800)
                     {
                         giveGiftsController.PlayEndSequence();

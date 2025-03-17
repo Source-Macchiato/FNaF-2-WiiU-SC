@@ -6,7 +6,7 @@ using TMPro;
 
 public class GiveGiftsController : MonoBehaviour
 {
-    private float playerSpeed = 1f;
+    public float playerSpeed = 1f;
     
     public GameObject player;
     public GameObject gameContainer;
