@@ -76,6 +76,11 @@ public class GiveGiftsController : MonoBehaviour
         scoreText.text = score.ToString("D4");
     }
 
+    public void PlayEndSequence()
+    {
+        StartCoroutine(EndSequence());
+    }
+
     public IEnumerator SecondPhase()
     {
         if (secondPhaseStarted)
@@ -104,7 +109,7 @@ public class GiveGiftsController : MonoBehaviour
         secondPhaseStarted = true;
     }
 
-    public IEnumerator EndGame()
+    IEnumerator EndSequence()
     {
         Jumpscare.Play();
         JumpscareAnimator.Play("GoldenFreddy");

@@ -46,7 +46,7 @@ public class KidGift : MonoBehaviour
 
                     if (giveGiftsController.score == 800)
                     {
-                        StartCoroutine(giveGiftsController.EndGame());
+                        giveGiftsController.PlayEndSequence();
                     }
 
                     maskEnabled = true;
