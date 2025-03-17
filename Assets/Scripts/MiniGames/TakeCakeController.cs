@@ -35,9 +35,6 @@ public class TakeCakeController : MonoBehaviour
     // Index to track the current audio source
     private int currentAudioIndex = 0;
 
-    // Time between each audio source playback
-    private float timeBetweenAudio = 2.3f;
-
     // Wall GameObjects for boundaries
     public GameObject[] Walls;
 
@@ -90,11 +87,11 @@ public class TakeCakeController : MonoBehaviour
     {
         while (elapsedTime < 50f)
         {
+            // Wait for the specified time before playing audio
+            yield return new WaitForSeconds(1.6f);
+
             // Play the current audio source
             AudioSources[currentAudioIndex].Play();
-
-            // Wait for the specified time before playing the next one
-            yield return new WaitForSeconds(timeBetweenAudio);
 
             // Move to the next audio source
             currentAudioIndex = (currentAudioIndex + 1) % AudioSources.Length;
