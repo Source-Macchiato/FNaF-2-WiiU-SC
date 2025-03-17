@@ -118,7 +118,7 @@ public class GiveGiftsController : MonoBehaviour
     {
         kidFive.SetActive(true);
 
-        yield return new WaitForSeconds(1f / 60);
+        yield return new WaitForSeconds(1f / 30);
 
         kidFive.SetActive(false);
         Jumpscare.Play();
