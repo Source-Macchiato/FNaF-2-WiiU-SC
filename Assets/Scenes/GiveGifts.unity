@@ -326,7 +326,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -550,7 +550,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -621,7 +621,7 @@ RectTransform:
   m_Children:
   - {fileID: 765175298}
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -699,6 +699,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gift: {fileID: 101412379}
   mask: {fileID: 765175297}
+  secondPhase: 0
+  isTriggered: 0
 --- !u!1 &365267798
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +729,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1282,7 +1284,7 @@ RectTransform:
   m_Children:
   - {fileID: 1756188858}
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1360,6 +1362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gift: {fileID: 365267798}
   mask: {fileID: 1756188857}
+  secondPhase: 0
+  isTriggered: 0
 --- !u!1 &724516048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,7 +1708,7 @@ RectTransform:
   m_Children:
   - {fileID: 726204265}
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1782,6 +1786,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gift: {fileID: 1476906529}
   mask: {fileID: 726204264}
+  secondPhase: 0
+  isTriggered: 0
 --- !u!1 &765175297
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,7 +2230,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2498,7 +2504,7 @@ RectTransform:
   m_Children:
   - {fileID: 727290382}
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2576,6 +2582,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gift: {fileID: 316772878}
   mask: {fileID: 727290381}
+  secondPhase: 0
+  isTriggered: 0
 --- !u!1 &1671780848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,6 +2925,7 @@ RectTransform:
   - {fileID: 389878952}
   - {fileID: 1251779428}
   - {fileID: 73637167}
+  - {fileID: 2025778272}
   - {fileID: 323078425}
   - {fileID: 101412380}
   - {fileID: 713023295}
@@ -2925,7 +2934,6 @@ RectTransform:
   - {fileID: 1476906530}
   - {fileID: 1630990833}
   - {fileID: 316772879}
-  - {fileID: 2025778272}
   - {fileID: 675260305}
   - {fileID: 1615293574}
   - {fileID: 724516049}
@@ -2978,33 +2986,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7841c743da9124aab32df36e3e4899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BearSpeed: 1
   player: {fileID: 2025778271}
-  Walls: []
-  Children:
-  - {fileID: 323078424}
-  - {fileID: 713023294}
-  - {fileID: 729252939}
-  - {fileID: 1630990832}
-  Hats:
-  - {fileID: 765175297}
-  - {fileID: 1756188857}
-  - {fileID: 726204264}
-  - {fileID: 727290381}
-  Gifts:
-  - {fileID: 101412379}
-  - {fileID: 365267798}
-  - {fileID: 1476906529}
-  - {fileID: 316772878}
-  Proximity: 1
-  StateImage: {fileID: 0}
   puppetSprites:
   - {fileID: 21300000, guid: 3a165aca7457b744b8c86448f175b6ba, type: 3}
   - {fileID: 21300000, guid: 28a83c41c6a716c46b4e622cb8d9c8de, type: 3}
-  GiveLife: {fileID: 21300000, guid: 9feacdd47bad7c145a9934c26592a829, type: 3}
-  ScoreText: {fileID: 675260307}
+  scoreText: {fileID: 675260307}
+  giveGiftsText: {fileID: 1615293575}
   JumpscareAnimator: {fileID: 1716264772}
   Jumpscare: {fileID: 1036727373}
+  kidGifts:
+  - {fileID: 323078429}
+  - {fileID: 713023299}
+  - {fileID: 729252944}
+  - {fileID: 1630990837}
+  score: 0
 --- !u!1 &1905347994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,7 +3061,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835596819}
-  m_RootOrder: 13
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

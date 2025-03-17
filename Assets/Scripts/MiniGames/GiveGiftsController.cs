@@ -6,25 +6,25 @@ using TMPro;
 
 public class GiveGiftsController : MonoBehaviour
 {
-    public float BearSpeed = 5f;
+    private float playerSpeed = 1f;
     public GameObject player;
-    public float Proximity = 50f;
-    public Image StateImage;
     public Sprite[] puppetSprites;
-    public Sprite GiveLife;
-    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI giveGiftsText;
     public Animator JumpscareAnimator;
     public AudioSource Jumpscare;
+    public KidGift[] kidGifts;
+    private bool secondPhaseStarted = false;
 
     public int score = 0;
 
     // Scripts
-    PlayerMovement bearMovement;
+    PlayerMovement playerMovement;
 
     void Start()
     {
         // Get scripts
-        bearMovement = FindObjectOfType<PlayerMovement>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
 
         UpdateScoreText();
     }
@@ -36,19 +36,19 @@ public class GiveGiftsController : MonoBehaviour
 
     void HandleBearMovement()
     {
-        if (bearMovement.isMoving)
+        if (playerMovement.isMoving)
         {
             Vector3 newPosition = player.transform.position;
 
             // Normalize direction to prevent faster diagonal movement
-            Vector2 direction = bearMovement.playerDirection.normalized;
-            newPosition.x += direction.x * BearSpeed * Time.deltaTime;
-            newPosition.y += direction.y * BearSpeed * Time.deltaTime;
+            Vector2 direction = playerMovement.playerDirection.normalized;
+            newPosition.x += direction.x * playerSpeed * Time.deltaTime;
+            newPosition.y += direction.y * playerSpeed * Time.deltaTime;
 
             player.transform.position = newPosition;
 
             // Use right sprite based on the last horizontal movement direction
-            if (BearSpeed > 0f)
+            if (playerSpeed > 0f)
             {
                 if (direction.x < -0.1f)
                 {
@@ -64,21 +64,32 @@ public class GiveGiftsController : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        ScoreText.text = score.ToString("D4");
+        scoreText.text = score.ToString("D4");
     }
 
-    IEnumerator RestartMinigame()
+    public IEnumerator SecondPhase()
     {
-        yield return new WaitForSeconds(0.7f);
+        if (secondPhaseStarted)
+        {
+            yield break;
+        }
 
-        // Reset the childrenWithHats counter for the next phase
-        StateImage.sprite = GiveLife;
-    }
+        yield return new WaitForSeconds(1f);
 
-    void TriggerAllChildrenHaveHats()
-    {
-        Debug.Log("All children have received hats!");
-        // Additional logic for when all children have hats
+        foreach (KidGift kidGift in kidGifts)
+        {
+            if (kidGift.isTriggered)
+            {
+                yield break;
+            }
+
+            kidGift.gift.SetActive(false);
+            kidGift.secondPhase = true;
+        }
+
+        giveGiftsText.text = "Give Life.";
+
+        secondPhaseStarted = true;
     }
 
     IEnumerator TriggerEndGame()

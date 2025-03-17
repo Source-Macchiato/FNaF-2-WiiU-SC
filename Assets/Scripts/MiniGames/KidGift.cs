@@ -7,6 +7,8 @@ public class KidGift : MonoBehaviour
 
     private bool giftEnabled = false;
     private bool maskEnabled = false;
+    public bool secondPhase = false;
+    public bool isTriggered = false;
 
     private GiveGiftsController giveGiftsController;
 
@@ -22,6 +24,8 @@ public class KidGift : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            isTriggered = true;
+
             if (!giftEnabled)
             {
                 gift.SetActive(true);
@@ -33,7 +37,7 @@ public class KidGift : MonoBehaviour
             }
             else
             {
-                if (!maskEnabled && giveGiftsController.score >= 400)
+                if (!maskEnabled && giveGiftsController.score >= 400 && secondPhase)
                 {
                     mask.SetActive(true);
 
@@ -42,6 +46,19 @@ public class KidGift : MonoBehaviour
 
                     maskEnabled = true;
                 }
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isTriggered = false;
+
+            if (giveGiftsController.score == 400)
+            {
+                StartCoroutine(giveGiftsController.SecondPhase());
             }
         }
     }
