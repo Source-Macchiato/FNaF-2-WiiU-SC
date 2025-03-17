@@ -7,13 +7,22 @@ using TMPro;
 public class GiveGiftsController : MonoBehaviour
 {
     private float playerSpeed = 1f;
+    
     public GameObject player;
+    public GameObject gameContainer;
+    
     public Sprite[] puppetSprites;
+    
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI giveGiftsText;
+    
     public Animator JumpscareAnimator;
+    public Animator linesAnimator;
+
     public AudioSource Jumpscare;
+    
     public KidGift[] kidGifts;
+    
     private bool secondPhaseStarted = false;
 
     public int score = 0;
@@ -92,12 +101,20 @@ public class GiveGiftsController : MonoBehaviour
         secondPhaseStarted = true;
     }
 
-    IEnumerator TriggerEndGame()
+    public IEnumerator EndGame()
     {
-        Debug.Log("Game Over! Final score: " + score);
         Jumpscare.Play();
         JumpscareAnimator.Play("GoldenFreddy");
-        yield return new WaitForSeconds(0.24f);
-        SceneManager.LoadScene("MainMenu");
+
+        yield return new WaitForSeconds(0.6f);
+
+        gameContainer.SetActive(false);
+        Jumpscare.Stop();
+        JumpscareAnimator.gameObject.SetActive(false);
+        linesAnimator.Play("Red");
+
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 }

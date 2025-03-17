@@ -37,12 +37,17 @@ public class KidGift : MonoBehaviour
             }
             else
             {
-                if (!maskEnabled && giveGiftsController.score >= 400 && secondPhase)
+                if (!maskEnabled && secondPhase)
                 {
                     mask.SetActive(true);
 
                     giveGiftsController.score += 100;
                     giveGiftsController.UpdateScoreText();
+
+                    if (giveGiftsController.score == 800)
+                    {
+                        StartCoroutine(giveGiftsController.EndGame());
+                    }
 
                     maskEnabled = true;
                 }
