@@ -22,6 +22,8 @@ public class GiveGiftsController : MonoBehaviour
 
     public AudioSource Jumpscare;
     public AudioSource staticAudio;
+    public AudioSource cakeAudio;
+    public AudioSource effectAudio;
     
     public KidGift[] kidGifts;
     

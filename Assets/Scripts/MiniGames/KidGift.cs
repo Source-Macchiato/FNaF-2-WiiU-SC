@@ -30,6 +30,8 @@ public class KidGift : MonoBehaviour
             {
                 gift.SetActive(true);
 
+                giveGiftsController.cakeAudio.Play();
+
                 giveGiftsController.score += 100;
                 giveGiftsController.UpdateScoreText();
 
@@ -40,6 +42,8 @@ public class KidGift : MonoBehaviour
                 if (!maskEnabled && secondPhase)
                 {
                     mask.SetActive(true);
+
+                    giveGiftsController.effectAudio.Play();
 
                     giveGiftsController.score += 100;
                     giveGiftsController.UpdateScoreText();
