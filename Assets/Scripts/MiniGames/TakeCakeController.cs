@@ -165,19 +165,6 @@ public class TakeCakeController : MonoBehaviour
         }
     }
 
-    // Prevent the bear from passing through walls
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        foreach (GameObject wall in Walls)
-        {
-            if (collision.gameObject == wall)
-            {
-                bearRigidbody.velocity = Vector2.zero;
-                break;
-            }
-        }
-    }
-
     // Updates the bear's speed over time
     void UpdateBearSpeed()
     {
