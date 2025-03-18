@@ -2,17 +2,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class FoxyGoGoGoController : MonoBehaviour
 {
     // Speed at which the player moves
-    private float playerSpeed = 1f;
+    private float playerSpeed = 2f;
 
     // Reference to the bear GameObject
     public GameObject player;
-
-    // Reference to the bear's animator
-    public Animator BearAnimator;
+    private RectTransform playerRect;
+    private Animator playerAnimator;
 
     public Image[] Children;
     public Sprite DeadChild;
@@ -21,35 +21,26 @@ public class FoxyGoGoGoController : MonoBehaviour
     public GameObject[] CollidableObjects;
 
     // Reference to the movable object
-    public GameObject MoveableObject;
+    public RectTransform mapRect;
     public GameObject Fireworks;
     public GameObject PurpleGuy;
 	public Animator JumpscareAnimator;
 	public AudioSource Jumpscare;
 
-    // Amount to move the MoveableObject on the X axis
-    public float MoveBy = 5f;
-
     // X position at which the MoveableObject starts moving
     public float TriggerXPosition = 5f;
 
-    // Image for displaying state
-    public Image StateImage;
-
     // Array of sprites for different states
-    public Sprite[] StateSprites;
+    public TextMeshProUGUI getReadyText;
 
     // Initial positions for reset
-    private Vector3 initialBearPosition;
-    private Vector3 initialMoveableObjectPosition;
+    private Vector3 initialPlayerPosition;
 
     // Movement lock to control when the bear can move
     private bool canMove = false;
 
-    // Flag to check if the trigger has been activated for the current reset
-    private bool triggerActivated = false;
-
     private int resetCount;
+    private int roomId = 0;
 
     // Scripts
     PlayerMovement playerMovement;
@@ -59,9 +50,11 @@ public class FoxyGoGoGoController : MonoBehaviour
         // Get scripts
         playerMovement = FindObjectOfType<PlayerMovement>();
 
+        playerRect = player.GetComponent<RectTransform>();
+        playerAnimator = player.GetComponent<Animator>();
+
         // Store initial positions for reset
-        initialBearPosition = player.transform.localPosition;
-        //initialMoveableObjectPosition = MoveableObject.transform.position;
+        initialPlayerPosition = player.transform.position;
 
         // Start the game with the initial state
         StartCoroutine(InitialState());
@@ -70,11 +63,8 @@ public class FoxyGoGoGoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
-        {
-            HandleBearMovement();
-            CheckBearPosition();
-        }
+        HandleBearMovement();
+        CheckPlayerPosition();
     }
 
     // Coroutine to handle the initial state and resets
@@ -85,9 +75,11 @@ public class FoxyGoGoGoController : MonoBehaviour
         // Wait for 2 seconds
         yield return new WaitForSeconds(2f);
 
-        // Set the state to "Go" and unlock bear movement after 1 second
-        //StateImage.sprite = StateSprites[1];
+        // Set the state to "Go" and unlock bear movement after 2 seconds
+        getReadyText.text = "Go! Go! Go!";
+
         yield return new WaitForSeconds(1f);
+        
         canMove = true;
     }
 
@@ -104,11 +96,8 @@ public class FoxyGoGoGoController : MonoBehaviour
             }
         }
         // Reset bear and movable object positions
-        MoveableObject.transform.position = initialMoveableObjectPosition;
-        player.transform.localPosition = initialBearPosition;
-
-        // Reset the trigger flag
-        triggerActivated = false;
+        mapRect.localPosition = Vector3.zero;
+        player.transform.position = initialPlayerPosition;
 
         // Start the initial state coroutine
         StartCoroutine(InitialState());
@@ -118,7 +107,7 @@ public class FoxyGoGoGoController : MonoBehaviour
     void HandleBearMovement()
     {
         // Play the appropriate animation based on the last horizontal movement direction
-        if (playerMovement.isMoving)
+        if (playerMovement.isMoving && canMove)
         {
             Vector3 newPosition = player.transform.position;
 
@@ -134,49 +123,32 @@ public class FoxyGoGoGoController : MonoBehaviour
             {
                 if (direction.x < -0.1f)
                 {
-                    BearAnimator.Play("BearLeft");
+                    playerAnimator.Play("BearLeft");
                 }
                 else if (direction.x > 0.1f)
                 {
-                    BearAnimator.Play("BearRight");
+                    playerAnimator.Play("BearRight");
                 }
             }
         }
     }
 
-    // Checks if the bear's new position would collide with any collidable objects within a 50-pixel range
-    bool IsCollidingWithObjects(Vector3 newPosition)
-    {
-        float pixelToUnit = 1f / 100f; // Assuming 100 pixels per unit
-        Vector3 collisionAreaMin = newPosition - new Vector3(50f * pixelToUnit, 50f * pixelToUnit, 0f);
-        Vector3 collisionAreaMax = newPosition + new Vector3(50f * pixelToUnit, 50f * pixelToUnit, 0f);
-
-        foreach (GameObject obj in CollidableObjects)
-        {
-            Bounds objBounds = obj.GetComponent<Collider2D>().bounds;
-            if (objBounds.min.x < collisionAreaMax.x && objBounds.max.x > collisionAreaMin.x &&
-                objBounds.min.y < collisionAreaMax.y && objBounds.max.y > collisionAreaMin.y)
-            {
-                return true; // Collision detected
-            }
-        }
-        return false; // No collision
-    }
-
     // Checks the bear's position to trigger actions based on its X position
-    void CheckBearPosition()
+    void CheckPlayerPosition()
     {
         // Only activate the trigger if it hasn't been activated for this reset
-        if (!triggerActivated && player.transform.position.x > TriggerXPosition)
+        if (roomId == 0 && playerRect.localPosition.x >= 458f)
         {
             // Move the movable object by the specified amount on the X axis
-            MoveableObject.transform.position += new Vector3(MoveBy, 0f, 0f);
+            mapRect.localPosition = new Vector3(-858f, 0f, 0f);
+
+            Vector3 newPlayerPosition = playerRect.localPosition;
+            newPlayerPosition.x -= 858f;
+            playerRect.localPosition = newPlayerPosition;
 
             // Set StateImage sprite to "Hurray"
-            StateImage.sprite = StateSprites[2];
+            getReadyText.text = "Hurray!";
 
-            // Mark the trigger as activated to prevent reactivation
-            triggerActivated = true;
             StartCoroutine(Firework());
         }
     }
@@ -184,11 +156,14 @@ public class FoxyGoGoGoController : MonoBehaviour
     IEnumerator Firework()
     {
         yield return new WaitForSeconds(0.8f);
+
         if (resetCount != 2)
         {
             Fireworks.SetActive(true);
         }
+
         yield return new WaitForSeconds(2.2f);
+        
         if (resetCount != 2)
         {
             ResetGame();
