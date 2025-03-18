@@ -35,3 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TakeCake.unity
     guid: 871045bba41c0fa47bde4fa7ea97418a
+  - enabled: 1
+    path: Assets/Scenes/GiveGifts.unity
+    guid: 2a8d97dca6883ef4183f3d9c3f551aff

@@ -3,13 +3,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Minigame3Controller : MonoBehaviour
+public class FoxyGoGoGoController : MonoBehaviour
 {
-    // Speed at which the bear moves
-    public float BearSpeed = 5f;
+    // Speed at which the player moves
+    private float playerSpeed = 1f;
 
     // Reference to the bear GameObject
-    public GameObject Bear;
+    public GameObject player;
 
     // Reference to the bear's animator
     public Animator BearAnimator;
@@ -52,16 +52,16 @@ public class Minigame3Controller : MonoBehaviour
     private int resetCount;
 
     // Scripts
-    PlayerMovement bearMovement;
+    PlayerMovement playerMovement;
 
     void Start()
     {
         // Get scripts
-        bearMovement = FindObjectOfType<PlayerMovement>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
 
         // Store initial positions for reset
-        initialBearPosition = Bear.transform.localPosition; // Use localPosition because Bear is a child of MoveableObject
-        initialMoveableObjectPosition = MoveableObject.transform.position;
+        initialBearPosition = player.transform.localPosition;
+        //initialMoveableObjectPosition = MoveableObject.transform.position;
 
         // Start the game with the initial state
         StartCoroutine(InitialState());
@@ -80,15 +80,13 @@ public class Minigame3Controller : MonoBehaviour
     // Coroutine to handle the initial state and resets
     IEnumerator InitialState()
     {
-        // Set the state to "Wait" and lock bear movement
-        StateImage.sprite = StateSprites[0];
         canMove = false;
 
         // Wait for 2 seconds
         yield return new WaitForSeconds(2f);
 
         // Set the state to "Go" and unlock bear movement after 1 second
-        StateImage.sprite = StateSprites[1];
+        //StateImage.sprite = StateSprites[1];
         yield return new WaitForSeconds(1f);
         canMove = true;
     }
@@ -107,7 +105,7 @@ public class Minigame3Controller : MonoBehaviour
         }
         // Reset bear and movable object positions
         MoveableObject.transform.position = initialMoveableObjectPosition;
-        Bear.transform.localPosition = initialBearPosition;
+        player.transform.localPosition = initialBearPosition;
 
         // Reset the trigger flag
         triggerActivated = false;
@@ -120,41 +118,28 @@ public class Minigame3Controller : MonoBehaviour
     void HandleBearMovement()
     {
         // Play the appropriate animation based on the last horizontal movement direction
-        if (bearMovement.isMoving)
+        if (playerMovement.isMoving)
         {
-            Vector3 newPosition = Bear.transform.position;
+            Vector3 newPosition = player.transform.position;
 
-            if (bearMovement.playerDirection == Vector2.up)
-            {
-                newPosition.y += BearSpeed * Time.deltaTime;
-            }
-            else if (bearMovement.playerDirection == Vector2.left)
-            {
-                newPosition.x -= BearSpeed * Time.deltaTime;
-            }
-            else if (bearMovement.playerDirection == Vector2.down)
-            {
-                newPosition.y -= BearSpeed * Time.deltaTime;
-            }
-            else if (bearMovement.playerDirection == Vector2.right)
-            {
-                newPosition.x += BearSpeed * Time.deltaTime;
-            }
+            // Normalize direction to prevent faster diagonal movement
+            Vector2 direction = playerMovement.playerDirection.normalized;
+            newPosition.x += direction.x * playerSpeed * Time.deltaTime;
+            newPosition.y += direction.y * playerSpeed * Time.deltaTime;
 
-            // Check for collisions with collidable objects within a 50-pixel range
-            if (!IsCollidingWithObjects(newPosition))
-            {
-                // Update the bear's position if no collision detected
-                Bear.transform.position = newPosition;
-            }
+            player.transform.position = newPosition;
 
-            if (bearMovement.playerDirection == Vector2.right)
+            // Play the appropriate animation based on the last horizontal movement direction
+            if (playerSpeed > 0f)
             {
-                BearAnimator.Play("BearRight");
-            }
-            else
-            {
-                BearAnimator.Play("BearLeft");
+                if (direction.x < -0.1f)
+                {
+                    BearAnimator.Play("BearLeft");
+                }
+                else if (direction.x > 0.1f)
+                {
+                    BearAnimator.Play("BearRight");
+                }
             }
         }
     }
@@ -182,7 +167,7 @@ public class Minigame3Controller : MonoBehaviour
     void CheckBearPosition()
     {
         // Only activate the trigger if it hasn't been activated for this reset
-        if (!triggerActivated && Bear.transform.position.x > TriggerXPosition)
+        if (!triggerActivated && player.transform.position.x > TriggerXPosition)
         {
             // Move the movable object by the specified amount on the X axis
             MoveableObject.transform.position += new Vector3(MoveBy, 0f, 0f);
