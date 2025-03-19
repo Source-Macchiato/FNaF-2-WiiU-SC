@@ -71,6 +71,9 @@ public class FoxyGoGoGoController : MonoBehaviour
     {
         canMove = false;
         roomId = 0;
+        reachedEventPosition = false;
+
+        getReadyText.text = "Get Ready!";
 
         if (phaseId == 2)
         {
@@ -201,8 +204,6 @@ public class FoxyGoGoGoController : MonoBehaviour
 
         // Start the initial state coroutine
         StartCoroutine(InitialState());
-
-        reachedEventPosition = false;
     }
 
     IEnumerator EndSequence()
