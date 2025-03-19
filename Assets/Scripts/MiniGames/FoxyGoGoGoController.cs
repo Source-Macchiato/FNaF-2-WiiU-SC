@@ -103,13 +103,13 @@ public class FoxyGoGoGoController : MonoBehaviour
 
     IEnumerator GoGoGoAnimation()
     {
-        while (roomId != 1 || playerRect.localPosition.x <= -230f)
+        while (phaseId == 2 || (roomId != 1 || playerRect.localPosition.x <= -230f))
         {
             getReadyText.text = "Go! Go! Go!";
 
             yield return new WaitForSeconds(0.1f);
 
-            if (roomId == 1 && playerRect.localPosition.x > -230f)
+            if (phaseId != 2 && roomId == 1 && playerRect.localPosition.x > -230f)
             {
                 yield break;
             }
