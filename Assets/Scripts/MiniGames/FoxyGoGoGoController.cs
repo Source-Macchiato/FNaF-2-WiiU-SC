@@ -146,10 +146,22 @@ public class FoxyGoGoGoController : MonoBehaviour
             newPlayerPosition.x -= 858f;
             playerRect.localPosition = newPlayerPosition;
 
-            // Set StateImage sprite to "Hurray"
-            getReadyText.text = "Hurray!";
+            roomId = 1;
 
-            StartCoroutine(Firework());
+            // Set StateImage sprite to "Hurray"
+            //getReadyText.text = "Hurray!";
+
+            //StartCoroutine(Firework());
+        }
+        else if (roomId == 1 && playerRect.localPosition.x <= -403f)
+        {
+            mapRect.localPosition = Vector3.zero;
+
+            Vector3 newPlayerPosition = playerRect.localPosition;
+            newPlayerPosition.x += 858f;
+            playerRect.localPosition = newPlayerPosition;
+
+            roomId = 0;
         }
     }
 
