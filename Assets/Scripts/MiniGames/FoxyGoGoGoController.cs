@@ -70,7 +70,7 @@ public class FoxyGoGoGoController : MonoBehaviour
     IEnumerator InitialState()
     {
         canMove = false;
-        
+        roomId = 0;
 
         if (phaseId == 2)
         {
