@@ -3042,6 +3042,7 @@ MonoBehaviour:
   mapRect: {fileID: 1952935}
   fireworksContainer: {fileID: 1443395657}
   purpleGuy: {fileID: 1070790530}
+  arrow: {fileID: 749778288}
   JumpscareAnimator: {fileID: 2071438471}
   Jumpscare: {fileID: 1036727373}
   getReadyText: {fileID: 633973898}

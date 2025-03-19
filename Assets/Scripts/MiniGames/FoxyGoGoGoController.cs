@@ -24,8 +24,9 @@ public class FoxyGoGoGoController : MonoBehaviour
     public RectTransform mapRect;
     public GameObject fireworksContainer;
     public GameObject purpleGuy;
-	public Animator JumpscareAnimator;
-	public AudioSource Jumpscare;
+    public GameObject arrow;
+    public Animator JumpscareAnimator;
+    public AudioSource Jumpscare;
 
     // Array of sprites for different states
     public TextMeshProUGUI getReadyText;
@@ -58,6 +59,7 @@ public class FoxyGoGoGoController : MonoBehaviour
         // Elements to deactivate when scene starts
         purpleGuy.SetActive(false);
         fireworksContainer.SetActive(false);
+        arrow.SetActive(false);
 
         // Start the game with the initial state
         StartCoroutine(InitialState());
@@ -78,6 +80,8 @@ public class FoxyGoGoGoController : MonoBehaviour
 
         getReadyText.text = "Get Ready!";
 
+        arrow.SetActive(false);
+
         if (phaseId == 2)
         {
             purpleGuy.SetActive(true);
@@ -91,6 +95,8 @@ public class FoxyGoGoGoController : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         StartCoroutine(GoGoGoAnimation());
+
+        arrow.SetActive(true);
         
         canMove = true;
     }
