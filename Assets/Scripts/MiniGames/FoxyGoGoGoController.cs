@@ -38,7 +38,7 @@ public class FoxyGoGoGoController : MonoBehaviour
     private bool reachedEventPosition = false;
 
     private int roomId = 0;
-    public int phaseId = 0;
+    private int phaseId = 0;
 
     // Scripts
     PlayerMovement playerMovement;
