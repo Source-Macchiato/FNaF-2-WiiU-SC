@@ -23,12 +23,9 @@ public class FoxyGoGoGoController : MonoBehaviour
     // Reference to the movable object
     public RectTransform mapRect;
     public GameObject Fireworks;
-    public GameObject PurpleGuy;
+    public GameObject purpleGuy;
 	public Animator JumpscareAnimator;
 	public AudioSource Jumpscare;
-
-    // X position at which the MoveableObject starts moving
-    public float TriggerXPosition = 5f;
 
     // Array of sprites for different states
     public TextMeshProUGUI getReadyText;
@@ -38,9 +35,10 @@ public class FoxyGoGoGoController : MonoBehaviour
 
     // Movement lock to control when the bear can move
     private bool canMove = false;
+    private bool reachedEventPosition = false;
 
     private int roomId = 0;
-    private int phaseId = 0;
+    public int phaseId = 0;
 
     // Scripts
     PlayerMovement playerMovement;
@@ -56,6 +54,8 @@ public class FoxyGoGoGoController : MonoBehaviour
         // Store initial positions for reset
         initialPlayerPosition = player.transform.position;
 
+        purpleGuy.SetActive(false);
+
         // Start the game with the initial state
         StartCoroutine(InitialState());
     }
@@ -63,22 +63,28 @@ public class FoxyGoGoGoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleBearMovement();
+        HandlePlayerMovement();
         PlayerPositionAndRoomBasedEvents();
     }
 
-    // Coroutine to handle the initial state and resets
     IEnumerator InitialState()
     {
         canMove = false;
+        
 
-        // Wait for 2 seconds
-        yield return new WaitForSeconds(2f);
+        if (phaseId == 2)
+        {
+            purpleGuy.SetActive(true);
 
-        // Set the state to "Go" and unlock bear movement after 2 seconds
+            foreach (Image child in Children)
+            {
+                child.sprite = DeadChild;
+            }
+        }
+
+        yield return new WaitForSeconds(5f);
+
         StartCoroutine(GoGoGoAnimation());
-
-        yield return new WaitForSeconds(1f);
         
         canMove = true;
     }
@@ -102,28 +108,7 @@ public class FoxyGoGoGoController : MonoBehaviour
         }
     }
 
-    // Resets the game state
-    public void ResetGame()
-    {
-        phaseId++;
-        if (phaseId == 2)
-        {
-            PurpleGuy.SetActive(true);
-            foreach (Image child in Children)
-            {
-                child.sprite = DeadChild;
-            }
-        }
-        // Reset bear and movable object positions
-        mapRect.localPosition = Vector3.zero;
-        player.transform.position = initialPlayerPosition;
-
-        // Start the initial state coroutine
-        StartCoroutine(InitialState());
-    }
-
-    // Handles the bear's movement
-    void HandleBearMovement()
+    void HandlePlayerMovement()
     {
         // Play the appropriate animation based on the last horizontal movement direction
         if (playerMovement.isMoving && canMove)
@@ -180,29 +165,44 @@ public class FoxyGoGoGoController : MonoBehaviour
         }
         else if (roomId == 1 && playerRect.localPosition.x > -230f)
         {
-            getReadyText.text = "Hurray!";
+            if (!reachedEventPosition)
+            {
+                reachedEventPosition = true;
 
-            if (phaseId != 2)
-            {
-                StartCoroutine(Firework());
-            }
-            else
-            {
-                StartCoroutine(EndSequence());
+                getReadyText.text = "Hurray!";
+
+                if (phaseId != 2)
+                {
+                    StartCoroutine(Firework());
+                }
+                else
+                {
+                    StartCoroutine(EndSequence());
+                }
             }
         }
     }
 
     IEnumerator Firework()
     {
+        canMove = false;
+
         yield return new WaitForSeconds(0.8f);
 
         Fireworks.SetActive(true);
 
         yield return new WaitForSeconds(2.2f);
 
-        ResetGame();
-        Fireworks.SetActive(false);
+        phaseId++;
+
+        // Reset map and player position
+        mapRect.localPosition = Vector3.zero;
+        player.transform.position = initialPlayerPosition;
+
+        // Start the initial state coroutine
+        StartCoroutine(InitialState());
+
+        reachedEventPosition = false;
     }
 
     IEnumerator EndSequence()

@@ -51,10 +51,10 @@ public class GiveGiftsController : MonoBehaviour
 
     void Update()
     {
-        HandleBearMovement();
+        HandlePlayerMovement();
     }
 
-    void HandleBearMovement()
+    void HandlePlayerMovement()
     {
         if (playerMovement.isMoving)
         {

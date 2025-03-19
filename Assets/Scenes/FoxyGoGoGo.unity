@@ -2938,11 +2938,11 @@ MonoBehaviour:
   - {fileID: 952928129}
   mapRect: {fileID: 1952935}
   Fireworks: {fileID: 1443395657}
-  PurpleGuy: {fileID: 1070790530}
+  purpleGuy: {fileID: 1070790530}
   JumpscareAnimator: {fileID: 2071438471}
   Jumpscare: {fileID: 1036727373}
-  TriggerXPosition: 700
   getReadyText: {fileID: 633973898}
+  phaseId: 0
 --- !u!1 &2015106653
 GameObject:
   m_ObjectHideFlags: 0
