@@ -36,6 +36,7 @@ public class FoxyGoGoGoController : MonoBehaviour
     // Movement lock to control when the bear can move
     private bool canMove = false;
     private bool reachedEventPosition = false;
+    private bool reducedPlayerSpeed = false;
 
     private int roomId = 0;
     private int phaseId = 0;
@@ -144,6 +145,7 @@ public class FoxyGoGoGoController : MonoBehaviour
 
     void PlayerPositionAndRoomBasedEvents()
     {
+        // Switch between rooms
         if (roomId == 0 && playerRect.localPosition.x >= 458f)
         {
             // Move map
@@ -168,7 +170,8 @@ public class FoxyGoGoGoController : MonoBehaviour
 
             roomId = 0;
         }
-        else if (roomId == 1 && playerRect.localPosition.x > -230f)
+        
+        if (roomId == 1 && playerRect.localPosition.x > -230f)
         {
             if (!reachedEventPosition)
             {
@@ -184,6 +187,16 @@ public class FoxyGoGoGoController : MonoBehaviour
                 {
                     StartCoroutine(EndSequence());
                 }
+            }
+        }
+
+        if (roomId == 1 && phaseId == 2)
+        {
+            if (!reducedPlayerSpeed)
+            {
+                playerSpeed /= playerSpeed;
+
+                reducedPlayerSpeed = true;
             }
         }
     }
@@ -211,6 +224,8 @@ public class FoxyGoGoGoController : MonoBehaviour
 
     IEnumerator EndSequence()
     {
+        yield return new WaitForSeconds(5f);
+
         Jumpscare.Play();
         JumpscareAnimator.Play("WitheredFoxy");
 
