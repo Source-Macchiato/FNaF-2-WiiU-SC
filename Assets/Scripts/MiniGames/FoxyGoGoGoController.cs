@@ -171,7 +171,7 @@ public class FoxyGoGoGoController : MonoBehaviour
             roomId = 0;
         }
         
-        if (roomId == 1 && playerRect.localPosition.x > -230f)
+        if (roomId == 1 && playerRect.localPosition.x > -230f && phaseId != 2)
         {
             if (!reachedEventPosition)
             {
@@ -179,14 +179,16 @@ public class FoxyGoGoGoController : MonoBehaviour
 
                 getReadyText.text = "Hurray!";
 
-                if (phaseId != 2)
-                {
-                    StartCoroutine(Firework());
-                }
-                else
-                {
-                    StartCoroutine(EndSequence());
-                }
+                StartCoroutine(Firework());
+            }
+        }
+        else if (roomId == 1 && playerRect.localPosition.x > -113f && phaseId == 2)
+        {
+            if (!reachedEventPosition)
+            {
+                reachedEventPosition = true;
+
+                StartCoroutine(EndSequence());
             }
         }
 
@@ -224,8 +226,6 @@ public class FoxyGoGoGoController : MonoBehaviour
 
     IEnumerator EndSequence()
     {
-        yield return new WaitForSeconds(5f);
-
         Jumpscare.Play();
         JumpscareAnimator.Play("WitheredFoxy");
 
