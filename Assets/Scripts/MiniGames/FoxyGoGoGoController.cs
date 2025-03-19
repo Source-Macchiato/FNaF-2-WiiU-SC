@@ -22,7 +22,7 @@ public class FoxyGoGoGoController : MonoBehaviour
 
     // Reference to the movable object
     public RectTransform mapRect;
-    public GameObject Fireworks;
+    public GameObject fireworksContainer;
     public GameObject purpleGuy;
 	public Animator JumpscareAnimator;
 	public AudioSource Jumpscare;
@@ -54,7 +54,9 @@ public class FoxyGoGoGoController : MonoBehaviour
         // Store initial positions for reset
         initialPlayerPosition = player.transform.position;
 
+        // Elements to deactivate when scene starts
         purpleGuy.SetActive(false);
+        fireworksContainer.SetActive(false);
 
         // Start the game with the initial state
         StartCoroutine(InitialState());
@@ -192,9 +194,11 @@ public class FoxyGoGoGoController : MonoBehaviour
 
         yield return new WaitForSeconds(0.8f);
 
-        Fireworks.SetActive(true);
+        fireworksContainer.SetActive(true);
 
         yield return new WaitForSeconds(2.2f);
+
+        fireworksContainer.SetActive(false);
 
         phaseId++;
 
@@ -202,7 +206,6 @@ public class FoxyGoGoGoController : MonoBehaviour
         mapRect.localPosition = Vector3.zero;
         player.transform.position = initialPlayerPosition;
 
-        // Start the initial state coroutine
         StartCoroutine(InitialState());
     }
 
