@@ -39,8 +39,8 @@ public class FoxyGoGoGoController : MonoBehaviour
     // Movement lock to control when the bear can move
     private bool canMove = false;
 
-    private int resetCount;
     private int roomId = 0;
+    private int phaseId = 0;
 
     // Scripts
     PlayerMovement playerMovement;
@@ -64,7 +64,7 @@ public class FoxyGoGoGoController : MonoBehaviour
     void Update()
     {
         HandleBearMovement();
-        CheckPlayerPosition();
+        PlayerPositionAndRoomBasedEvents();
     }
 
     // Coroutine to handle the initial state and resets
@@ -76,18 +76,37 @@ public class FoxyGoGoGoController : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Set the state to "Go" and unlock bear movement after 2 seconds
-        getReadyText.text = "Go! Go! Go!";
+        StartCoroutine(GoGoGoAnimation());
 
         yield return new WaitForSeconds(1f);
         
         canMove = true;
     }
 
+    IEnumerator GoGoGoAnimation()
+    {
+        while (roomId != 1 || playerRect.localPosition.x <= -230f)
+        {
+            getReadyText.text = "Go! Go! Go!";
+
+            yield return new WaitForSeconds(0.1f);
+
+            if (roomId == 1 && playerRect.localPosition.x > -230f)
+            {
+                yield break;
+            }
+
+            getReadyText.text = string.Empty;
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
     // Resets the game state
     public void ResetGame()
     {
-        resetCount++;
-        if (resetCount == 2)
+        phaseId++;
+        if (phaseId == 2)
         {
             PurpleGuy.SetActive(true);
             foreach (Image child in Children)
@@ -133,35 +152,44 @@ public class FoxyGoGoGoController : MonoBehaviour
         }
     }
 
-    // Checks the bear's position to trigger actions based on its X position
-    void CheckPlayerPosition()
+    void PlayerPositionAndRoomBasedEvents()
     {
-        // Only activate the trigger if it hasn't been activated for this reset
         if (roomId == 0 && playerRect.localPosition.x >= 458f)
         {
-            // Move the movable object by the specified amount on the X axis
+            // Move map
             mapRect.localPosition = new Vector3(-858f, 0f, 0f);
 
+            // Move player position
             Vector3 newPlayerPosition = playerRect.localPosition;
             newPlayerPosition.x -= 858f;
-            playerRect.localPosition = newPlayerPosition;
+            playerRect.localPosition = newPlayerPosition;            
 
             roomId = 1;
-
-            // Set StateImage sprite to "Hurray"
-            //getReadyText.text = "Hurray!";
-
-            //StartCoroutine(Firework());
         }
         else if (roomId == 1 && playerRect.localPosition.x <= -403f)
         {
+            // Move map
             mapRect.localPosition = Vector3.zero;
 
+            // move player position
             Vector3 newPlayerPosition = playerRect.localPosition;
             newPlayerPosition.x += 858f;
             playerRect.localPosition = newPlayerPosition;
 
             roomId = 0;
+        }
+        else if (roomId == 1 && playerRect.localPosition.x > -230f)
+        {
+            getReadyText.text = "Hurray!";
+
+            if (phaseId != 2)
+            {
+                StartCoroutine(Firework());
+            }
+            else
+            {
+                StartCoroutine(EndSequence());
+            }
         }
     }
 
@@ -169,24 +197,21 @@ public class FoxyGoGoGoController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.8f);
 
-        if (resetCount != 2)
-        {
-            Fireworks.SetActive(true);
-        }
+        Fireworks.SetActive(true);
 
         yield return new WaitForSeconds(2.2f);
-        
-        if (resetCount != 2)
-        {
-            ResetGame();
-            Fireworks.SetActive(false);
-        }
-		else
-		{
-			JumpscareAnimator.Play("WitheredFoxy");
-			Jumpscare.Play();
-			yield return new WaitForSeconds(0.24f);
-			SceneManager.LoadScene("MainMenu");
-		}
+
+        ResetGame();
+        Fireworks.SetActive(false);
+    }
+
+    IEnumerator EndSequence()
+    {
+        Jumpscare.Play();
+        JumpscareAnimator.Play("WitheredFoxy");
+
+        yield return new WaitForSeconds(0.6f);
+
+        SceneManager.LoadScene("MainMenu");
     }
 }
