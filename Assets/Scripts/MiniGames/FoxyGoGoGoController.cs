@@ -7,7 +7,7 @@ using TMPro;
 public class FoxyGoGoGoController : MonoBehaviour
 {
     // Speed at which the player moves
-    private float playerSpeed = 2f;
+    private float playerSpeed = 2.5f;
 
     // Reference to the bear GameObject
     public GameObject player;
