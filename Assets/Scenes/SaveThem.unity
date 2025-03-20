@@ -886,7 +886,7 @@ GameObject:
   - component: {fileID: 724516051}
   - component: {fileID: 724516050}
   m_Layer: 5
-  m_Name: BG
+  m_Name: Backdrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -905,10 +905,10 @@ RectTransform:
   m_Father: {fileID: 1835596819}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 240}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724516050
 MonoBehaviour:
@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 762465027}
   - component: {fileID: 762465026}
   m_Layer: 5
-  m_Name: GreyGround (1)
+  m_Name: GreyGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1303,7 +1303,7 @@ GameObject:
   - component: {fileID: 834793884}
   - component: {fileID: 834793886}
   m_Layer: 5
-  m_Name: Bear
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1317,7 +1317,7 @@ RectTransform:
   m_GameObject: {fileID: 834793882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.78349715, y: 0.7834971, z: 0.7834971}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 273696925}
   m_RootOrder: 2
@@ -1325,7 +1325,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 136, y: -69}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834793884
 MonoBehaviour:
@@ -2376,7 +2376,7 @@ GameObject:
   - component: {fileID: 1296709788}
   - component: {fileID: 1296709787}
   m_Layer: 5
-  m_Name: RedGround (2)
+  m_Name: RedGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2444,7 +2444,7 @@ GameObject:
   - component: {fileID: 1326481153}
   - component: {fileID: 1326481152}
   m_Layer: 5
-  m_Name: GreyGround (2)
+  m_Name: GreyGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2512,7 +2512,7 @@ GameObject:
   - component: {fileID: 1334973753}
   - component: {fileID: 1334973752}
   m_Layer: 5
-  m_Name: GreyGround (3)
+  m_Name: GreyGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2867,7 +2867,7 @@ GameObject:
   - component: {fileID: 1495400936}
   - component: {fileID: 1495400937}
   m_Layer: 0
-  m_Name: Minigame2Controller
+  m_Name: SaveThemController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2897,8 +2897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df94ab5a5c93a1e4fa88347518e2434e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BearSpeed: 30
-  Bear: {fileID: 834793882}
+  player: {fileID: 834793882}
   BearAnimator: {fileID: 834793886}
   CollidableParent: {fileID: 1473876635}
   MoveableObject: {fileID: 273696924}
@@ -3553,7 +3552,7 @@ GameObject:
   - component: {fileID: 1953985697}
   - component: {fileID: 1953985696}
   m_Layer: 5
-  m_Name: RedGround (1)
+  m_Name: RedGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3620,7 +3619,7 @@ GameObject:
   - component: {fileID: 2001640701}
   - component: {fileID: 2001640702}
   m_Layer: 0
-  m_Name: BearMovement
+  m_Name: PlayerMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

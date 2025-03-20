@@ -158,16 +158,13 @@ public class TakeCakeController : MonoBehaviour
             Bear.transform.position = newPosition;
 
             // Play the appropriate animation based on the last horizontal movement direction
-            if (BearSpeed > 0f)
+            if (direction.x < -0.1f)
             {
-                if (direction.x < -0.1f)
-                {
-                    BearAnimator.Play("BearLeft");
-                }
-                else if (direction.x > 0.1f)
-                {
-                    BearAnimator.Play("BearRight");
-                }
+                BearAnimator.Play("BearLeft");
+            }
+            else if (direction.x > 0.1f)
+            {
+                BearAnimator.Play("BearRight");
             }
         }
     }

@@ -2,13 +2,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Minigame2Controller : MonoBehaviour
+public class SaveThemController : MonoBehaviour
 {
     // Speed at which the bear moves
-    public float BearSpeed = 5f;
+    private float playerSpeed = 1f;
 
-    // Reference to the bear GameObject
-    public GameObject Bear;
+    public GameObject player;
 
     // Reference to the bear's animator
     public Animator BearAnimator;
@@ -52,7 +51,7 @@ public class Minigame2Controller : MonoBehaviour
         bearMovement = FindObjectOfType<PlayerMovement>();
 
         // Initialize playerTransform to the Bear's transform
-        playerTransform = Bear.transform;
+        playerTransform = player.transform;
 
         // Start the audio loop coroutine
         StartCoroutine(PlayLetterSounds());
@@ -75,64 +74,32 @@ public class Minigame2Controller : MonoBehaviour
     {
         if (bearMovement.isMoving)
         {
-            Vector3 newPosition = Bear.transform.position;
+            Vector3 newPosition = player.transform.position;
 
-            // Check if player is moving
-            if (bearMovement.playerDirection == Vector2.up)
+            // Normalize direction to prevent faster diagonal movement
+            Vector2 direction = bearMovement.playerDirection.normalized;
+            newPosition.x += direction.x * playerSpeed * Time.deltaTime;
+            newPosition.y += direction.y * playerSpeed * Time.deltaTime;
+
+            player.transform.position = newPosition;
+
+            if (direction.x < -0.1f)
             {
-                newPosition.y += BearSpeed * Time.deltaTime;
-
-                BearAnimator.Play("BearUp");
-            }
-            else if (bearMovement.playerDirection == Vector2.left)
-            {
-                newPosition.x -= BearSpeed * Time.deltaTime;
-
                 BearAnimator.Play("BearLeft");
             }
-            else if (bearMovement.playerDirection == Vector2.down)
+            else if (direction.x > 0.1f)
             {
-                newPosition.y -= BearSpeed * Time.deltaTime;
-
-                BearAnimator.Play("BearDown");
-            }
-            else if (bearMovement.playerDirection == Vector2.right)
-            {
-                newPosition.x += BearSpeed * Time.deltaTime;
-
                 BearAnimator.Play("BearRight");
             }
-
-            // Check for collisions with children of the collidable parent object
-            if (!IsCollidingWithChildren(newPosition))
+            else if (direction.y < -0.1f)
             {
-                // Update the bear's position if no collision detected
-                Bear.transform.position = newPosition;
+                BearAnimator.Play("BearDown");
+            }
+            else if (direction.y > 0.1f)
+            {
+                BearAnimator.Play("BearUp");
             }
         }
-    }
-
-    // Checks if the bear's new position would collide with any children of the collidable parent object within a 50-pixel range
-    bool IsCollidingWithChildren(Vector3 newPosition)
-    {
-        float pixelToUnit = 1f / 100f; // Assuming 100 pixels per unit
-        Vector3 collisionAreaMin = newPosition - new Vector3(50f * pixelToUnit, 50f * pixelToUnit, 0f);
-        Vector3 collisionAreaMax = newPosition + new Vector3(50f * pixelToUnit, 50f * pixelToUnit, 0f);
-
-        foreach (Transform child in CollidableParent.transform)
-        {
-            Collider2D childCollider = child.GetComponent<Collider2D>();
-            if (childCollider != null)
-            {
-                Bounds childBounds = childCollider.bounds;
-                if (childBounds.min.x < collisionAreaMax.x && childBounds.max.x > collisionAreaMin.x &&
-                    childBounds.min.y < collisionAreaMax.y && childBounds.max.y > collisionAreaMin.y)
-                {
-                    return true; // Collision detected
-                }
-            }
-        }
-        return false; // No collision
     }
 
     // Handles room transitions based on the bear's position and the current direction in the sequence
@@ -142,25 +109,25 @@ public class Minigame2Controller : MonoBehaviour
         {
             string direction = DirectionSequence[currentDirectionIndex];
 
-            if (direction == "Up" && bearMovement.playerDirection == Vector2.up && Bear.transform.position.y >= 240f)
+            if (direction == "Up" && bearMovement.playerDirection == Vector2.up && player.transform.position.y >= 240f)
             {
                 MoveableObject.transform.position -= new Vector3(0f, 240f, 0f);
                 currentDirectionIndex++;
                 TransitionEvent();
             }
-            else if (direction == "Left" && bearMovement.playerDirection == Vector2.left && Bear.transform.position.x <= 0f)
+            else if (direction == "Left" && bearMovement.playerDirection == Vector2.left && player.transform.position.x <= 0f)
             {
                 MoveableObject.transform.position += new Vector3(400f, 0f, 0f);
                 currentDirectionIndex++;
                 TransitionEvent();
             }
-            else if (direction == "Down" && bearMovement.playerDirection == Vector2.down && Bear.transform.position.y <= 0f)
+            else if (direction == "Down" && bearMovement.playerDirection == Vector2.down && player.transform.position.y <= 0f)
             {
                 MoveableObject.transform.position += new Vector3(0f, 240f, 0f);
                 currentDirectionIndex++;
                 TransitionEvent();
             }
-            else if (direction == "Right" && bearMovement.playerDirection == Vector2.right && Bear.transform.position.x >= 400f)
+            else if (direction == "Right" && bearMovement.playerDirection == Vector2.right && player.transform.position.x >= 400f)
             {
                 MoveableObject.transform.position -= new Vector3(400f, 0f, 0f);
                 currentDirectionIndex++;
@@ -211,7 +178,7 @@ public class Minigame2Controller : MonoBehaviour
         {
             // Move PurpleGuy towards the player
             Vector3 direction = (playerTransform.position - PurpleGuy.transform.position).normalized;
-            PurpleGuy.transform.position += direction * BearSpeed * PurpleGuySpeedMultiplier * Time.deltaTime;
+            PurpleGuy.transform.position += direction * playerSpeed * PurpleGuySpeedMultiplier * Time.deltaTime;
 
             // Check if PurpleGuy is within range to load a new scene
             if (Vector3.Distance(PurpleGuy.transform.position, playerTransform.position) <= PurpleGuyChaseRange)
