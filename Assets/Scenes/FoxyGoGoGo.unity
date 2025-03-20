@@ -3839,6 +3839,7 @@ MonoBehaviour:
   linesAnimator: {fileID: 1167581604}
   Jumpscare: {fileID: 1036727373}
   staticAudio: {fileID: 724564334}
+  popAudio: {fileID: 1591315837}
   getReadyText: {fileID: 633973898}
 --- !u!1 &2015106653
 GameObject:

@@ -31,6 +31,7 @@ public class FoxyGoGoGoController : MonoBehaviour
 
     public AudioSource Jumpscare;
     public AudioSource staticAudio;
+    public AudioSource popAudio;
 
     public TextMeshProUGUI getReadyText;
 
@@ -222,7 +223,7 @@ public class FoxyGoGoGoController : MonoBehaviour
 
         StartCoroutine(Fireworks());
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
 
         fireworksContainer.SetActive(false);
 
@@ -266,13 +267,15 @@ public class FoxyGoGoGoController : MonoBehaviour
         }
 
         // Display fireworks
-        while (index > fireworks.Length)
+        while (index < fireworks.Length)
         {
             fireworks[index].SetActive(true);
 
+            popAudio.Play();
+
             index++;
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
