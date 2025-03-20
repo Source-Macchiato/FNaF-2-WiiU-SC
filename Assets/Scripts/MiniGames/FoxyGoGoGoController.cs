@@ -217,11 +217,9 @@ public class FoxyGoGoGoController : MonoBehaviour
     {
         canMove = false;
 
-        yield return new WaitForSeconds(0.8f);
-
         fireworksContainer.SetActive(true);
 
-        yield return new WaitForSeconds(2.2f);
+        yield return new WaitForSeconds(4f);
 
         fireworksContainer.SetActive(false);
 
