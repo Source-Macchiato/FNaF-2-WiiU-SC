@@ -22,6 +22,7 @@ public class FoxyGoGoGoController : MonoBehaviour
     public RectTransform mapRect;
 
     public GameObject fireworksContainer;
+    public GameObject[] fireworks;
     public GameObject purpleGuy;
     public GameObject arrow;
 
@@ -219,6 +220,8 @@ public class FoxyGoGoGoController : MonoBehaviour
 
         fireworksContainer.SetActive(true);
 
+        StartCoroutine(Fireworks());
+
         yield return new WaitForSeconds(4f);
 
         fireworksContainer.SetActive(false);
@@ -248,5 +251,28 @@ public class FoxyGoGoGoController : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         SceneManager.LoadSceneAsync("MainMenu");
+    }
+
+    IEnumerator Fireworks()
+    {
+        int index = 0;
+
+        fireworksContainer.SetActive(true);
+
+        // Disable all fireworks
+        foreach (GameObject firework in fireworks)
+        {
+            firework.SetActive(false);
+        }
+
+        // Display fireworks
+        while (index > fireworks.Length)
+        {
+            fireworks[index].SetActive(true);
+
+            index++;
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
