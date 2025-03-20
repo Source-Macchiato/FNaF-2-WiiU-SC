@@ -11,24 +11,26 @@ public class FoxyGoGoGoController : MonoBehaviour
 
     // Reference to the bear GameObject
     public GameObject player;
+    public GameObject gameContainer;
+
     private RectTransform playerRect;
     private Animator playerAnimator;
 
     public Image[] Children;
     public Sprite DeadChild;
 
-    // Array of GameObjects that the bear cannot pass through
-    public GameObject[] CollidableObjects;
-
-    // Reference to the movable object
     public RectTransform mapRect;
+
     public GameObject fireworksContainer;
     public GameObject purpleGuy;
     public GameObject arrow;
-    public Animator JumpscareAnimator;
-    public AudioSource Jumpscare;
 
-    // Array of sprites for different states
+    public Animator JumpscareAnimator;
+    public Animator linesAnimator;
+
+    public AudioSource Jumpscare;
+    public AudioSource staticAudio;
+
     public TextMeshProUGUI getReadyText;
 
     // Initial positions for reset
@@ -60,6 +62,8 @@ public class FoxyGoGoGoController : MonoBehaviour
         purpleGuy.SetActive(false);
         fireworksContainer.SetActive(false);
         arrow.SetActive(false);
+
+        staticAudio.volume = 0.4f;
 
         // Start the game with the initial state
         StartCoroutine(InitialState());
@@ -237,6 +241,14 @@ public class FoxyGoGoGoController : MonoBehaviour
 
         yield return new WaitForSeconds(0.6f);
 
-        SceneManager.LoadScene("MainMenu");
+        gameContainer.SetActive(false);
+        Jumpscare.Stop();
+        JumpscareAnimator.gameObject.SetActive(false);
+        staticAudio.volume = 1f;
+        linesAnimator.Play("Red");
+
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 }
