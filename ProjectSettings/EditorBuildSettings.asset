@@ -38,3 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GiveGifts.unity
     guid: 2a8d97dca6883ef4183f3d9c3f551aff
+  - enabled: 1
+    path: Assets/Scenes/FoxyGoGoGo.unity
+    guid: d3c68e42a9e0b2945b42f9ba1e582535
+  - enabled: 1
+    path: Assets/Scenes/SaveThem.unity
+    guid: 961ce94a01eab1146ab77d4560cc5544
