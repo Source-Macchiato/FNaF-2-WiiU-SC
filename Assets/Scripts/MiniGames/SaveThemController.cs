@@ -60,7 +60,7 @@ public class SaveThemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleBearMovement();
+        HandlePlayerMovement();
         HandleRoomTransition();
         // Only call this if PurpleGuy is active and currentDirectionIndex is 5
         if (currentDirectionIndex == 5)
@@ -70,7 +70,7 @@ public class SaveThemController : MonoBehaviour
     }
 
     // Handles the bear's movement
-    void HandleBearMovement()
+    void HandlePlayerMovement()
     {
         if (bearMovement.isMoving)
         {
