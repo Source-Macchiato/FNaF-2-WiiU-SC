@@ -27,10 +27,13 @@ public class AIManager : MonoBehaviour {
     private Dictionary<int, Dictionary<int, Dictionary<string, int>>> nightConfigurations;
 
 
-    private void Start() {
+    void Start()
+    {
+        currentNight = SaveManager.LoadNightNumber();
+
         // Initialize AI levels
 
-        if(Application.isEditor && !isNight7)
+        if (Application.isEditor && !isNight7)
         {
             aiLevels = new Dictionary<string, int>() {
             { "ToyFreddyAI", 0 },
@@ -190,12 +193,13 @@ public class AIManager : MonoBehaviour {
         };
     }
 
-    private void Update() {
+    void Update()
+    {
         currentTime = nightPlayer.currentTime;
-        currentNight = nightPlayer.currentNight;
+
         TimedEvents();
 
-        if(nightPlayer.WitheredFreddyCamera == 14)
+        if (nightPlayer.WitheredFreddyCamera == 14)
 		{
 			if (maskManager.isMaskActive)
 			{
@@ -277,23 +281,24 @@ public class AIManager : MonoBehaviour {
         }
     }
 
-    if(nightPlayer.ToyChicaCamera == 14)
+    if (nightPlayer.ToyChicaCamera == 14)
     {
         if (maskManager.isMaskActive)
         {
-        Debug.Log("toy chica mask active");
-        nightPlayer.ToyChicaMovement = 5f;
-        int RandomChance = Random.Range(0, 5);
-        RollChanceToyChica -= Time.deltaTime;
+            Debug.Log("toy chica mask active");
+            nightPlayer.ToyChicaMovement = 5f;
+            int RandomChance = Random.Range(0, 5);
+            RollChanceToyChica -= Time.deltaTime;
 
-        if(RollChanceToyChica <= 0f)
-        {
-            RollChanceToyChica = 7f;
-            if (RandomChance == 0)
+            if(RollChanceToyChica <= 0f)
             {
-            nightPlayer.ToyChicaCamera = 7;
+                RollChanceToyChica = 7f;
+
+                if (RandomChance == 0)
+                {
+                    nightPlayer.ToyChicaCamera = 7;
+                }
             }
-        }
         }
     }
 

@@ -46,7 +46,6 @@ public class NightPlayer : MonoBehaviour
 	public int[] GoldenFreddyChallengeAI;
 	public int[] currentAI;
 
-	public int currentNight;
     public int currentTime;
     public int currentCam = 09;
 
@@ -244,9 +243,6 @@ public class NightPlayer : MonoBehaviour
 		monitorManager = FindObjectOfType<MonitorManager>();
 		controllersRumble = FindObjectOfType<ControllersRumble>();
 
-		// Assign current night at start
-        currentNight = SaveManager.LoadNightNumber();
-
 		if (Random.value < 0.01) {PaperpalsAI = 1;}
 		PuppetAI = Mathf.Clamp(PuppetAI,0, 6);
 		WitheredFoxyAI = Mathf.Clamp(WitheredFoxyAI,0, 17);
@@ -344,8 +340,6 @@ public class NightPlayer : MonoBehaviour
 		MovementOpportunityMain();
 		MovementOpportunityHandler();
 		StartCoroutine(GoldenFreddyFunction());
-
-
 
 		if (currentCam == MangleCamera)
         {
@@ -491,19 +485,19 @@ public class NightPlayer : MonoBehaviour
 			if (GoldenFreddyMovement <= 0f)
 			{
 				if (monitorManager.isMonitorActive)
-			{
-				//StartCoroutine(MonitorDownIE());
-				yield return new WaitForSeconds(0.183f);
-				JumpscareAnimator.Play("GoldenFreddy");
-				Jumpscare.Play();
-				StartCoroutine(JumpscareSequence());
-			}
-			else if (!monitorManager.isMonitorActive && !maskManager.isActiveAndEnabled || state == "OfficeBlackout")
-			{
-				JumpscareAnimator.Play("GoldenFreddy");
-				Jumpscare.Play();
-				StartCoroutine(JumpscareSequence());
-			}
+				{
+					//StartCoroutine(MonitorDownIE());
+					yield return new WaitForSeconds(0.183f);
+					JumpscareAnimator.Play("GoldenFreddy");
+					Jumpscare.Play();
+					StartCoroutine(JumpscareSequence());
+				}
+				else if (!monitorManager.isMonitorActive && !maskManager.isActiveAndEnabled)
+				{
+					JumpscareAnimator.Play("GoldenFreddy");
+					Jumpscare.Play();
+					StartCoroutine(JumpscareSequence());
+				}
 			}
 		}
 	}
@@ -529,42 +523,42 @@ public class NightPlayer : MonoBehaviour
 			int randNum = Random.Range(0, 20);
 			if (ToyBonnieAI >= randNum || ToyBonnieAI == randNum)
 			{
-				if(CamWatchAI != 1)
+				if (CamWatchAI != 1)
 				{
 					switch (ToyBonnieCamera)
-				{
-				case 9:
-				ToyBonnieCamera = 3;
-				StartCoroutine(DisruptCamera(9));
-				StartCoroutine(DisruptCamera(3));
-				break;
-				case 3:
-				ToyBonnieCamera = 4;
-				StartCoroutine(DisruptCamera(3));
-				StartCoroutine(DisruptCamera(4));
-				break;
-				case 4:
-				ToyBonnieCamera = 2;
-				With2.Play();
-				StartCoroutine(DisruptCamera(4));
-				StartCoroutine(DisruptCamera(2));
-				break;
-				case 2:
-				ToyBonnieCamera = 6;
-				VentCrawl.Play();
-				StartCoroutine(DisruptCamera(2));
-				StartCoroutine(DisruptCamera(6));
-				break;
-				case 6:
-				ToyBonnieCamera = 13;
-				VentCrawl.Play();
-				StartCoroutine(DisruptCamera(6));
-				break;
-				case 13:
-				StartCoroutine(ToyBonnieFunction(true));
-				ToyBonniePrepared = true;
-				break;
-				}
+					{
+						case 9:
+							ToyBonnieCamera = 3;
+							StartCoroutine(DisruptCamera(9));
+							StartCoroutine(DisruptCamera(3));
+							break;
+						case 3:
+							ToyBonnieCamera = 4;
+							StartCoroutine(DisruptCamera(3));
+							StartCoroutine(DisruptCamera(4));
+							break;
+						case 4:
+							ToyBonnieCamera = 2;
+							With2.Play();
+							StartCoroutine(DisruptCamera(4));
+							StartCoroutine(DisruptCamera(2));
+							break;
+						case 2:
+							ToyBonnieCamera = 6;
+							VentCrawl.Play();
+							StartCoroutine(DisruptCamera(2));
+							StartCoroutine(DisruptCamera(6));
+							break;
+						case 6:
+							ToyBonnieCamera = 13;
+							VentCrawl.Play();
+							StartCoroutine(DisruptCamera(6));
+							break;
+						case 13:
+							StartCoroutine(ToyBonnieFunction(true));
+							ToyBonniePrepared = true;
+							break;
+					}
 				}
 			}
 			else
@@ -627,6 +621,7 @@ public class NightPlayer : MonoBehaviour
 			}
 			ToyChicaMovement = 5f;
 		}
+
 		if (ToyFreddyMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
@@ -634,28 +629,27 @@ public class NightPlayer : MonoBehaviour
 			{
 				if(CamWatchAI != 2)
 				{
-				switch (ToyFreddyCamera)
-				{
-				case 9:
-				ToyFreddyCamera = 10;
-				while (ToyBonnieCamera == 9 && ToyChicaCamera == 9)
-				{
-					StartCoroutine(DisruptCamera(Random.Range(9, 11)));
-				}
-				StartCoroutine(DisruptCamera(Random.Range(9, 11)));
-				break;
-				case 10:
-				ToyFreddyCamera = 14;
-				StartCoroutine(DisruptCamera(Random.Range(10, 13)));
-				break;
-				case 14:
-				ToyFreddyCamera = 15;
-				break;
-				case 15:
-				ToyFreddyCamera = 13;
-				StartCoroutine(PrepareBlackout("ToyFreddy"));
-				break;
-				}
+					switch (ToyFreddyCamera)
+					{
+						case 9:
+						ToyFreddyCamera = 10;
+						StartCoroutine(DisruptCamera(Random.Range(9, 11)));
+						break;
+
+						case 10:
+						ToyFreddyCamera = 14;
+						StartCoroutine(DisruptCamera(Random.Range(10, 13)));
+						break;
+
+						case 14:
+						ToyFreddyCamera = 15;
+						break;
+
+						case 15:
+						ToyFreddyCamera = 13;
+						StartCoroutine(PrepareBlackout("ToyFreddy"));
+						break;
+					}
 				}
 			}
 			ToyFreddyMovement = 5f;
@@ -981,133 +975,133 @@ public class NightPlayer : MonoBehaviour
 
 	IEnumerator PrepareBlackout(string Animatronic)
 	{
-    if (!BlackoutPrepared)
-    {
-        BlackoutPrepared = true;
-        bool activeBlackout = false;
-        bool preparedJumpscare = false;
-        float timeForMask = 0f;
-        float timeElapsed = 0f;
-
-
-		while (!activeBlackout)
+		if (!BlackoutPrepared)
 		{
-		    if (stateManager.PlayerState == 2)
-		    {
-		        activeBlackout = true;
-		        StartCoroutine(BlackoutCoroutine());
-		        switch (Animatronic)
-		        {
-		            case "ToyFreddy":
-		                ToyFreddyOffice.SetActive(true);
-						BlackOutAnim.Play("BlackOut");
-						StareSound.Play();
-						StartCoroutine(PlayStareSound());
-		                break;
-		            case "WitheredFreddy":
-		                WitheredFreddyOffice.SetActive(true);
-						BlackOutAnim.Play("BlackOut");
-						StareSound.Play();
-						StartCoroutine(PlayStareSound());
-		                break;
-		            case "WitheredChica":
-		                WitheredChicaOffice.SetActive(true);
-						BlackOutAnim.Play("BlackOut");
-						StareSound.Play();
-						StartCoroutine(PlayStareSound());
-		                break;
-		            case "WitheredBonnie":
-		                WitheredBonnieOffice.SetActive(true);
-						BlackOutAnim.Play("BlackOut");
-						StareSound.Play();
-						StartCoroutine(PlayStareSound());
-		                break;
-		        }
-		    }
+			BlackoutPrepared = true;
+			bool activeBlackout = false;
+			bool preparedJumpscare = false;
+			float timeForMask = 0f;
+			float timeElapsed = 0f;
 
-		    yield return null; // Wait for the next frame before checking again
-		}
 
-        while (timeElapsed < 4f)
-        {
-			if (timeForMask >= 0.7f)
-            {
-                preparedJumpscare = true;
-            }
-            if (maskManager.isMaskActive)
-            {
-                timeForMask -= Time.deltaTime;
-            }
+			while (!activeBlackout)
+			{
+				if (stateManager.PlayerState == 2)
+				{
+					activeBlackout = true;
+					StartCoroutine(BlackoutCoroutine());
+					switch (Animatronic)
+					{
+						case "ToyFreddy":
+							ToyFreddyOffice.SetActive(true);
+							BlackOutAnim.Play("BlackOut");
+							StareSound.Play();
+							StartCoroutine(PlayStareSound());
+							break;
+						case "WitheredFreddy":
+							WitheredFreddyOffice.SetActive(true);
+							BlackOutAnim.Play("BlackOut");
+							StareSound.Play();
+							StartCoroutine(PlayStareSound());
+							break;
+						case "WitheredChica":
+							WitheredChicaOffice.SetActive(true);
+							BlackOutAnim.Play("BlackOut");
+							StareSound.Play();
+							StartCoroutine(PlayStareSound());
+							break;
+						case "WitheredBonnie":
+							WitheredBonnieOffice.SetActive(true);
+							BlackOutAnim.Play("BlackOut");
+							StareSound.Play();
+							StartCoroutine(PlayStareSound());
+							break;
+					}
+				}
 
-			timeForMask += Time.deltaTime;
+				yield return null; // Wait for the next frame before checking again
+			}
 
-            timeElapsed += Time.deltaTime;
-            yield return null; // Continue checking while waiting
-        }
+			while (timeElapsed < 4f)
+			{
+				if (timeForMask >= 0.7f)
+				{
+					preparedJumpscare = true;
+				}
+				if (maskManager.isMaskActive)
+				{
+					timeForMask -= Time.deltaTime;
+				}
 
-        ToyFreddyOffice.SetActive(false);
-		WitheredBonnieOffice.SetActive(false);
-		WitheredChicaOffice.SetActive(false);
-		WitheredFreddyOffice.SetActive(false);
+				timeForMask += Time.deltaTime;
 
-        yield return new WaitForSeconds(3f); // Wait for additional 3 seconds
-		Debug.Log(preparedJumpscare + " state: " + state + timeForMask);
+				timeElapsed += Time.deltaTime;
+				yield return null; // Continue checking while waiting
+			}
 
-        if (preparedJumpscare)
-        {
-            if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
-            {
-                yield return new WaitForSeconds(0.183f);
-                JumpscareAnimator.Play(Animatronic);
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-            }
-            else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
-            {
+			ToyFreddyOffice.SetActive(false);
+			WitheredBonnieOffice.SetActive(false);
+			WitheredChicaOffice.SetActive(false);
+			WitheredFreddyOffice.SetActive(false);
 
-                JumpscareAnimator.Play(Animatronic);
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-            }
-			else if (maskManager.isMaskActive)
-            {
-				Mask();
-                JumpscareAnimator.Play(Animatronic);
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-            }
+			yield return new WaitForSeconds(3f); // Wait for additional 3 seconds
+			Debug.Log(preparedJumpscare + " state: " + state + timeForMask);
+
+			if (preparedJumpscare)
+			{
+				if (!maskManager.isMaskActive && monitorManager.isMonitorActive)
+				{
+					yield return new WaitForSeconds(0.183f);
+					JumpscareAnimator.Play(Animatronic);
+					Jumpscare.Play();
+					StartCoroutine(JumpscareSequence());
+				}
+				else if (!maskManager.isMaskActive && !monitorManager.isMonitorActive || !maskManager.isMaskActive && state == "OfficeBlackout")
+				{
+
+					JumpscareAnimator.Play(Animatronic);
+					Jumpscare.Play();
+					StartCoroutine(JumpscareSequence());
+				}
+				else if (maskManager.isMaskActive)
+				{
+					Mask();
+					JumpscareAnimator.Play(Animatronic);
+					Jumpscare.Play();
+					StartCoroutine(JumpscareSequence());
+				}
+				else
+				{
+					JumpscareAnimator.Play(Animatronic);
+					Jumpscare.Play();
+					StartCoroutine(JumpscareSequence());
+					Debug.Log(state);
+				}
+			}
 			else
 			{
-				JumpscareAnimator.Play(Animatronic);
-                Jumpscare.Play();
-                StartCoroutine(JumpscareSequence());
-				Debug.Log(state);
+				switch (Animatronic)
+				{
+					case "ToyFreddy":
+					ToyFreddyCamera = 9;
+					ToyFreddyMovement = 8f;
+					break;
+					case "WitheredFreddy":
+					WitheredFreddyCamera = 8;
+					WitheredFreddyMovement = 8f;
+					break;
+					case "WitheredChica":
+					WitheredChicaCamera = 8;
+					WitheredChicaMovement = 8f;
+					break;
+					case "WitheredBonnie":
+					WitheredBonnieCamera = 8;
+					WitheredBonnieMovement = 8f;
+					break;
+				}
+				BlackoutPrepared = false;
 			}
-        }
-		else
-		{
-			switch (Animatronic)
-			{
-				case "ToyFreddy":
-				ToyFreddyCamera = 9;
-				ToyFreddyMovement = 8f;
-				break;
-				case "WitheredFreddy":
-				WitheredFreddyCamera = 8;
-				WitheredFreddyMovement = 8f;
-				break;
-				case "WitheredChica":
-				WitheredChicaCamera = 8;
-				WitheredChicaMovement = 8f;
-				break;
-				case "WitheredBonnie":
-				WitheredBonnieCamera = 8;
-				WitheredBonnieMovement = 8f;
-				break;
-			}
-			BlackoutPrepared = false;
 		}
-    }
 	}
 
 	IEnumerator BaloonBoyInOffice()
