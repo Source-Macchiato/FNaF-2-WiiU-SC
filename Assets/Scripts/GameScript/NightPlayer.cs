@@ -632,23 +632,27 @@ public class NightPlayer : MonoBehaviour
 					switch (ToyFreddyCamera)
 					{
 						case 9:
-						ToyFreddyCamera = 10;
-						StartCoroutine(DisruptCamera(Random.Range(9, 11)));
-						break;
+							ToyFreddyCamera = 10;
+						
+							if (ToyBonnieCamera == 9 && ToyChicaCamera == 9)
+							{
+                                StartCoroutine(DisruptCamera(Random.Range(9, 11)));
+                            }
+							break;
 
 						case 10:
-						ToyFreddyCamera = 14;
-						StartCoroutine(DisruptCamera(Random.Range(10, 13)));
-						break;
+							ToyFreddyCamera = 14;
+							StartCoroutine(DisruptCamera(Random.Range(10, 13)));
+							break;
 
 						case 14:
-						ToyFreddyCamera = 15;
-						break;
+							ToyFreddyCamera = 15;
+							break;
 
 						case 15:
-						ToyFreddyCamera = 13;
-						StartCoroutine(PrepareBlackout("ToyFreddy"));
-						break;
+							ToyFreddyCamera = 13;
+							StartCoroutine(PrepareBlackout("ToyFreddy"));
+							break;
 					}
 				}
 			}
