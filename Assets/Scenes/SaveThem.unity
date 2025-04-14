@@ -1727,7 +1727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 273696925}
   m_Layer: 5
-  m_Name: GameContainer
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5031,7 +5031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &724516049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5792,6 +5792,8 @@ GameObject:
   - component: {fileID: 834793885}
   - component: {fileID: 834793884}
   - component: {fileID: 834793886}
+  - component: {fileID: 834793887}
+  - component: {fileID: 834793888}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -5867,6 +5869,51 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!61 &834793887
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 834793882}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -7.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 130, y: 170}
+  m_EdgeRadius: 0
+--- !u!50 &834793888
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 834793882}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &837694206
 GameObject:
   m_ObjectHideFlags: 0
@@ -10578,7 +10625,8 @@ MonoBehaviour:
   player: {fileID: 834793882}
   BearAnimator: {fileID: 834793886}
   CollidableParent: {fileID: 1473876635}
-  MoveableObject: {fileID: 273696924}
+  mapRect: {fileID: 273696925}
+  playerRect: {fileID: 834793883}
   DirectionSequence:
   - Left
   - Up

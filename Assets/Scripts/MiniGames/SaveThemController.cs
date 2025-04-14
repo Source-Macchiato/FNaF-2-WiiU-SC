@@ -15,8 +15,8 @@ public class SaveThemController : MonoBehaviour
     // Reference to the parent object containing all collidable children
     public GameObject CollidableParent;
 
-    // Reference to the movable object
-    public GameObject gameContainer;
+    public RectTransform mapRect;
+    public RectTransform playerRect;
 
     // Array to define the sequence of directions for room transitions
     public string[] DirectionSequence;
@@ -102,24 +102,31 @@ public class SaveThemController : MonoBehaviour
         }
     }
 
-    // Handles room transitions based on the bear's position and the current direction in the sequence
     void HandleRoomTransition()
     {
-        if (player.transform.position.y >= 240f)
+        if (playerRect.localPosition.y >= 270f) // Up
         {
-            gameContainer.transform.position -= new Vector3(0f, 240f, 0f);
+            playerRect.localPosition = new Vector3(0f, -190f, 0f);
+
+            mapRect.localPosition -= new Vector3(0f, 720f, 0f);
         }
-        else if (player.transform.position.x <= 0f)
+        else if (playerRect.localPosition.x <= -420f) // Left
         {
-            gameContainer.transform.position += new Vector3(400f, 0f, 0f);
+            playerRect.localPosition = new Vector3(320f, 0f, 0f);
+
+            mapRect.localPosition += new Vector3(960f, 0f, 0f);
         }
-        else if (player.transform.position.y <= 0f)
+        else if (playerRect.localPosition.y <= -270f) // Down
         {
-            gameContainer.transform.position += new Vector3(0f, 240f, 0f);
+            playerRect.localPosition = new Vector3(0f, 190f, 0f);
+
+            mapRect.localPosition += new Vector3(0f, 720f, 0f);
         }
-        else if (player.transform.position.x >= 400f)
+        else if (playerRect.localPosition.x >= 420f) // Right
         {
-            gameContainer.transform.position -= new Vector3(400f, 0f, 0f);
+            playerRect.localPosition = new Vector3(-320f, 0f, 0f);
+
+            mapRect.localPosition -= new Vector3(960f, 0f, 0f);
         }
     }
 
