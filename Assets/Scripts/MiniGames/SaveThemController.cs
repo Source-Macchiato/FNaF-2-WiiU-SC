@@ -16,7 +16,7 @@ public class SaveThemController : MonoBehaviour
     public GameObject CollidableParent;
 
     // Reference to the movable object
-    public GameObject MoveableObject;
+    public GameObject gameContainer;
 
     // Array to define the sequence of directions for room transitions
     public string[] DirectionSequence;
@@ -43,12 +43,12 @@ public class SaveThemController : MonoBehaviour
     private Transform playerTransform;
 
     // Scripts
-    PlayerMovement bearMovement;
+    PlayerMovement playerMovement;
 
     void Start()
     {
         // Get scripts
-        bearMovement = FindObjectOfType<PlayerMovement>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
 
         // Initialize playerTransform to the Bear's transform
         playerTransform = player.transform;
@@ -72,12 +72,12 @@ public class SaveThemController : MonoBehaviour
     // Handles the bear's movement
     void HandlePlayerMovement()
     {
-        if (bearMovement.isMoving)
+        if (playerMovement.isMoving)
         {
             Vector3 newPosition = player.transform.position;
 
             // Normalize direction to prevent faster diagonal movement
-            Vector2 direction = bearMovement.playerDirection.normalized;
+            Vector2 direction = playerMovement.playerDirection.normalized;
             newPosition.x += direction.x * playerSpeed * Time.deltaTime;
             newPosition.y += direction.y * playerSpeed * Time.deltaTime;
 
@@ -105,34 +105,21 @@ public class SaveThemController : MonoBehaviour
     // Handles room transitions based on the bear's position and the current direction in the sequence
     void HandleRoomTransition()
     {
-        if (currentDirectionIndex < DirectionSequence.Length)
+        if (player.transform.position.y >= 240f)
         {
-            string direction = DirectionSequence[currentDirectionIndex];
-
-            if (direction == "Up" && bearMovement.playerDirection == Vector2.up && player.transform.position.y >= 240f)
-            {
-                MoveableObject.transform.position -= new Vector3(0f, 240f, 0f);
-                currentDirectionIndex++;
-                TransitionEvent();
-            }
-            else if (direction == "Left" && bearMovement.playerDirection == Vector2.left && player.transform.position.x <= 0f)
-            {
-                MoveableObject.transform.position += new Vector3(400f, 0f, 0f);
-                currentDirectionIndex++;
-                TransitionEvent();
-            }
-            else if (direction == "Down" && bearMovement.playerDirection == Vector2.down && player.transform.position.y <= 0f)
-            {
-                MoveableObject.transform.position += new Vector3(0f, 240f, 0f);
-                currentDirectionIndex++;
-                TransitionEvent();
-            }
-            else if (direction == "Right" && bearMovement.playerDirection == Vector2.right && player.transform.position.x >= 400f)
-            {
-                MoveableObject.transform.position -= new Vector3(400f, 0f, 0f);
-                currentDirectionIndex++;
-                TransitionEvent();
-            }
+            gameContainer.transform.position -= new Vector3(0f, 240f, 0f);
+        }
+        else if (player.transform.position.x <= 0f)
+        {
+            gameContainer.transform.position += new Vector3(400f, 0f, 0f);
+        }
+        else if (player.transform.position.y <= 0f)
+        {
+            gameContainer.transform.position += new Vector3(0f, 240f, 0f);
+        }
+        else if (player.transform.position.x >= 400f)
+        {
+            gameContainer.transform.position -= new Vector3(400f, 0f, 0f);
         }
     }
 
