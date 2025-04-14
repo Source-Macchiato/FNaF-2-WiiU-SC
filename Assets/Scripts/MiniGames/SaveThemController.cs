@@ -25,7 +25,8 @@ public class SaveThemController : MonoBehaviour
     private int currentDirectionIndex = 0;
 
     // Array of audio sources for letter sounds
-    public AudioSource[] Letters;
+    public AudioSource[] letterAudios;
+    private int currentAudioIndex = 0;
 
     // Reference to PuppetAnimator
     public Animator PuppetAnimator;
@@ -54,7 +55,7 @@ public class SaveThemController : MonoBehaviour
         playerTransform = player.transform;
 
         // Start the audio loop coroutine
-        StartCoroutine(PlayLetterSounds());
+        StartCoroutine(PlayAudioSequence());
     }
 
     // Update is called once per frame
@@ -153,15 +154,18 @@ public class SaveThemController : MonoBehaviour
     }
 
     // Coroutine to play letter sounds in sequence at 2.3-second intervals
-    IEnumerator PlayLetterSounds()
+    IEnumerator PlayAudioSequence()
     {
         while (true)
         {
-            for (int i = 0; i < Letters.Length; i++)
-            {
-                Letters[i].Play();
-                yield return new WaitForSeconds(2.3f);
-            }
+            // Wait for the specified time before playing audio
+            yield return new WaitForSeconds(3f);
+
+            // Play the current audio source
+            letterAudios[currentAudioIndex].Play();
+
+            // Move to the next audio source
+            currentAudioIndex = (currentAudioIndex + 1) % letterAudios.Length;
         }
     }
 
