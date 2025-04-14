@@ -21,7 +21,6 @@ public class GiveGiftsController : MonoBehaviour
     public Animator linesAnimator;
 
     public AudioSource Jumpscare;
-    public AudioSource staticAudio;
     public AudioSource cakeAudio;
     public AudioSource effectAudio;
     public AudioSource[] saveThemAudios;
@@ -42,7 +41,6 @@ public class GiveGiftsController : MonoBehaviour
         playerMovement = FindObjectOfType<PlayerMovement>();
 
         kidFive.SetActive(false);
-        staticAudio.volume = 0.4f;
 
         UpdateScoreText();
 
@@ -160,11 +158,7 @@ public class GiveGiftsController : MonoBehaviour
         gameContainer.SetActive(false);
         Jumpscare.Stop();
         JumpscareAnimator.gameObject.SetActive(false);
-        linesAnimator.Play("Red");
-        staticAudio.volume = 1f;
 
-        yield return new WaitForSeconds(2f);
-
-        SceneManager.LoadSceneAsync("MainMenu");
+        MiniGamesLevelLoader.LoadScene("MainMenu");
     }
 }

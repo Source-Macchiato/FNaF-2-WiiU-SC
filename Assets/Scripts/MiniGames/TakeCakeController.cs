@@ -31,7 +31,6 @@ public class TakeCakeController : MonoBehaviour
     public AudioSource[] AudioSources;
     public AudioSource Jumpscare;
     public AudioSource cakeAudio;
-    public AudioSource staticAudio;
 
     // Index to track the current audio source
     private int currentAudioIndex = 0;
@@ -49,8 +48,6 @@ public class TakeCakeController : MonoBehaviour
     {
         // Get scripts
         bearMovement = FindObjectOfType<PlayerMovement>();
-
-        staticAudio.volume = 0.4f;
 
         // Initialize hunger values for each kid
         for (int i = 0; i < Hunger.Length; i++)
@@ -78,12 +75,8 @@ public class TakeCakeController : MonoBehaviour
         gameContainer.SetActive(false);
         JumpscareAnimator.gameObject.SetActive(false);
         Jumpscare.Stop();
-        linesAnimator.Play("Red");
-        staticAudio.volume = 1f;
 
-        yield return new WaitForSeconds(2f);
-
-        SceneManager.LoadSceneAsync("MainMenu");
+        MiniGamesLevelLoader.LoadScene("MainMenu");
     }
 
     // Coroutine to play audio sources in sequence

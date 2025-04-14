@@ -1657,7 +1657,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2159ac3ae0e00ec42b4b4afb8aae37cf, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3769,7 +3769,6 @@ MonoBehaviour:
   JumpscareAnimator: {fileID: 2071438471}
   linesAnimator: {fileID: 1167581604}
   Jumpscare: {fileID: 1036727373}
-  staticAudio: {fileID: 724564334}
   popAudio: {fileID: 1591315837}
   getReadyText: {fileID: 633973898}
 --- !u!1 &2015106653

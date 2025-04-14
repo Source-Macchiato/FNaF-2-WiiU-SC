@@ -30,7 +30,6 @@ public class FoxyGoGoGoController : MonoBehaviour
     public Animator linesAnimator;
 
     public AudioSource Jumpscare;
-    public AudioSource staticAudio;
     public AudioSource popAudio;
 
     public TextMeshProUGUI getReadyText;
@@ -64,8 +63,6 @@ public class FoxyGoGoGoController : MonoBehaviour
         purpleGuy.SetActive(false);
         fireworksContainer.SetActive(false);
         arrow.SetActive(false);
-
-        staticAudio.volume = 0.4f;
 
         // Start the game with the initial state
         StartCoroutine(InitialState());
@@ -246,12 +243,8 @@ public class FoxyGoGoGoController : MonoBehaviour
         gameContainer.SetActive(false);
         Jumpscare.Stop();
         JumpscareAnimator.gameObject.SetActive(false);
-        staticAudio.volume = 1f;
-        linesAnimator.Play("Red");
 
-        yield return new WaitForSeconds(2f);
-
-        SceneManager.LoadSceneAsync("MainMenu");
+        MiniGamesLevelLoader.LoadScene("MainMenu");
     }
 
     IEnumerator Fireworks()
