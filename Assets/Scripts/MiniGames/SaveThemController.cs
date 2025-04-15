@@ -1,6 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SaveThemController : MonoBehaviour
 {
@@ -12,38 +12,27 @@ public class SaveThemController : MonoBehaviour
     // Reference to the bear's animator
     public Animator BearAnimator;
 
-    // Reference to the parent object containing all collidable children
-    public GameObject CollidableParent;
-
     public RectTransform mapRect;
     public RectTransform playerRect;
-
-    // Array to define the sequence of directions for room transitions
-    public string[] DirectionSequence;
-
-    // Index to track the current direction in the sequence
-    private int currentDirectionIndex = 0;
 
     // Array of audio sources for letter sounds
     public AudioSource[] letterAudios;
     private int currentAudioIndex = 0;
 
     // Reference to PuppetAnimator
-    public Animator PuppetAnimator;
-
-    // Reference to PurpleGuy GameObject
-    public GameObject PurpleGuy;
-
-    // Speed at which PurpleGuy moves
-    public float PurpleGuySpeedMultiplier = 3f;
-
-    // Distance within which the scene will be loaded
-    public float PurpleGuyChaseRange = 100f;
-
-    // Target player position (assuming it's the Bear)
-    private Transform playerTransform;
+    public Animator puppetAnimator;
 
     public Vector2Int currentRoom;
+
+    public List<RoomStep> animationSequence = new List<RoomStep>()
+    {
+        new RoomStep(-1, -1, "Up"),
+        new RoomStep(-1,  0, "Up"),
+        new RoomStep(-1,  1, "Right"),
+        new RoomStep( 0,  1, "Right"),
+        new RoomStep( 1,  1, "Down"),
+        new RoomStep( 1,  0, "Right")
+    };
 
     // Scripts
     PlayerMovement playerMovement;
@@ -52,9 +41,6 @@ public class SaveThemController : MonoBehaviour
     {
         // Get scripts
         playerMovement = FindObjectOfType<PlayerMovement>();
-
-        // Initialize playerTransform to the Bear's transform
-        playerTransform = player.transform;
 
         // Start the audio loop coroutine
         StartCoroutine(PlayAudioSequence());
@@ -65,11 +51,6 @@ public class SaveThemController : MonoBehaviour
     {
         HandlePlayerMovement();
         HandleRoomTransition();
-        // Only call this if PurpleGuy is active and currentDirectionIndex is 5
-        if (currentDirectionIndex == 5)
-        {
-            StartCoroutine(PurpleGuyChase());
-        }
     }
 
     // Handles the bear's movement
@@ -114,6 +95,8 @@ public class SaveThemController : MonoBehaviour
             mapRect.localPosition -= new Vector3(0f, 720f, 0f);
 
             currentRoom.y += 1;
+
+            PuppetAnimationSequence();
         }
         else if (playerRect.localPosition.x <= -420f) // Left
         {
@@ -122,6 +105,8 @@ public class SaveThemController : MonoBehaviour
             mapRect.localPosition += new Vector3(960f, 0f, 0f);
 
             currentRoom.x -= 1;
+
+            PuppetAnimationSequence();
         }
         else if (playerRect.localPosition.y <= -270f) // Down
         {
@@ -130,6 +115,8 @@ public class SaveThemController : MonoBehaviour
             mapRect.localPosition += new Vector3(0f, 720f, 0f);
 
             currentRoom.y -= 1;
+
+            PuppetAnimationSequence();
         }
         else if (playerRect.localPosition.x >= 420f) // Right
         {
@@ -138,32 +125,46 @@ public class SaveThemController : MonoBehaviour
             mapRect.localPosition -= new Vector3(960f, 0f, 0f);
 
             currentRoom.x += 1;
+
+            PuppetAnimationSequence();
         }
     }
 
-    // Handles the transition event based on the current direction index
-    void TransitionEvent()
+    void PuppetAnimationSequence()
     {
-        switch (currentDirectionIndex)
+        bool found = false;
+
+        for (int i = 0; i < animationSequence.Count; i++)
         {
-            case 1:
-            case 2:
-                PuppetAnimator.Play("PuppetUp 0");
-                PuppetAnimator.Play("PuppetUp");
+            RoomStep step = animationSequence[i];
+
+            if (step.roomPosition.Equals(currentRoom))
+            {
+                found = true;
+
+                for (int j = 0; j <= i; j++)
+                {
+                    if (!animationSequence[j].played)
+                    {
+                        puppetAnimator.Play(animationSequence[j].animationName, 0, 0f);
+                        animationSequence[j].played = true;
+                    }
+                    else
+                    {
+                        puppetAnimator.Play("Idle");
+                    }
+                }
+
                 break;
-            case 3:
-            case 4:
-                PuppetAnimator.Play("PuppetRight 0");
-                PuppetAnimator.Play("PuppetRight");
-                break;
-            case 5:
-                // When Index is 5, start the PurpleGuy chase coroutine
-                StartCoroutine(PurpleGuyChase());
-                break;
+            }
+        }
+        
+        if (!found)
+        {
+            puppetAnimator.Play("Idle");
         }
     }
 
-    // Coroutine to play letter sounds in sequence at 2.3-second intervals
     IEnumerator PlayAudioSequence()
     {
         while (true)
@@ -178,24 +179,17 @@ public class SaveThemController : MonoBehaviour
             currentAudioIndex = (currentAudioIndex + 1) % letterAudios.Length;
         }
     }
+}
 
-    // Coroutine for PurpleGuy chasing the player
-    IEnumerator PurpleGuyChase()
+public class RoomStep
+{
+    public Vector2Int roomPosition;
+    public string animationName;
+    public bool played = false;
+
+    public RoomStep(int x, int y, string anim)
     {
-        while (currentDirectionIndex == 5)
-        {
-            // Move PurpleGuy towards the player
-            Vector3 direction = (playerTransform.position - PurpleGuy.transform.position).normalized;
-            PurpleGuy.transform.position += direction * playerSpeed * PurpleGuySpeedMultiplier * Time.deltaTime;
-
-            // Check if PurpleGuy is within range to load a new scene
-            if (Vector3.Distance(PurpleGuy.transform.position, playerTransform.position) <= PurpleGuyChaseRange)
-            {
-                // Load the new scene
-                SceneManager.LoadScene("DeathMinigame2Part2"); // Replace with the name of your scene
-            }
-
-            yield return null; // Continue checking each frame
-        }
+        roomPosition = new Vector2Int(x, y);
+        animationName = anim;
     }
 }
