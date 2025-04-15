@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class SaveThemController : MonoBehaviour
 {
     // Speed at which the bear moves
-    private float playerSpeed = 1f;
+    private float playerSpeed = 1.2f;
 
     public GameObject player;
 
@@ -42,6 +42,8 @@ public class SaveThemController : MonoBehaviour
 
     // Target player position (assuming it's the Bear)
     private Transform playerTransform;
+
+    public Vector2Int currentRoom;
 
     // Scripts
     PlayerMovement playerMovement;
@@ -110,24 +112,32 @@ public class SaveThemController : MonoBehaviour
             playerRect.localPosition = new Vector3(0f, -190f, 0f);
 
             mapRect.localPosition -= new Vector3(0f, 720f, 0f);
+
+            currentRoom.y += 1;
         }
         else if (playerRect.localPosition.x <= -420f) // Left
         {
             playerRect.localPosition = new Vector3(320f, 0f, 0f);
 
             mapRect.localPosition += new Vector3(960f, 0f, 0f);
+
+            currentRoom.x -= 1;
         }
         else if (playerRect.localPosition.y <= -270f) // Down
         {
             playerRect.localPosition = new Vector3(0f, 190f, 0f);
 
             mapRect.localPosition += new Vector3(0f, 720f, 0f);
+
+            currentRoom.y -= 1;
         }
         else if (playerRect.localPosition.x >= 420f) // Right
         {
             playerRect.localPosition = new Vector3(-320f, 0f, 0f);
 
             mapRect.localPosition -= new Vector3(960f, 0f, 0f);
+
+            currentRoom.x += 1;
         }
     }
 
