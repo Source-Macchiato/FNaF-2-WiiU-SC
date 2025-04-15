@@ -42,8 +42,8 @@ public class SaveThemController : MonoBehaviour
         // Get scripts
         playerMovement = FindObjectOfType<PlayerMovement>();
 
-        // Start the audio loop coroutine
         StartCoroutine(PlayAudioSequence());
+        StartCoroutine(RandomEnd());
 
         PlayerSpawnPosition();
     }
@@ -217,6 +217,19 @@ public class SaveThemController : MonoBehaviour
 
             // Move to the next audio source
             currentAudioIndex = (currentAudioIndex + 1) % letterAudios.Length;
+        }
+    }
+
+    IEnumerator RandomEnd()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(30f);
+
+            if (Random.Range(0, 3) == 0)
+            {
+                MiniGamesLevelLoader.LoadScene("MainMenu");
+            }
         }
     }
 }
