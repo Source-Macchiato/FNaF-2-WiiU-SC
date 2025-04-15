@@ -44,6 +44,8 @@ public class SaveThemController : MonoBehaviour
 
         // Start the audio loop coroutine
         StartCoroutine(PlayAudioSequence());
+
+        PlayerSpawnPosition();
     }
 
     // Update is called once per frame
@@ -162,6 +164,44 @@ public class SaveThemController : MonoBehaviour
         if (!found)
         {
             puppetAnimator.Play("Idle");
+        }
+    }
+
+    private void PlayerSpawnPosition()
+    {
+        int positionIndex = Random.Range(0, 4);
+
+        if (positionIndex == 0)
+        {
+            playerRect.localPosition = new Vector3(-6.3f, 17.8f, 0);
+
+            mapRect.localPosition = new Vector3(960f, 1440f, 0);
+
+            currentRoom = new Vector2Int(-1, -2);
+        }
+        else if (positionIndex == 1)
+        {
+            playerRect.localPosition = new Vector3(-114.2f, -6.7f, 0);
+
+            mapRect.localPosition = new Vector3(0, 720f, 0);
+
+            currentRoom = new Vector2Int(0, -1);
+        }
+        else if (positionIndex == 2)
+        {
+            playerRect.localPosition = new Vector3(120.5f, -11.2f, 0);
+
+            mapRect.localPosition = new Vector3(1920f, 0, 0);
+
+            currentRoom = new Vector2Int(-2, 0);
+        }
+        else if (positionIndex == 3)
+        {
+            playerRect.localPosition = new Vector3(-7.5f, 18.2f, 0);
+
+            mapRect.localPosition = new Vector3(1920f, -720f, 0);
+
+            currentRoom = new Vector2Int(-2, 1);
         }
     }
 
