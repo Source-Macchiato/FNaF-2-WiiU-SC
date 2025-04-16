@@ -315,7 +315,31 @@ public class NightPlayer : MonoBehaviour
 
 		Jumpscare.Stop();
 
-		SceneManager.LoadScene("GameOver");
+		if (Random.Range(0, 10) == 0)
+		{
+			int randomMinigame = Random.Range(0, 4);
+
+			if (randomMinigame == 0)
+			{
+				MiniGamesLevelLoader.LoadScene("TakeCake");
+			}
+			else if (randomMinigame == 1)
+			{
+				MiniGamesLevelLoader.LoadScene("GiveGifts");
+			}
+			else if (randomMinigame == 2)
+			{
+				MiniGamesLevelLoader.LoadScene("FoxyGoGoGo");
+			}
+			else if (randomMinigame == 3)
+			{
+				MiniGamesLevelLoader.LoadScene("SaveThem");
+			}
+		}
+		else
+		{
+            SceneManager.LoadScene("GameOver");
+        }
 	}
     
     void Update()
