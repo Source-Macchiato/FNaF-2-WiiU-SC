@@ -18,10 +18,13 @@ public class MoveInOffice : MonoBehaviour
     public float leftEdge = 320f;
     public float rightEdge = -320f;
     private float stickDeadzone = 0.19f;
+    private float pointerMovementThreshold = 80f;
+
     public bool allowMouseMove = true;
     private bool canUseMotionControls = true;
     private bool isPointerDisplayed = true;
-    private Vector3 lastMousePosition;
+
+    private Vector3 lastPointerPosition;
 
     void Start()
 	{
@@ -30,8 +33,6 @@ public class MoveInOffice : MonoBehaviour
 
         canUseMotionControls = SaveManager.LoadMotionControls();
         isPointerDisplayed = SaveManager.LoadPointerVisibility();
-
-        lastMousePosition = Input.mousePosition;
 
         pointerCursor.gameObject.SetActive(false);
     }
@@ -168,9 +169,17 @@ public class MoveInOffice : MonoBehaviour
 
                     if (isPointerDisplayed)
                     {
+                        float pointerMovement = Vector2.Distance(pointerPosition, lastPointerPosition);
+
                         if (IsRemoteInputTriggered(remoteState))
                         {
                             pointerCursor.gameObject.SetActive(true);
+                        }
+                        else if (pointerMovement > pointerMovementThreshold)
+                        {
+                            pointerCursor.gameObject.SetActive(true);
+
+                            lastPointerPosition = pointerPosition;
                         }
 
                         if (pointerCursor != null && pointerCursor.gameObject.activeSelf)
@@ -209,11 +218,9 @@ public class MoveInOffice : MonoBehaviour
                 MoveRight();
             }
 
-            if (Input.anyKeyDown || Input.mousePosition != lastMousePosition)
+            if (Input.anyKeyDown)
             {
                 pointerCursor.gameObject.SetActive(false);
-
-                lastMousePosition = Input.mousePosition;
             }
         }
     }
