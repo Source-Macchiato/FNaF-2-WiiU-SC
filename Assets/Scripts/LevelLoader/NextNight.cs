@@ -29,7 +29,11 @@ public class NextNight : MonoBehaviour
         }
 
         // Analytics and the timer before load the next scene
-        StartCoroutine(analyticsData.UpdateAnalytics("current_night", analyticsData.GetCurrentNight()));
+        if (analyticsData != null)
+        {
+            StartCoroutine(analyticsData.UpdateAnalytics("current_night", analyticsData.GetCurrentNight()));
+        }
+
         StartCoroutine(LoadOffice());
     }
 

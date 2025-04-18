@@ -13,7 +13,7 @@ AudioImporter:
     conversionMode: 0
   platformSettingOverrides:
     24:
-      loadType: 0
+      loadType: 1
       sampleRateSetting: 0
       sampleRateOverride: 44100
       compressionFormat: 0
