@@ -11,6 +11,7 @@ public class MenuSetup : MonoBehaviour
     void Start()
     {
         // Set back callbacks for specific menus
+        menuManager.SetBackCallback(1, OnBackFromOptions);
         menuManager.SetBackCallback(2, OnBackFromCredits);
         menuManager.SetBackCallback(3, OnBackFromLanguage);
         menuManager.SetBackCallback(4, OnBackFromLayout);
@@ -62,6 +63,8 @@ public class MenuSetup : MonoBehaviour
     public void Options()
     {
         menuManager.ChangeMenu(1);
+
+        menuData.ToggleDisplayStars(false);
     }
 
     public void Language()
@@ -74,6 +77,8 @@ public class MenuSetup : MonoBehaviour
     public void Credits()
     {
         menuManager.ChangeMenu(2);
+
+        menuData.ToggleDisplayStars(false);
     }
     
     public void Layout()
@@ -118,6 +123,11 @@ public class MenuSetup : MonoBehaviour
     }
 
     // Callback functions
+    void OnBackFromOptions()
+    {
+        menuData.ToggleDisplayStars(true);
+    }
+
     void OnBackFromLanguage()
     {
         menuData.SaveAndUpdateLanguage();
@@ -128,6 +138,7 @@ public class MenuSetup : MonoBehaviour
     void OnBackFromCredits()
     {
         menuData.ToggleGameTitle(true);
+        menuData.ToggleDisplayStars(true);
     }
 
     void OnBackFromLayout()

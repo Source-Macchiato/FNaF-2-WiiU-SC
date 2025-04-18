@@ -62,6 +62,7 @@ public class MenuData : MonoBehaviour
         advertisementImage.SetActive(false);
 
         SaveIntroDreamPlayed();
+        ToggleDisplayStars(true);
 
         // System for display night number and prevent being out of range
         if (nightNumber >= 0 && nightNumber <= 4) // If is between night 1 and night 5
@@ -89,9 +90,11 @@ public class MenuData : MonoBehaviour
 
         // Display night text only when continue button is selected
         nightNumberContainer.SetActive(EventSystem.current.currentSelectedGameObject == continueButtonGameObject);
+    }
 
-        // Display stars only if current menu is 0
-        starsContainer.SetActive(menuManager.currentMenuId == 0);
+    public void ToggleDisplayStars(bool visibility)
+    {
+        starsContainer.SetActive(visibility);
     }
 
     public void LoadAdvertisement()
