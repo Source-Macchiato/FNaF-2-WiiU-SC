@@ -119,10 +119,10 @@ public class MenuManager : MonoBehaviour
                                 lastNavigationTime = 0f;
                             }
                         }
-                        else
-                        {
-                            ScrollNavigation(new Vector2(0, leftStickGamepad.y));
-                        }
+                    }
+                    else
+                    {
+                        ScrollNavigation(new Vector2(0, leftStickGamepad.y));
                     }
                 }
 
@@ -256,10 +256,10 @@ public class MenuManager : MonoBehaviour
                                     lastNavigationTime = 0f;
                                 }
                             }
-                            else
-                            {
-                                ScrollNavigation(new Vector2(0, leftStickProController.y));
-                            }
+                        }
+                        else
+                        {
+                            ScrollNavigation(new Vector2(0, leftStickProController.y));
                         }
                     }
 
@@ -388,12 +388,11 @@ public class MenuManager : MonoBehaviour
 
                                     lastNavigationTime = 0f;
                                 }
-
                             }
-                            else
-                            {
-                                ScrollNavigation(new Vector2(0, leftStickClassicController.y));
-                            }
+                        }
+                        else
+                        {
+                            ScrollNavigation(new Vector2(0, leftStickClassicController.y));
                         }
                     }
 
@@ -523,10 +522,10 @@ public class MenuManager : MonoBehaviour
                                     lastNavigationTime = 0f;
                                 }
                             }
-                            else
-                            {
-                                ScrollNavigation(new Vector2(0, stickNunchuk.y));
-                            }
+                        }
+                        else
+                        {
+                            ScrollNavigation(new Vector2(0, stickNunchuk.y));
                         }
                     }
 
