@@ -878,8 +878,8 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
-            ToggleCursorVisibility();
             AutoScroll();
+            ToggleCursorVisibility();
         }
     }
 
@@ -1008,6 +1008,7 @@ public class MenuManager : MonoBehaviour
         // Set scroll rect if component exists
         currentScrollRect = GetCurrentMenu().transform.GetChild(0).GetComponent<ScrollRect>();
 
+        AutoScroll();
         ToggleCursorVisibility();
 
         isNavigatingBack = false;
