@@ -257,6 +257,12 @@ public class MoveInOffice : MonoBehaviour
                 return true;
             }
         }
+
+        if (Mathf.Abs(gamePadState.lStick.x) > stickDeadzone || Mathf.Abs(gamePadState.lStick.y) > stickDeadzone)
+        {
+            return true;
+        }
+
         return false;
     }
 
@@ -269,6 +275,12 @@ public class MoveInOffice : MonoBehaviour
                 return true;
             }
         }
+
+        if (Mathf.Abs(remoteState.pro.leftStick.x) > stickDeadzone || Mathf.Abs(remoteState.pro.leftStick.y) > stickDeadzone)
+        {
+            return true;
+        }
+
         return false;
     }
 
@@ -281,6 +293,12 @@ public class MoveInOffice : MonoBehaviour
                 return true;
             }
         }
+
+        if (Mathf.Abs(remoteState.classic.leftStick.x) > stickDeadzone || Mathf.Abs(remoteState.classic.leftStick.y) > stickDeadzone)
+        {
+            return true;
+        }
+
         return false;
     }
 
@@ -293,6 +311,12 @@ public class MoveInOffice : MonoBehaviour
                 return true;
             }
         }
+
+        if (Mathf.Abs(remoteState.nunchuk.stick.x) > stickDeadzone || Mathf.Abs(remoteState.nunchuk.stick.y) > stickDeadzone)
+        {
+            return true;
+        }
+
         return false;
     }
 }
