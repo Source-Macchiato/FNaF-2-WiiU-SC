@@ -5,7 +5,7 @@ using WiiU = UnityEngine.WiiU;
 
 public class GamepadClickAdapter : MonoBehaviour
 {
-    public Vector2 canvasResolution = new Vector2(1280f, 720f);
+    public Vector2 canvasResolution = new Vector2(960f, 720f);
     public Vector2 gamepadResolution = new Vector2(854f, 480f);
 
     private WiiU.GamePad gamePad;
@@ -97,27 +97,31 @@ public class GamepadClickAdapter : MonoBehaviour
             GameObject currentOverGo = result.gameObject;
 
             GameObject executedPress = ExecuteEvents.ExecuteHierarchy(currentOverGo, pointerData, ExecuteEvents.pointerDownHandler);
-            ExecuteEvents.Execute(pointerPress, pointerData, ExecuteEvents.pointerClickHandler);
 
             if (executedPress != null)
             {
-                if (pointerPress == null)
-                {
-                    pointerPress = executedPress;
-                    pointerData.pointerPress = pointerPress;
-                    pointerData.rawPointerPress = currentOverGo;
-                }
+                pointerPress = executedPress;
+                pointerData.pointerPress = pointerPress;
+                pointerData.rawPointerPress = currentOverGo;
+                break;
             }
         }
     }
 
     private void SimulatePointerUp()
     {
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
         if (pointerPress != null)
         {
             ExecuteEvents.Execute(pointerPress, pointerData, ExecuteEvents.pointerUpHandler);
 
-            // Réinitialise les données
+            if (raycastResults.Exists(r => r.gameObject == pointerPress))
+            {
+                ExecuteEvents.Execute(pointerPress, pointerData, ExecuteEvents.pointerClickHandler);
+            }
+
             pointerData.pointerPress = null;
             pointerData.rawPointerPress = null;
             pointerPress = null;

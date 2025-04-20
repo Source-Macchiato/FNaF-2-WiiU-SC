@@ -939,7 +939,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void ToggleCursorVisibility()
+    public void ToggleCursorVisibility()
     {
         if (cursor != null)
         {
@@ -948,7 +948,6 @@ public class MenuManager : MonoBehaviour
                 && EventSystem.current.currentSelectedGameObject.GetComponent<SwitcherData>() == null
                 && EventSystem.current.currentSelectedGameObject.GetComponent<CardSwitcherData>() == null
                 && EventSystem.current.currentSelectedGameObject.GetComponent<CardData>() == null
-                && EventSystem.current.currentSelectedGameObject.GetComponent<ButtonSelectionHandler>() == null
                 && currentPopup == null)
             {
                 if (!cursor.activeSelf)
@@ -1069,7 +1068,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    private void AutoScroll()
+    public void AutoScroll()
     {
         if (currentScrollRect != null && EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.GetComponent<Button>() != null)
         {

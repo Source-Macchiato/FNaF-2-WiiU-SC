@@ -2,22 +2,21 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ButtonSelectionHandler : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class ButtonSelectionHandler : MonoBehaviour, ISelectHandler
 {
-    private Button button;
+    Button button;
+    MenuManager menuManager;
 
     void Start()
     {
         button = GetComponent<Button>();
+        menuManager = FindObjectOfType<MenuManager>();
     }
 
     public void OnSelect(BaseEventData eventData)
     {
-        button.OnPointerEnter(null);
-    }
-
-    public void OnDeselect(BaseEventData eventData)
-    {
-        button.OnPointerExit(null);
+        menuManager.Select(button);
+        menuManager.AutoScroll();
+        menuManager.ToggleCursorVisibility();
     }
 }
