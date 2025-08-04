@@ -204,9 +204,7 @@ public class AIManager : MonoBehaviour {
 			if (maskManager.isMaskActive)
 			{
 				Debug.Log("withered freddy mask active");
-			    // Toujours échouer si le masque est actif
-			    nightPlayer.WitheredFreddyMovement = 5f;
-			    // Une chance sur 5 de revenir à la caméra 7
+				nightPlayer.WitheredFreddyMovement = 5f;
 				int RandomChance = Random.Range(0, 5);
 				RollChanceFreddy -= Time.deltaTime;
 
@@ -214,10 +212,9 @@ public class AIManager : MonoBehaviour {
 				{
 					RollChanceFreddy = 7f;
 					if (RandomChance == 0)
-			    	{
-			    	    nightPlayer.WitheredFreddyCamera = 7;
-
-			    	}
+			    		{
+			    	    		nightPlayer.WitheredFreddyCamera = 7;
+			    		}
 				}
 			}
 		}
