@@ -1,0 +1,37 @@
+PREPRPL Log
+Output to "G:\Git\Muchos\Assets\Plugins\WiiU\SDCardPlugin\build\SDCardPlugin.export.o"
+17 CODE EXPORTS
+12 DATA EXPORTS
+
+CODE:
+AppendToLogBuffer__FPCc
+CreateDirectoriesRecursively__FPCc
+FILEExists
+GetFileData
+GetFileDataSize
+GetListOfDirectories
+GetLogMessages
+ListSDFolders
+MountSDCard__Fv
+ReadFileData
+SDCard_Finalize
+SDCard_Init
+UnmountSDCard__Fv
+WriteFile
+pl_CheckDirectory
+rpl_entry
+rpl_fexports
+
+DATA:
+__TID_Q2_3std11logic_error
+__TID_Q2_3std12length_error
+__TID_Q2_3std9bad_alloc
+__TID_Q2_3std9exception
+directoryList
+fileDataBuffer
+fsClient
+fsCmdBlock
+isMounted
+logBuffer
+mountPath
+rpl_dexports
