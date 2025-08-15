@@ -29,25 +29,25 @@ public class AIManager : MonoBehaviour {
 
     void Start()
     {
-        currentNight = SaveManager.LoadNightNumber();
+        currentNight = SaveManager.saveData.game.nightNumber;
 
         // Initialize AI levels
 
         if (Application.isEditor && !isNight7)
         {
             aiLevels = new Dictionary<string, int>() {
-            { "ToyFreddyAI", 0 },
-            { "ToyBonnieAI", 0 },
-            { "ToyChicaAI", 0 },
-            { "WitheredFreddyAI", 0 },
-            { "WitheredBonnieAI", 0 },
-            { "WitheredChicaAI", 0 },
-            { "WitheredFoxyAI", 0 },
-            { "GoldenFreddyAI", 0 },
-            { "MangleAI", 0 },
-            { "BalloonBoyAI", 0 },
-            { "PaperpalsAI", 0 },
-            { "PuppetAI", 15 }
+                { "ToyFreddyAI", 0 },
+                { "ToyBonnieAI", 0 },
+                { "ToyChicaAI", 0 },
+                { "WitheredFreddyAI", 0 },
+                { "WitheredBonnieAI", 0 },
+                { "WitheredChicaAI", 0 },
+                { "WitheredFoxyAI", 0 },
+                { "GoldenFreddyAI", 0 },
+                { "MangleAI", 0 },
+                { "BalloonBoyAI", 0 },
+                { "PaperpalsAI", 0 },
+                { "PuppetAI", 15 }
             };
         }
         else

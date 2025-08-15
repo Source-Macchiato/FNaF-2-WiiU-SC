@@ -53,7 +53,7 @@ public class MenuData : MonoBehaviour
         analyticsData = FindObjectOfType<AnalyticsData>();
 
         // Load
-        nightNumber = SaveManager.LoadNightNumber();
+        nightNumber = SaveManager.saveData.game.nightNumber;
         layoutId = SaveManager.LoadLayoutId();
         LoadVolume();
 
@@ -137,7 +137,6 @@ public class MenuData : MonoBehaviour
     public void SaveAndUpdateLanguage()
     {
         saveManager.SaveLanguage(languageSwitcher.optionsName[languageSwitcher.currentOptionId]);
-        bool saveResult = saveGameState.DoSave();
 
         // Reload the language
         I18n.LoadLanguage();
@@ -147,7 +146,6 @@ public class MenuData : MonoBehaviour
     {
         // Get SwitcherData scripts
         saveManager.SaveShareAnalytics(analyticsSwitcher.currentOptionId == 1 ? 0 : 1);
-        bool saveResult = saveGameState.DoSave();
 
         analyticsData.CanShareAnalytics();
     }
@@ -155,19 +153,11 @@ public class MenuData : MonoBehaviour
     public void SaveMotionControls()
     {
         saveManager.SaveMotionControls(motionSwitcher.currentOptionId == 0);
-        bool saveResult = saveGameState.DoSave();
     }
 
     public void SavePointerVisibility()
     {
         saveManager.SavePointerVisibility(pointerSwitcher.currentOptionId == 0);
-        bool saveResult = saveGameState.DoSave();
-    }
-
-    public void SaveNightNumber()
-    {
-        saveManager.SaveNightNumber(nightNumber);
-        bool saveResult = saveGameState.DoSave();
     }
 
     public void ToggleGameTitle(bool visibility)
@@ -180,7 +170,6 @@ public class MenuData : MonoBehaviour
         if (SaveManager.LoadIntroDreamPlayed() == 0)
         {
             saveManager.SaveIntroDreamPlayed(1);
-            bool saveResult = saveGameState.DoSave();
         }
     }
 
@@ -255,7 +244,6 @@ public class MenuData : MonoBehaviour
 
         // Save layout id
         saveManager.SaveLayoutId(layoutId);
-        bool saveResult = saveGameState.DoSave();
     }
 
     public void SaveDifficulties()
@@ -472,8 +460,6 @@ public class MenuData : MonoBehaviour
         // Save and apply SFX volume
         saveManager.SaveSFXVolume(sfxVolumeSwitcher.currentOptionId);
         audioMixer.SetFloat("SFX", ConvertToDecibel(sfxVolumeSwitcher.currentOptionId));
-
-        bool saveResult = saveGameState.DoSave();
     }
 
     private float ConvertToDecibel(int volume)

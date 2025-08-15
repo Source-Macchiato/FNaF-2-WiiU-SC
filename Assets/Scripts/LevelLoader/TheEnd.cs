@@ -26,7 +26,7 @@ public class TheEnd : MonoBehaviour
 		levelLoader.loadingScreen.SetActive(false);
 
 		// Get night number
-		nightNumber = SaveManager.LoadNightNumber();
+		nightNumber = SaveManager.saveData.game.nightNumber;
 
 		// Display right image and save stars
 		if (nightNumber == 5) // If night 5
@@ -34,21 +34,18 @@ public class TheEnd : MonoBehaviour
 			endingScreen.sprite = endingSprites[0];
 
 			saveManager.SaveUnlockedStars(0, true);
-			bool saveResult = saveGameState.DoSave();
 		}
 		else if (nightNumber == 6) // If night 6
 		{
 			endingScreen.sprite = endingSprites[1];
 
 			saveManager.SaveUnlockedStars(1, true);
-			bool saveResult = saveGameState.DoSave();
 		}
 		else if (nightNumber == 7) // If night 7 / Custom Night
 		{
 			endingScreen.sprite = endingSprites[2];
 
 			saveManager.SaveUnlockedStars(2, true);
-			bool saveResult = saveGameState.DoSave();
 		}
 
 		// Load next scene

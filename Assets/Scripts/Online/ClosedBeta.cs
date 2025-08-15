@@ -125,7 +125,6 @@ public class ClosedBeta : MonoBehaviour
             if (StatusCode(www) == 200)
 			{
 				saveManager.SaveUserToken(response.data.token);
-				bool saveResult = saveGameState.DoSave();
 
                 StartCoroutine(IsTester(response.data.token, projectToken));
             }

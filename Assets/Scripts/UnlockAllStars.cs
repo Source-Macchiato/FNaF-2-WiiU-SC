@@ -179,8 +179,6 @@ public class UnlockAllStars : MonoBehaviour
             saveManager.SaveUnlockedStars(i, true);
         }
 
-        bool saveResult = saveGameState.DoSave();
-
         SceneManager.LoadScene("MainMenu");
     }
 }

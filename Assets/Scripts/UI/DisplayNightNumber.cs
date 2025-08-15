@@ -8,7 +8,7 @@ public class DisplayNightNumber : MonoBehaviour
 
 	void Start()
 	{
-		nightNumber = SaveManager.LoadNightNumber();
+		nightNumber = SaveManager.saveData.game.nightNumber;
 		nightNumberText = GetComponent<RTLTextMeshPro>();
 
 		nightNumberText.text = (nightNumber + 1).ToString();

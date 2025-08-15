@@ -23,41 +23,50 @@ public class MenuSetup : MonoBehaviour
     // Buttons functions
     public void NewGame()
     {
-        menuManager.canNavigate = false;
+        if (menuManager.canNavigate)
+        {
+            menuManager.canNavigate = false;
 
-        // Reset night number and save it
-        menuData.nightNumber = 0;
-        menuData.SaveNightNumber();
+            // Reset night number and save it
+            SaveManager.saveData.game.nightNumber = 0;
+            SaveManager.Save();
 
-        menuData.LoadAdvertisement();
+            menuData.LoadAdvertisement();
+        }
     }
 
     public void Continue()
     {
-        menuManager.canNavigate = false;
-
-        if (menuData.nightNumber >= 0 && menuData.nightNumber <= 4) // Night is between 1 and 5
+        if (menuManager.canNavigate)
         {
-            SceneManager.LoadScene("NextNight");
-        }
-        else if (menuData.nightNumber >= 5)
-        {
-            // Reset night number to 4 and save it
-            menuData.nightNumber = 4;
-            menuData.SaveNightNumber();
+            menuManager.canNavigate = false;
 
-            SceneManager.LoadScene("NextNight");
+            if (menuData.nightNumber >= 0 && menuData.nightNumber <= 4) // Night is between 1 and 5
+            {
+                SceneManager.LoadScene("NextNight");
+            }
+            else if (menuData.nightNumber >= 5)
+            {
+                // Reset night number to 4 and save it
+                SaveManager.saveData.game.nightNumber = 4;
+                SaveManager.Save();
+
+                SceneManager.LoadSceneAsync("NextNight");
+            }
         }
     }
 
     public void SixthNight()
     {
-        menuManager.canNavigate = false;
+        if (menuManager.canNavigate)
+        {
+            menuManager.canNavigate = false;
 
-        menuData.nightNumber = 5;
-        menuData.SaveNightNumber();
+            SaveManager.saveData.game.nightNumber = 5;
+            SaveManager.Save();
 
-        SceneManager.LoadScene("NextNight");
+            SceneManager.LoadSceneAsync("NextNight");
+        }
     }
 
     public void Options()
@@ -90,14 +99,17 @@ public class MenuSetup : MonoBehaviour
 
     public void StartCustomNight()
     {
-        menuData.SaveDifficulties();
+        if (menuManager.canNavigate)
+        {
+            menuManager.canNavigate = false;
 
-        menuManager.canNavigate = false;
+            menuData.SaveDifficulties();
 
-        menuData.nightNumber = 6;
-        menuData.SaveNightNumber();
+            SaveManager.saveData.game.nightNumber = 6;
+            SaveManager.Save();
 
-        SceneManager.LoadScene("NextNight");
+            SceneManager.LoadSceneAsync("NextNight");
+        }
     }
 
     public void Analytics()

@@ -1,55 +1,97 @@
-﻿using UnityEngine;
+﻿using System.Text;
 using System.IO;
-using WiiU = UnityEngine.WiiU;
 using System.Threading;
+using UnityEngine;
+using WiiU = UnityEngine.WiiU;
 
 public class SaveGameState : MonoBehaviour
 {
-    public bool DoSave()
+    public static int saveResult = -1;
+    public static bool isSaving = false;
+
+    public static void DoSave(byte[] data)
     {
-        bool saved = false;
+        string path = Application.persistentDataPath + "/data.bin";
+        saveResult = -1;
+        isSaving = true;
         Thread t = new Thread(new ThreadStart(
             delegate
             {
-                saved = Save();
+                DelegatedSave(data, path);
             })
         );
 
         t.Start();
-
-        return saved;
     }
 
-    bool Save()
+    private static void DelegatedSave(byte[] data, string path)
     {
         WiiU.SaveCommand cmd = WiiU.Save.SaveCommand(WiiU.Save.accountNo);
 
         long freespace = 0;
         WiiU.Save.FSStatus status = cmd.GetFreeSpaceSize(out freespace, WiiU.Save.FSRetFlag.None);
         if (status != WiiU.Save.FSStatus.OK)
-            return false;
+        {
+            saveResult = 0;
+            isSaving = false;
+        }
 
-        long needspace = Mathf.Max(1024 * 1024, WiiU.PlayerPrefsHelper.rawData.Length);
+        long needspace = Mathf.Max(1024 * 1024, data.Length);
 
         if (freespace < needspace)
         {
             // not enough free space
-            return false;
+            saveResult = 0;
+            isSaving = false;
         }
         else
         {
-            var path = Application.persistentDataPath + "/game_data.bin";
             var fileStream = new FileStream(path, FileMode.Create);
-            byte[] prefsData = WiiU.PlayerPrefsHelper.rawData;
-            fileStream.Write(prefsData, 0, prefsData.Length);
+            fileStream.Write(data, 0, data.Length);
             fileStream.Close();
 
             // It is very important to flush quota, otherwise filesystem changes will be discarded upon reboot
             status = cmd.FlushQuota(WiiU.Save.FSRetFlag.None);
             if (status != WiiU.Save.FSStatus.OK)
-                return false;
+            {
+                saveResult = 0;
+            }
         }
 
-        return true;
+        saveResult = 1;
+        isSaving = false;
+    }
+
+    public static string DoLoad()
+    {
+        try
+        {
+            using (var fileStream = new FileStream(Application.persistentDataPath + "/data.bin", FileMode.Open))
+            {
+                var dataSize = (int)fileStream.Length;
+
+                if (dataSize <= 0)
+                {
+                    return string.Empty;
+                }
+
+                byte[] data = new byte[dataSize];
+
+                if (fileStream.Read(data, 0, dataSize) < dataSize)
+                {
+                    return string.Empty;
+                }
+
+                string json = Encoding.UTF8.GetString(data);
+
+                fileStream.Close();
+
+                return json;
+            }
+        }
+        catch (FileNotFoundException)
+        {
+            return string.Empty;
+        }
     }
 }

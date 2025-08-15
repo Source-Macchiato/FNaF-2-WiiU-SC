@@ -41,7 +41,7 @@ public class MusicBox : MonoBehaviour
         monitorManager = FindObjectOfType<MonitorManager>();
 
         // Get night number
-        nightNumber = SaveManager.LoadNightNumber();
+        nightNumber = SaveManager.saveData.game.nightNumber;
 
         // Assign unwind time
         unwindTime = UnwindSpeed();

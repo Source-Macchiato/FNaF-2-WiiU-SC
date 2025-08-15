@@ -36,13 +36,12 @@ public class SixAM : MonoBehaviour
 		levelLoader.loadingScreen.SetActive(false);
 
 		// Get current night number
-		nightNumber = SaveManager.LoadNightNumber();
+		nightNumber = SaveManager.saveData.game.nightNumber;
 
         // Increase night number and save it
         nightNumber++;
-
-		saveManager.SaveNightNumber(nightNumber);
-		bool saveResult = saveGameState.DoSave();
+		SaveManager.saveData.game.nightNumber = nightNumber;
+		SaveManager.Save();
 
 		if (nightNumber == 7)
 		{

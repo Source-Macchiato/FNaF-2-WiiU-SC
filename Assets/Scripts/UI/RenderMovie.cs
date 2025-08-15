@@ -9,16 +9,16 @@ public class RenderMovie : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(Sequence());
+    }
+
+    private IEnumerator Sequence()
+    {
         movTexture.Play();
         cafeSound.Play();
 
-        StartCoroutine(LoadNextScene());
-    }
+        yield return new WaitForSeconds(8f);
 
-    private IEnumerator LoadNextScene()
-    {
-        yield return new WaitUntil(() => !cafeSound.isPlaying);
-
-        SceneManager.LoadScene("Warning");
+        SceneManager.LoadSceneAsync("Warning");
     }
 }

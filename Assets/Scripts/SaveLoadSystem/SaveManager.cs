@@ -1,17 +1,50 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Text;
+using UnityEngine;
+using WiiU = UnityEngine.WiiU;
 
 public class SaveManager : MonoBehaviour
 {
-    // Save
-	public void SaveLanguage(string language)
-	{
-        PlayerPrefs.SetString("Language", language);
-        PlayerPrefs.Save();
+    public static SaveData saveData = new SaveData();
+    public static string token;
+
+    void Start()
+    {
+        // Load data
+        string json = SaveGameState.DoLoad();
+
+        if (json != string.Empty)
+        {
+            saveData = JsonUtility.FromJson<SaveData>(json);
+
+            Debug.Log("Data has been loaded.");
+        }
+        else
+        {
+            Debug.Log("Data has not been loaded.");
+        }
+
+        // Load token
+        WiiU.SDCard.Init();
+        if (WiiU.SDCard.FileExists("wiiu/apps/BrewConnect/token"))
+        {
+            token = WiiU.SDCard.ReadAllText("wiiu/apps/BrewConnect/token").Trim();
+        }
+        WiiU.SDCard.DeInit();
     }
 
-    public void SaveNightNumber(int nightNumber)
+    public static void Save()
     {
-        PlayerPrefs.SetInt("NightNumber", nightNumber);
+        string json = JsonUtility.ToJson(saveData);
+        byte[] data = Encoding.UTF8.GetBytes(json);
+        SaveGameState.DoSave(data);
+    }
+
+    // --- --- --- ---
+    // Save
+    public void SaveLanguage(string language)
+	{
+        PlayerPrefs.SetString("Language", language);
         PlayerPrefs.Save();
     }
 
@@ -103,18 +136,6 @@ public class SaveManager : MonoBehaviour
         else
         {
             return null;
-        }
-    }
-
-    public static int LoadNightNumber()
-    {
-        if (PlayerPrefs.HasKey("NightNumber"))
-        {
-            return PlayerPrefs.GetInt("NightNumber");
-        }
-        else
-        {
-            return 0;
         }
     }
 
@@ -275,4 +296,30 @@ public class SaveManager : MonoBehaviour
             return 10;
         }
     }
+}
+
+[Serializable]
+public class SaveData
+{
+    public Game game = new Game();
+    public Settings settings = new Settings();
+}
+
+[Serializable]
+public class Game
+{
+    public int nightNumber = 0;
+    public int starsId = 0;
+}
+
+[Serializable]
+public class Settings
+{
+
+}
+
+[Serializable]
+public class Volume
+{
+
 }

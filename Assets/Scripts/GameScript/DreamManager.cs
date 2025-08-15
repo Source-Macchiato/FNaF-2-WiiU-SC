@@ -40,7 +40,7 @@ public class DreamManager : MonoBehaviour
         moveInOffice = FindObjectOfType<MoveInOffice>();
 
         // Load
-        nightNumber = SaveManager.LoadNightNumber();
+        nightNumber = SaveManager.saveData.game.nightNumber;
         introDreamPlayed = SaveManager.LoadIntroDreamPlayed();
 
         Debug.Log(nightNumber);

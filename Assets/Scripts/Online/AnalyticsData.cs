@@ -186,7 +186,7 @@ public class AnalyticsData : MonoBehaviour
 
     public int GetCurrentNight()
     {
-        return Mathf.Clamp(SaveManager.LoadNightNumber() + 1, 1, 7);
+        return Mathf.Clamp(SaveManager.saveData.game.nightNumber + 1, 1, 7);
     }
 
     public string GetLayout()
@@ -211,7 +211,6 @@ public class AnalyticsData : MonoBehaviour
         menuManager.CloseCurrentPopup();
 
         saveManager.SaveShareAnalytics(share ? 1 : 0);
-        bool saveResult = saveGameState.DoSave();
 
         if (share)
         {

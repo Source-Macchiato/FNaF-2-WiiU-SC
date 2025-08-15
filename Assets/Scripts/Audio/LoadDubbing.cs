@@ -7,13 +7,13 @@ public class LoadDubbing : MonoBehaviour
     public AudioSource phoneCallAudio;
     private string bundleName;
     private string audioName;
-    private float nightNumber;
+    private int nightNumber;
     private string dubbingLanguage;
 
 	void Start()
     {
         WiiU.AudioSourceOutput.Assign(phoneCallAudio, WiiU.AudioOutput.TV | WiiU.AudioOutput.GamePad);
-        nightNumber = SaveManager.LoadNightNumber();
+        nightNumber = SaveManager.saveData.game.nightNumber;
 
         if (nightNumber >= 0 && nightNumber <= 5)
         {

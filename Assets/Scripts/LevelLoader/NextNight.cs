@@ -20,7 +20,7 @@ public class NextNight : MonoBehaviour
         levelLoader.loadingScreen.SetActive(false);
 
         // Get night number
-        nightNumber = SaveManager.LoadNightNumber();
+        nightNumber = SaveManager.saveData.game.nightNumber;
 
         // Display current night displayer and hide others
         for (int i = 0; i < nightDisplayers.Length; i++)

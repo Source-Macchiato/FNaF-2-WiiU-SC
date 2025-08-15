@@ -47,7 +47,7 @@ public class LightsManager : MonoBehaviour
 
         currentFlashlightDuration = flashlightDuration;
 
-        nightNumber = SaveManager.LoadNightNumber();
+        nightNumber = SaveManager.saveData.game.nightNumber;
     }
 	
 	void Update()
