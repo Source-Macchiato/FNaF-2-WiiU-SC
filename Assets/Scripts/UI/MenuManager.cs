@@ -1108,7 +1108,11 @@ public class MenuManager : MonoBehaviour
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            currentScrollRect.verticalNormalizedPosition = Mathf.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            
+            if (currentScrollRect != null)
+            {
+                currentScrollRect.verticalNormalizedPosition = Mathf.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            }
 
             // Call UpdateSelectionPosition() while the animation is running
             UpdateSelectionPosition(EventSystem.current.currentSelectedGameObject);
@@ -1117,6 +1121,9 @@ public class MenuManager : MonoBehaviour
         }
 
         // Ensure that the final position is reached
-        currentScrollRect.verticalNormalizedPosition = targetPosition;
+        if (currentScrollRect != null)
+        {
+            currentScrollRect.verticalNormalizedPosition = targetPosition;
+        }
     }
 }
