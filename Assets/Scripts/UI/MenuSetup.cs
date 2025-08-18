@@ -15,7 +15,7 @@ public class MenuSetup : MonoBehaviour
         menuManager.SetBackCallback(2, OnBackFromCredits);
         menuManager.SetBackCallback(3, OnBackFromLanguage);
         menuManager.SetBackCallback(4, OnBackFromLayout);
-        menuManager.SetBackCallback(6, OnBackFromAnalytics);
+        menuManager.SetBackCallback(6, OnBackFromBrewConnect);
         menuManager.SetBackCallback(7, OnBackFromControls);
         menuManager.SetBackCallback(9, OnBackFromVolume);
     }
@@ -112,7 +112,7 @@ public class MenuSetup : MonoBehaviour
         }
     }
 
-    public void Analytics()
+    public void BrewConnect()
     {
         menuManager.ChangeMenu(6);
 
@@ -132,6 +132,13 @@ public class MenuSetup : MonoBehaviour
         menuManager.ChangeMenu(9);
 
         menuData.UpdateVolumeSwitchers();
+    }
+
+    public void Video()
+    {
+        menuManager.ChangeMenu(10);
+
+        menuData.LoadPanoramaEffect();
     }
 
     // Callback functions
@@ -158,7 +165,7 @@ public class MenuSetup : MonoBehaviour
         menuData.UpdateAnalyticsLayout();
     }
 
-    void OnBackFromAnalytics()
+    void OnBackFromBrewConnect()
     {
         menuData.SaveAndUpdateAnalytics();
     }
@@ -172,5 +179,10 @@ public class MenuSetup : MonoBehaviour
     void OnBackFromVolume()
     {
         menuData.SaveAndUpdateVolume();
+    }
+
+    void OnBackFromVideo()
+    {
+        menuData.SavePanoramaEffect();
     }
 }

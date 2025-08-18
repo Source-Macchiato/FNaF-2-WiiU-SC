@@ -46,6 +46,12 @@ public class SaveData
 {
     public Game game = new Game();
     public Settings settings = new Settings();
+    public bool[] achievements = new bool[Enum.GetValues(typeof(Achievements.achievements)).Length];
+
+    public void UnlockAchievement(Achievements.achievements a)
+    {
+        achievements[(int)a] = true;
+    }
 }
 
 [Serializable]
@@ -78,6 +84,8 @@ public class Settings
     public Volume volume = new Volume();
     public bool motionControls = true;
     public bool pointerVisibility = true;
+    public bool panoramaEffect = true;
+    public bool subtitlesEnabled = true;
 }
 
 [Serializable]

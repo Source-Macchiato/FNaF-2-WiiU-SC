@@ -35,6 +35,7 @@ public class MenuData : MonoBehaviour
     public SwitcherData musicVolumeSwitcher;
     public SwitcherData voiceVolumeSwitcher;
     public SwitcherData sfxVolumeSwitcher;
+    public SwitcherData panoramaEffectSwitcher;
 
     public AudioMixer audioMixer;
 
@@ -229,6 +230,26 @@ public class MenuData : MonoBehaviour
         {
             pointerSwitcher.currentOptionId = switcherIndex;
             pointerSwitcher.UpdateText();
+        }
+    }
+
+    // Panorama effect
+    public void SavePanoramaEffect()
+    {
+        SaveManager.saveData.settings.panoramaEffect = panoramaEffectSwitcher.currentOptionId == 0;
+        SaveManager.Save();
+    }
+
+    public void LoadPanoramaEffect()
+    {
+        bool panoramaEffect = SaveManager.saveData.settings.panoramaEffect;
+
+        int switcherIndex = panoramaEffect ? 0 : 1;
+
+        if (switcherIndex >= 0 && switcherIndex < panoramaEffectSwitcher.optionsName.Length)
+        {
+            panoramaEffectSwitcher.currentOptionId = switcherIndex;
+            panoramaEffectSwitcher.UpdateText();
         }
     }
 
