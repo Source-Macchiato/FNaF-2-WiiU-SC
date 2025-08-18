@@ -12,7 +12,6 @@ public class DreamManager : MonoBehaviour
     public GameObject statusContainer;
 	private float lastOfficePositionX;
     private int nightNumber;
-    private int introDreamPlayed;
 
     [Header("Images")]
     public Image chicaImage;
@@ -41,7 +40,6 @@ public class DreamManager : MonoBehaviour
 
         // Load
         nightNumber = SaveManager.saveData.game.nightNumber;
-        introDreamPlayed = SaveManager.LoadIntroDreamPlayed();
 
         Debug.Log(nightNumber);
 
@@ -167,7 +165,7 @@ public class DreamManager : MonoBehaviour
 
     private void CharactersStatus()
     {
-        if (introDreamPlayed == 0)
+        if (!SaveManager.saveData.game.dreamIntroPlayed)
         {
             chicaImage.sprite = chicaSprites[0];
             bonnieImage.sprite = bonnieSprites[0];

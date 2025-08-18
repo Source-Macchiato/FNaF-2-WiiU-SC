@@ -116,7 +116,7 @@ public class MenuSetup : MonoBehaviour
     {
         menuManager.ChangeMenu(6);
 
-        menuData.LoadShareAnalyticsAndUpdateSwitcher();
+        menuData.LoadAnalyticsAndUpdateSwitcher();
     }
 
     public void Controls()
@@ -160,7 +160,7 @@ public class MenuSetup : MonoBehaviour
 
     void OnBackFromAnalytics()
     {
-        menuData.SaveAndUpdateShareAnalytics();
+        menuData.SaveAndUpdateAnalytics();
     }
 
     void OnBackFromControls()

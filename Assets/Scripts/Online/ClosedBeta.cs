@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,11 +9,8 @@ using WiiU = UnityEngine.WiiU;
 public class ClosedBeta : MonoBehaviour
 {
 	private string projectToken = "9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b";
-	private string userToken;
 
 	MenuManager menuManager;
-	SaveManager saveManager;
-	SaveGameState saveGameState;
 
     // References to WiiU controllers
     WiiU.GamePad gamePad;
@@ -38,18 +36,14 @@ public class ClosedBeta : MonoBehaviour
         remote = WiiU.Remote.Access(0);
 
         menuManager = FindObjectOfType<MenuManager>();
-		saveManager = FindObjectOfType<SaveManager>();
-		saveGameState = FindObjectOfType<SaveGameState>();
 
-		userToken = SaveManager.LoadUserToken();
-
-		if (userToken == null)
+		if (string.IsNullOrEmpty(SaveManager.token))
 		{
             menuManager.AddPopup(2);
         }
 		else
 		{
-			StartCoroutine(LogInToken(userToken));
+			StartCoroutine(LogInToken(SaveManager.token));
 		}
 	}
 
@@ -108,7 +102,7 @@ public class ClosedBeta : MonoBehaviour
 	{
 		string url = "https://api.brew-connect.com/v1/account/login";
 		string json = "{\"id\":\"" + id + "\",\"password\":\"" + password + "\"}";
-		byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
+		byte[] post = Encoding.UTF8.GetBytes(json);
 
 		Dictionary<string, string> headers = new Dictionary<string, string>();
 		headers.Add("Content-Type", "application/json");
@@ -124,7 +118,13 @@ public class ClosedBeta : MonoBehaviour
 
             if (StatusCode(www) == 200)
 			{
-				saveManager.SaveUserToken(response.data.token);
+				WiiU.SDCard.Init();
+				if (WiiU.SDCard.FileExists("wiiu/apps/BrewConnect/token"))
+				{
+					WiiU.SDCard.WriteAllText("wiiu/apps/BrewConnect/token", response.data.token.Trim());
+                }
+				WiiU.SDCard.DeInit();
+				SaveManager.token = response.data.token.Trim();
 
                 StartCoroutine(IsTester(response.data.token, projectToken));
             }
@@ -135,7 +135,7 @@ public class ClosedBeta : MonoBehaviour
     {
         string url = "https://api.brew-connect.com/v1/account/login";
         string json = "{\"token\":\"" + token + "\"}";
-        byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
+        byte[] post = Encoding.UTF8.GetBytes(json);
 
         Dictionary<string, string> headers = new Dictionary<string, string>();
         headers.Add("Content-Type", "application/json");
@@ -164,7 +164,7 @@ public class ClosedBeta : MonoBehaviour
 	{
 		string url = "https://api.brew-connect.com/v1/online/is_tester";
 		string json = "{\"user_token\":\"" + userToken + "\",\"project_token\":\"" + projectToken + "\"}";
-		byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
+		byte[] post = Encoding.UTF8.GetBytes(json);
 
 		Dictionary<string, string> headers = new Dictionary<string, string>();
 		headers.Add("content-Type", "application/json");

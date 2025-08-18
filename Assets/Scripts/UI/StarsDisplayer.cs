@@ -11,13 +11,13 @@ public class StarsDisplayer : MonoBehaviour
 		// Enable or disable stars based on save 
 		for (int i = 0; i < starContainers.Length; i++)
 		{
-			starContainers[i].SetActive(SaveManager.LoadUnlockedStars(i));
+            starContainers[i].SetActive(SaveManager.saveData.game.unlockedStars[i]);
 		}
 
-		mainButtons[2].SetActive(SaveManager.LoadUnlockedStars(0));
-		mainButtons[3].SetActive(SaveManager.LoadUnlockedStars(1));
+        mainButtons[2].SetActive(SaveManager.saveData.game.unlockedStars[0]);
+        mainButtons[3].SetActive(SaveManager.saveData.game.unlockedStars[1]);
 
-        if (SaveManager.LoadUnlockedStars(1) || SaveManager.LoadUnlockedStars(2))
+        if (SaveManager.saveData.game.unlockedStars[1] || SaveManager.saveData.game.unlockedStars[2])
         {
             Navigation newGameButtonNavigation = mainButtons[0].GetComponent<Button>().navigation;
             newGameButtonNavigation.selectOnUp = mainButtons[3].GetComponent<Button>();
@@ -39,7 +39,7 @@ public class StarsDisplayer : MonoBehaviour
             customNightButtonNavigation.selectOnDown = mainButtons[0].GetComponent<Button>();
             mainButtons[3].GetComponent<Button>().navigation = customNightButtonNavigation;
         }
-        else if (SaveManager.LoadUnlockedStars(0))
+        else if (SaveManager.saveData.game.unlockedStars[0])
         {
             Navigation newGameButtonNavigation = mainButtons[0].GetComponent<Button>().navigation;
             newGameButtonNavigation.selectOnUp = mainButtons[2].GetComponent<Button>();

@@ -48,7 +48,7 @@ public class Warning : MonoBehaviour
         levelLoader.loadingScreen.SetActive(true);
 
         // Request level to load
-        if (SaveManager.LoadIntroDreamPlayed() == 0)
+        if (!SaveManager.saveData.game.dreamIntroPlayed)
         {
             levelLoader.LoadLevel("Dream");
         }

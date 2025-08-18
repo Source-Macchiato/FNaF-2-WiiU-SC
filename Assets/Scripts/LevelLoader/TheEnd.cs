@@ -11,15 +11,11 @@ public class TheEnd : MonoBehaviour
 	private int nightNumber;
 
 	// Scripts
-	SaveGameState saveGameState;
-	SaveManager saveManager;
 	LevelLoader levelLoader;
 
 	void Start()
 	{
 		// Get scripts
-		saveGameState = FindObjectOfType<SaveGameState>();
-		saveManager = FindObjectOfType<SaveManager>();
 		levelLoader = FindObjectOfType<LevelLoader>();
 
 		// Disable loading screen when the scene starts
@@ -33,19 +29,22 @@ public class TheEnd : MonoBehaviour
 		{
 			endingScreen.sprite = endingSprites[0];
 
-			saveManager.SaveUnlockedStars(0, true);
+			SaveManager.saveData.game.ChangeUnlockedStarStatus(0, true);
+			SaveManager.Save();
 		}
 		else if (nightNumber == 6) // If night 6
 		{
 			endingScreen.sprite = endingSprites[1];
 
-			saveManager.SaveUnlockedStars(1, true);
+			SaveManager.saveData.game.ChangeUnlockedStarStatus(1, true);
+			SaveManager.Save();
 		}
 		else if (nightNumber == 7) // If night 7 / Custom Night
 		{
 			endingScreen.sprite = endingSprites[2];
 
-			saveManager.SaveUnlockedStars(2, true);
+			SaveManager.saveData.game.ChangeUnlockedStarStatus(2, true);
+			SaveManager.Save();
 		}
 
 		// Load next scene

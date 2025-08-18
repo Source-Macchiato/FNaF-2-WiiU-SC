@@ -18,7 +18,7 @@ public class LoadDubbing : MonoBehaviour
         if (nightNumber >= 0 && nightNumber <= 5)
         {
             // Get dubbing language
-            dubbingLanguage = SaveManager.LoadDubbingLanguage();
+            dubbingLanguage = SaveManager.saveData.settings.dubbingLanguage;
 
             // Assign bundleName and audioName variables
             if (dubbingLanguage == null || dubbingLanguage == "en")

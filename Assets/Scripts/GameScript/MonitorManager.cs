@@ -43,7 +43,7 @@ public class MonitorManager : MonoBehaviour
         moveInOffice = FindObjectOfType<MoveInOffice>();
         layoutManager = FindObjectOfType<LayoutManager>();
 
-        layoutId = SaveManager.LoadLayoutId();
+        layoutId = SaveManager.saveData.settings.layoutId;
 
         // Elements to disable when the game starts
         minimap.SetActive(false);

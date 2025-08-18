@@ -96,44 +96,46 @@ public class SixAM : MonoBehaviour
 	{
 		if (CheckCustomNightMode(20, 20, 20, 20, 0, 0, 0, 0, 0, 0))
 		{
-			saveManager.SaveDoneMode(0, true);
+			SaveManager.saveData.game.ChangeDoneModeStatus(0, true);
 		}
 		else if (CheckCustomNightMode(0, 0, 0, 0, 10, 10, 10, 10, 10, 0))
 		{
-			saveManager.SaveDoneMode(1, true);
+            SaveManager.saveData.game.ChangeDoneModeStatus(1, true);
 		}
 		else if (CheckCustomNightMode(0, 20, 0, 5, 0, 0, 20, 0, 0, 0))
 		{
-			saveManager.SaveDoneMode(2, true);
+            SaveManager.saveData.game.ChangeDoneModeStatus(2, true);
 		}
 		else if (CheckCustomNightMode(0, 0, 0, 0, 20, 0, 0, 0, 20, 10))
 		{
-			saveManager.SaveDoneMode(3, true);
+            SaveManager.saveData.game.ChangeDoneModeStatus(3, true);
 		}
 		else if (CheckCustomNightMode(0, 0, 0, 20, 0, 0, 0, 0, 20, 0))
 		{
-			saveManager.SaveDoneMode(4, true);
+            SaveManager.saveData.game.ChangeDoneModeStatus(4, true);
 		}
 		else if (CheckCustomNightMode(0, 0, 20, 0, 0, 0, 0, 20, 20, 0))
 		{
-			saveManager.SaveDoneMode(5, true);
+            SaveManager.saveData.game.ChangeDoneModeStatus(5, true);
 		}
 		else if (CheckCustomNightMode(20, 0, 0, 10, 10, 20, 0, 0, 0, 10))
 		{
-			saveManager.SaveDoneMode(6, true);
+            SaveManager.saveData.game.ChangeDoneModeStatus(6, true);
 		}
 		else if (CheckCustomNightMode(5, 5, 5, 5, 5, 5, 5, 5, 5, 5))
 		{
-			saveManager.SaveDoneMode(7, true);
+            SaveManager.saveData.game.ChangeDoneModeStatus(7, true);
 		}
 		else if (CheckCustomNightMode(10, 10, 10, 10, 10, 10, 10, 10, 10, 10))
 		{
-			saveManager.SaveDoneMode(8, true);
+            SaveManager.saveData.game.ChangeDoneModeStatus(8, true);
 		}
 		else if (CheckCustomNightMode(20, 20, 20, 20, 20, 20, 20, 20, 20, 20))
 		{
-			saveManager.SaveDoneMode(9, true);
+			SaveManager.saveData.game.ChangeDoneModeStatus(9, true);
 		}
+
+		SaveManager.Save();
 	}
 
 	private bool CheckCustomNightMode(int freddy, int bonnie, int chica, int foxy, int bb, int toyFreddy, int toyBonnie, int toyChica, int mangle, int goldenFreddy)

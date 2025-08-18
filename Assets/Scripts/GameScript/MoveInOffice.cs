@@ -31,10 +31,13 @@ public class MoveInOffice : MonoBehaviour
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
 
-        canUseMotionControls = SaveManager.LoadMotionControls();
-        isPointerDisplayed = SaveManager.LoadPointerVisibility();
+        canUseMotionControls = SaveManager.saveData.settings.motionControls;
+        isPointerDisplayed = SaveManager.saveData.settings.pointerVisibility;
 
-        pointerCursor.gameObject.SetActive(false);
+        if (pointerCursor != null)
+        {
+            pointerCursor.gameObject.SetActive(false);
+        }
     }
 	
 	void Update()
@@ -70,7 +73,10 @@ public class MoveInOffice : MonoBehaviour
 
             if (IsGamepadInputTriggered(gamePadState))
             {
-                pointerCursor.gameObject.SetActive(false);
+                if (pointerCursor != null)
+                {
+                    pointerCursor.gameObject.SetActive(false);
+                }
             }
         }
 
@@ -103,7 +109,10 @@ public class MoveInOffice : MonoBehaviour
 
                 if (IsProInputTriggered(remoteState))
                 {
-                    pointerCursor.gameObject.SetActive(false);
+                    if (pointerCursor != null)
+                    {
+                        pointerCursor.gameObject.SetActive(false);
+                    }
                 }
                 break;
             case WiiU.RemoteDevType.Classic:
@@ -132,7 +141,10 @@ public class MoveInOffice : MonoBehaviour
 
                 if (IsClassicInputTriggered(remoteState))
                 {
-                    pointerCursor.gameObject.SetActive(false);
+                    if (pointerCursor != null)
+                    {
+                        pointerCursor.gameObject.SetActive(false);
+                    }
                 }
                 break;
             default:
@@ -173,11 +185,17 @@ public class MoveInOffice : MonoBehaviour
 
                         if (IsRemoteInputTriggered(remoteState))
                         {
-                            pointerCursor.gameObject.SetActive(true);
+                            if (pointerCursor != null)
+                            {
+                                pointerCursor.gameObject.SetActive(true);
+                            }
                         }
                         else if (pointerMovement > pointerMovementThreshold)
                         {
-                            pointerCursor.gameObject.SetActive(true);
+                            if (pointerCursor != null)
+                            {
+                                pointerCursor.gameObject.SetActive(true);
+                            }
 
                             lastPointerPosition = pointerPosition;
                         }
@@ -189,7 +207,10 @@ public class MoveInOffice : MonoBehaviour
                     }
                     else
                     {
-                        pointerCursor.gameObject.SetActive(false);
+                        if (pointerCursor != null)
+                        {
+                            pointerCursor.gameObject.SetActive(false);
+                        }
                     }
                 }
                 else
@@ -220,7 +241,10 @@ public class MoveInOffice : MonoBehaviour
 
             if (Input.anyKeyDown)
             {
-                pointerCursor.gameObject.SetActive(false);
+                if (pointerCursor != null)
+                {
+                    pointerCursor.gameObject.SetActive(false);
+                }
             }
         }
     }

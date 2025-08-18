@@ -18,23 +18,23 @@ public class LayoutManager : MonoBehaviour
 
     void Start()
     {
-        layoutId = SaveManager.LoadLayoutId();
-
-        if (layoutId == 0)
+        switch (SaveManager.saveData.settings.layoutId)
         {
-            TVOnly();
-        }
-        else if (layoutId == 1)
-        {
-            TVGamepadClassic();
-        }
-        else if (layoutId == 2)
-        {
-            TVGamepadAlternative();
-        }
-        else if (layoutId == 3)
-        {
-            GamepadOnly();
+            case 0:
+                TVOnly();
+                break;
+            case 1:
+                TVGamepadClassic();
+                break;
+            case 2:
+                TVGamepadAlternative();
+                break;
+            case 3:
+                GamepadOnly();
+                break;
+            default:
+                TVGamepadClassic();
+                break;
         }
     }
 

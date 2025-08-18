@@ -99,9 +99,9 @@ public class I18n
 
     public static string GetLanguage()
     {
-        string loadedLanguage = SaveManager.LoadLanguage();
+        string loadedLanguage = SaveManager.saveData.settings.language;
 
-        if (loadedLanguage != null)
+        if (!string.IsNullOrEmpty(loadedLanguage))
         {
             return loadedLanguage;
         }
