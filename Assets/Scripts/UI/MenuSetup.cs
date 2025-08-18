@@ -18,6 +18,8 @@ public class MenuSetup : MonoBehaviour
         menuManager.SetBackCallback(6, OnBackFromBrewConnect);
         menuManager.SetBackCallback(7, OnBackFromControls);
         menuManager.SetBackCallback(9, OnBackFromVolume);
+        menuManager.SetBackCallback(10, OnBackFromVideo);
+        menuManager.SetBackCallback(11, OnBackFromSubtitles);
     }
 
     // Buttons functions
@@ -141,6 +143,13 @@ public class MenuSetup : MonoBehaviour
         menuData.LoadPanoramaEffect();
     }
 
+    public void Subtitles()
+    {
+        menuManager.ChangeMenu(11);
+
+        menuData.LoadSubtitlesStatus();
+    }
+
     // Callback functions
     void OnBackFromOptions()
     {
@@ -184,5 +193,10 @@ public class MenuSetup : MonoBehaviour
     void OnBackFromVideo()
     {
         menuData.SavePanoramaEffect();
+    }
+
+    void OnBackFromSubtitles()
+    {
+        menuData.SaveSubtitlesStatus();
     }
 }
