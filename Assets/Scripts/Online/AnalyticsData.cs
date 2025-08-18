@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,12 @@ using WiiU = UnityEngine.WiiU;
 
 public class AnalyticsData : MonoBehaviour
 {
+    public static AnalyticsData analyticsData;
+
     private string projectToken = "9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b";
     private string analyticsToken;
 
     MenuManager menuManager;
-    SaveManager saveManager;
-    SaveGameState saveGameState;
 
     // Add analytics
     [Serializable]
@@ -34,18 +35,27 @@ public class AnalyticsData : MonoBehaviour
         public string[] message;
     }
 
+    void Awake()
+    {
+        if (analyticsData != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        analyticsData = this;
+        DontDestroyOnLoad(this);
+    }
+
     void Start()
     {
         menuManager = FindObjectOfType<MenuManager>();
-        saveManager = FindObjectOfType<SaveManager>();
-        saveGameState = FindObjectOfType<SaveGameState>();
 
         CanShareAnalytics();
     }
 
     private IEnumerator SendAnalytics()
 	{
-        if (analyticsToken == null && SaveManager.saveData.settings.shareAnalytics == 1 && !Application.isEditor)
+        if (string.IsNullOrEmpty(analyticsToken) && SaveManager.saveData.settings.shareAnalytics == 1 && !Application.isEditor)
         {
             string url = "https://api.brew-connect.com/v1/online/send_analytics";
             string json = "{" +
@@ -74,7 +84,7 @@ public class AnalyticsData : MonoBehaviour
                     "}" +
                 "]" +
             "}";
-            byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
+            byte[] post = Encoding.UTF8.GetBytes(json);
 
             Dictionary<string, string> headers = new Dictionary<string, string>();
             headers.Add("content-Type", "application/json");
@@ -98,7 +108,7 @@ public class AnalyticsData : MonoBehaviour
 
     public IEnumerator UpdateAnalytics(string key, object value)
     {
-        if (analyticsToken != null && SaveManager.saveData.settings.shareAnalytics == 1 && !Application.isEditor)
+        if (!string.IsNullOrEmpty(analyticsToken) && SaveManager.saveData.settings.shareAnalytics == 1 && !Application.isEditor)
         {
             string url = "https://api.brew-connect.com/v1/online/update_analytics";
             string json = "{" +
@@ -112,7 +122,7 @@ public class AnalyticsData : MonoBehaviour
                     "}" +
                 "]" +
             "}";
-            byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
+            byte[] post = Encoding.UTF8.GetBytes(json);
 
             Dictionary<string, string> headers = new Dictionary<string, string>();
             headers.Add("content-Type", "application/json");

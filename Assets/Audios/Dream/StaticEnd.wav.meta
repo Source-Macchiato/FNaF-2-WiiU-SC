@@ -8,10 +8,17 @@ AudioImporter:
     loadType: 0
     sampleRateSetting: 0
     sampleRateOverride: 44100
-    compressionFormat: 1
+    compressionFormat: 0
     quality: 1
     conversionMode: 0
   platformSettingOverrides:
+    1:
+      loadType: 0
+      sampleRateSetting: 0
+      sampleRateOverride: 44100
+      compressionFormat: 0
+      quality: 1
+      conversionMode: 0
     23:
       loadType: 0
       sampleRateSetting: 0
@@ -20,10 +27,10 @@ AudioImporter:
       quality: 1
       conversionMode: 0
     24:
-      loadType: 1
+      loadType: 0
       sampleRateSetting: 0
       sampleRateOverride: 44100
-      compressionFormat: 0
+      compressionFormat: 8
       quality: 1
       conversionMode: 0
   forceToMono: 0
