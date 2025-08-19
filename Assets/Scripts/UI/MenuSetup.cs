@@ -141,6 +141,7 @@ public class MenuSetup : MonoBehaviour
         menuManager.ChangeMenu(10);
 
         menuData.LoadPanoramaEffect();
+        menuData.LoadImageRatio();
     }
 
     public void Subtitles()
@@ -193,6 +194,7 @@ public class MenuSetup : MonoBehaviour
     void OnBackFromVideo()
     {
         menuData.SavePanoramaEffect();
+        menuData.SaveImageRatio();
     }
 
     void OnBackFromSubtitles()

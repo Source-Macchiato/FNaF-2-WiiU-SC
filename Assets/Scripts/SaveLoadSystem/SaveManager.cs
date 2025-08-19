@@ -80,6 +80,7 @@ public class Settings
     public string language = string.Empty;
     public string dubbingLanguage = string.Empty;
     public int layoutId = 1;
+    public int ratioId = 0;
     public int shareAnalytics = -1;
     public Volume volume = new Volume();
     public bool motionControls = true;

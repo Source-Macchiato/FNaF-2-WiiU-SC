@@ -37,17 +37,16 @@ public class MenuData : MonoBehaviour
     public SwitcherData sfxVolumeSwitcher;
     public SwitcherData panoramaEffectSwitcher;
     public SwitcherData subtitlesSwitcher;
+    public SwitcherData imageRatioSwitcher;
 
     public AudioMixer audioMixer;
 
     // Scripts
-    MenuManager menuManager;
     AnalyticsData analyticsData;
 
     void Start()
     {
         // Get scripts
-        menuManager = FindObjectOfType<MenuManager>();
         analyticsData = FindObjectOfType<AnalyticsData>();
 
         // Load
@@ -271,6 +270,24 @@ public class MenuData : MonoBehaviour
         {
             subtitlesSwitcher.currentOptionId = switcherIndex;
             subtitlesSwitcher.UpdateText();
+        }
+    }
+
+    // Image ratio
+    public void SaveImageRatio()
+    {
+        SaveManager.saveData.settings.ratioId = imageRatioSwitcher.currentOptionId;
+        SaveManager.Save();
+    }
+
+    public void LoadImageRatio()
+    {
+        int SwitcherIndex = SaveManager.saveData.settings.ratioId;
+
+        if (SwitcherIndex >= 0 && SwitcherIndex < imageRatioSwitcher.optionsName.Length)
+        {
+            imageRatioSwitcher.currentOptionId = SwitcherIndex;
+            imageRatioSwitcher.UpdateText();
         }
     }
 
