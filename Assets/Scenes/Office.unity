@@ -1771,7 +1771,7 @@ GameObject:
   - component: {fileID: 174597508}
   - component: {fileID: 174597509}
   m_Layer: 0
-  m_Name: LoadDubbing
+  m_Name: LoadDubbingLanguage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1802,6 +1802,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phoneCallAudio: {fileID: 1058738593}
+  languageAudios:
+  - languageCode: en
+    clips:
+    - {fileID: 8300000, guid: 6b9fc97be531ef14ba768c301e00b6f4, type: 3}
+    - {fileID: 8300000, guid: 7c24e14f8cbacfc478eaeaad0135f2f1, type: 3}
+    - {fileID: 8300000, guid: 644056f462e7edd4bbf3cf56e3df0332, type: 3}
+    - {fileID: 8300000, guid: 639fe45cefffded4c863d24e338f2a5d, type: 3}
+    - {fileID: 8300000, guid: 58cf34313b31ae84680829d8c78ea6e9, type: 3}
+    - {fileID: 8300000, guid: f5f15db75ec17fb4b857ffc86a704d58, type: 3}
 --- !u!1 &175540476
 GameObject:
   m_ObjectHideFlags: 0

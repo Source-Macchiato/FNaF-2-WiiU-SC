@@ -35,7 +35,7 @@ public class ChangeImageRatio : MonoBehaviour
 
             if (gamepadClickAdapter != null)
             {
-                gamepadClickAdapter.canvasResolution = new Vector2(960f, 720f);
+                gamepadClickAdapter.canvasResolution = new Vector2(1280f, 720f);
             }
 		}
 		else
@@ -50,7 +50,7 @@ public class ChangeImageRatio : MonoBehaviour
 
             if (gamepadClickAdapter != null)
             {
-                gamepadClickAdapter.canvasResolution = new Vector2(1280f, 720f);
+                gamepadClickAdapter.canvasResolution = new Vector2(960f, 720f);
             }
         }
 	}

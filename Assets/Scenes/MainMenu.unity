@@ -2652,6 +2652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasResolution: {x: 960, y: 720}
   gamepadResolution: {x: 854, y: 480}
+  targetRect: {fileID: 934295371}
 --- !u!1 &151350452
 GameObject:
   m_ObjectHideFlags: 0
