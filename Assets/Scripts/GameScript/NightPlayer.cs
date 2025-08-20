@@ -252,7 +252,7 @@ public class NightPlayer : MonoBehaviour
 		{
 			if (customNightRewards[i] != null)
 			{
-				customNightRewards[i].SetActive(SaveManager.saveData.game.unlockedStars[i]);
+				customNightRewards[i].SetActive(SaveManager.saveData.game.doneModes[i]);
             }
 		}
     }
