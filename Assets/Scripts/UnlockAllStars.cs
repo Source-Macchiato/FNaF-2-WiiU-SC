@@ -8,10 +8,6 @@ public class UnlockAllStars : MonoBehaviour
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
 
-    // Scripts
-    SaveGameState saveGameState;
-    SaveManager saveManager;
-
     private WiiU.GamePadButton[] unlockCodeGamepad =
     {
         WiiU.GamePadButton.L, WiiU.GamePadButton.L, WiiU.GamePadButton.R, WiiU.GamePadButton.R,
@@ -54,9 +50,6 @@ public class UnlockAllStars : MonoBehaviour
 
     void Start()
     {
-        saveGameState = FindObjectOfType<SaveGameState>();
-        saveManager = FindObjectOfType<SaveManager>();
-
         // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
@@ -77,7 +70,7 @@ public class UnlockAllStars : MonoBehaviour
             {
                 Debug.Log("Unlock code activated with Gamepad !");
 
-                UnlockStars();
+                Unlock();
 
                 unlockIndexGamepad = 0;
             }
@@ -99,7 +92,7 @@ public class UnlockAllStars : MonoBehaviour
                     {
                         Debug.Log("Unlock code activated with Pro Controller !");
 
-                        UnlockStars();
+                        Unlock();
 
                         unlockIndexProController = 0;
                     }
@@ -118,7 +111,7 @@ public class UnlockAllStars : MonoBehaviour
                     {
                         Debug.Log("Unlock code activated with Classic Controller");
 
-                        UnlockStars();
+                        Unlock();
 
                         unlockIndexClassicController = 0;
                     }
@@ -137,7 +130,7 @@ public class UnlockAllStars : MonoBehaviour
                     {
                         Debug.Log("Unlock code activated with Wiimote");
 
-                        UnlockStars();
+                        Unlock();
 
                         unlockIndexRemote = 0;
                     }
@@ -160,7 +153,7 @@ public class UnlockAllStars : MonoBehaviour
                 {
                     Debug.Log("Unlock code activated with keyboard !");
 
-                    UnlockStars();
+                    Unlock();
 
                     unlockIndexPC = 0;
                 }
@@ -172,12 +165,19 @@ public class UnlockAllStars : MonoBehaviour
         }
     }
 
-    void UnlockStars()
+    void Unlock()
     {
+        // Unlock stars
         for (int i = 0; i < 3; i++)
         {
             SaveManager.saveData.game.ChangeUnlockedStarStatus(i, true);
         }
+
+        for (int i = 0; i < 10; i++)
+        {
+            SaveManager.saveData.game.ChangeDoneModeStatus(i, true);
+        }
+
         SaveManager.Save();
 
         SceneManager.LoadScene("MainMenu");
