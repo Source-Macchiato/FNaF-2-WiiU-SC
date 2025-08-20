@@ -950,7 +950,7 @@ public class MenuManager : MonoBehaviour
                 && EventSystem.current.currentSelectedGameObject.GetComponent<CardData>() == null
                 && currentPopup == null)
             {
-                if (!cursor.activeSelf)
+                if (!cursor.activeSelf && EventSystem.current.currentSelectedGameObject.GetComponent<ButtonSelectionHandler>().cursorEnabled == true)
                 {
                     cursor.SetActive(true);
                 }

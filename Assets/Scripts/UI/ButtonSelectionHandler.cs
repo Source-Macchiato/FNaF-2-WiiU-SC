@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 
 public class ButtonSelectionHandler : MonoBehaviour, ISelectHandler
 {
+    public bool cursorEnabled = true;
+
     Button button;
     MenuManager menuManager;
 
