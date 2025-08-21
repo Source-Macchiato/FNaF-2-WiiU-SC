@@ -14,7 +14,7 @@ public class PanoramicEffect : MonoBehaviour
 
     void Start()
     {
-        enableEffect = SaveManager.saveData.settings.panoramaEffect;
+        enableEffect = SaveManager.saveData.settings.panoramicEffect;
     }
 
     private void OnRenderImage(RenderTexture src, RenderTexture dest)

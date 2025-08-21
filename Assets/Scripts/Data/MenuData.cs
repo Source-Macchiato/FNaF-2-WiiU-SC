@@ -233,16 +233,16 @@ public class MenuData : MonoBehaviour
         }
     }
 
-    // Panorama effect
-    public void SavePanoramaEffect()
+    // Panoramic effect
+    public void SavePanoramicEffect()
     {
-        SaveManager.saveData.settings.panoramaEffect = panoramaEffectSwitcher.currentOptionId == 0;
+        SaveManager.saveData.settings.panoramicEffect = panoramaEffectSwitcher.currentOptionId == 0;
         SaveManager.Save();
     }
 
-    public void LoadPanoramaEffect()
+    public void LoadPanoramicEffect()
     {
-        bool panoramaEffect = SaveManager.saveData.settings.panoramaEffect;
+        bool panoramaEffect = SaveManager.saveData.settings.panoramicEffect;
 
         int switcherIndex = panoramaEffect ? 0 : 1;
 

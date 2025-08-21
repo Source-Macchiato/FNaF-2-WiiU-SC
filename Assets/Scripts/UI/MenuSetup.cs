@@ -140,7 +140,7 @@ public class MenuSetup : MonoBehaviour
     {
         menuManager.ChangeMenu(10);
 
-        menuData.LoadPanoramaEffect();
+        menuData.LoadPanoramicEffect();
         menuData.LoadImageRatio();
     }
 
@@ -193,7 +193,7 @@ public class MenuSetup : MonoBehaviour
 
     void OnBackFromVideo()
     {
-        menuData.SavePanoramaEffect();
+        menuData.SavePanoramicEffect();
         menuData.SaveImageRatio();
     }
 
