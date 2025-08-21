@@ -2,18 +2,17 @@
 
 public class LayoutManager : MonoBehaviour
 {
-    private int layoutId;
-
     public GameObject minimap;
     public GameObject roomName;
     public GameObject musicBox;
 
     [Header("Screens")]
-    public GameObject[] screenOffice;
-    public GameObject[] screenMonitor;
-    public GameObject[] screenUI;
-    public GameObject[] screenMinimap;
-    public GameObject[] screenSubtitles;
+    [SerializeField] private GameObject[] screenOffice;
+    [SerializeField] private GameObject[] screenMonitor;
+    [SerializeField] private GameObject[] screenMonitorUI;
+    [SerializeField] private GameObject[] screenUI;
+    [SerializeField] private GameObject[] screenMinimap;
+    [SerializeField] private GameObject[] screenSubtitles;
     public GameObject[] screenPointer;
 
     void Start()
@@ -45,6 +44,9 @@ public class LayoutManager : MonoBehaviour
 
         screenMonitor[0].SetActive(true);
         screenMonitor[1].SetActive(false);
+
+        screenMonitorUI[0].SetActive(true);
+        screenMonitorUI[1].SetActive(false);
 
         screenUI[0].SetActive(true);
         screenUI[1].SetActive(false);
@@ -79,6 +81,9 @@ public class LayoutManager : MonoBehaviour
         screenMonitor[0].SetActive(true);
         screenMonitor[1].SetActive(false);
 
+        screenMonitorUI[0].SetActive(true);
+        screenMonitorUI[1].SetActive(false);
+
         screenUI[0].SetActive(true);
         screenUI[1].SetActive(false);
 
@@ -112,6 +117,9 @@ public class LayoutManager : MonoBehaviour
         screenMonitor[0].SetActive(false);
         screenMonitor[1].SetActive(true);
 
+        screenMonitorUI[0].SetActive(false);
+        screenMonitorUI[1].SetActive(true);
+
         screenUI[0].SetActive(true);
         screenUI[1].SetActive(false);
 
@@ -144,6 +152,9 @@ public class LayoutManager : MonoBehaviour
 
         screenMonitor[0].SetActive(false);
         screenMonitor[1].SetActive(true);
+
+        screenMonitorUI[0].SetActive(false);
+        screenMonitorUI[1].SetActive(true);
 
         screenUI[0].SetActive(false);
         screenUI[1].SetActive(true);

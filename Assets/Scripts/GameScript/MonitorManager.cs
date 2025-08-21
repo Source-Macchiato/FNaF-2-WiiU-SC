@@ -5,7 +5,8 @@ using WiiU = UnityEngine.WiiU;
 public class MonitorManager : MonoBehaviour
 {
     public GameObject minimap;
-    public GameObject rec;
+    [SerializeField] private GameObject rec;
+    [SerializeField] private GameObject frame;
     public GameObject monitorContainer;
     public GameObject roomName;
     public GameObject blackBackground;
@@ -48,6 +49,7 @@ public class MonitorManager : MonoBehaviour
         // Elements to disable when the game starts
         minimap.SetActive(false);
         rec.SetActive(false);
+        frame.SetActive(false);
         monitorContainer.SetActive(false);
         roomName.SetActive(false);
         blackBackground.SetActive(false);
@@ -141,6 +143,7 @@ public class MonitorManager : MonoBehaviour
         monitorContainer.SetActive(true);
         minimap.SetActive(true);
         rec.SetActive(true);
+        frame.SetActive(true);
         nightPlayer.JJ.SetActive(false);
         roomName.SetActive(true);
 
@@ -169,6 +172,7 @@ public class MonitorManager : MonoBehaviour
 
         minimap.SetActive(false);
         rec.SetActive(false);
+        frame.SetActive(false);
         monitorContainer.SetActive(false);
         roomName.SetActive(false);
         blackBackground.SetActive(false);
