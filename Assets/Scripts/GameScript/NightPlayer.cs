@@ -308,7 +308,7 @@ public class NightPlayer : MonoBehaviour
 
 		isJumpscared = true;
 
-		controllersRumble.TriggerRumble(0.45f);
+		controllersRumble.TriggerRumble(7);
 
 		if (MedalsManager.medalsManager != null)
 		{

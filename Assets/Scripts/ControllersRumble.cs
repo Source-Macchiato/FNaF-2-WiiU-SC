@@ -3,9 +3,11 @@ using WiiU = UnityEngine.WiiU;
 
 public class ControllersRumble : MonoBehaviour
 {
-    private int patternLength = 15;
-    private bool rumbleTriggered = false;
-    private float rumbleTimer = 0.0f;
+    private const int MAX_PATTERN_CHUNK = 15;
+
+    private bool rumbling = false;
+    private int remainingPatternBytes = 0;
+    private int chunkFramesLeft = 0;
 
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
@@ -18,36 +20,55 @@ public class ControllersRumble : MonoBehaviour
 
     void Update()
     {
-        rumbleTimer += Time.deltaTime;
-
-        // this took me a lot of time
-        if (rumbleTimer > (patternLength / 15))
+        if (rumbling)
         {
-            rumbleTriggered = false;
+            if (chunkFramesLeft > 0)
+            {
+                chunkFramesLeft--;
+            }
+            else
+            {
+                if (remainingPatternBytes > 0)
+                {
+                    SendNextChunk();
+                }
+                else
+                {
+                    rumbling = false;
+                }
+            }
         }
     }
 
-    private void Rumble()
+    public void TriggerRumble(int patternLength, string log = "")
     {
-        byte[] pattern = new byte[patternLength];
-        for (int i = 0; i < pattern.Length; ++i)
+        if (!rumbling)
+        {
+            if (!string.IsNullOrEmpty(log))
+            {
+                Debug.Log(log);
+            }
+
+            remainingPatternBytes = patternLength;
+            chunkFramesLeft = 0;
+            rumbling = true;
+        }
+    }
+
+    private void SendNextChunk()
+    {
+        int chunkSize = Mathf.Min(remainingPatternBytes, MAX_PATTERN_CHUNK);
+        byte[] pattern = new byte[chunkSize];
+
+        for (int i = 0; i < chunkSize; ++i)
         {
             pattern[i] = 0xff;
         }
 
-        gamePad.ControlMotor(pattern, pattern.Length * 8);
-        remote.PlayRumblePattern(pattern, pattern.Length * 8);
-    }
+        gamePad.ControlMotor(pattern, chunkSize * 8);
+        remote.PlayRumblePattern(pattern, chunkSize * 8);
 
-    public void TriggerRumble(float duration)
-    {
-        if (!rumbleTriggered)
-        {            
-            rumbleTimer = 0.0f;
-
-            Rumble();
-
-            rumbleTriggered = true;
-        }
+        remainingPatternBytes -= chunkSize;
+        chunkFramesLeft = chunkSize;
     }
 }
