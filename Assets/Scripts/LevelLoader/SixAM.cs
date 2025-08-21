@@ -21,15 +21,11 @@ public class SixAM : MonoBehaviour
 	private int goldenFreddyAI;
 
     // Scripts
-    SaveGameState saveGameState;
-	SaveManager saveManager;
 	LevelLoader levelLoader;
 
 	void Start()
 	{
 		// Get scripts
-		saveGameState = FindObjectOfType<SaveGameState>();
-		saveManager = FindObjectOfType<SaveManager>();
 		levelLoader = FindObjectOfType<LevelLoader>();
 
 		// Disable loading screen when the game starts
@@ -38,10 +34,9 @@ public class SixAM : MonoBehaviour
 		// Get current night number
 		nightNumber = SaveManager.saveData.game.nightNumber;
 
-        // Increase night number and save it
+        // Increase night number and apply it
         nightNumber++;
 		SaveManager.saveData.game.nightNumber = nightNumber;
-		SaveManager.Save();
 
 		if (nightNumber == 7)
 		{
@@ -60,7 +55,11 @@ public class SixAM : MonoBehaviour
 			SetModeFinished();
         }
 
-		StartCoroutine(LoadNextScene());
+		UnlockNightAchievements();
+
+        SaveManager.Save();
+
+        StartCoroutine(LoadNextScene());
 	}
 
 	private IEnumerator LoadNextScene()
@@ -134,8 +133,53 @@ public class SixAM : MonoBehaviour
 		{
 			SaveManager.saveData.game.ChangeDoneModeStatus(9, true);
 		}
+	}
 
-		SaveManager.Save();
+	private void UnlockNightAchievements()
+	{
+		switch (nightNumber)
+		{
+			case 1:
+				if (MedalsManager.medalsManager != null)
+				{
+					MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.ONENIGHTATFREDDYS);
+				}
+				break;
+			case 2:
+				if (MedalsManager.medalsManager != null)
+				{
+					MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.TWONIGHTSATFREDDYS);
+				}
+				break;
+			case 3:
+				if (MedalsManager.medalsManager != null)
+				{
+					MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.THREENIGHTSATFREDDYS);
+				}
+				break;
+			case 4:
+				if (MedalsManager.medalsManager != null)
+				{
+					MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.FOURNIGHTSATFREDDYS);
+				}
+				break;
+			case 5:
+				if (MedalsManager.medalsManager != null)
+				{
+					MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.FIVENIGHTSATFREDDYS);
+				}
+				break;
+			case 6:
+				if (MedalsManager.medalsManager != null)
+				{
+					MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.YOUSTAYED);
+				}
+				break;
+			case 7:
+				break;
+			default:
+				break;
+		}
 	}
 
 	private bool CheckCustomNightMode(int freddy, int bonnie, int chica, int foxy, int bb, int toyFreddy, int toyBonnie, int toyChica, int mangle, int goldenFreddy)

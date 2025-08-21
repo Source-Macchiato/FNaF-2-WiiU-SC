@@ -172,7 +172,6 @@ public class NightPlayer : MonoBehaviour
 	public Image BatteryImage;
 
 	[Header("Game Animations")]
-	public GameObject[] Plushies;
 	public GameObject Ribbons;
 	public GameObject JJ;
 	public GameObject RWQOffice;
@@ -310,6 +309,11 @@ public class NightPlayer : MonoBehaviour
 		isJumpscared = true;
 
 		controllersRumble.TriggerRumble(0.45f);
+
+		if (MedalsManager.medalsManager != null)
+		{
+			MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.YOUFAILED);
+		}
 
 		yield return new WaitForSeconds(0.45f);
 
