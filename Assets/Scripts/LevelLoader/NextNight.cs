@@ -5,7 +5,8 @@ public class NextNight : MonoBehaviour
 {
     private int nightNumber;
 
-    public GameObject[] nightDisplayers;
+    [SerializeField] private I18nTextTranslator nightTextTranslator;
+    [SerializeField] private Animator nightAnimator;
 
     AnalyticsData analyticsData;
     LevelLoader levelLoader;
@@ -22,11 +23,36 @@ public class NextNight : MonoBehaviour
         // Get night number
         nightNumber = SaveManager.saveData.game.nightNumber;
 
-        // Display current night displayer and hide others
-        for (int i = 0; i < nightDisplayers.Length; i++)
+        // Display current night text
+        switch (nightNumber)
         {
-            nightDisplayers[i].SetActive(i == nightNumber);
+            case 0:
+                nightTextTranslator.textId = "nextnight.firstnight";
+                break;
+            case 1:
+                nightTextTranslator.textId = "nextnight.secondnight";
+                break;
+            case 2:
+                nightTextTranslator.textId = "nextnight.thirdnight";
+                break;
+            case 3:
+                nightTextTranslator.textId = "nextnight.fourthnight";
+                break;
+            case 4:
+                nightTextTranslator.textId = "nextnight.fifthnight";
+                break;
+            case 5:
+                nightTextTranslator.textId = "nextnight.sixthnight";
+                break;
+            case 6:
+                nightTextTranslator.textId = "nextnight.seventhnight";
+                break;
+            default:
+                nightTextTranslator.textId = "nextnight.firstnight";
+                break;
         }
+
+        nightTextTranslator.UpdateText();
 
         // Analytics and the timer before load the next scene
         if (analyticsData != null)
@@ -39,7 +65,11 @@ public class NextNight : MonoBehaviour
 
     IEnumerator LoadOffice()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
+
+        nightAnimator.Play("FadeOut");
+
+        yield return new WaitForSeconds(1);
 
         levelLoader.loadingScreen.SetActive(true);
 
