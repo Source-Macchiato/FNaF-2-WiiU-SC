@@ -8,13 +8,11 @@ public class NextNight : MonoBehaviour
     [SerializeField] private I18nTextTranslator nightTextTranslator;
     [SerializeField] private Animator nightAnimator;
 
-    AnalyticsData analyticsData;
     LevelLoader levelLoader;
 
     void Start()
     {
         // Get scripts
-        analyticsData = FindObjectOfType<AnalyticsData>();
         levelLoader = FindObjectOfType<LevelLoader>();
 
         // Disable loading screen when the level starts
@@ -55,9 +53,9 @@ public class NextNight : MonoBehaviour
         nightTextTranslator.UpdateText();
 
         // Analytics and the timer before load the next scene
-        if (analyticsData != null)
+        if (AnalyticsData.analyticsData != null)
         {
-            StartCoroutine(analyticsData.UpdateAnalytics("current_night", analyticsData.GetCurrentNight()));
+            StartCoroutine(AnalyticsData.analyticsData.UpdateAnalytics("current_night", AnalyticsData.analyticsData.GetCurrentNight()));
         }
 
         StartCoroutine(LoadOffice());

@@ -41,14 +41,8 @@ public class MenuData : MonoBehaviour
 
     public AudioMixer audioMixer;
 
-    // Scripts
-    AnalyticsData analyticsData;
-
     void Start()
     {
-        // Get scripts
-        analyticsData = FindObjectOfType<AnalyticsData>();
-
         // Load
         nightNumber = SaveManager.saveData.game.nightNumber;
         layoutId = SaveManager.saveData.settings.layoutId;
@@ -175,7 +169,7 @@ public class MenuData : MonoBehaviour
         SaveManager.saveData.settings.shareAnalytics = analyticsSwitcher.currentOptionId == 1 ? 0 : 1;
         SaveManager.Save();
 
-        analyticsData.CanShareAnalytics();
+        AnalyticsData.analyticsData.CanShareAnalytics();
     }
 
     public void LoadAnalyticsAndUpdateSwitcher()
@@ -481,12 +475,18 @@ public class MenuData : MonoBehaviour
 
     public void UpdateAnalyticsLanguage()
     {
-        StartCoroutine(analyticsData.UpdateAnalytics("language", analyticsData.GetLanguage()));
+        if (AnalyticsData.analyticsData != null)
+        {
+            StartCoroutine(AnalyticsData.analyticsData.UpdateAnalytics("language", AnalyticsData.analyticsData.GetLanguage()));
+        }
     }
 
     public void UpdateAnalyticsLayout()
     {
-        StartCoroutine(analyticsData.UpdateAnalytics("layout", analyticsData.GetLayout()));
+        if (AnalyticsData.analyticsData != null)
+        {
+            StartCoroutine(AnalyticsData.analyticsData.UpdateAnalytics("layout", AnalyticsData.analyticsData.GetLayout()));
+        }
     }
 
     // Volume
