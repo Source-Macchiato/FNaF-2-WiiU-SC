@@ -55,19 +55,21 @@ public class NightPlayer : MonoBehaviour
 
     public float TimeMultiplier;
 	public bool isNight7;
-	public int PuppetAI;
-	public int GoldenFreddyAI;
-	public int MangleAI;
-	public int BalloonBoyAI;
-	public int PaperpalsAI;
-	public int ToyBonnieAI;
-	public int ToyChicaAI;
-	public int ToyFreddyAI;
-	public int WitheredBonnieAI;
-	public int WitheredChicaAI;
-	public int WitheredFreddyAI;
-	public int WitheredFoxyAI;
-	//private Dictionary<int, Dictionary<string, Action>> nightEvents;
+
+	// AI difficulties
+	public static int puppetDifficulty;
+	public static int goldenDifficulty;
+	public static int mangleDifficulty;
+	public static int bbDifficulty;
+	public static int paperpalsDifficulty;
+	public static int toyBonnieDifficulty;
+	public static int toyChicaDifficulty;
+	public static int toyFreddyDifficulty;
+	public static int witheredBonnieDifficulty;
+	public static int witheredChicaDifficulty;
+	public static int witheredFreddyDifficulty;
+	public static int witheredFoxyDifficulty;
+
 	public float PuppetTime = 30f;
 	public float PuppetDeathTimer = 15f;
 	public int previousFullNessCircleIndex = -1; // Initialized to -1 to indicate no previous sprite
@@ -242,9 +244,9 @@ public class NightPlayer : MonoBehaviour
 		monitorManager = FindObjectOfType<MonitorManager>();
 		controllersRumble = FindObjectOfType<ControllersRumble>();
 
-		if (Random.value < 0.01) {PaperpalsAI = 1;}
-		PuppetAI = Mathf.Clamp(PuppetAI,0, 6);
-		WitheredFoxyAI = Mathf.Clamp(WitheredFoxyAI,0, 17);
+		if (Random.value < 0.01) {paperpalsDifficulty = 1;}
+		puppetDifficulty = Mathf.Clamp(puppetDifficulty,0, 6);
+		witheredFoxyDifficulty = Mathf.Clamp(witheredFoxyDifficulty,0, 17);
 
 		// Display rewards on office desk
 		for (int i = 0; i < customNightRewards.Length; i++)
@@ -348,18 +350,18 @@ public class NightPlayer : MonoBehaviour
     
     void Update()
 	{
-		ToyFreddyAI = aiManager.GetAILevel("ToyFreddyAI");
-		ToyBonnieAI = aiManager.GetAILevel("ToyBonnieAI");
-		ToyChicaAI = aiManager.GetAILevel("ToyChicaAI");
-		WitheredFreddyAI = aiManager.GetAILevel("WitheredFreddyAI");
-		WitheredBonnieAI = aiManager.GetAILevel("WitheredBonnieAI");
-		WitheredChicaAI = aiManager.GetAILevel("WitheredChicaAI");
-		WitheredFoxyAI  = aiManager.GetAILevel("WitheredFoxyAI");
-		GoldenFreddyAI = aiManager.GetAILevel("GoldenFreddyAI");
-		MangleAI = aiManager.GetAILevel("MangleAI");
-		BalloonBoyAI = aiManager.GetAILevel("BalloonBoyAI");
-		PaperpalsAI = aiManager.GetAILevel("PaperpalsAI");
-		PuppetAI = aiManager.GetAILevel("PuppetAI");
+		toyFreddyDifficulty = aiManager.GetAILevel("ToyFreddyAI");
+		toyBonnieDifficulty = aiManager.GetAILevel("ToyBonnieAI");
+		toyChicaDifficulty = aiManager.GetAILevel("ToyChicaAI");
+		witheredFreddyDifficulty = aiManager.GetAILevel("WitheredFreddyAI");
+		witheredBonnieDifficulty = aiManager.GetAILevel("WitheredBonnieAI");
+		witheredChicaDifficulty = aiManager.GetAILevel("WitheredChicaAI");
+		witheredFoxyDifficulty = aiManager.GetAILevel("WitheredFoxyAI");
+		goldenDifficulty = aiManager.GetAILevel("GoldenFreddyAI");
+		mangleDifficulty = aiManager.GetAILevel("MangleAI");
+		bbDifficulty = aiManager.GetAILevel("BalloonBoyAI");
+		paperpalsDifficulty = aiManager.GetAILevel("PaperpalsAI");
+		puppetDifficulty = aiManager.GetAILevel("PuppetAI");
 		UpdateTime();
 		InputFunction();
 		StateChecks();
@@ -539,17 +541,17 @@ public class NightPlayer : MonoBehaviour
 		if (PaperpalsMovement <= 0f && currentCam != 4)
 		{
 			int randNum = Random.Range(0, 20);
-			if (PaperpalsAI >= randNum)
+			if (paperpalsDifficulty >= randNum)
 			{
 				PaperpalsOffice.SetActive(true);
 				PaperpalsMovement = 5f;
-				PaperpalsAI = 0;
+				paperpalsDifficulty = 0;
 			}
 		}
 		if (ToyBonnieMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
-			if (ToyBonnieAI >= randNum || ToyBonnieAI == randNum)
+			if (toyBonnieDifficulty >= randNum || toyBonnieDifficulty == randNum)
 			{
 				if (CamWatchAI != 1)
 				{
@@ -601,7 +603,7 @@ public class NightPlayer : MonoBehaviour
 		if (ToyChicaMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
-			if (ToyChicaAI >= randNum || ToyChicaAI == randNum)
+			if (toyChicaDifficulty >= randNum || toyChicaDifficulty == randNum)
 			{
 				if(CamWatchAI != 3)
 				{
@@ -653,7 +655,7 @@ public class NightPlayer : MonoBehaviour
 		if (ToyFreddyMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
-			if (ToyFreddyAI >= randNum || ToyFreddyAI == randNum)
+			if (toyFreddyDifficulty >= randNum || toyFreddyDifficulty == randNum)
 			{
 				if(CamWatchAI != 2)
 				{
@@ -689,7 +691,7 @@ public class NightPlayer : MonoBehaviour
 		if (MangleMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
-			if (MangleAI >= randNum || MangleAI == randNum)
+			if (mangleDifficulty >= randNum || mangleDifficulty == randNum)
 			{
 				if(CamWatchAI != 9)
 				{
@@ -744,7 +746,7 @@ public class NightPlayer : MonoBehaviour
 		{
 		    int randNum = Random.Range(0, 20);
 
-		    if (WitheredFreddyAI >= randNum || WitheredFreddyAI == randNum)
+		    if (witheredFreddyDifficulty >= randNum || witheredFreddyDifficulty == randNum)
 		    {
 		        if (CamWatchAI != 5)
 		        {
@@ -781,7 +783,7 @@ public class NightPlayer : MonoBehaviour
 		if (WitheredBonnieMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
-			if (WitheredBonnieAI >= randNum || WitheredBonnieAI == randNum)
+			if (witheredBonnieDifficulty >= randNum || witheredBonnieDifficulty == randNum)
 			{
 				if(CamWatchAI != 4)
 				{
@@ -817,7 +819,7 @@ public class NightPlayer : MonoBehaviour
 		if (WitheredChicaMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
-			if (WitheredChicaAI >= randNum || WitheredChicaAI == randNum)
+			if (witheredChicaDifficulty >= randNum || witheredChicaDifficulty == randNum)
 			{
 				if(CamWatchAI != 6)
 				{
@@ -852,7 +854,7 @@ public class NightPlayer : MonoBehaviour
 		if (WitheredFoxyMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
-			if (WitheredFoxyAI >= randNum || WitheredFoxyAI == randNum)
+			if (witheredFoxyDifficulty >= randNum || witheredFoxyDifficulty == randNum)
 			{
 				if(CamWatchAI != 7)
 				{
@@ -880,7 +882,7 @@ public class NightPlayer : MonoBehaviour
 		if (BBMovement <= 0f)
 		{
 			int randNum = Random.Range(0, 20);
-			if (BalloonBoyAI >= randNum || BalloonBoyAI == randNum)
+			if (bbDifficulty >= randNum || bbDifficulty == randNum)
 			{
 				AudioSource[] audioSources = BBSounds.GetComponents<AudioSource>();
 
@@ -950,17 +952,17 @@ public class NightPlayer : MonoBehaviour
 	    }
 
 	    // Reduce movement timers for active animatronics
-	    if (ToyBonnieAI >= 1) ToyBonnieMovement -= Time.deltaTime;
-	    if (ToyChicaAI >= 1) ToyChicaMovement -= Time.deltaTime;
-	    if (ToyFreddyAI >= 1) ToyFreddyMovement -= Time.deltaTime;
-	    if (MangleAI >= 1) MangleMovement -= Time.deltaTime;
-	    if (PaperpalsAI >= 1) ToyFreddyMovement -= Time.deltaTime; // PaperpalsAI should not affect ToyFreddyMovement ?????? - shiro
-	    if (WitheredFreddyAI >= 1) WitheredFreddyMovement -= Time.deltaTime;
-	    if (WitheredBonnieAI >= 1) WitheredBonnieMovement -= Time.deltaTime;
-	    if (WitheredChicaAI >= 1) WitheredChicaMovement -= Time.deltaTime;
-	    if (WitheredFoxyAI >= 1) WitheredFoxyMovement -= Time.deltaTime;
-	    if (GoldenFreddyAI >= 1 && monitorManager.isMonitorActive) GoldenFreddyCameraTime -= Time.deltaTime;
-	    if (BalloonBoyAI >= 1) BBMovement -= Time.deltaTime;
+	    if (toyBonnieDifficulty >= 1) ToyBonnieMovement -= Time.deltaTime;
+	    if (toyChicaDifficulty >= 1) ToyChicaMovement -= Time.deltaTime;
+	    if (toyFreddyDifficulty >= 1) ToyFreddyMovement -= Time.deltaTime;
+	    if (mangleDifficulty >= 1) MangleMovement -= Time.deltaTime;
+	    if (paperpalsDifficulty >= 1) ToyFreddyMovement -= Time.deltaTime; // PaperpalsAI should not affect ToyFreddyMovement ?????? (shiro) -- idk it's your AI (alyx)
+	    if (witheredFreddyDifficulty >= 1) WitheredFreddyMovement -= Time.deltaTime;
+	    if (witheredBonnieDifficulty >= 1) WitheredBonnieMovement -= Time.deltaTime;
+	    if (witheredChicaDifficulty >= 1) WitheredChicaMovement -= Time.deltaTime;
+	    if (witheredFoxyDifficulty >= 1) WitheredFoxyMovement -= Time.deltaTime;
+	    if (goldenDifficulty >= 1 && monitorManager.isMonitorActive) GoldenFreddyCameraTime -= Time.deltaTime;
+	    if (bbDifficulty >= 1) BBMovement -= Time.deltaTime;
 	}
 
 	IEnumerator ToyBonnieFunction(bool isMO)
@@ -1170,7 +1172,7 @@ public class NightPlayer : MonoBehaviour
 
 	void PuppetBox()
 	{
-		if (PuppetAI != 0)
+		if (puppetDifficulty != 0)
 		{
 			if (PuppetTime >= 0f)
 			{
@@ -1181,7 +1183,7 @@ public class NightPlayer : MonoBehaviour
     			}
     			else
     			{
-        			PuppetTime -= Time.deltaTime * ((float)PuppetAI * 0.16f);
+        			PuppetTime -= Time.deltaTime * ((float)puppetDifficulty * 0.16f);
     			}
 			}
 			else
@@ -1310,9 +1312,9 @@ public class NightPlayer : MonoBehaviour
 					officeImage.sprite = centerLightOffice;
 				}
 
-				if (GoldenFreddyAI >= 1)
+				if (goldenDifficulty >= 1)
 				{
-					if (GoldenFreddyAI >= GoldenFreddyrandNum && GoldenFreddyCameraTime <= 0 && GoldenFreddyPrepared == true)
+					if (goldenDifficulty >= GoldenFreddyrandNum && GoldenFreddyCameraTime <= 0 && GoldenFreddyPrepared == true)
 					{
 						GoldenFreddyInOffice = true;
 						officeImage.sprite = GoldenFreddyFlashlightCams[13];
@@ -1322,7 +1324,7 @@ public class NightPlayer : MonoBehaviour
 					else
 					{
 						officeImage.sprite = centerLightOffice;
-						Debug.Log(GoldenFreddyrandNum.ToString() + GoldenFreddyAI.ToString() + GoldenFreddyCameraTime.ToString() + GoldenFreddyInOffice.ToString() + GoldenFreddyPrepared.ToString());
+						Debug.Log(GoldenFreddyrandNum.ToString() + goldenDifficulty.ToString() + GoldenFreddyCameraTime.ToString() + GoldenFreddyInOffice.ToString() + GoldenFreddyPrepared.ToString());
 					}
 				}
 
@@ -1672,7 +1674,7 @@ public class NightPlayer : MonoBehaviour
 		}
 		else if (!maskManager.isMaskActive && monitorManager.isMonitorActive && currentCam == 8 && lightsManager.isLightActive)
 		{
-			if (WitheredFoxyCamera == 8 && WitheredFoxyAI >= 1)
+			if (WitheredFoxyCamera == 8 && witheredFoxyDifficulty >= 1)
 			{
 				MainCameraBG.sprite = WitheredFoxyFlashlightCams[7];
 			}
@@ -2284,7 +2286,7 @@ public class NightPlayer : MonoBehaviour
         {
 			int randNum = Random.Range(0, 20);
 
-            if (GoldenFreddyAI >= randNum)
+            if (goldenDifficulty >= randNum)
             {
                 GoldenFreddyCameraTime = 5f;
                 GoldenFreddyInOffice = true;

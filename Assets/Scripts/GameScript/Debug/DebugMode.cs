@@ -124,17 +124,17 @@ public class DebugMode : MonoBehaviour
         BaloonBoy.text = nightPlayer.BBCamera.ToString();
 
         //AI level
-        LevelToyFreddy.text = nightPlayer.ToyFreddyAI.ToString();
-        LevelToyBonnie.text = nightPlayer.ToyBonnieAI.ToString();
-        LevelToyChica.text = nightPlayer.ToyChicaAI.ToString();
-        LevelWFreddy.text = nightPlayer.WitheredFreddyAI.ToString();
-        LevelWBonnie.text = nightPlayer.WitheredBonnieAI.ToString();
-        LevelWChica.text = nightPlayer.WitheredChicaAI.ToString();
-        LevelWFoxy.text = nightPlayer.WitheredFoxyAI.ToString();
-        LevelMangle.text = nightPlayer.MangleAI.ToString();
-        LevelBaloonBoy.text = nightPlayer.BalloonBoyAI.ToString();
-        LevelPaperpals.text = nightPlayer.PaperpalsAI.ToString();
-        LevelPuppet.text = nightPlayer.PuppetAI.ToString();
+        LevelToyFreddy.text = NightPlayer.toyFreddyDifficulty.ToString();
+        LevelToyBonnie.text = NightPlayer.toyBonnieDifficulty.ToString();
+        LevelToyChica.text = NightPlayer.toyChicaDifficulty.ToString();
+        LevelWFreddy.text = NightPlayer.witheredFreddyDifficulty.ToString();
+        LevelWBonnie.text = NightPlayer.witheredBonnieDifficulty.ToString();
+        LevelWChica.text = NightPlayer.witheredChicaDifficulty.ToString();
+        LevelWFoxy.text = NightPlayer.witheredFoxyDifficulty.ToString();
+        LevelMangle.text = NightPlayer.mangleDifficulty.ToString();
+        LevelBaloonBoy.text = NightPlayer.bbDifficulty.ToString();
+        LevelPaperpals.text = NightPlayer.paperpalsDifficulty.ToString();
+        LevelPuppet.text = NightPlayer.puppetDifficulty.ToString();
 
         //State of the player
         StateText.text = lightsManager.currentFlashlightDuration.ToString();
