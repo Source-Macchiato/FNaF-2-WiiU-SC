@@ -9,16 +9,16 @@ public class SixAM : MonoBehaviour
 	private int nightNumber;
 
 	// AI levels
-	private int freddyAI;
-    private int bonnieAI;
-    private int chicaAI;
-	private int foxyAI;
-	private int balloonBoyAI;
-	private int toyFreddyAI;
-	private int toyBonnieAI;
-	private int toyChicaAI;
-	private int mangleAI;
-	private int goldenFreddyAI;
+	private int witheredFreddyDifficulty;
+    private int witheredBonnieDifficulty;
+    private int witheredChicaDifficulty;
+	private int witheredFoxyDifficulty;
+	private int bbDifficulty;
+    private int toyFreddyDifficulty;
+    private int toyBonnieDifficulty;
+	private int toyChicaDifficulty;
+	private int mangleDifficulty;
+	private int goldenDifficulty;
 
     // Scripts
 	LevelLoader levelLoader;
@@ -38,20 +38,20 @@ public class SixAM : MonoBehaviour
         nightNumber++;
 		SaveManager.saveData.game.nightNumber = nightNumber;
 
-		if (nightNumber == 7)
-		{
-            // Get AI levels
-            freddyAI = PlayerPrefs.GetInt("FreddyAI", 0);
-            bonnieAI = PlayerPrefs.GetInt("BonnieAI", 0);
-            chicaAI = PlayerPrefs.GetInt("ChicaAI", 0);
-            foxyAI = PlayerPrefs.GetInt("FoxyAI", 0);
-            balloonBoyAI = PlayerPrefs.GetInt("BalloonBoyAI", 0);
-            toyFreddyAI = PlayerPrefs.GetInt("ToyFreddyAI", 0);
-            toyBonnieAI = PlayerPrefs.GetInt("ToyBonnieAI", 0);
-            toyChicaAI = PlayerPrefs.GetInt("ToyChicaAI", 0);
-            mangleAI = PlayerPrefs.GetInt("MangleAI", 0);
-            goldenFreddyAI = PlayerPrefs.GetInt("GoldenFreddyAI", 0);
+        // Get AI levels
+        witheredFreddyDifficulty = NightPlayer.witheredFreddyDifficulty;
+        witheredBonnieDifficulty = NightPlayer.witheredBonnieDifficulty;
+        witheredChicaDifficulty = NightPlayer.witheredChicaDifficulty;
+        witheredFoxyDifficulty = NightPlayer.witheredFoxyDifficulty;
+        bbDifficulty = NightPlayer.bbDifficulty;
+        toyFreddyDifficulty = NightPlayer.toyFreddyDifficulty;
+        toyBonnieDifficulty = NightPlayer.toyBonnieDifficulty;
+        toyChicaDifficulty = NightPlayer.toyChicaDifficulty;
+        mangleDifficulty = NightPlayer.mangleDifficulty;
+        goldenDifficulty = NightPlayer.goldenDifficulty;
 
+        if (nightNumber == 7)
+		{
 			SetModeFinished();
         }
 
@@ -176,6 +176,13 @@ public class SixAM : MonoBehaviour
 				}
 				break;
 			case 7:
+				if (CheckCustomNightMode(20, 20, 20, 20, 20, 20, 20, 20, 20, 20))
+				{
+					if (MedalsManager.medalsManager != null)
+					{
+						MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.YOUTAMPERED);
+					}
+				}
 				break;
 			default:
 				break;
@@ -184,15 +191,15 @@ public class SixAM : MonoBehaviour
 
 	private bool CheckCustomNightMode(int freddy, int bonnie, int chica, int foxy, int bb, int toyFreddy, int toyBonnie, int toyChica, int mangle, int goldenFreddy)
 	{
-		return freddyAI == freddy &&
-			bonnieAI == bonnie &&
-			chicaAI == chica &&
-			foxyAI == foxy &&
-			balloonBoyAI == bb &&
-			toyFreddyAI == toyFreddy &&
-			toyBonnieAI == toyBonnie &&
-			toyChicaAI == toyChica &&
-			mangleAI == mangle &&
-			goldenFreddyAI == goldenFreddy;
+		return witheredFreddyDifficulty == freddy &&
+			witheredBonnieDifficulty == bonnie &&
+            witheredChicaDifficulty == chica &&
+            witheredFoxyDifficulty == foxy &&
+            bbDifficulty == bb &&
+            toyFreddyDifficulty == toyFreddy &&
+            toyBonnieDifficulty == toyBonnie &&
+            toyChicaDifficulty == toyChica &&
+            mangleDifficulty == mangle &&
+            goldenDifficulty == goldenFreddy;
     }
 }
