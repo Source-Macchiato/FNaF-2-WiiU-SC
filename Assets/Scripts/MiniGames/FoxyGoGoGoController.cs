@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -63,6 +62,8 @@ public class FoxyGoGoGoController : MonoBehaviour
         purpleGuy.SetActive(false);
         fireworksContainer.SetActive(false);
         arrow.SetActive(false);
+
+        SavePlayedMinigameAndUnlockAchievement();
 
         // Start the game with the initial state
         StartCoroutine(InitialState());
@@ -270,5 +271,26 @@ public class FoxyGoGoGoController : MonoBehaviour
 
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    private void SavePlayedMinigameAndUnlockAchievement()
+    {
+        if (!SaveManager.saveData.game.playedMinigames[3])
+        {
+            SaveManager.saveData.game.ChangePlayedMinigameStatus(3, true);
+        }
+
+        if (SaveManager.saveData.game.playedMinigames[0] &&
+            SaveManager.saveData.game.playedMinigames[1] &&
+            SaveManager.saveData.game.playedMinigames[2] &&
+            SaveManager.saveData.game.playedMinigames[3])
+        {
+            if (MedalsManager.medalsManager != null)
+            {
+                MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.YOUTRIED);
+            }
+        }
+
+        SaveManager.Save();
     }
 }

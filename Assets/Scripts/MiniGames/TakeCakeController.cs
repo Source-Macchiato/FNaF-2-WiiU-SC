@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TakeCakeController : MonoBehaviour
 {
@@ -57,6 +56,8 @@ public class TakeCakeController : MonoBehaviour
 
         // Get the Rigidbody2D component for the bear
         bearRigidbody = Bear.GetComponent<Rigidbody2D>();
+
+        SavePlayedMinigameAndUnlockAchievement();
 
         // Start the audio sequence
         StartCoroutine(PlayAudioSequence());
@@ -170,5 +171,26 @@ public class TakeCakeController : MonoBehaviour
             float t = (elapsedTime - 20f) / (45f - 20f);
             BearSpeed = Mathf.Lerp(1f, 0f, t);
         }
+    }
+
+    private void SavePlayedMinigameAndUnlockAchievement()
+    {
+        if (!SaveManager.saveData.game.playedMinigames[2])
+        {
+            SaveManager.saveData.game.ChangePlayedMinigameStatus(2, true);
+        }
+
+        if (SaveManager.saveData.game.playedMinigames[0] &&
+            SaveManager.saveData.game.playedMinigames[1] &&
+            SaveManager.saveData.game.playedMinigames[2] &&
+            SaveManager.saveData.game.playedMinigames[3])
+        {
+            if (MedalsManager.medalsManager != null)
+            {
+                MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.YOUTRIED);
+            }
+        }
+
+        SaveManager.Save();
     }
 }

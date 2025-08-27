@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -43,6 +42,8 @@ public class GiveGiftsController : MonoBehaviour
         kidFive.SetActive(false);
 
         UpdateScoreText();
+
+        SavePlayedMinigameAndUnlockAchievement();
 
         StartCoroutine(SaveThemAudioSequence());
     }
@@ -160,5 +161,26 @@ public class GiveGiftsController : MonoBehaviour
         JumpscareAnimator.gameObject.SetActive(false);
 
         MiniGamesLevelLoader.LoadScene("MainMenu");
+    }
+
+    private void SavePlayedMinigameAndUnlockAchievement()
+    {
+        if (!SaveManager.saveData.game.playedMinigames[1])
+        {
+            SaveManager.saveData.game.ChangePlayedMinigameStatus(1, true);
+        }
+
+        if (SaveManager.saveData.game.playedMinigames[0] &&
+            SaveManager.saveData.game.playedMinigames[1] &&
+            SaveManager.saveData.game.playedMinigames[2] &&
+            SaveManager.saveData.game.playedMinigames[3])
+        {
+            if (MedalsManager.medalsManager != null)
+            {
+                MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.YOUTRIED);
+            }
+        }
+
+        SaveManager.Save();
     }
 }

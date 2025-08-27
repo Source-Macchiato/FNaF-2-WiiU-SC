@@ -42,6 +42,8 @@ public class SaveThemController : MonoBehaviour
         // Get scripts
         playerMovement = FindObjectOfType<PlayerMovement>();
 
+        SavePlayedMinigameAndUnlockAchievement();
+
         StartCoroutine(PlayAudioSequence());
         StartCoroutine(RandomEnd());
 
@@ -231,6 +233,27 @@ public class SaveThemController : MonoBehaviour
                 MiniGamesLevelLoader.LoadScene("MainMenu");
             }
         }
+    }
+
+    private void SavePlayedMinigameAndUnlockAchievement()
+    {
+        if (!SaveManager.saveData.game.playedMinigames[0])
+        {
+            SaveManager.saveData.game.ChangePlayedMinigameStatus(0, true);
+        }
+
+        if (SaveManager.saveData.game.playedMinigames[0] &&
+            SaveManager.saveData.game.playedMinigames[1] &&
+            SaveManager.saveData.game.playedMinigames[2] &&
+            SaveManager.saveData.game.playedMinigames[3])
+        {
+            if (MedalsManager.medalsManager != null)
+            {
+                MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.YOUTRIED);
+            }
+        }
+
+        SaveManager.Save();
     }
 }
 

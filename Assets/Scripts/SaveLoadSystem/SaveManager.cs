@@ -62,6 +62,7 @@ public class Game
     public bool dreamIntroPlayed = false;
     public bool[] doneModes = new bool[10];
     public bool[] unlockedStars = new bool[3];
+    public bool[] playedMinigames = new bool[4];
 
     public void ChangeDoneModeStatus(int modeId, bool isDone)
     {
@@ -71,6 +72,11 @@ public class Game
     public void ChangeUnlockedStarStatus(int starId, bool unlocked)
     {
         unlockedStars[starId] = unlocked;
+    }
+
+    public void ChangePlayedMinigameStatus(int minigameId, bool played)
+    {
+        playedMinigames[minigameId] = played;
     }
 }
 
