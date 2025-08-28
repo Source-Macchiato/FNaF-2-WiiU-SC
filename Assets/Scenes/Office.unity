@@ -2292,6 +2292,7 @@ RectTransform:
   - {fileID: 761863784}
   - {fileID: 1202477688}
   - {fileID: 1781402667}
+  - {fileID: 2067315132}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3879,6 +3880,73 @@ RectTransform:
   m_AnchoredPosition: {x: 74.47, y: 0.000120640005}
   m_SizeDelta: {x: 58.33, y: 18.32}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &368343784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 368343785}
+  - component: {fileID: 368343787}
+  - component: {fileID: 368343786}
+  m_Layer: 5
+  m_Name: ScreenAchievements
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &368343785
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 368343784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1899779037}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &368343786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 368343784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 8400000, guid: 1b158273a35be58408c83d8aa6cbff1d, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &368343787
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 368343784}
 --- !u!1 &371900576
 GameObject:
   m_ObjectHideFlags: 0
@@ -13933,18 +14001,6 @@ MonoBehaviour:
   isJumpscared: 0
   TimeMultiplier: 1
   isNight7: 0
-  PuppetAI: 0
-  GoldenFreddyAI: 0
-  MangleAI: 0
-  BalloonBoyAI: 0
-  PaperpalsAI: 0
-  ToyBonnieAI: 0
-  ToyChicaAI: 0
-  ToyFreddyAI: 0
-  WitheredBonnieAI: 0
-  WitheredChicaAI: 0
-  WitheredFreddyAI: 0
-  WitheredFoxyAI: 0
   PuppetTime: 30
   PuppetDeathTimer: 15
   previousFullNessCircleIndex: -1
@@ -14398,7 +14454,6 @@ MonoBehaviour:
   Battery1Bars: {fileID: 21300002, guid: 46578d76d26c88a47a9fcd1f29fe7cef, type: 3}
   Battery0Bars: {fileID: 21300000, guid: 46578d76d26c88a47a9fcd1f29fe7cef, type: 3}
   BatteryImage: {fileID: 1794578586}
-  Plushies: []
   Ribbons: {fileID: 772355754}
   JJ: {fileID: 563762420}
   RWQOffice: {fileID: 980332980}
@@ -15851,6 +15906,7 @@ MonoBehaviour:
   isWindUpEmpty: 0
   unwindTime: 0
   currentUnwindTime: 0
+  isAboveFiftyPercent: 1
 --- !u!1 &1314717663
 GameObject:
   m_ObjectHideFlags: 0
@@ -17650,6 +17706,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tvOnlyTV: 0
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 0
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 0
+  tvGamepadAltGamepad: 0
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 0
 --- !u!1 &1496211346
 GameObject:
   m_ObjectHideFlags: 0
@@ -21993,10 +22057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcbecbe590741804ea0a7e25523a73bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nightPlayer: {fileID: 1204379961}
-  maskManager: {fileID: 16103772}
   currentTime: 0
-  currentNight: 0
+  nightId: 0
   TimeMultiplier: 0
   isNight7: 0
   PuppetAI: 0
@@ -22006,6 +22068,8 @@ MonoBehaviour:
   RollChanceMangle: 7
   RollChanceToyFreddy: 7
   RollChanceToyChica: 7
+  nightPlayer: {fileID: 1204379961}
+  maskManager: {fileID: 16103772}
 --- !u!1 &1889926740
 GameObject:
   m_ObjectHideFlags: 0
@@ -22307,6 +22371,7 @@ RectTransform:
   - {fileID: 1829226353}
   - {fileID: 2097470507}
   - {fileID: 1050658745}
+  - {fileID: 368343785}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23931,6 +23996,73 @@ RectTransform:
   m_AnchoredPosition: {x: -207.1, y: -308.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2067315131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2067315132}
+  - component: {fileID: 2067315134}
+  - component: {fileID: 2067315133}
+  m_Layer: 5
+  m_Name: ScreenAchievements
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2067315132
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067315131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 206632310}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2067315133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067315131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 8400000, guid: 1b158273a35be58408c83d8aa6cbff1d, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &2067315134
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2067315131}
 --- !u!1 &2072869965
 GameObject:
   m_ObjectHideFlags: 0

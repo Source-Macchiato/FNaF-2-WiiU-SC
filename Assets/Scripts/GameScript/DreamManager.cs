@@ -41,8 +41,6 @@ public class DreamManager : MonoBehaviour
         // Load
         nightNumber = SaveManager.saveData.game.nightNumber;
 
-        Debug.Log(nightNumber);
-
         // Assign last office horizontal position
         lastOfficePositionX = officeRect.anchoredPosition.x;
 
