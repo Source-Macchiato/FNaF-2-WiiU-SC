@@ -2,11 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class AIManager : MonoBehaviour {
-    public NightPlayer nightPlayer;
-    public MaskManager maskManager;
+public class AIManager : MonoBehaviour
+{
     public int currentTime;
-    public int currentNight;
+    public int nightId;
 
     public float TimeMultiplier;
     public bool isNight7;
@@ -19,6 +18,7 @@ public class AIManager : MonoBehaviour {
     public float RollChanceToyFreddy = 7f;
     public float RollChanceToyChica = 7f;
 
+    private bool loadedSixAmScene = false;
 
     // AI Dictionary for storing AI levels dynamically
     private Dictionary<string, int> aiLevels;
@@ -26,10 +26,15 @@ public class AIManager : MonoBehaviour {
     // AI Configuration per night and time
     private Dictionary<int, Dictionary<int, Dictionary<string, int>>> nightConfigurations;
 
+    public NightPlayer nightPlayer;
+    public MaskManager maskManager;
+    private MusicBox musicBox;
 
     void Start()
     {
-        currentNight = SaveManager.saveData.game.nightNumber;
+        musicBox = FindObjectOfType<MusicBox>();
+
+        nightId = SaveManager.saveData.game.nightNumber;
 
         // Initialize AI levels
 
@@ -321,9 +326,9 @@ public class AIManager : MonoBehaviour {
     }
 
     public void TimedEvents() {
-        if (nightConfigurations.ContainsKey(currentNight))
+        if (nightConfigurations.ContainsKey(nightId))
         {
-            var nightConfig = nightConfigurations[currentNight];
+            var nightConfig = nightConfigurations[nightId];
             if (nightConfig.ContainsKey(currentTime))
             {
                 var timeConfig = nightConfig[currentTime];
@@ -339,7 +344,21 @@ public class AIManager : MonoBehaviour {
 
         if (currentTime >= 6)
         {
-            SceneManager.LoadScene("6AM");
+            if (!loadedSixAmScene)
+            {
+                loadedSixAmScene = true;
+
+                // Unlock You Soothed achievement if is night 4 the music box hasn't been under 50%
+                if (nightId == 3 && musicBox.isAboveFiftyPercent)
+                {
+                    if (MedalsManager.medalsManager != null)
+                    {
+                        MedalsManager.medalsManager.UnlockAchievement(Achievements.achievements.YOUSOOTHED);
+                    }
+                }
+
+                SceneManager.LoadScene("6AM");
+            }
         }
     }
 
@@ -352,6 +371,4 @@ public class AIManager : MonoBehaviour {
         }
         return -1;
     }
-
-
 }

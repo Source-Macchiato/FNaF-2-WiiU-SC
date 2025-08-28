@@ -19,6 +19,7 @@ public class MusicBox : MonoBehaviour
     public float currentUnwindTime;
     private bool windUpMusicBox = false;
     private bool isWindUpSoundPlaying = false;
+    public bool isAboveFiftyPercent = true;
 
     private int nightNumber;
 
@@ -121,6 +122,11 @@ public class MusicBox : MonoBehaviour
         HandleMuteWithMonitor();
         HandleWindUpSound();
 
+        if (nightNumber == 3 && isAboveFiftyPercent)
+        {
+            isAboveFiftyPercent = progress.fillAmount >= 0.5f;
+        }
+
         // Change button background image based on windUpMusicBox
         windUpButtonAnimator.SetBool("isWindingUp", windUpMusicBox);
 
@@ -198,7 +204,7 @@ public class MusicBox : MonoBehaviour
         }
         else
         {
-            return 0f;
+            return 50f;
         }
     }
 
