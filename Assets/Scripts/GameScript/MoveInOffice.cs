@@ -169,6 +169,8 @@ public class MoveInOffice : MonoBehaviour
                     pointerPosition.x = ((pointerPosition.x + 1.0f) / 2.0f) * WiiU.Core.GetScreenWidth(WiiU.DisplayIndex.TV);
                     pointerPosition.y = WiiU.Core.GetScreenHeight(WiiU.DisplayIndex.TV) - ((pointerPosition.y + 1.0f) / 2.0f) * WiiU.Core.GetScreenHeight(WiiU.DisplayIndex.TV);
 
+                    lastPointerPosition = pointerPosition;
+
                     if (pointerPosition.x < 250f)
                     {
                         MoveLeft();
