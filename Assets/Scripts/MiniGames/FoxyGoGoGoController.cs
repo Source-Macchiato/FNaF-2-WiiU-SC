@@ -46,11 +46,13 @@ public class FoxyGoGoGoController : MonoBehaviour
 
     // Scripts
     PlayerMovement playerMovement;
+    ControllersRumble controllersRumble;
 
     void Start()
     {
         // Get scripts
         playerMovement = FindObjectOfType<PlayerMovement>();
+        controllersRumble = FindObjectOfType<ControllersRumble>();
 
         playerRect = player.GetComponent<RectTransform>();
         playerAnimator = player.GetComponent<Animator>();
@@ -238,6 +240,7 @@ public class FoxyGoGoGoController : MonoBehaviour
     {
         Jumpscare.Play();
         JumpscareAnimator.Play("WitheredFoxy");
+        controllersRumble.TriggerRumble(9);
 
         yield return new WaitForSeconds(0.6f);
 

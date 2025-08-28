@@ -33,11 +33,13 @@ public class GiveGiftsController : MonoBehaviour
 
     // Scripts
     PlayerMovement playerMovement;
+    ControllersRumble controllersRumble;
 
     void Start()
     {
         // Get scripts
         playerMovement = FindObjectOfType<PlayerMovement>();
+        controllersRumble = FindObjectOfType<ControllersRumble>();
 
         kidFive.SetActive(false);
 
@@ -153,6 +155,7 @@ public class GiveGiftsController : MonoBehaviour
 
         Jumpscare.Play();
         JumpscareAnimator.Play("GoldenFreddy");
+        controllersRumble.TriggerRumble(9);
 
         yield return new WaitForSeconds(0.6f);
 

@@ -41,12 +41,14 @@ public class TakeCakeController : MonoBehaviour
 
     // Scripts
     PlayerMovement bearMovement;
+    ControllersRumble controllersRumble;
 
     // Start is called before the first frame update
     void Start()
     {
         // Get scripts
         bearMovement = FindObjectOfType<PlayerMovement>();
+        controllersRumble = FindObjectOfType<ControllersRumble>();
 
         // Initialize hunger values for each kid
         for (int i = 0; i < Hunger.Length; i++)
@@ -70,6 +72,7 @@ public class TakeCakeController : MonoBehaviour
         JumpscareAnimator.gameObject.SetActive(true);
         JumpscareAnimator.Play("Puppet");
         Jumpscare.Play();
+        controllersRumble.TriggerRumble(9);
 
         yield return new WaitForSeconds(0.6f);
 
