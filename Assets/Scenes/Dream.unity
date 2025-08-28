@@ -417,6 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 348287262}
   - component: {fileID: 348287263}
+  - component: {fileID: 348287264}
   m_Layer: 0
   m_Name: ChildrenLaughting
   m_TagString: Untagged
@@ -518,6 +519,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &348287264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348287261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &380452004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,6 +1416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1002804613}
   - component: {fileID: 1002804614}
+  - component: {fileID: 1002804615}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -1497,6 +1518,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1002804615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1002804612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1027382826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,6 +1996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1462466455}
   - component: {fileID: 1462466456}
+  - component: {fileID: 1462466457}
   m_Layer: 0
   m_Name: ScarySpace
   m_TagString: Untagged
@@ -2057,6 +2098,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1462466457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462466454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1532415740
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,6 +2656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798428510}
   - component: {fileID: 1798428511}
+  - component: {fileID: 1798428512}
   m_Layer: 0
   m_Name: MachineTurn
   m_TagString: Untagged
@@ -2697,6 +2758,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1798428512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1798428509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1843238493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,6 +2786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1843238494}
   - component: {fileID: 1843238495}
+  - component: {fileID: 1843238496}
   m_Layer: 0
   m_Name: StaticEnd
   m_TagString: Untagged
@@ -2807,6 +2888,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1843238496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1843238493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1909880336
 GameObject:
   m_ObjectHideFlags: 0

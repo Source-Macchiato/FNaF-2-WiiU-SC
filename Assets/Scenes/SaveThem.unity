@@ -213,6 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 23402150}
   - component: {fileID: 23402149}
+  - component: {fileID: 23402151}
   m_Layer: 0
   m_Name: M
   m_TagString: Untagged
@@ -314,6 +315,25 @@ Transform:
   m_Father: {fileID: 669591714}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &23402151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 23402148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &31914408
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,6 +5204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 724564335}
   - component: {fileID: 724564334}
+  - component: {fileID: 724564336}
   m_Layer: 0
   m_Name: ComputerInteriorLong
   m_TagString: Untagged
@@ -5285,6 +5306,25 @@ Transform:
   m_Father: {fileID: 669591714}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &724564336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 724564333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &725719477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5294,6 +5334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725719479}
   - component: {fileID: 725719478}
+  - component: {fileID: 725719480}
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
@@ -5395,6 +5436,25 @@ Transform:
   m_Father: {fileID: 669591714}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &725719480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 725719477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &730448201
 GameObject:
   m_ObjectHideFlags: 0
@@ -6405,6 +6465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863532962}
   - component: {fileID: 863532961}
+  - component: {fileID: 863532963}
   m_Layer: 0
   m_Name: H
   m_TagString: Untagged
@@ -6506,6 +6567,25 @@ Transform:
   m_Father: {fileID: 669591714}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863532963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863532960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &864829471
 GameObject:
   m_ObjectHideFlags: 0
@@ -7937,6 +8017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036727374}
   - component: {fileID: 1036727373}
+  - component: {fileID: 1036727375}
   m_Layer: 0
   m_Name: Jumpscare
   m_TagString: Untagged
@@ -8038,6 +8119,25 @@ Transform:
   m_Father: {fileID: 669591714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1036727375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1036727372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 1
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1041525657
 GameObject:
   m_ObjectHideFlags: 0
@@ -8182,6 +8282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1065570808}
   - component: {fileID: 1065570807}
+  - component: {fileID: 1065570809}
   m_Layer: 0
   m_Name: T
   m_TagString: Untagged
@@ -8283,6 +8384,25 @@ Transform:
   m_Father: {fileID: 669591714}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1065570809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1065570806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1080566408
 GameObject:
   m_ObjectHideFlags: 0
@@ -8628,6 +8748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1145339342}
   - component: {fileID: 1145339341}
+  - component: {fileID: 1145339343}
   m_Layer: 0
   m_Name: E
   m_TagString: Untagged
@@ -8729,6 +8850,25 @@ Transform:
   m_Father: {fileID: 669591714}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1145339343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1145339340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1151103383
 GameObject:
   m_ObjectHideFlags: 0
@@ -11481,6 +11621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1542733324}
   - component: {fileID: 1542733323}
+  - component: {fileID: 1542733325}
   m_Layer: 0
   m_Name: S
   m_TagString: Untagged
@@ -11582,6 +11723,25 @@ Transform:
   m_Father: {fileID: 669591714}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1542733325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1542733322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1543263208
 GameObject:
   m_ObjectHideFlags: 0
@@ -13274,6 +13434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832752088}
   - component: {fileID: 1832752087}
+  - component: {fileID: 1832752089}
   m_Layer: 0
   m_Name: V
   m_TagString: Untagged
@@ -13375,6 +13536,25 @@ Transform:
   m_Father: {fileID: 669591714}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1832752089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1832752086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1835596815
 GameObject:
   m_ObjectHideFlags: 0

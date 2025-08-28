@@ -1046,6 +1046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 80377944}
   - component: {fileID: 80377945}
+  - component: {fileID: 80377946}
   m_Layer: 0
   m_Name: The_Sand-Temple_Looping
   m_TagString: Untagged
@@ -1147,6 +1148,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &80377946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 80377943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 1
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 1
+  gamepadOnlyGamepad: 1
 --- !u!1 &82721917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3383,6 +3403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 172051298}
   - component: {fileID: 172051299}
+  - component: {fileID: 172051300}
   m_Layer: 0
   m_Name: Blip3
   m_TagString: Untagged
@@ -3484,6 +3505,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &172051300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 172051297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 1
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 1
+  gamepadOnlyGamepad: 1
 --- !u!1 &194023583
 GameObject:
   m_ObjectHideFlags: 0
@@ -17566,6 +17606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019390048}
   - component: {fileID: 1019390049}
+  - component: {fileID: 1019390050}
   m_Layer: 0
   m_Name: Static2
   m_TagString: Untagged
@@ -17667,6 +17708,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1019390050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019390047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 1
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 1
+  gamepadOnlyGamepad: 1
 --- !u!1 &1023037098
 GameObject:
   m_ObjectHideFlags: 0

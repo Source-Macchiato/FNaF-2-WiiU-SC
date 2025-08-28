@@ -1655,6 +1655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 171124297}
   - component: {fileID: 171124298}
+  - component: {fileID: 171124299}
   m_Layer: 5
   m_Name: Stare
   m_TagString: Untagged
@@ -1761,6 +1762,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &171124299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 171124296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 0
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &174597507
 GameObject:
   m_ObjectHideFlags: 0
@@ -3956,6 +3976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 371900577}
   - component: {fileID: 371900578}
+  - component: {fileID: 371900579}
   m_Layer: 5
   m_Name: PutMaskOn
   m_TagString: Untagged
@@ -4057,6 +4078,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &371900579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 371900576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 0
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &385999681
 GameObject:
   m_ObjectHideFlags: 0
@@ -4430,6 +4470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 413012735}
   - component: {fileID: 413012736}
+  - component: {fileID: 413012737}
   m_Layer: 5
   m_Name: SwitchCamera
   m_TagString: Untagged
@@ -4531,6 +4572,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &413012737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 413012734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 0
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 0
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &416454944
 GameObject:
   m_ObjectHideFlags: 0
@@ -4540,6 +4600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 416454945}
   - component: {fileID: 416454946}
+  - component: {fileID: 416454947}
   m_Layer: 5
   m_Name: Buzzlight
   m_TagString: Untagged
@@ -4641,6 +4702,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &416454947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 416454944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &418201756
 GameObject:
   m_ObjectHideFlags: 0
@@ -7470,6 +7550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 709061081}
   - component: {fileID: 709061082}
+  - component: {fileID: 709061083}
   m_Layer: 5
   m_Name: MusicBoxTheme
   m_TagString: Untagged
@@ -7571,6 +7652,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &709061083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709061080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 0
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 0
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &717411808
 GameObject:
   m_ObjectHideFlags: 0
@@ -8967,6 +9067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 814846271}
   - component: {fileID: 814846272}
+  - component: {fileID: 814846273}
   m_Layer: 5
   m_Name: Withs2
   m_TagString: Untagged
@@ -9000,7 +9101,8 @@ AudioSource:
   m_GameObject: {fileID: 814846270}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243731315198083176, guid: 063cc35e74633ac499c982964f0cc2ff,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 60b7108b0950ed8449e40d005487070d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -9072,6 +9174,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &814846273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814846270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 0
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &845011629
 GameObject:
   m_ObjectHideFlags: 0
@@ -9730,6 +9851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 891353584}
   - component: {fileID: 891353585}
+  - component: {fileID: 891353586}
   m_Layer: 5
   m_Name: Jumpscare
   m_TagString: Untagged
@@ -9830,6 +9952,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &891353586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 891353583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 1
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &898823252
 GameObject:
   m_ObjectHideFlags: 0
@@ -11067,6 +11208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 980306794}
   - component: {fileID: 980306795}
+  - component: {fileID: 980306796}
   m_Layer: 5
   m_Name: FanSound
   m_TagString: Untagged
@@ -11168,6 +11310,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &980306796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 980306793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 0
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &980332980
 GameObject:
   m_ObjectHideFlags: 0
@@ -11855,6 +12016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1058738592}
   - component: {fileID: 1058738593}
+  - component: {fileID: 1058738594}
   m_Layer: 5
   m_Name: PhoneCall
   m_TagString: Untagged
@@ -11956,6 +12118,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1058738594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1058738591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 0
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1058841197
 GameObject:
   m_ObjectHideFlags: 0
@@ -11965,6 +12146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1058841198}
   - component: {fileID: 1058841199}
+  - component: {fileID: 1058841200}
   m_Layer: 5
   m_Name: DeepBreaths
   m_TagString: Untagged
@@ -12066,6 +12248,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1058841200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1058841197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 0
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1059244515
 GameObject:
   m_ObjectHideFlags: 0
@@ -14493,6 +14694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204673109}
   - component: {fileID: 1204673110}
+  - component: {fileID: 1204673111}
   m_Layer: 5
   m_Name: OnMonitor
   m_TagString: Untagged
@@ -14594,6 +14796,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1204673111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1204673108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 0
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 0
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1207246877
 GameObject:
   m_ObjectHideFlags: 0
@@ -15013,6 +15234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242395679}
   - component: {fileID: 1242395680}
+  - component: {fileID: 1242395681}
   m_Layer: 5
   m_Name: WindUp
   m_TagString: Untagged
@@ -15114,6 +15336,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1242395681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242395678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 0
+  tvGamepadClassicGamepad: 1
+  tvGamepadAltTV: 0
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1243597343
 GameObject:
   m_ObjectHideFlags: 0
@@ -17133,6 +17374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432670366}
   - component: {fileID: 1432670367}
+  - component: {fileID: 1432670368}
   m_Layer: 5
   m_Name: VentCrawl
   m_TagString: Untagged
@@ -17161,7 +17403,8 @@ AudioSource:
   m_GameObject: {fileID: 1432670365}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243731315198083176, guid: 063cc35e74633ac499c982964f0cc2ff,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: ec0775446e463214ab337be78d9f10ef, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -17233,6 +17476,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1432670368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1432670365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 0
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1453130489
 GameObject:
   m_ObjectHideFlags: 0
@@ -17330,6 +17592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467827103}
   - component: {fileID: 1467827104}
+  - component: {fileID: 1467827105}
   m_Layer: 5
   m_Name: MonitorOn
   m_TagString: Untagged
@@ -17431,6 +17694,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1467827105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1467827102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 0
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1472750459
 GameObject:
   m_ObjectHideFlags: 0
@@ -19357,6 +19639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723988792}
   - component: {fileID: 1723988793}
+  - component: {fileID: 1723988794}
   m_Layer: 5
   m_Name: MonitorOff
   m_TagString: Untagged
@@ -19458,6 +19741,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1723988794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1723988791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 0
+  tvGamepadAltGamepad: 1
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
 --- !u!1 &1738672028
 GameObject:
   m_ObjectHideFlags: 0
@@ -24856,6 +25158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2145098002}
   - component: {fileID: 2145098003}
+  - component: {fileID: 2145098004}
   m_Layer: 5
   m_Name: PutMaskOff
   m_TagString: Untagged
@@ -24957,3 +25260,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &2145098004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2145098001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959662b9b341e85439f00faf5ddbafc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOnlyTV: 1
+  tvOnlyGamepad: 0
+  tvGamepadClassicTV: 1
+  tvGamepadClassicGamepad: 0
+  tvGamepadAltTV: 1
+  tvGamepadAltGamepad: 0
+  gamepadOnlyTV: 0
+  gamepadOnlyGamepad: 1
