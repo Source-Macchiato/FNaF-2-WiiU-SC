@@ -8,25 +8,15 @@ public class SixAM : MonoBehaviour
 
 	private int nightNumber;
 
-	// AI levels
-	private int witheredFreddyDifficulty;
-    private int witheredBonnieDifficulty;
-    private int witheredChicaDifficulty;
-	private int witheredFoxyDifficulty;
-	private int bbDifficulty;
-    private int toyFreddyDifficulty;
-    private int toyBonnieDifficulty;
-	private int toyChicaDifficulty;
-	private int mangleDifficulty;
-	private int goldenDifficulty;
-
     // Scripts
-	LevelLoader levelLoader;
+	private LevelLoader levelLoader;
+	private NightPlayer nightPlayer;
 
 	void Start()
 	{
 		// Get scripts
 		levelLoader = FindObjectOfType<LevelLoader>();
+		nightPlayer = FindObjectOfType<NightPlayer>();
 
 		// Disable loading screen when the game starts
 		levelLoader.loadingScreen.SetActive(false);
@@ -37,18 +27,6 @@ public class SixAM : MonoBehaviour
         // Increase night number and apply it
         nightNumber++;
 		SaveManager.saveData.game.nightNumber = nightNumber;
-
-        // Get AI levels
-        witheredFreddyDifficulty = NightPlayer.witheredFreddyDifficulty;
-        witheredBonnieDifficulty = NightPlayer.witheredBonnieDifficulty;
-        witheredChicaDifficulty = NightPlayer.witheredChicaDifficulty;
-        witheredFoxyDifficulty = NightPlayer.witheredFoxyDifficulty;
-        bbDifficulty = NightPlayer.bbDifficulty;
-        toyFreddyDifficulty = NightPlayer.toyFreddyDifficulty;
-        toyBonnieDifficulty = NightPlayer.toyBonnieDifficulty;
-        toyChicaDifficulty = NightPlayer.toyChicaDifficulty;
-        mangleDifficulty = NightPlayer.mangleDifficulty;
-        goldenDifficulty = NightPlayer.goldenDifficulty;
 
         if (nightNumber == 7)
 		{
@@ -191,15 +169,15 @@ public class SixAM : MonoBehaviour
 
 	private bool CheckCustomNightMode(int freddy, int bonnie, int chica, int foxy, int bb, int toyFreddy, int toyBonnie, int toyChica, int mangle, int goldenFreddy)
 	{
-		return witheredFreddyDifficulty == freddy &&
-			witheredBonnieDifficulty == bonnie &&
-            witheredChicaDifficulty == chica &&
-            witheredFoxyDifficulty == foxy &&
-            bbDifficulty == bb &&
-            toyFreddyDifficulty == toyFreddy &&
-            toyBonnieDifficulty == toyBonnie &&
-            toyChicaDifficulty == toyChica &&
-            mangleDifficulty == mangle &&
-            goldenDifficulty == goldenFreddy;
+		return nightPlayer.witheredFreddyDifficulty == freddy &&
+			nightPlayer.witheredBonnieDifficulty == bonnie &&
+            nightPlayer.witheredChicaDifficulty == chica &&
+            nightPlayer.witheredFoxyDifficulty == foxy &&
+            nightPlayer.bbDifficulty == bb &&
+            nightPlayer.toyFreddyDifficulty == toyFreddy &&
+            nightPlayer.toyBonnieDifficulty == toyBonnie &&
+            nightPlayer.toyChicaDifficulty == toyChica &&
+            nightPlayer.mangleDifficulty == mangle &&
+            nightPlayer.goldenDifficulty == goldenFreddy;
     }
 }

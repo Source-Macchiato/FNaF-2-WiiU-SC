@@ -309,46 +309,44 @@ public class MenuData : MonoBehaviour
         {
             if (cardSwitcher.id == "customnight.freddy")
             {
-                PlayerPrefs.SetInt("FreddyAI", cardSwitcher.difficultyValue);
+                CustomNightAI.witheredFreddyAI = cardSwitcher.difficultyValue;
             }
             else if (cardSwitcher.id == "customnight.bonnie")
             {
-                PlayerPrefs.SetInt("BonnieAI", cardSwitcher.difficultyValue);
+                CustomNightAI.witheredBonnieAI = cardSwitcher.difficultyValue;
             }
             else if (cardSwitcher.id == "customnight.chica")
             {
-                PlayerPrefs.SetInt("ChicaAI", cardSwitcher.difficultyValue);
+                CustomNightAI.witheredChicaAI = cardSwitcher.difficultyValue;
             }
             else if (cardSwitcher.id == "customnight.foxy")
             {
-                PlayerPrefs.SetInt("FoxyAI", cardSwitcher.difficultyValue);
+                CustomNightAI.witheredFoxyAI = cardSwitcher.difficultyValue;
             }
             else if (cardSwitcher.id == "customnight.balloonboy")
             {
-                PlayerPrefs.SetInt("BalloonBoyAI", cardSwitcher.difficultyValue);
+                CustomNightAI.balloonBoyAI = cardSwitcher.difficultyValue;
             }
             else if (cardSwitcher.id == "customnight.toyfreddy")
             {
-                PlayerPrefs.SetInt("ToyFreddyAI", cardSwitcher.difficultyValue);
+                CustomNightAI.toyFreddyAI = cardSwitcher.difficultyValue;
             }
             else if (cardSwitcher.id == "customnight.toybonnie")
             {
-                PlayerPrefs.SetInt("ToyBonnieAI", cardSwitcher.difficultyValue);
+                CustomNightAI.toyBonnieAI = cardSwitcher.difficultyValue;
             }
             else if (cardSwitcher.id == "customnight.toychica")
             {
-                PlayerPrefs.SetInt("ToyChicaAI", cardSwitcher.difficultyValue);
+                CustomNightAI.toyChicaAI = cardSwitcher.difficultyValue;
             }
             else if (cardSwitcher.id == "customnight.mangle")
             {
-                PlayerPrefs.SetInt("MangleAI", cardSwitcher.difficultyValue);
+                CustomNightAI.mangleAI = cardSwitcher.difficultyValue;
             }
             else if (cardSwitcher.id == "customnight.goldenfreddy")
             {
-                PlayerPrefs.SetInt("GoldenFreddyAI", cardSwitcher.difficultyValue);
+                CustomNightAI.goldenAI = cardSwitcher.difficultyValue;
             }
-
-            PlayerPrefs.Save();
         }
     }
 

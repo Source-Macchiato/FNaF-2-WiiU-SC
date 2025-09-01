@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class AIManager : MonoBehaviour
 {
-    public int currentTime;
     public int nightId;
 
     public float TimeMultiplier;
@@ -184,15 +183,15 @@ public class AIManager : MonoBehaviour
             // Night 7
             { 6, new Dictionary<int, Dictionary<string, int>>() {
                 { 0, new Dictionary<string, int>() {
-                    { "MangleAI", PlayerPrefs.GetInt("MangleAI", 0) },//3
-                    { "BalloonBoyAI", PlayerPrefs.GetInt("BalloonBoyAI", 0) },
-                    { "WitheredFreddyAI", PlayerPrefs.GetInt("FreddyAI", 0) },
-                    { "WitheredBonnieAI", PlayerPrefs.GetInt("BonnieAI", 0) },
-                    { "WitheredChicaAI", PlayerPrefs.GetInt("ChicaAI", 0) },
-                    { "WitheredFoxyAI", PlayerPrefs.GetInt("FoxyAI", 0) },
-                    { "ToyFreddyAI", PlayerPrefs.GetInt("ToyFreddyAI", 0) },
-                    { "ToyBonnieAI", PlayerPrefs.GetInt("ToyBonnieAI", 0) },
-                    { "ToyChicaAI", PlayerPrefs.GetInt("ToyChicaAI", 0) }
+                    { "MangleAI", CustomNightAI.mangleAI },//3 -- why 3? (Alyx)
+                    { "BalloonBoyAI", CustomNightAI.balloonBoyAI },
+                    { "WitheredFreddyAI", CustomNightAI.witheredFreddyAI },
+                    { "WitheredBonnieAI", CustomNightAI.witheredBonnieAI },
+                    { "WitheredChicaAI", CustomNightAI.witheredChicaAI },
+                    { "WitheredFoxyAI", CustomNightAI.witheredFoxyAI },
+                    { "ToyFreddyAI", CustomNightAI.toyFreddyAI },
+                    { "ToyBonnieAI", CustomNightAI.toyBonnieAI },
+                    { "ToyChicaAI", CustomNightAI.toyChicaAI }
                 }}
             }}
         };
@@ -200,8 +199,6 @@ public class AIManager : MonoBehaviour
 
     void Update()
     {
-        currentTime = nightPlayer.currentTime;
-
         TimedEvents();
 
         if (nightPlayer.WitheredFreddyCamera == 14)
@@ -217,121 +214,122 @@ public class AIManager : MonoBehaviour
 				{
 					RollChanceFreddy = 7f;
 					if (RandomChance == 0)
-			    		{
-			    	    		nightPlayer.WitheredFreddyCamera = 7;
-			    		}
+			    	{
+			    	    nightPlayer.WitheredFreddyCamera = 7;
+			    	}
 				}
 			}
 		}
-    if(nightPlayer.WitheredBonnieCamera == 14)
-    {
-        if (maskManager.isMaskActive)
+        if (nightPlayer.WitheredBonnieCamera == 14)
         {
-        Debug.Log("withered bonnie mask active");
-        nightPlayer.WitheredBonnieMovement = 5f;
-        int RandomChance = Random.Range(0, 5);
-        RollChanceBonnie -= Time.deltaTime;
-
-        if(RollChanceBonnie <= 0f)
-        {
-            RollChanceBonnie = 7f;
-            if (RandomChance == 0)
+            if (maskManager.isMaskActive)
             {
-            nightPlayer.WitheredBonnieCamera = 7;
-            }
-        }
-        }
-    }
+                Debug.Log("withered bonnie mask active");
+                nightPlayer.WitheredBonnieMovement = 5f;
+                int RandomChance = Random.Range(0, 5);
+                RollChanceBonnie -= Time.deltaTime;
 
-    if(nightPlayer.WitheredChicaCamera == 14)
-    {
-        if (maskManager.isMaskActive)
-        {
-        Debug.Log("withered chica mask active");
-        nightPlayer.WitheredChicaMovement = 5f;
-        int RandomChance = Random.Range(0, 5);
-        RollChanceChica -= Time.deltaTime;
-
-        if(RollChanceChica <= 0f)
-        {
-            RollChanceChica = 7f;
-            if (RandomChance == 0)
-            {
-            nightPlayer.WitheredChicaCamera = 7;
-            }
-        }
-        }
-    }
-
-    if(nightPlayer.MangleCamera == 14)
-    {
-        if (maskManager.isMaskActive)
-        {
-        Debug.Log("mangle mask active");
-        nightPlayer.MangleMovement = 5f;
-        int RandomChance = Random.Range(0, 5);
-        RollChanceMangle -= Time.deltaTime;
-
-        if(RollChanceMangle <= 0f)
-        {
-            RollChanceMangle = 7f;
-            if (RandomChance == 0)
-            {
-            nightPlayer.MangleCamera = 7;
-            }
-        }
-        }
-    }
-
-    if (nightPlayer.ToyChicaCamera == 14)
-    {
-        if (maskManager.isMaskActive)
-        {
-            Debug.Log("toy chica mask active");
-            nightPlayer.ToyChicaMovement = 5f;
-            int RandomChance = Random.Range(0, 5);
-            RollChanceToyChica -= Time.deltaTime;
-
-            if(RollChanceToyChica <= 0f)
-            {
-                RollChanceToyChica = 7f;
-
-                if (RandomChance == 0)
+                if(RollChanceBonnie <= 0f)
                 {
-                    nightPlayer.ToyChicaCamera = 7;
+                    RollChanceBonnie = 7f;
+                    if (RandomChance == 0)
+                    {
+                    nightPlayer.WitheredBonnieCamera = 7;
+                    }
+                }
+            }
+        }
+
+        if (nightPlayer.WitheredChicaCamera == 14)
+        {
+            if (maskManager.isMaskActive)
+            {
+                Debug.Log("withered chica mask active");
+                nightPlayer.WitheredChicaMovement = 5f;
+                int RandomChance = Random.Range(0, 5);
+                RollChanceChica -= Time.deltaTime;
+
+                if(RollChanceChica <= 0f)
+                {
+                    RollChanceChica = 7f;
+                    if (RandomChance == 0)
+                    {
+                    nightPlayer.WitheredChicaCamera = 7;
+                    }
+                }
+            }
+        }
+
+        if (nightPlayer.MangleCamera == 14)
+        {
+            if (maskManager.isMaskActive)
+            {
+                Debug.Log("mangle mask active");
+                nightPlayer.MangleMovement = 5f;
+                int RandomChance = Random.Range(0, 5);
+                RollChanceMangle -= Time.deltaTime;
+
+                if(RollChanceMangle <= 0f)
+                {
+                    RollChanceMangle = 7f;
+                    if (RandomChance == 0)
+                    {
+                    nightPlayer.MangleCamera = 7;
+                    }
+                }
+            }
+        }
+
+        if (nightPlayer.ToyChicaCamera == 14)
+        {
+            if (maskManager.isMaskActive)
+            {
+                Debug.Log("toy chica mask active");
+                nightPlayer.ToyChicaMovement = 5f;
+                int RandomChance = Random.Range(0, 5);
+                RollChanceToyChica -= Time.deltaTime;
+
+                if(RollChanceToyChica <= 0f)
+                {
+                    RollChanceToyChica = 7f;
+
+                    if (RandomChance == 0)
+                    {
+                        nightPlayer.ToyChicaCamera = 7;
+                    }
+                }
+            }
+        }
+
+        if (nightPlayer.ToyFreddyCamera == 14)
+        {
+            if (maskManager.isMaskActive)
+            {
+                Debug.Log("toy freddy mask active");
+                nightPlayer.ToyFreddyMovement = 5f;
+                int RandomChance = Random.Range(0, 5);
+                RollChanceToyFreddy -= Time.deltaTime;
+
+                if(RollChanceToyFreddy <= 0f)
+                {
+                    RollChanceToyFreddy = 7f;
+                    if (RandomChance == 0)
+                    {
+                    nightPlayer.ToyFreddyCamera = 7;
+                    }
                 }
             }
         }
     }
 
-    if(nightPlayer.ToyFreddyCamera == 14)
+    public void TimedEvents()
     {
-        if (maskManager.isMaskActive)
-        {
-        Debug.Log("toy freddy mask active");
-        nightPlayer.ToyFreddyMovement = 5f;
-        int RandomChance = Random.Range(0, 5);
-        RollChanceToyFreddy -= Time.deltaTime;
-
-        if(RollChanceToyFreddy <= 0f)
-        {
-            RollChanceToyFreddy = 7f;
-            if (RandomChance == 0)
-            {
-            nightPlayer.ToyFreddyCamera = 7;
-            }
-        }
-        }
-    }
-    }
-
-    public void TimedEvents() {
         if (nightConfigurations.ContainsKey(nightId))
         {
             var nightConfig = nightConfigurations[nightId];
-            if (nightConfig.ContainsKey(currentTime))
+            if (nightConfig.ContainsKey(nightPlayer.currentTime))
             {
-                var timeConfig = nightConfig[currentTime];
+                var timeConfig = nightConfig[nightPlayer.currentTime];
                 foreach (var ai in timeConfig)
                 {
                     if (aiLevels.ContainsKey(ai.Key))
@@ -342,7 +340,7 @@ public class AIManager : MonoBehaviour
             }
         }
 
-        if (currentTime >= 6)
+        if (nightPlayer.currentTime >= 6)
         {
             if (!loadedSixAmScene)
             {

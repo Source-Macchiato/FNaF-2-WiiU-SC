@@ -57,18 +57,18 @@ public class NightPlayer : MonoBehaviour
 	public bool isNight7;
 
 	// AI difficulties
-	public static int puppetDifficulty;
-	public static int goldenDifficulty;
-	public static int mangleDifficulty;
-	public static int bbDifficulty;
-	public static int paperpalsDifficulty;
-	public static int toyBonnieDifficulty;
-	public static int toyChicaDifficulty;
-	public static int toyFreddyDifficulty;
-	public static int witheredBonnieDifficulty;
-	public static int witheredChicaDifficulty;
-	public static int witheredFreddyDifficulty;
-	public static int witheredFoxyDifficulty;
+	public int puppetDifficulty;
+	public int goldenDifficulty;
+	public int mangleDifficulty;
+	public int bbDifficulty;
+	public int paperpalsDifficulty;
+	public int toyBonnieDifficulty;
+	public int toyChicaDifficulty;
+	public int toyFreddyDifficulty;
+	public int witheredBonnieDifficulty;
+	public int witheredChicaDifficulty;
+	public int witheredFreddyDifficulty;
+	public int witheredFoxyDifficulty;
 
 	public float PuppetTime = 30f;
 	public float PuppetDeathTimer = 15f;
@@ -216,7 +216,7 @@ public class NightPlayer : MonoBehaviour
 	[Header("State")]
     public string state = "Office";
 
-	private MusicBox musicBox;
+    private MusicBox musicBox;
 	private MaskManager maskManager;
 	private LightsManager lightsManager;
 	private MonitorManager monitorManager;
@@ -260,20 +260,20 @@ public class NightPlayer : MonoBehaviour
 
 	private bool IsAIMatching(int[] challengeAI)
 	{
-    if (challengeAI.Length != currentAI.Length) 
-    {
-        return false;
-    }
+		if (challengeAI.Length != currentAI.Length) 
+		{
+			return false;
+		}
 
-    for (int i = 0; i < currentAI.Length; i++)
-    {
-        if (challengeAI[i] != currentAI[i])
-        {
-            return false;
-        }
-    }
+		for (int i = 0; i < currentAI.Length; i++)
+		{
+			if (challengeAI[i] != currentAI[i])
+			{
+				return false;
+			}
+		}
 
-    return true;
+		return true;
 	}
 
     public void UpdateTime()
@@ -299,14 +299,11 @@ public class NightPlayer : MonoBehaviour
         {
             isHourComplete = false;
         }
-    }
-
-
-    
+    }    
 
 	private IEnumerator JumpscareSequence()
 	{
-		Debug.Log("Death!! State: "+ state);
+		Debug.Log("Jumpscare");
 
 		isJumpscared = true;
 
@@ -1079,7 +1076,6 @@ public class NightPlayer : MonoBehaviour
 			WitheredFreddyOffice.SetActive(false);
 
 			yield return new WaitForSeconds(3f); // Wait for additional 3 seconds
-			Debug.Log(preparedJumpscare + " state: " + state + timeForMask);
 
 			if (preparedJumpscare)
 			{
@@ -1109,7 +1105,6 @@ public class NightPlayer : MonoBehaviour
 					JumpscareAnimator.Play(Animatronic);
 					Jumpscare.Play();
 					StartCoroutine(JumpscareSequence());
-					Debug.Log(state);
 				}
 			}
 			else
@@ -1211,7 +1206,6 @@ public class NightPlayer : MonoBehaviour
 
 	IEnumerator PuppetDeathSequence()
 	{
-		Debug.Log(state);
 		if (!isJumpscared && canDeathSeqeuence == true)
 		{
 			canDeathSeqeuence = false;
@@ -2330,7 +2324,6 @@ public class NightPlayer : MonoBehaviour
 			JumpscareAnimator.Play("Mangle");
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
-			Debug.Log(state);
 			MangleOffice.SetActive(false);
 		}
 	}
@@ -2361,7 +2354,6 @@ public class NightPlayer : MonoBehaviour
 			JumpscareAnimator.Play("WitheredFoxy");
             Jumpscare.Play();
             StartCoroutine(JumpscareSequence());
-			Debug.Log(state);
 		}
 	}
 
@@ -2379,7 +2371,7 @@ public class NightPlayer : MonoBehaviour
 		RWQCrashTimer = 4f;
 	}
 
-	void UpdateBatteryUI() // The UI doesn't works like that, to fix --	 so, alyx, does this has been fixed ? (shiro)
+	void UpdateBatteryUI() // The UI doesn't works like that, to fix -- so, alyx, does this has been fixed ? (shiro) -- I guess? idk lmao (Alyx)
     {
         float threshold = lightsManager.flashlightDuration / 5;
         

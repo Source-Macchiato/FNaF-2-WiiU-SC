@@ -4,8 +4,6 @@ using WiiU = UnityEngine.WiiU;
 
 public class DebugMode : MonoBehaviour
 {
-    public NightPlayer nightPlayer;
-    public LightsManager lightsManager;
     public GameObject DebugObject;
     public bool debugModeActive = false;
 
@@ -50,12 +48,17 @@ public class DebugMode : MonoBehaviour
     public Text activeGameObjectsText;
     public Text BlackOut;
 
+    private NightPlayer nightPlayer;
+    public LightsManager lightsManager;
+
     // References to WiiU controllers
     WiiU.GamePad gamePad;
     WiiU.Remote remote;
 
     private void Start()
     {
+        nightPlayer = FindObjectOfType<NightPlayer>();
+
         // Access the WiiU GamePad and Remote
         gamePad = WiiU.GamePad.access;
         remote = WiiU.Remote.Access(0);
@@ -124,17 +127,17 @@ public class DebugMode : MonoBehaviour
         BaloonBoy.text = nightPlayer.BBCamera.ToString();
 
         //AI level
-        LevelToyFreddy.text = NightPlayer.toyFreddyDifficulty.ToString();
-        LevelToyBonnie.text = NightPlayer.toyBonnieDifficulty.ToString();
-        LevelToyChica.text = NightPlayer.toyChicaDifficulty.ToString();
-        LevelWFreddy.text = NightPlayer.witheredFreddyDifficulty.ToString();
-        LevelWBonnie.text = NightPlayer.witheredBonnieDifficulty.ToString();
-        LevelWChica.text = NightPlayer.witheredChicaDifficulty.ToString();
-        LevelWFoxy.text = NightPlayer.witheredFoxyDifficulty.ToString();
-        LevelMangle.text = NightPlayer.mangleDifficulty.ToString();
-        LevelBaloonBoy.text = NightPlayer.bbDifficulty.ToString();
-        LevelPaperpals.text = NightPlayer.paperpalsDifficulty.ToString();
-        LevelPuppet.text = NightPlayer.puppetDifficulty.ToString();
+        LevelToyFreddy.text = nightPlayer.toyFreddyDifficulty.ToString();
+        LevelToyBonnie.text = nightPlayer.toyBonnieDifficulty.ToString();
+        LevelToyChica.text = nightPlayer.toyChicaDifficulty.ToString();
+        LevelWFreddy.text = nightPlayer.witheredFreddyDifficulty.ToString();
+        LevelWBonnie.text = nightPlayer.witheredBonnieDifficulty.ToString();
+        LevelWChica.text = nightPlayer.witheredChicaDifficulty.ToString();
+        LevelWFoxy.text = nightPlayer.witheredFoxyDifficulty.ToString();
+        LevelMangle.text = nightPlayer.mangleDifficulty.ToString();
+        LevelBaloonBoy.text = nightPlayer.bbDifficulty.ToString();
+        LevelPaperpals.text = nightPlayer.paperpalsDifficulty.ToString();
+        LevelPuppet.text = nightPlayer.puppetDifficulty.ToString();
 
         //State of the player
         StateText.text = lightsManager.currentFlashlightDuration.ToString();
