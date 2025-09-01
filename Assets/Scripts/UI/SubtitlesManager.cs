@@ -100,7 +100,7 @@ public class SubtitlesManager : MonoBehaviour
 
                 if (Application.isEditor)
                 {
-                    if (Input.GetKeyDown(KeyCode.Minus))
+                    if (Input.GetKeyDown(KeyCode.KeypadMinus))
                     {
                         MuteCall();
 

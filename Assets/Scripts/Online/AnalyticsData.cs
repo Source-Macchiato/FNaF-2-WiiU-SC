@@ -165,7 +165,7 @@ public class AnalyticsData : MonoBehaviour
     {
         string username = WiiU.Core.accountName;
 
-        if (username == "" || username == "<WiiU_AccountName>")
+        if (string.IsNullOrEmpty(username) || username == "<WiiU_AccountName>")
         {
             return "Unknown";
         }
@@ -184,14 +184,7 @@ public class AnalyticsData : MonoBehaviour
 
     public string GetLanguage()
     {
-        string language = SaveManager.saveData.settings.language;
-
-        if (string.IsNullOrEmpty(language))
-        {
-            language = "en";
-        }
-
-        return language.ToUpper();
+        return I18n.GetLanguage().ToUpper();
     }
 
     public int GetCurrentNight()
