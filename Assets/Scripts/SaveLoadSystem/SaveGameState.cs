@@ -93,5 +93,9 @@ public class SaveGameState : MonoBehaviour
         {
             return string.Empty;
         }
+        catch (IOException)
+        {
+            return string.Empty;
+        }
     }
 }
