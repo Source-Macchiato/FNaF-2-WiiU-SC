@@ -21138,6 +21138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ec2e22fe280694d9a08b480059cefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectToken: 9637629c27bb7871e9fa3bbe294cf09153b8be5831caa03ab935fb098928ee9b
 --- !u!1 &1196121983
 GameObject:
   m_ObjectHideFlags: 0
@@ -25314,6 +25315,7 @@ MonoBehaviour:
   - {fileID: 1845627007103702, guid: 0fd16cfa296204f4faae88334be3e477, type: 2}
   - {fileID: 1606905500946458, guid: 58afb4e7d6cddba43a98b0013854d4f8, type: 2}
   - {fileID: 1330049450554220, guid: 3381d8f64ec501043af729fda39bc076, type: 2}
+  - {fileID: 1867646849952164, guid: 1408d5382499daf4bb6983a38f19e873, type: 2}
   buttonAudio: {fileID: 172051299}
   gamepadController: 1
   proController: 1
