@@ -11,7 +11,7 @@ public class SaveGameState : MonoBehaviour
 
     public static void DoSave(byte[] data)
     {
-        string path = Application.persistentDataPath + "/data.bin";
+        string path = Application.persistentDataPath + "/data.sav";
         saveResult = -1;
         isSaving = true;
         Thread t = new Thread(new ThreadStart(
@@ -66,7 +66,7 @@ public class SaveGameState : MonoBehaviour
     {
         try
         {
-            using (var fileStream = new FileStream(Application.persistentDataPath + "/data.bin", FileMode.Open))
+            using (var fileStream = new FileStream(Application.persistentDataPath + "/data.sav", FileMode.Open))
             {
                 var dataSize = (int)fileStream.Length;
 
