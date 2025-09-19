@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224795204587962652}
   - component: {fileID: 222598495334880090}
   - component: {fileID: 114518892033376842}
+  - component: {fileID: 114039981353454652}
   m_Layer: 5
   m_Name: NoText
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   - component: {fileID: 224882241062092260}
   - component: {fileID: 222892861689553888}
   - component: {fileID: 114828803757522472}
+  - component: {fileID: 114140541523012796}
   m_Layer: 5
   m_Name: YesText
   m_TagString: Untagged
@@ -232,6 +234,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114039981353454652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056159896943306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: mainmenu.no
+  mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!114 &114072765634166930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -286,6 +302,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114140541523012796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093775954685684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: mainmenu.yes
+  mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!114 &114193309068250710
 MonoBehaviour:
   m_ObjectHideFlags: 1

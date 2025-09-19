@@ -4220,7 +4220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 462.18503, y: -15.005}
+  m_AnchoredPosition: {x: 462.185, y: -15.005}
   m_SizeDelta: {x: 164.87, y: 30.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224801694
@@ -7743,10 +7743,10 @@ MonoBehaviour:
   switcherId: switcher.analytics
   currentOptionId: 0
   optionsName:
-  - Yes
-  - No
+  - mainmenu.yes
+  - mainmenu.no
   text: {fileID: 492826479}
-  i18nTextTranslator: {fileID: 0}
+  i18nTextTranslator: {fileID: 492826481}
   inputIcons:
   - {fileID: 1004396231}
   - {fileID: 1008657650}
@@ -7765,6 +7765,7 @@ GameObject:
   - component: {fileID: 492826478}
   - component: {fileID: 492826480}
   - component: {fileID: 492826479}
+  - component: {fileID: 492826481}
   m_Layer: 5
   m_Name: SwitcherText
   m_TagString: Untagged
@@ -7914,6 +7915,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 492826477}
+--- !u!114 &492826481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 492826477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: 
+  mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &493506146
 GameObject:
   m_ObjectHideFlags: 0
@@ -28153,7 +28168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 115.41501, y: -15.005}
+  m_AnchoredPosition: {x: 115.415, y: -15.005}
   m_SizeDelta: {x: 65.95, y: 30.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488129648
@@ -29066,10 +29081,10 @@ MonoBehaviour:
   switcherId: switcher.motion
   currentOptionId: 0
   optionsName:
-  - Yes
-  - No
+  - mainmenu.yes
+  - mainmenu.no
   text: {fileID: 2033273874}
-  i18nTextTranslator: {fileID: 0}
+  i18nTextTranslator: {fileID: 2033273876}
   inputIcons:
   - {fileID: 582411463}
   - {fileID: 1398546549}
@@ -36862,6 +36877,7 @@ GameObject:
   - component: {fileID: 2033273873}
   - component: {fileID: 2033273875}
   - component: {fileID: 2033273874}
+  - component: {fileID: 2033273876}
   m_Layer: 5
   m_Name: SwitcherText
   m_TagString: Untagged
@@ -37011,6 +37027,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2033273872}
+--- !u!114 &2033273876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033273872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: 
+  mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &2034105822
 GameObject:
   m_ObjectHideFlags: 0
@@ -37388,10 +37418,10 @@ MonoBehaviour:
   switcherId: switcher.motion
   currentOptionId: 0
   optionsName:
-  - Yes
-  - No
+  - mainmenu.yes
+  - mainmenu.no
   text: {fileID: 2107887547}
-  i18nTextTranslator: {fileID: 0}
+  i18nTextTranslator: {fileID: 2107887549}
   inputIcons:
   - {fileID: 1282683582}
   - {fileID: 151350455}
@@ -38609,6 +38639,7 @@ GameObject:
   - component: {fileID: 2107887546}
   - component: {fileID: 2107887548}
   - component: {fileID: 2107887547}
+  - component: {fileID: 2107887549}
   m_Layer: 5
   m_Name: SwitcherText
   m_TagString: Untagged
@@ -38758,6 +38789,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2107887545}
+--- !u!114 &2107887549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2107887545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573e15f856c0b746bc82bb879a00565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textId: 
+  mainFont: {fileID: 11400000, guid: 8c6a8da34d0f9ef47b1fb97cbd52414d, type: 2}
+  arabicFont: {fileID: 0}
 --- !u!1 &2116690159
 GameObject:
   m_ObjectHideFlags: 0
