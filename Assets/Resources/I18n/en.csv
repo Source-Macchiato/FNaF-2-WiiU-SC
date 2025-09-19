@@ -171,3 +171,11 @@ nightsix.phoneguy.lineseven,"You’ll be on day shift, wear your uniform, stay c
 nightsix.phoneguy.lineheight,"make sure they don’t hurt anyone okay, uh for now just make it through the night,"
 nightsix.phoneguy.linenine,uh when the place eventually opens again I’ll probably take the night shift myself.
 nightsix.phoneguy.lineten,"Okay, good night and good luck."
+"mainmenu.video","Video"
+"mainmenu.subtitles","Subtitles"
+"mainmenu.subtitlesdescription","Enable subtitles"
+"mainmenu.panoramaeffectdescription","Enable the panorama effect"
+"mainmenu.yes","Yes"
+"mainmenu.no","No"
+"mainmenu.select","Select <sprite name=WiiU-A>"
+"mainmenu.aspectratiodescription","Aspect ratio"
