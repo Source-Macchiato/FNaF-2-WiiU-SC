@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 224464479943080250}
   - component: {fileID: 222959120210644274}
   - component: {fileID: 114899090620283668}
-  - component: {fileID: 114720018189772830}
   m_Layer: 5
   m_Name: SrcMacchiatoLogo
   m_TagString: Untagged
@@ -400,19 +399,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &114720018189772830
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1075355632486658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1254083943, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AspectMode: 2
-  m_AspectRatio: 1
 --- !u!114 &114840432483787912
 MonoBehaviour:
   m_ObjectHideFlags: 1

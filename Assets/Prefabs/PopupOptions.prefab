@@ -139,7 +139,6 @@ GameObject:
   - component: {fileID: 224542719703309656}
   - component: {fileID: 222621803437997480}
   - component: {fileID: 114072765634166930}
-  - component: {fileID: 114270081202121442}
   m_Layer: 5
   m_Name: SrcMacchiatoLogo
   m_TagString: Untagged
@@ -427,19 +426,6 @@ MonoBehaviour:
   originalText: Do you accept the sharing of statistical information with us ?
   fixTags: 1
   forceFix: 0
---- !u!114 &114270081202121442
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1586392330666320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1254083943, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AspectMode: 2
-  m_AspectRatio: 1
 --- !u!114 &114389174403334884
 MonoBehaviour:
   m_ObjectHideFlags: 1
