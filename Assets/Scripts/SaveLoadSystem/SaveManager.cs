@@ -13,7 +13,7 @@ public class SaveManager : MonoBehaviour
         // Load data
         string json = SaveGameState.DoLoad();
 
-        if (json != string.Empty)
+        if (!string.IsNullOrEmpty(json))
         {
             saveData = JsonUtility.FromJson<SaveData>(json);
 

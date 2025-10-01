@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Text;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +11,7 @@ public class VersionChecker : MonoBehaviour
     // Scripts
     private MenuManager menuManager;
 
-    [System.Serializable]
+    [Serializable]
     public class VersionData
     {
         public string version;
@@ -26,7 +28,7 @@ public class VersionChecker : MonoBehaviour
     {
         string url = "https://api.brew-connect.com/v1/online/get_version";
         string json = "{\"project_token\":\"" + projectToken + "\"}";
-        byte[] post = System.Text.Encoding.UTF8.GetBytes(json);
+        byte[] post = Encoding.UTF8.GetBytes(json);
 
         Dictionary<string, string> headers = new Dictionary<string, string>();
         headers.Add("Content-Type", "application/json");
