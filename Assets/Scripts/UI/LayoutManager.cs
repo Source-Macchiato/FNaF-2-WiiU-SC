@@ -54,8 +54,16 @@ public class LayoutManager : MonoBehaviour
         screenMinimap[0].SetActive(true);
         screenMinimap[1].SetActive(false);
 
-        screenSubtitles[0].SetActive(true);
-        screenSubtitles[1].SetActive(false);
+        if (SaveManager.saveData.settings.subtitlesEnabled)
+        {
+            screenSubtitles[0].SetActive(true);
+            screenSubtitles[1].SetActive(false);
+        }
+        else
+        {
+            screenSubtitles[0].SetActive(false);
+            screenSubtitles[1].SetActive(false);
+        }
 
         screenPointer[0].SetActive(true);
         screenPointer[1].SetActive(false);
@@ -90,9 +98,17 @@ public class LayoutManager : MonoBehaviour
         screenMinimap[0].SetActive(false);
         screenMinimap[1].SetActive(true);
 
-        screenSubtitles[0].SetActive(false);
-        screenSubtitles[1].SetActive(true);
-
+        if (SaveManager.saveData.settings.subtitlesEnabled)
+        {
+            screenSubtitles[0].SetActive(false);
+            screenSubtitles[1].SetActive(true);
+        }
+        else
+        {
+            screenSubtitles[0].SetActive(false);
+            screenSubtitles[1].SetActive(false);
+        }
+        
         screenPointer[0].SetActive(true);
         screenPointer[1].SetActive(false);
 
@@ -126,8 +142,16 @@ public class LayoutManager : MonoBehaviour
         screenMinimap[0].SetActive(false);
         screenMinimap[1].SetActive(true);
 
-        screenSubtitles[0].SetActive(true);
-        screenSubtitles[1].SetActive(false);
+        if (SaveManager.saveData.settings.subtitlesEnabled)
+        {
+            screenSubtitles[0].SetActive(true);
+            screenSubtitles[1].SetActive(false);
+        }
+        else
+        {
+            screenSubtitles[0].SetActive(false);
+            screenSubtitles[1].SetActive(false);
+        }
 
         screenPointer[0].SetActive(true);
         screenPointer[1].SetActive(false);
@@ -162,8 +186,16 @@ public class LayoutManager : MonoBehaviour
         screenMinimap[0].SetActive(false);
         screenMinimap[1].SetActive(true);
 
-        screenSubtitles[0].SetActive(false);
-        screenSubtitles[1].SetActive(true);
+        if (SaveManager.saveData.settings.subtitlesEnabled)
+        {
+            screenSubtitles[0].SetActive(false);
+            screenSubtitles[1].SetActive(true);
+        }
+        else
+        {
+            screenSubtitles[0].SetActive(false);
+            screenSubtitles[1].SetActive(false);
+        }
 
         screenPointer[0].SetActive(false);
         screenPointer[1].SetActive(true);
