@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using WiiU = UnityEngine.WiiU;
 
 [RequireComponent(typeof(AudioSource))]
@@ -52,7 +53,14 @@ public class AssignAudio : MonoBehaviour
                 break;
         }
 
-        WiiU.AudioSourceOutput.Assign(audioSource, output);
+        try
+        {
+            WiiU.AudioSourceOutput.Assign(audioSource, output);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
     }
 
     private WiiU.AudioOutput ComposeOutput(bool toTV, bool toGamepad)
