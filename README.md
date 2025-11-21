@@ -42,7 +42,7 @@ FNaF 2: Wii U Edition is a fan-made homebrew port of *Five Nights at Freddy's 2*
 
 
 ## Images of the game
-<img src="/Medias/cover1.jpg" width="500"> <img src="/Medias/cover2.jpg" width="500"> <img src="/Medias/cover3.jpg" width="500"> <img src="/Medias/cover4.jpg" width="500"> <img src="/Medias/cover5.jpg" width="500"> <img src="/Medias/cover6.jpg" width="500">
+<img src="./Medias/cover1.jpg" width="500"> <img src="./Medias/cover2.jpg" width="500"> <img src="./Medias/cover3.jpg" width="500"> <img src="./Medias/cover4.jpg" width="500"> <img src="./Medias/cover5.jpg" width="500"> <img src="./Medias/cover6.jpg" width="500">
 
 ## Special thanks
 Special thanks to Dimolade for giving his 3DS port of FNaF 2, and thanks to The Latte Team for contributing to this project.
