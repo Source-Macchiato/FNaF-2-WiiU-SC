@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.IO;
 using System.Threading;
 using UnityEngine;
@@ -89,11 +90,7 @@ public class SaveGameState : MonoBehaviour
                 return json;
             }
         }
-        catch (FileNotFoundException)
-        {
-            return string.Empty;
-        }
-        catch (IOException)
+        catch (Exception)
         {
             return string.Empty;
         }
