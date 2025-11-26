@@ -1,0 +1,1088 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wup-master-info tool-version="0.1" format-version="2012-01" language="en" tool="appconfig">
+  <submission-info>
+    <article></article>
+    <release-date>
+      <release-year></release-year>
+      <release-month></release-month>
+      <release-day></release-day>
+    </release-date>
+    <submit-date>
+      <submit-year></submit-year>
+      <submit-month></submit-month>
+      <submit-day></submit-day>
+    </submit-date>
+    <submit-version></submit-version>
+    <submit-reason></submit-reason>
+    <memo></memo>
+    <changed-content></changed-content>
+    <changed-content-detail></changed-content-detail>
+  </submission-info>
+  <company-info>
+    <customer-info enable="True">
+      <customer-id1>
+        <company-name></company-name>
+        <department-name></department-name>
+        <user-name></user-name>
+        <user-read-name></user-read-name>
+        <tel></tel>
+        <fax></fax>
+        <e-mail></e-mail>
+        <ntsc-warioworld-user-id></ntsc-warioworld-user-id>
+      </customer-id1>
+    </customer-info>
+    <customer-info enable="False">
+      <customer-id2>
+        <company-name></company-name>
+        <department-name></department-name>
+        <user-name></user-name>
+        <user-read-name></user-read-name>
+        <tel></tel>
+        <fax></fax>
+        <e-mail></e-mail>
+        <ntsc-warioworld-user-id></ntsc-warioworld-user-id>
+      </customer-id2>
+    </customer-info>
+  </company-info>
+  <disc>
+    <disc-version>0</disc-version>
+    <media-platform>WUP</media-platform>
+    <media-size>0</media-size>
+    <num-partition>1</num-partition>
+    <crc16>
+      <header-crc16></header-crc16>
+      <data-crc16></data-crc16>
+      <masterinfo-crc16></masterinfo-crc16>
+    </crc16>
+  </disc>
+  <partition-list>
+    <partition name="p01" guid="62fed822-3b2b-47d4-88f1-1e57611024a7">
+      <title-version>0x0030</title-version>
+      <content-platform>WUP</content-platform>
+      <form-code>P</form-code>
+      <initial-code>FNF2</initial-code>
+      <product-code>WUP-P-FNF2</product-code>
+      <company-code>LATM</company-code>
+      <unique-id>0x000026F5</unique-id>
+      <mastering-date></mastering-date>
+      <variation>0x00</variation>
+      <category-id>0x00</category-id>
+      <title-id>0x000500001026F500</title-id>
+      <group-id>0x000026F5</group-id>
+      <boss-id>0x0000000000000000</boss-id>
+      <app-file-name>FNaF2</app-file-name>
+      <cmd-flags>0</cmd-flags>
+      <app-type>0x80000000</app-type>
+      <logo-type>2</logo-type>
+      <app-launch-type>0x00000000</app-launch-type>
+      <invisible-flag>0x00000000</invisible-flag>
+      <no-managed-flag>0x00000000</no-managed-flag>
+      <no-event-log>0x00000000</no-event-log>
+      <no-icon-database>0x00000000</no-icon-database>
+      <launching-flag>0x00000004</launching-flag>
+      <install-flag>0x00000000</install-flag>
+      <closing-msg>1</closing-msg>
+      <remaster-version>3</remaster-version>
+      <app-size>0x0000000000000000</app-size>
+      <max-mem-size>0x40000000</max-mem-size>
+      <max-mem-codesize>0x0E000000</max-mem-codesize>
+      <max-mem-code-org-size>0x0D100000</max-mem-code-org-size>
+      <max-mem-code-margin-size>0x00F00000</max-mem-code-margin-size>
+      <os-version>0x000500101000800A</os-version>
+      <join-game-id>0x00000000</join-game-id>
+      <join-game-mode-mask>0x0000000000000000</join-game-mode-mask>
+      <bg-daemon-enable>1</bg-daemon-enable>
+      <olv-accesskey>0</olv-accesskey>
+      <wood-tin>0</wood-tin>
+      <e-manual>0</e-manual>
+      <e-manual-version></e-manual-version>
+      <save>
+        <save-type>account</save-type>
+        <common-save-size>0x0000000000000000</common-save-size>
+        <account-save-size>0x0000000000200000</account-save-size>
+        <no-rollback>0</no-rollback>
+        <create-save-launcher>0</create-save-launcher>
+      </save>
+      <boss>
+        <boss-data-type>none</boss-data-type>
+        <common-boss-size>0x0000000000000000</common-boss-size>
+        <account-boss-size>0x0000000000000000</account-boss-size>
+      </boss>
+      <build-type>NODEBUG</build-type>
+      <sdk-version>21301</sdk-version>
+      <revision>68939</revision>
+      <region>0xFFFFFFFF</region>
+      <parental-control>
+        <cero>12</cero>
+        <esrb>13</esrb>
+        <bbfc>192</bbfc>
+        <usk>12</usk>
+        <pegi-gen>12</pegi-gen>
+        <pegi-fin>192</pegi-fin>
+        <pegi-prt>12</pegi-prt>
+        <pegi-bbfc>12</pegi-bbfc>
+        <cob>13</cob>
+        <grb>12</grb>
+        <cgsrr>12</cgsrr>
+        <oflc>13</oflc>
+        <pc-reserved0>192</pc-reserved0>
+        <pc-reserved1>192</pc-reserved1>
+        <pc-reserved2>192</pc-reserved2>
+        <pc-reserved3>192</pc-reserved3>
+      </parental-control>
+      <ex-dev>
+        <ext-dev-nunchaku>0</ext-dev-nunchaku>
+        <ext-dev-classic>0</ext-dev-classic>
+        <ext-dev-urcc>0</ext-dev-urcc>
+        <ext-dev-board>0</ext-dev-board>
+        <ext-dev-usb-keyboard>0</ext-dev-usb-keyboard>
+        <ext-dev-wiiremote>1</ext-dev-wiiremote>
+        <ext-dev-motionplus>1</ext-dev-motionplus>
+        <ext-dev-etc>0</ext-dev-etc>
+        <ext-dev-etc-name></ext-dev-etc-name>
+      </ex-dev>
+      <storage-access>
+        <ext-disc-read>0</ext-disc-read>
+        <ext-disc-motor-stop>0</ext-disc-motor-stop>
+        <ext-sd-card-read>0</ext-sd-card-read>
+        <ext-sd-card-write>0</ext-sd-card-write>
+      </storage-access>
+      <os-mask>0x0000000000000000000000000000000000000000000000000000000000000000</os-mask>
+      <codegen-size>0x00000000</codegen-size>
+      <codegen-core>0x00000001</codegen-core>
+      <shamo-info>
+        <shamo-ready>1</shamo-ready>
+        <shamo-use>0</shamo-use>
+        <write-buffer-use>1</write-buffer-use>
+      </shamo-info>
+      <nfp-info>
+        <nfp-use>0</nfp-use>
+        <access-id-use>0</access-id-use>
+        <access-id></access-id>
+      </nfp-info>
+      <hai-info>
+        <wii-title-id></wii-title-id>
+        <save-size>0</save-size>
+        <save-inode>0</save-inode>
+        <drc-classic-controller>0</drc-classic-controller>
+        <di-speed-emu>0</di-speed-emu>
+      </hai-info>
+      <etc-info>
+        <eula-version>0</eula-version>
+        <drc-use>1</drc-use>
+        <network-use>1</network-use>
+        <online-account-use>1</online-account-use>
+        <direct-boot>0</direct-boot>
+        <aoc-use>1</aoc-use>
+        <jit-use>0</jit-use>
+        <ecdk-use>0</ecdk-use>
+        <scigeterrorlog-use>0</scigeterrorlog-use>
+        <jit-oscodegencopy-use>1</jit-oscodegencopy-use>
+      </etc-info>
+      <capability enable="True">
+        <p0>0x000000000000FF00</p0>
+        <p1>0x0000000000000007</p1>
+        <p2>0xFFFFFFFFFFFFFFFF</p2>
+        <p3>0x0000000000000001</p3>
+        <p4>0x0000000030B03001</p4>
+        <p5>0x0000000000000091</p5>
+        <p6>0x0000000000004000</p6>
+        <p7>0x0000000000000003</p7>
+        <p8>0x0000000000000003</p8>
+        <p9>0x0000000000000001</p9>
+        <p10>0x0000000000000001</p10>
+        <p11>0x0000000000000001</p11>
+        <p12>0x0000000000000003</p12>
+        <p13>0x0000000000000001</p13>
+        <p14>0x0000000000000001</p14>
+      </capability>
+      <capability-default enable="True">
+        <p0>0x000000000000FF00</p0>
+        <p1>0x0000000000000007</p1>
+        <p2>0xFFFFFFFFFFFFFFFF</p2>
+        <p3>0x0000000000000001</p3>
+        <p4>0x0000000030BB3001</p4>
+        <p5>0x0000000000000011</p5>
+        <p6>0x0000000000004000</p6>
+        <p7>0x0000000000000003</p7>
+        <p8>0x0000000000000003</p8>
+        <p9>0x0000000000000001</p9>
+        <p10>0x0000000000000001</p10>
+        <p11>0x0000000000000001</p11>
+        <p12>0x0000000000000003</p12>
+        <p13>0x0000000000000001</p13>
+        <p14>0x0000000000000001</p14>
+      </capability-default>
+      <reserved-flag0>0x00010001</reserved-flag0>
+      <reserved-flag1>0x00000000</reserved-flag1>
+      <reserved-flag2>0x00000000</reserved-flag2>
+      <reserved-flag3>0x00000000</reserved-flag3>
+      <reserved-flag4>0x00000000</reserved-flag4>
+      <reserved-flag5>0x00000000</reserved-flag5>
+      <reserved-flag6>0x00000000</reserved-flag6>
+      <reserved-flag7>0x00000001</reserved-flag7>
+      <longname>
+        <longname-ja>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-ja>
+        <longname-en>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-en>
+        <longname-fr>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-fr>
+        <longname-de>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-de>
+        <longname-it>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-it>
+        <longname-es>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-es>
+        <longname-zhs>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-zhs>
+        <longname-ko>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-ko>
+        <longname-nl>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-nl>
+        <longname-pt>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-pt>
+        <longname-ru>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-ru>
+        <longname-zht>Five Nights at Freddy&apos;s 2:
+Wii U Edition</longname-zht>
+      </longname>
+      <shortname>
+        <shortname-ja>FNaF 2: Wii U Edition</shortname-ja>
+        <shortname-en>FNaF 2: Wii U Edition</shortname-en>
+        <shortname-fr>FNaF 2: Wii U Edition</shortname-fr>
+        <shortname-de>FNaF 2: Wii U Edition</shortname-de>
+        <shortname-it>FNaF 2: Wii U Edition</shortname-it>
+        <shortname-es>FNaF 2: Wii U Edition</shortname-es>
+        <shortname-zhs>FNaF 2: Wii U Edition</shortname-zhs>
+        <shortname-ko>FNaF 2: Wii U Edition</shortname-ko>
+        <shortname-nl>FNaF 2: Wii U Edition</shortname-nl>
+        <shortname-pt>FNaF 2: Wii U Edition</shortname-pt>
+        <shortname-ru>FNaF 2: Wii U Edition</shortname-ru>
+        <shortname-zht>FNaF 2: Wii U Edition</shortname-zht>
+      </shortname>
+      <publisher>
+        <publisher-ja>The Latte Macchiato</publisher-ja>
+        <publisher-en>The Latte Macchiato</publisher-en>
+        <publisher-fr>The Latte Macchiato</publisher-fr>
+        <publisher-de>The Latte Macchiato</publisher-de>
+        <publisher-it>The Latte Macchiato</publisher-it>
+        <publisher-es>The Latte Macchiato</publisher-es>
+        <publisher-zhs>The Latte Macchiato</publisher-zhs>
+        <publisher-ko>The Latte Macchiato</publisher-ko>
+        <publisher-nl>The Latte Macchiato</publisher-nl>
+        <publisher-pt>The Latte Macchiato</publisher-pt>
+        <publisher-ru>The Latte Macchiato</publisher-ru>
+        <publisher-zht>The Latte Macchiato</publisher-zht>
+      </publisher>
+      <add-on-unique-id0>0x000026F5</add-on-unique-id0>
+      <add-on-unique-id1>0x00000000</add-on-unique-id1>
+      <add-on-unique-id2>0x00000000</add-on-unique-id2>
+      <add-on-unique-id3>0x00000000</add-on-unique-id3>
+      <add-on-unique-id4>0x00000000</add-on-unique-id4>
+      <add-on-unique-id5>0x00000000</add-on-unique-id5>
+      <add-on-unique-id6>0x00000000</add-on-unique-id6>
+      <add-on-unique-id7>0x00000000</add-on-unique-id7>
+      <add-on-unique-id8>0x00000000</add-on-unique-id8>
+      <add-on-unique-id9>0x00000000</add-on-unique-id9>
+      <add-on-unique-id10>0x00000000</add-on-unique-id10>
+      <add-on-unique-id11>0x00000000</add-on-unique-id11>
+      <add-on-unique-id12>0x00000000</add-on-unique-id12>
+      <add-on-unique-id13>0x00000000</add-on-unique-id13>
+      <add-on-unique-id14>0x00000000</add-on-unique-id14>
+      <add-on-unique-id15>0x00000000</add-on-unique-id15>
+      <add-on-unique-id16>0x00000000</add-on-unique-id16>
+      <add-on-unique-id17>0x00000000</add-on-unique-id17>
+      <add-on-unique-id18>0x00000000</add-on-unique-id18>
+      <add-on-unique-id19>0x00000000</add-on-unique-id19>
+      <add-on-unique-id20>0x00000000</add-on-unique-id20>
+      <add-on-unique-id21>0x00000000</add-on-unique-id21>
+      <add-on-unique-id22>0x00000000</add-on-unique-id22>
+      <add-on-unique-id23>0x00000000</add-on-unique-id23>
+      <add-on-unique-id24>0x00000000</add-on-unique-id24>
+      <add-on-unique-id25>0x00000000</add-on-unique-id25>
+      <add-on-unique-id26>0x00000000</add-on-unique-id26>
+      <add-on-unique-id27>0x00000000</add-on-unique-id27>
+      <add-on-unique-id28>0x00000000</add-on-unique-id28>
+      <add-on-unique-id29>0x00000000</add-on-unique-id29>
+      <add-on-unique-id30>0x00000000</add-on-unique-id30>
+      <add-on-unique-id31>0x00000000</add-on-unique-id31>
+      <sdk-info>
+        <sdk-path>$(CAFE_ROOT)</sdk-path>
+        <sdk-fullpath>C:\Nintendo\Wii-U\SDK\cafe_sdk</sdk-fullpath>
+        <middleware-list></middleware-list>
+        <api-list></api-list>
+      </sdk-info>
+      <metarating-use>1</metarating-use>
+      <metarating-flag></metarating-flag>
+      <ddf>
+        <Input>
+          <DiscHeaderBaseFileName>$CAFE_ROOT/system/bin/tool/mastering/resource/discheader_base.bin</DiscHeaderBaseFileName>
+          <VolumeHeaderBaseFileName>$CAFE_ROOT/system/bin/tool/mastering/resource/volheader_base.bin</VolumeHeaderBaseFileName>
+        </Input>
+        <Output>
+          <LayoutFileName>FNaF2.dlf</LayoutFileName>
+          <OutputDirectory>G:\Tools\WiiU\Projects\FNaF2\unpacked-fnaf2-wiiu\code</OutputDirectory>
+          <AppName>FNaF2</AppName>
+          <Mode>WU</Mode>
+        </Output>
+        <DiscID>
+          <GameType>GM</GameType>
+          <TitleId>0x000500001026F500</TitleId>
+          <GroupId>0x000026F5</GroupId>
+          <DiskNumber>0</DiskNumber>
+          <GameVersion>3</GameVersion>
+          <TotalDisk>1</TotalDisk>
+        </DiscID>
+        <FST>
+          <VolumeAddress>0x0001C000</VolumeAddress>
+          <VolumeSize>0x0009E700</VolumeSize>
+          <FSTBlockSize>32</FSTBlockSize>
+          <RemoveEmptyDirectory>False</RemoveEmptyDirectory>
+        </FST>
+        <SectionList>
+          <Section readonly="True">
+            <Name readonly="True">ROOT</Name>
+            <LayoutValue readonly="True">0</LayoutValue>
+            <Size readonly="True">0x00000000</Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">APPXML</Name>
+            <LayoutValue readonly="True">-100000</LayoutValue>
+            <Size readonly="True">0x00000001</Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">COSXML</Name>
+            <LayoutValue readonly="True">-99999</LayoutValue>
+            <Size readonly="True">0x00000001</Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">METAXML</Name>
+            <LayoutValue readonly="True">-99998</LayoutValue>
+            <Size readonly="True">0x00000004</Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">METATGA</Name>
+            <LayoutValue readonly="True">-99997</LayoutValue>
+            <Size readonly="True">0x00000160</Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">BOOTMOVIE</Name>
+            <LayoutValue readonly="True">-99996</LayoutValue>
+            <Size readonly="True">0x00000020</Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">BOOTLOGO</Name>
+            <LayoutValue readonly="True">-99995</LayoutValue>
+            <Size readonly="True">0x00000020</Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">MANUAL</Name>
+            <LayoutValue readonly="True">-99994</LayoutValue>
+            <Size>0x00000400</Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">METARATING</Name>
+            <LayoutValue readonly="True">-99993</LayoutValue>
+            <Size readonly="True">0x00000040</Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">CODEMAIN</Name>
+            <LayoutValue readonly="True">-99992</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section readonly="True">
+            <Name readonly="True">PRELOADTXT</Name>
+            <LayoutValue readonly="True">-99991</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0000</Name>
+            <LayoutValue>-99990</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0001</Name>
+            <LayoutValue>-99989</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CONTENT</Name>
+            <LayoutValue>100000</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0002</Name>
+            <LayoutValue>-99988</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0003</Name>
+            <LayoutValue>-99987</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0004</Name>
+            <LayoutValue>-99986</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0005</Name>
+            <LayoutValue>-99985</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0006</Name>
+            <LayoutValue>-99984</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0007</Name>
+            <LayoutValue>-99983</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0008</Name>
+            <LayoutValue>-99982</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+          <Section>
+            <Name>CODEREL0009</Name>
+            <LayoutValue>-99981</LayoutValue>
+            <Size readonly="True"></Size>
+          </Section>
+        </SectionList>
+        <SectionLbaOrigin>
+          <Lba>
+            <Address readonly="True">0x00000000</Address>
+            <LayoutType>+</LayoutType>
+            <SectionList>
+              <Section>
+                <SectionName readonly="True">ROOT</SectionName>
+              </Section>
+            </SectionList>
+          </Lba>
+        </SectionLbaOrigin>
+        <SectionAssign>
+          <Assign>
+            <FileName readonly="True"></FileName>
+            <SectionName readonly="True">ROOT</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">code/app.xml</FileName>
+            <SectionName readonly="True">APPXML</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">code/cos.xml</FileName>
+            <SectionName readonly="True">COSXML</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/meta.xml</FileName>
+            <SectionName readonly="True">METAXML</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/</FileName>
+            <SectionName readonly="True">METATGA</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/iconTex.tga</FileName>
+            <SectionName readonly="True">METATGA</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/bootTvTex.tga</FileName>
+            <SectionName readonly="True">METATGA</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/bootDrcTex.tga</FileName>
+            <SectionName readonly="True">METATGA</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/bootSound.btsnd</FileName>
+            <SectionName readonly="True">METATGA</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/bootMovie.h264</FileName>
+            <SectionName readonly="True">BOOTMOVIE</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/bootLogoTex.tga</FileName>
+            <SectionName readonly="True">BOOTLOGO</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/Manual.bfma</FileName>
+            <SectionName readonly="True">MANUAL</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/CERO_ja.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/CGSRR_zh.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/COB_en.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/ESRB_fr.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/ESRB_en.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/GRB_ko.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/OFLC_en.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_ru.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_BBFC_en.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_Portugal_pt.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_it.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_nl.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_es.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_de.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_fr.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_pt.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/PEGI_en.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/RAR_ru.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">meta/USK_de.jpg</FileName>
+            <SectionName readonly="True">METARATING</SectionName>
+            <Permission readonly="True">0x040</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">code/</FileName>
+            <SectionName readonly="True">CODEMAIN</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/FNaF2.rpx</FileName>
+            <SectionName readonly="True">CODEMAIN</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName readonly="True">code/preload.txt</FileName>
+            <SectionName readonly="True">PRELOADTXT</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/Assembly-CSharp_dll.rpl</FileName>
+            <SectionName>CODEREL0000</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/Mono_Security_dll.rpl</FileName>
+            <SectionName>CODEREL0001</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>content/*</FileName>
+            <SectionName>CONTENT</SectionName>
+            <Permission readonly="True">0x400</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/mscorlib_dll.rpl</FileName>
+            <SectionName>CODEREL0002</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/System_Core_dll.rpl</FileName>
+            <SectionName>CODEREL0003</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/System_dll.rpl</FileName>
+            <SectionName>CODEREL0004</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/UnityEngine_dll.rpl</FileName>
+            <SectionName>CODEREL0005</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/UnityEngine_Networking_dll.rpl</FileName>
+            <SectionName>CODEREL0006</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/UnityEngine_Timeline_dll.rpl</FileName>
+            <SectionName>CODEREL0007</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/UnityEngine_UI_dll.rpl</FileName>
+            <SectionName>CODEREL0008</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+          <Assign>
+            <FileName>code/SDCardPlugin.rpl</FileName>
+            <SectionName>CODEREL0009</SectionName>
+            <Permission readonly="True">0x000</Permission>
+          </Assign>
+        </SectionAssign>
+        <SectionParam>
+          <Param>
+            <SectionName readonly="True">ROOT</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x00</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">APPXML</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">COSXML</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">METAXML</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000400</GroupId>
+            <HashMode readonly="True">0x02</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">METATGA</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000400</GroupId>
+            <HashMode readonly="True">0x02</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">BOOTMOVIE</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000400</GroupId>
+            <HashMode readonly="True">0x02</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">BOOTLOGO</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000400</GroupId>
+            <HashMode readonly="True">0x02</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">MANUAL</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000400</GroupId>
+            <HashMode readonly="True">0x02</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">METARATING</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000400</GroupId>
+            <HashMode readonly="True">0x02</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">CODEMAIN</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName readonly="True">PRELOADTXT</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x02</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0000</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0001</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CONTENT</SectionName>
+            <OwnerId readonly="True"></OwnerId>
+            <GroupId readonly="True"></GroupId>
+            <HashMode readonly="True">0x02</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0002</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0003</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0004</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0005</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0006</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0007</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0008</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+          <Param>
+            <SectionName>CODEREL0009</SectionName>
+            <OwnerId readonly="True">0x0000000000000000</OwnerId>
+            <GroupId readonly="True">0x00000000</GroupId>
+            <HashMode readonly="True">0x01</HashMode>
+          </Param>
+        </SectionParam>
+        <FileLayout>
+          <Layout readonly="True">
+            <FileName>meta/CERO_ja.jpg</FileName>
+            <LayoutValue>-2147483648</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/CGSRR_zh.jpg</FileName>
+            <LayoutValue>-2147483647</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/COB_en.jpg</FileName>
+            <LayoutValue>-2147483646</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/ESRB_en.jpg</FileName>
+            <LayoutValue>-2147483645</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/ESRB_fr.jpg</FileName>
+            <LayoutValue>-2147483644</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/GRB_ko.jpg</FileName>
+            <LayoutValue>-2147483643</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/OFLC_en.jpg</FileName>
+            <LayoutValue>-2147483642</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_BBFC_en.jpg</FileName>
+            <LayoutValue>-2147483641</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_de.jpg</FileName>
+            <LayoutValue>-2147483640</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_en.jpg</FileName>
+            <LayoutValue>-2147483639</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_es.jpg</FileName>
+            <LayoutValue>-2147483638</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_fr.jpg</FileName>
+            <LayoutValue>-2147483637</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_it.jpg</FileName>
+            <LayoutValue>-2147483636</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_nl.jpg</FileName>
+            <LayoutValue>-2147483635</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_Portugal_pt.jpg</FileName>
+            <LayoutValue>-2147483634</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_pt.jpg</FileName>
+            <LayoutValue>-2147483633</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/PEGI_ru.jpg</FileName>
+            <LayoutValue>-2147483632</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/RAR_ru.jpg</FileName>
+            <LayoutValue>-2147483631</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>meta/USK_de.jpg</FileName>
+            <LayoutValue>-2147483630</LayoutValue>
+          </Layout>
+          <Layout>
+            <FileName>meta/*</FileName>
+            <LayoutValue>-2147483629</LayoutValue>
+          </Layout>
+          <Layout>
+            <FileName>code/*.xml</FileName>
+            <LayoutValue>-2147483628</LayoutValue>
+          </Layout>
+          <Layout>
+            <FileName>code/*.rpx</FileName>
+            <LayoutValue>-2147483627</LayoutValue>
+          </Layout>
+          <Layout>
+            <FileName>code/*.rpl</FileName>
+            <LayoutValue>-2147483626</LayoutValue>
+          </Layout>
+          <Layout readonly="True">
+            <FileName>code/*</FileName>
+            <LayoutValue>-2147483625</LayoutValue>
+          </Layout>
+          <Layout>
+            <FileName>content/*</FileName>
+            <LayoutValue>1</LayoutValue>
+          </Layout>
+        </FileLayout>
+        <PathList>
+          <Path>
+            <LocalPath>$(CAFE_CODE_DIR)\preload.txt</LocalPath>
+            <FstDirectory>code</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_CERO_JA</Name>
+            <LocalPath>$(CAFE_META_DIR)\CERO_ja.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_CGSRR_ZH</Name>
+            <LocalPath>$(CAFE_META_DIR)\CGSRR_zh.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_COB_EN</Name>
+            <LocalPath>$(CAFE_META_DIR)\COB_en.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_ESRB_EN</Name>
+            <LocalPath>$(CAFE_META_DIR)\ESRB_en.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_ESRB_FR</Name>
+            <LocalPath>$(CAFE_META_DIR)\ESRB_fr.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_GRB_EN</Name>
+            <LocalPath>$(CAFE_META_DIR)\GRB_ko.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_OFLC_EN</Name>
+            <LocalPath>$(CAFE_META_DIR)\OFLC_en.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_BBFC_EN</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_BBFC_en.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_DE</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_de.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_EN</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_en.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_ES</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_es.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_FR</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_fr.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_IT</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_it.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_NL</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_nl.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_PORTUGAL</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_Portugal_pt.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_PT</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_pt.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_PEGI_RU</Name>
+            <LocalPath>$(CAFE_META_DIR)\PEGI_ru.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_RAR_RU</Name>
+            <LocalPath>$(CAFE_META_DIR)\RAR_ru.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+          <Path>
+            <Name>META_RATING_USK_DE</Name>
+            <LocalPath>$(CAFE_META_DIR)\USK_de.jpg</LocalPath>
+            <FstDirectory>meta</FstDirectory>
+          </Path>
+        </PathList>
+        <LayoutOff></LayoutOff>
+      </ddf>
+      <emanual-info>
+        <product-code></product-code>
+        <language-list></language-list>
+        <e-manual-hash></e-manual-hash>
+      </emanual-info>
+      <fst-info>
+        <section-list></section-list>
+        <file-list></file-list>
+      </fst-info>
+      <export-info>
+        <output-directory>
+          <code-directory>G:\Tools\WiiU\Projects\FNaF2\unpacked-fnaf2-wiiu\code</code-directory>
+          <meta-directory>G:\Tools\WiiU\Projects\FNaF2\unpacked-fnaf2-wiiu\meta</meta-directory>
+        </output-directory>
+        <file-hash>
+          <app-xml>0xE1025C82361D867F4F41512CBE7F4AEF</app-xml>
+          <cos-xml>0x5F9CB7A037D4029E79FC720D25F0C747</cos-xml>
+          <meta-xml>0xE07DE8423677A86C8B6C0C4E6E6FFDEB</meta-xml>
+          <ddf>0x045C05F3EF19A2396BE70D45A12EA59F</ddf>
+        </file-hash>
+      </export-info>
+      <publish-info>
+        <title-key></title-key>
+      </publish-info>
+      <build-info-list></build-info-list>
+      <appconfig-create-version>1.8.14.41347</appconfig-create-version>
+      <appconfig-export-version>1.8.14.41347</appconfig-export-version>
+      <makedlf-version></makedlf-version>
+      <makemaster-version></makemaster-version>
+      <mastereditor-version></mastereditor-version>
+      <mastering-info>
+        <download-size></download-size>
+        <footprint></footprint>
+      </mastering-info>
+    </partition>
+  </partition-list>
+  <error-list>
+    <warning>
+      <page>Region/Rating Information[p01]</page>
+      <item>Region</item>
+      <message>Submitting master in the multi-region settings is prohibited.</message>
+    </warning>
+    <error>
+      <page>Basic Information (Partition)[p01]</page>
+      <item>TIN Confirmation</item>
+      <message>No TIN has been set. Set a TIN if you are using downloadable content.</message>
+    </error>
+    <error>
+      <page>e-Manual File Check</page>
+      <item>File Check</item>
+      <message>No e-Manual file is found.
+Use image file conversion to create an e-Manual file.
+
+G:\Tools\WiiU\Projects\FNaF2\unpacked-fnaf2-wiiu\meta\Manual.bfma</message>
+    </error>
+  </error-list>
+</wup-master-info>

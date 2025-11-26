@@ -1,0 +1,204 @@
+﻿
+; Disc layout config file
+;
+
+[Input]
+
+
+
+
+[Output]
+
+
+
+Mode = WU
+
+
+[DiscID]
+GameType = GM
+
+TitleId = 0x000500001026F500
+
+GroupId = 0x000026F5
+
+DiskNumber = 0
+
+GameVersion = 3
+
+TotalDisk = 1
+
+
+
+[FST]
+VolumeAddress = 0x0001C000
+
+VolumeSize = 0x0009E700
+
+FSTBlockSize = 32
+
+RemoveEmptyDirectory = False
+
+
+
+[SectionList]
+"ROOT" = 0, 0x00000000
+"APPXML" = -100000, 0x00000001
+"COSXML" = -99999, 0x00000001
+"METAXML" = -99998, 0x00000004
+"METATGA" = -99997, 0x00000160
+"BOOTMOVIE" = -99996, 0x00000020
+"BOOTLOGO" = -99995, 0x00000020
+"MANUAL" = -99994, 0x00000400
+"METARATING" = -99993, 0x00000040
+"CODEMAIN" = -99992
+"PRELOADTXT" = -99991
+"CODEREL0000" = -99990
+"CODEREL0001" = -99989
+"CONTENT" = 100000
+"CODEREL0002" = -99988
+"CODEREL0003" = -99987
+"CODEREL0004" = -99986
+"CODEREL0005" = -99985
+"CODEREL0006" = -99984
+"CODEREL0007" = -99983
+"CODEREL0008" = -99982
+"CODEREL0009" = -99981
+
+
+
+[SectionLbaOrigin]
+0x00000000 = "ROOT", +
+
+
+
+[SectionAssign]
+-1 = "", "ROOT", 0x000
+-2 = "code/app.xml", "APPXML", 0x000
+-3 = "code/cos.xml", "COSXML", 0x000
+-4 = "meta/meta.xml", "METAXML", 0x040
+-5 = "meta/", "METATGA", 0x040
+-6 = "meta/iconTex.tga", "METATGA", 0x040
+-7 = "meta/bootTvTex.tga", "METATGA", 0x040
+-8 = "meta/bootDrcTex.tga", "METATGA", 0x040
+-9 = "meta/bootSound.btsnd", "METATGA", 0x040
+-10 = "meta/bootMovie.h264", "BOOTMOVIE", 0x040
+-11 = "meta/bootLogoTex.tga", "BOOTLOGO", 0x040
+-12 = "meta/Manual.bfma", "MANUAL", 0x040
+-13 = "meta/CERO_ja.jpg", "METARATING", 0x040
+-14 = "meta/CGSRR_zh.jpg", "METARATING", 0x040
+-15 = "meta/COB_en.jpg", "METARATING", 0x040
+-16 = "meta/ESRB_fr.jpg", "METARATING", 0x040
+-17 = "meta/ESRB_en.jpg", "METARATING", 0x040
+-18 = "meta/GRB_ko.jpg", "METARATING", 0x040
+-19 = "meta/OFLC_en.jpg", "METARATING", 0x040
+-20 = "meta/PEGI_ru.jpg", "METARATING", 0x040
+-21 = "meta/PEGI_BBFC_en.jpg", "METARATING", 0x040
+-22 = "meta/PEGI_Portugal_pt.jpg", "METARATING", 0x040
+-23 = "meta/PEGI_it.jpg", "METARATING", 0x040
+-24 = "meta/PEGI_nl.jpg", "METARATING", 0x040
+-25 = "meta/PEGI_es.jpg", "METARATING", 0x040
+-26 = "meta/PEGI_de.jpg", "METARATING", 0x040
+-27 = "meta/PEGI_fr.jpg", "METARATING", 0x040
+-28 = "meta/PEGI_pt.jpg", "METARATING", 0x040
+-29 = "meta/PEGI_en.jpg", "METARATING", 0x040
+-30 = "meta/RAR_ru.jpg", "METARATING", 0x040
+-31 = "meta/USK_de.jpg", "METARATING", 0x040
+-32 = "code/", "CODEMAIN", 0x000
+-33 = "code/FNaF2.rpx", "CODEMAIN", 0x000
+-34 = "code/preload.txt", "PRELOADTXT", 0x000
+-35 = "code/Assembly-CSharp_dll.rpl", "CODEREL0000", 0x000
+-36 = "code/Mono_Security_dll.rpl", "CODEREL0001", 0x000
+-37 = "content/*", "CONTENT", 0x400
+-38 = "code/mscorlib_dll.rpl", "CODEREL0002", 0x000
+-39 = "code/System_Core_dll.rpl", "CODEREL0003", 0x000
+-40 = "code/System_dll.rpl", "CODEREL0004", 0x000
+-41 = "code/UnityEngine_dll.rpl", "CODEREL0005", 0x000
+-42 = "code/UnityEngine_Networking_dll.rpl", "CODEREL0006", 0x000
+-43 = "code/UnityEngine_Timeline_dll.rpl", "CODEREL0007", 0x000
+-44 = "code/UnityEngine_UI_dll.rpl", "CODEREL0008", 0x000
+-45 = "code/SDCardPlugin.rpl", "CODEREL0009", 0x000
+
+
+
+[SectionParam]
+"ROOT" = 0x0000000000000000, 0x00000000, 0x00
+"APPXML" = 0x0000000000000000, 0x00000000, 0x01
+"COSXML" = 0x0000000000000000, 0x00000000, 0x01
+"METAXML" = 0x0000000000000000, 0x00000400, 0x02
+"METATGA" = 0x0000000000000000, 0x00000400, 0x02
+"BOOTMOVIE" = 0x0000000000000000, 0x00000400, 0x02
+"BOOTLOGO" = 0x0000000000000000, 0x00000400, 0x02
+"MANUAL" = 0x0000000000000000, 0x00000400, 0x02
+"METARATING" = 0x0000000000000000, 0x00000400, 0x02
+"CODEMAIN" = 0x0000000000000000, 0x00000000, 0x01
+"PRELOADTXT" = 0x0000000000000000, 0x00000000, 0x02
+"CODEREL0000" = 0x0000000000000000, 0x00000000, 0x01
+"CODEREL0001" = 0x0000000000000000, 0x00000000, 0x01
+"CONTENT" = 0x000500001026F500, 0x000026F5, 0x02
+"CODEREL0002" = 0x0000000000000000, 0x00000000, 0x01
+"CODEREL0003" = 0x0000000000000000, 0x00000000, 0x01
+"CODEREL0004" = 0x0000000000000000, 0x00000000, 0x01
+"CODEREL0005" = 0x0000000000000000, 0x00000000, 0x01
+"CODEREL0006" = 0x0000000000000000, 0x00000000, 0x01
+"CODEREL0007" = 0x0000000000000000, 0x00000000, 0x01
+"CODEREL0008" = 0x0000000000000000, 0x00000000, 0x01
+"CODEREL0009" = 0x0000000000000000, 0x00000000, 0x01
+
+
+
+[FileLayout]
+-1="meta/CERO_ja.jpg", -2147483648
+-2="meta/CGSRR_zh.jpg", -2147483647
+-3="meta/COB_en.jpg", -2147483646
+-4="meta/ESRB_en.jpg", -2147483645
+-5="meta/ESRB_fr.jpg", -2147483644
+-6="meta/GRB_ko.jpg", -2147483643
+-7="meta/OFLC_en.jpg", -2147483642
+-8="meta/PEGI_BBFC_en.jpg", -2147483641
+-9="meta/PEGI_de.jpg", -2147483640
+-10="meta/PEGI_en.jpg", -2147483639
+-11="meta/PEGI_es.jpg", -2147483638
+-12="meta/PEGI_fr.jpg", -2147483637
+-13="meta/PEGI_it.jpg", -2147483636
+-14="meta/PEGI_nl.jpg", -2147483635
+-15="meta/PEGI_Portugal_pt.jpg", -2147483634
+-16="meta/PEGI_pt.jpg", -2147483633
+-17="meta/PEGI_ru.jpg", -2147483632
+-18="meta/RAR_ru.jpg", -2147483631
+-19="meta/USK_de.jpg", -2147483630
+-20="meta/*", -2147483629
+-21="code/*.xml", -2147483628
+-22="code/*.rpx", -2147483627
+-23="code/*.rpl", -2147483626
+-24="code/*", -2147483625
+-25="content/*", 1
+
+
+
+[PathList]
+PATH1="code", "$(CAFE_CODE_DIR)\preload.txt"
+META_RATING_CERO_JA="meta", "$(CAFE_META_DIR)\CERO_ja.jpg"
+META_RATING_CGSRR_ZH="meta", "$(CAFE_META_DIR)\CGSRR_zh.jpg"
+META_RATING_COB_EN="meta", "$(CAFE_META_DIR)\COB_en.jpg"
+META_RATING_ESRB_EN="meta", "$(CAFE_META_DIR)\ESRB_en.jpg"
+META_RATING_ESRB_FR="meta", "$(CAFE_META_DIR)\ESRB_fr.jpg"
+META_RATING_GRB_EN="meta", "$(CAFE_META_DIR)\GRB_ko.jpg"
+META_RATING_OFLC_EN="meta", "$(CAFE_META_DIR)\OFLC_en.jpg"
+META_RATING_PEGI_BBFC_EN="meta", "$(CAFE_META_DIR)\PEGI_BBFC_en.jpg"
+META_RATING_PEGI_DE="meta", "$(CAFE_META_DIR)\PEGI_de.jpg"
+META_RATING_PEGI_EN="meta", "$(CAFE_META_DIR)\PEGI_en.jpg"
+META_RATING_PEGI_ES="meta", "$(CAFE_META_DIR)\PEGI_es.jpg"
+META_RATING_PEGI_FR="meta", "$(CAFE_META_DIR)\PEGI_fr.jpg"
+META_RATING_PEGI_IT="meta", "$(CAFE_META_DIR)\PEGI_it.jpg"
+META_RATING_PEGI_NL="meta", "$(CAFE_META_DIR)\PEGI_nl.jpg"
+META_RATING_PEGI_PORTUGAL="meta", "$(CAFE_META_DIR)\PEGI_Portugal_pt.jpg"
+META_RATING_PEGI_PT="meta", "$(CAFE_META_DIR)\PEGI_pt.jpg"
+META_RATING_PEGI_RU="meta", "$(CAFE_META_DIR)\PEGI_ru.jpg"
+META_RATING_RAR_RU="meta", "$(CAFE_META_DIR)\RAR_ru.jpg"
+META_RATING_USK_DE="meta", "$(CAFE_META_DIR)\USK_de.jpg"
+
+
+
+[LayoutOff]
+
+
