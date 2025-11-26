@@ -20,7 +20,7 @@ FNaF 2: Wii U Edition is a fan-made homebrew port of *Five Nights at Freddy's 2*
 ## Installation
 ### Requirements
 - A homebrewed Wii U (Haxchi, Mocha, Tiramisu or Aroma)
-- NUSpli or WUP Installer GX2
+- NUSspli or WUP Installer GX2
 - SD card with sufficient space
 
 ### Steps
